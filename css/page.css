@@ -1,0 +1,101 @@
+
+.external-styles-missing {
+display: none;
+}
+
+.row-fluid{
+width:100%;
+height:auto;
+background-color:blue;
+padding:0px;
+margin-left:0px;
+}
+.left{
+width:50%;
+height:auto;
+float:left;
+padding:0px;
+background-color:blue;
+}
+.right{
+background-color:white;
+width:50%;
+min-height:500px;
+float:right;
+overflow:hidden;
+}
+li.section{
+list-style-type:none;
+line-height:40px;
+font:20px bold arial;
+padding:20px;
+margin:20px;
+}
+.right li:hover{
+background-color:#BBBBBB;
+}
+
+.subject-container {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+clear: both;
+margin-left: auto;
+font-family: 'Proxima Nova Semibold',sans-serif;
+max-width: 635px;
+padding: 60px 20px 40px 50px;
+}
+.subject-description{
+color: #fff;
+font-family: 'Proxima Nova',sans-serif;
+font-size: 15px;
+font-weight: normal;
+line-height: 22px;
+-webkit-font-smoothing: antialiased;
+}
+
+.topic-list-item {
+color: #444;
+display: table;
+margin-top: -1px;
+min-height: 40px;
+padding: 25px 20px;
+position: relative;
+text-decoration: none;
+z-index: 2;
+}
+
+.settings
+{
+
+float:left;
+width:100%;
+padding:0;
+margin:0;
+list-style-type:none;
+border-bottom: 1px solid #ccc;
+}
+.settings-item
+{
+font:20px arial,sans-serif;
+width:7em;
+text-decoration:none;
+padding:0.2em 0.6em;
+border-right:1px solid white;
+}
+
+.settings a:hover {background-color:#AAAAAA;text-decoration:none;}
+.settings a:active {background-color:#AAAAAA;text-decoration:none;}
+
+.settings-body{
+margin-top:10px;
+padding-top:10px;
+}
+
+.settings-info{
+margin-top:10px;
+}
+.item-info{
+padding-top:5px;
+padding-bottom:5px;
+}

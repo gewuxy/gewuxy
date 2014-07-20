@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.lqg.model.user">
+	<class name="Student" table="tb_student">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="nickname"  length="50"/>
+		<property name="username" not-null="true" length="50"/>
+		<property name="password" not-null="true" length="50"/>
+		<property name="sex" type="com.lqg.util.hibernate.SexType" length="5"/>
+		<property name="birthday" length="20"/>
+		<property name="school" length="50"/>
+		<property name="aptcourses" length="200"/>
+		<property name="introduction" length="200"/>
+		<many-to-one name="image" class="com.lqg.model.product.UploadFile" column="imageId" unique="true" cascade="all" lazy="false"/>
+		<many-to-one name="teacher" class="com.lqg.model.user.Teacher" column="teacherId"/>
+		<many-to-one name="parent" class="com.lqg.model.user.Parent" column="parentId"/>
+		<property name="email" length="50"/>
+		<many-to-one name="room" class="com.lqg.model.user.Room" column="roomId"/>
+	</class>
+</hibernate-mapping>

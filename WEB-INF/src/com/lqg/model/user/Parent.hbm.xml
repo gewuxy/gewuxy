@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.lqg.model.user">
+	<class name="Parent" table="tb_parent">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="username" not-null="true" length="50"/>
+		<property name="nickname"  length="50"/>
+		<property name="password" not-null="true" length="50"/>
+		<property name="sex" type="com.lqg.util.hibernate.SexType" length="5"/>
+		<property name="birthday" length="20"/>
+		<property name="introduction" length="200"/>
+		<many-to-one name="image" class="com.lqg.model.product.UploadFile" column="imageId" unique="true" cascade="all" lazy="false"/>
+		<property name="email" length="50"/>
+		<set name="children" inverse="true" lazy="extra">
+			<key column="parentId"/>
+			<one-to-many class="Student" />
+		</set>
+	</class>
+</hibernate-mapping>

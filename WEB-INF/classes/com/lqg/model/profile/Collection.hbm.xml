@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.lqg.model.profile">
+	<class name="Collection" table="tb_collection">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<!-- 映射提问 -->
+		<many-to-one name="question" class="com.lqg.model.profile.Question" column="questionId"/>
+		<!-- 映射收藏者 -->
+		<many-to-one name="student" class="com.lqg.model.user.Student" column="studentId"/>
+		<many-to-one name="teacher" class="com.lqg.model.user.Teacher" column="teacherId"/>
+		<many-to-one name="parent" class="com.lqg.model.user.Parent" column="parentId"/>
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.lqg.model.profile">
+	<class name="Route" table="tb_route">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<!-- 映射视频 -->
+		<many-to-one name="video" class="com.lqg.model.product.Video" column="videoId"/>
+		<!-- 映射评论 -->
+		<many-to-one name="comment" class="com.lqg.model.profile.Comment" column="commentId"/>
+		<!-- 映射问题 -->
+		<many-to-one name="question" class="com.lqg.model.profile.Question" column="questionId"/>
+		<!-- 映射回答 -->
+		<many-to-one name="answer" class="com.lqg.model.profile.Answer" column="answerId"/>
+		<!-- 映射该学习路线者 -->
+		<many-to-one name="student" class="com.lqg.model.user.Student" column="studentId"/>
+		<many-to-one name="teacher" class="com.lqg.model.user.Teacher" column="teacherId"/>
+		<many-to-one name="parent" class="com.lqg.model.user.Parent" column="parentId"/>
+		
+	</class>
+</hibernate-mapping>

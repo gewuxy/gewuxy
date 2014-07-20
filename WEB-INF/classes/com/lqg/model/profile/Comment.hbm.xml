@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.lqg.model.profile">
+	<class name="Comment" table="tb_comment">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="content" type="text"/>
+		<!-- 映射评论人 -->
+		<many-to-one name="student" class="com.lqg.model.user.Student" column="studentId"/>
+		<many-to-one name="teacher" class="com.lqg.model.user.Teacher" column="teacherId"/>
+		<many-to-one name="parent" class="com.lqg.model.user.Parent" column="parentId"/>
+		<!-- 映射父节点 -->
+		<many-to-one name="parentComment" class="Comment" column="pId"/>
+		<!-- 映射子节点 -->
+		<set name="children" inverse="true" lazy="extra" cascade="all" order-by="id">
+			<key column="pId"/>
+			<one-to-many class="Comment"/>
+		</set>
+		<!-- 映射question表 -->
+		<many-to-one name="question" class="com.lqg.model.profile.Question" column="questionId"/>
+		<!-- 映射answer表 -->
+		<many-to-one name="answer" class="com.lqg.model.profile.Answer" column="answerId"/>
+		<!-- 映射thank表 -->
+		<many-to-one name="thank" class="com.lqg.model.profile.Thank" column="thankId"/>
+		<property name="createTime"/>
+	</class>
+</hibernate-mapping>

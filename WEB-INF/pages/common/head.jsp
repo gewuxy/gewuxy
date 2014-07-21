@@ -60,36 +60,25 @@
 	<script type="text/javascript" src="<%=ctx%>/js/jquery-ui-datepicker.js"></script> 
 	
 
-
-     <div class="row clearfix">       
-	
-		<div class="col-md-12 column">
-			<nav class="navbar navbar-default navbar-inverse nav-collapse navbar-fixed-top" role="navigation">
-				<div class="navbar-header "" >
-					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <s:a action="index_home" namespace="/front"><h4>&nbsp;&nbsp;&nbsp;格物学院</h4></s:a>
-				</div>
+<div class="row clearfix">       
+		<nav class="navbar navbar-default navbar-inverse nav-collapse navbar-fixed-top" role="navigation">
+			<div class="navbar-header">
 				
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li >
-							<s:a action="index_about" namespace="/front">关于我们</s:a>
-						</li>
-						<li >
-							<s:a action="index_route" namespace="/front">学习路线</s:a>
-						</li>
-						<li>
-							<s:a action="index_fun" namespace="/front">学习乐趣</s:a>
-						</li>
-						<li class="dropdown">
-							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">课程<strong class="caret"></strong></a>
+				<a class="navbar-brand" href="<%=request.getContextPath()%>/index.jsp">格物学院</a>
+			</div>
+				
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">所有课程<strong class="caret"></strong></a>
 							<ul class="dropdown-menu">
 								<li >
-									<a href="#" >数&nbsp;&nbsp;&nbsp;学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-right"></span></a>				
-	<div class="container" style="height:400px; width:550px ;background-color:#66FFCC;filter:alpha(opacity=0); " >
+									<a href="#" >数学<span class="glyphicon glyphicon-chevron-right" style="float:right"></span></a>				
+	<div class="container" style="height:400px; width:550px ;background-color:#8080c0;" >
 	<div class="row clearfix">
 		<div class="col-md-12 column">
-			<h3>数学</h3>
-			<hr style="filter:progid:DXImageTransform.Microsoft.Glow(color=#996666,strength=10);width:500px;background-color:#996666;height:1px" />
+			<h3 style="color:white;">数学</h3>
+			<hr style="" />
 		</div>
 	</div>
 	<!--div class="row clearfix">
@@ -99,7 +88,7 @@
 	</div-->
 	<div class="row clearfix">
 		<div class="col-md-4 column">
-			<ul>
+			<ul style="list-style-type:none;">
 				<li class="level1 math ">
 					<s:a action="customer_login" namespace="/customer">一年级</s:a>
 				</li>
@@ -130,7 +119,7 @@
 			</ul>
 		</div>
 		<div class="col-md-4 column .col-md-offset-4">
-			<ul>
+			<ul style="list-style-type:none;">
 				<li class="level1 math ">
 				<s:a action="book_findByName" namespace="/book">
 					<s:param name="book.name" value="'bixiuyi'"></s:param>
@@ -170,7 +159,7 @@
 			</ul>
 		</div>
 		<div class="col-md-4 column .col-md-offset-8">
-			<ul>
+			<ul style="list-style-type:none;">
 			    <li class="level1 math ">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/math/xuanxiu3-1" >选修3-1</a>
                 </li>
@@ -225,21 +214,22 @@
 		</div>
 	</div>
 	-->
-</div>            
+</div> 
+</li>           
 								<li>
-									<a href="#">语&nbsp;&nbsp;&nbsp;文&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
-									<div class="container" style="height:400px; width:550px ;background-color:#00FFFF;" >
+									<a href="#">语文<span class="glyphicon glyphicon-chevron-right" style="float:right"></span></a>
+									<div class="container" style="height:400px; width:550px ;background-color:#90A0c0;" >
 	<div class="row clearfix">
 		<div class="col-md-12 column">
-			<h3>
+			<h3 style="color:white;">
 				语文
 			</h3>
-			<hr style="filter:progid:DXImageTransform.Microsoft.Glow(color=#FF0000,strength=10);width:500px;background-color:#FF0000;height:1px" />
+			<hr />
 		</div>
 	</div>
 	<div class="row clearfix">
 		<div class="col-md-4 column">
-			<ul>
+			<ul style="list-style-type:none;">
 				<li class="level1 math ">
 					<a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/1_grade/" >一年级</a>
 				</li>
@@ -270,7 +260,7 @@
 			</ul>
 		</div>
 		<div class="col-md-4 column .col-md-offset-4">
-			<ul>
+			<ul style="list-style-type:none;">
 				<li class="level1 math ">
                   <a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/bixiu1" >必修一</a>
                 </li>
@@ -304,7 +294,7 @@
 			</ul>
 		</div>
 		<div class="col-md-4 column .col-md-offset-8">
-			<ul>
+			<ul style="list-style-type:none;">
 			    <li class="level1 math ">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/xuanxiu3-1" >先秦诸子选读</a>
                 </li>
@@ -338,45 +328,20 @@
 			</ul>
 		</div>
 	</div>
-<!--hr style="filter:progid:DXImageTransform.Microsoft.Glow(color=#FF0000,strength=10);width:500px;background-color:#FF0000;height:1px" /-->
-	<!--div class="row clearfix">
-		<div class="col-md-12 column">
-		<strong>Grade level (U.S.):</strong>
-              
-                <a href="/math/early-math" data-tag="TopicBrowserPulldown" class="menulink">K–2</a>
-              
-                <a href="/math/cc-third-grade-math" data-tag="TopicBrowserPulldown" class="menulink">3</a>
-              
-                <a href="/math/cc-fourth-grade-math" data-tag="TopicBrowserPulldown" class="menulink">4</a>
-              
-                <a href="/math/cc-fifth-grade-math" data-tag="TopicBrowserPulldown" class="menulink">5</a>
-              
-                <a href="/math/cc-sixth-grade-math" data-tag="TopicBrowserPulldown" class="menulink">6</a>
-              
-                <a href="/math/cc-seventh-grade-math" data-tag="TopicBrowserPulldown" class="menulink">7</a>
-              
-                <a href="/math/cc-eighth-grade-math" data-tag="TopicBrowserPulldown" class="menulink">8</a>
-		</div>
-	</div-->
 </div> 
 </li>
 		<li>
-			<a href="#">英&nbsp;&nbsp;&nbsp;语&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
-			<div class="container" style="height:400px; width:550px ;background-color:#99FFFF;filter:alpha(opacity=0); " >
+			<a href="#">英语<span class="glyphicon glyphicon-chevron-right" style="float:right"></span></a>
+			<div class="container" style="height:400px; width:550px ;background-color:#9382e0" >
 				<div class="row clearfix">
 					<div class="col-md-12 column">
-						<h3>英语</h3>
-						<hr style="filter:progid:DXImageTransform.Microsoft.Glow(color=#996666,strength=10);width:500px;background-color:#996666;height:1px" />
+						<h3 style="color:white;">英语</h3>
+						<hr />
 					</div>
 				</div>
-	<!--div class="row clearfix">
-		<div class="col-md-12 column">
-			<h5>Subject</h5>
-		</div>
-	</div-->
 				<div class="row clearfix">
 					<div class="col-md-4 column">
-						<ul>
+						<ul style="list-style-type:none;">
 							<li class="level1 math ">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/3_grade/" >三年级</a>
 							</li>
@@ -401,7 +366,7 @@
 						</ul>
 					</div>
 					<div class="col-md-4 column .col-md-offset-4">
-						<ul>
+						<ul style="list-style-type:none;">
 							<li class="level1 math ">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/bixiu1" >必修一</a>
 							</li>
@@ -432,7 +397,7 @@
 						</ul>
 					</div>
 					<div class="col-md-4 column .col-md-offset-8">
-						<ul>
+						<ul style="list-style-type:none;">
 							<li class="level1 math ">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/xuanxiu9" >选修九</a>
 							</li>
@@ -466,17 +431,17 @@
 		<li class="divider"></li>
 		
 		<li>
-			<a href="#">物&nbsp;&nbsp;&nbsp;理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
-			<div class="container" style="height:400px; width:550px ;background-color:#99CC99;filter:alpha(opacity=0); " >
+			<a href="#">物理<span class="glyphicon glyphicon-chevron-right" style="float:right"></span></a>
+			<div class="container" style="height:400px; width:550px ;background-color:#99CC99;" >
 				<div class="row clearfix">
 					<div class="col-md-12 column">
-						<h3>物理</h3>
-						<hr style="filter:progid:DXImageTransform.Microsoft.Glow(color=#996666,strength=10);width:500px;background-color:#996666;height:1px" />
+						<h3 style="color:white">物理</h3>
+						<hr />
 					</div>
 				</div>
 				<div class="row clearfix">
 					<div class="col-md-6 column">
-						<ul>
+						<ul style="list-style-type:none;">
 							<li class="level1 math ">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/physics/8_grade/" >八年级</a>
 							</li>
@@ -507,7 +472,7 @@
 						</ul>
 					</div>
 					<div class="col-md-6 column .col-md-offset-6">
-						<ul>
+						<ul style="list-style-type:none;">
 							<li class="level1 math ">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/physics/xuanxiu3-1" >选修3-1</a>
 							</li>
@@ -527,18 +492,19 @@
 					</div>
 				</div>
 			</div>
+		</li>	
 		<li>
-			<a href="#">化&nbsp;&nbsp;&nbsp;学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
-			<div class="container" style="height:400px; width:550px ;background-color:#99FF99;filter:alpha(opacity=0); " >
+			<a href="#">化学<span class="glyphicon glyphicon-chevron-right" style="float:right"></span></a>
+			<div class="container" style="height:400px; width:550px ;background-color:#99FF99;" >
 				<div class="row clearfix">
 					<div class="col-md-12 column">
-						<h3>化学</h3>
-						<hr style="filter:progid:DXImageTransform.Microsoft.Glow(color=#996666,strength=10);width:500px;background-color:#996666;height:1px" />
+						<h3 style="color:white">化学</h3>
+						<hr />
 					</div>
 				</div>
 				<div class="row clearfix">
 					<div class="col-md-6 column">
-						<ul>
+						<ul style="list-style-type:none;">
 							<li class="level1 math ">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/chemistry/9_grade" >九年级</a>
 							</li>
@@ -557,7 +523,7 @@
 						</ul>
 					</div>
 					<div class="col-md-6 column .col-md-offset-6">
-						<ul>
+						<ul style="list-style-type:none;">
 							<li class="level1 math ">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/chemistry/xuanxiu3" >选修三</a>
 							</li>
@@ -577,17 +543,17 @@
 		</li>
 		
 		<li>
-			<a href="#">生&nbsp;&nbsp;&nbsp;物&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
-			<div class="container" style="height:400px; width:550px ;background-color:#66FF99;filter:alpha(opacity=0); " >
+			<a href="#">生物<span class="glyphicon glyphicon-chevron-right" style="float:right"></span></a>
+			<div class="container" style="height:400px; width:550px ;background-color:#66FF99;" >
 				<div class="row clearfix">
 					<div class="col-md-12 column">
-						<h3>生物</h3>
-						<hr style="filter:progid:DXImageTransform.Microsoft.Glow(color=#996666,strength=10);width:500px;background-color:#996666;height:1px" />
+						<h3 style="color:white">生物</h3>
+						<hr />
 					</div>
 				</div>
 				<div class="row clearfix">
 					<div class="col-md-6 column">
-						<ul>
+						<ul style="list-style-type:none;">
 							<li class="level1 math ">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/biology/7_grade" >七年级</a>
 							</li>
@@ -606,7 +572,7 @@
 						</ul>
 					</div>
 					<div class="col-md-6 column .col-md-offset-6">
-						<ul>
+						<ul style="list-style-type:none;">
 							<li class="level1 math ">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/biology/xuanxiu1" >生物技术实践</a>
 							</li>
@@ -625,17 +591,17 @@
 		<li class="divider"></li>
 		
 		<li>
-			<a href="#">政&nbsp;&nbsp;&nbsp;治&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
-			<div class="container" style="height:400px; width:550px ;background-color:#66CC33;filter:alpha(opacity=0); " >
+			<a href="#">政治<span class="glyphicon glyphicon-chevron-right" style="float:right"></span></a>
+			<div class="container" style="height:400px; width:550px ;background-color:#66CC33;" >
 				<div class="row clearfix">
 					<div class="col-md-12 column">
-						<h3>政治</h3>
-						<hr style="filter:progid:DXImageTransform.Microsoft.Glow(color=#996666,strength=10);width:500px;background-color:#996666;height:1px" />
+						<h3 style="color:white">政治</h3>
+						<hr />
 					</div>
 				</div>
 				<div class="row clearfix">
 					<div class="col-md-6 column">
-						<ul>
+						<ul style="list-style-type:none;">
 							<li class="level1 math ">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/politics/7_grade" >七年级</a>
 							</li>
@@ -657,7 +623,7 @@
 						</ul>
 					</div>
 					<div class="col-md-6 column .col-md-offset-6">
-						<ul>
+						<ul style="list-style-type:none;">
 							<li class="level1 math ">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/politics/xuanxiu1" >选秀1</a>
 							</li>
@@ -682,17 +648,17 @@
 			</div>
 		</li>
 		<li>
-			<a href="#">历&nbsp;&nbsp;&nbsp;史&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
-			<div class="container" style="height:400px; width:550px ;background-color:#66CC66;filter:alpha(opacity=0); " >
+			<a href="#">历史<span class="glyphicon glyphicon-chevron-right" style="float:right"></span></a>
+			<div class="container" style="height:400px; width:550px ;background-color:#66CC66;" >
 				<div class="row clearfix">
 					<div class="col-md-12 column">
-						<h3>历史</h3>
-						<hr style="filter:progid:DXImageTransform.Microsoft.Glow(color=#996666,strength=10);width:500px;background-color:#996666;height:1px" />
+						<h3 style="color:white">历史</h3>
+						<hr />
 					</div>
 				</div>
 				<div class="row clearfix">
 					<div class="col-md-6 column">
-						<ul>
+						<ul style="list-style-type:none;">
 							<li class="level1 math ">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/history/7_grade" >七年级</a>
 							</li>
@@ -714,7 +680,7 @@
 						</ul>
 					</div>
 					<div class="col-md-6 column .col-md-offset-6">
-						<ul>
+						<ul style="list-style-type:none;">
 							<li class="level1 math ">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/history/xuanxiu1" >选秀1</a>
 							</li>
@@ -739,17 +705,17 @@
 			</div>
 		</li>
 		<li>
-			<a href="#">地&nbsp;&nbsp;&nbsp;理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
-			<div class="container" style="height:400px; width:550px ;background-color:#66CC99;filter:alpha(opacity=0); " >
+			<a href="#">地理<span class="glyphicon glyphicon-chevron-right" style="float:right"></span></a>
+			<div class="container" style="height:400px; width:550px ;background-color:#66CC99;" >
 				<div class="row clearfix">
 					<div class="col-md-12 column">
-						<h3>地理</h3>
-						<hr style="filter:progid:DXImageTransform.Microsoft.Glow(color=#996666,strength=10);width:500px;background-color:#996666;height:1px" />
+						<h3 style="color:white">地理</h3>
+						<hr />
 					</div>
 				</div>
 				<div class="row clearfix">
 					<div class="col-md-6 column">
-						<ul>
+						<ul style="list-style-type:none;">
 							<li class="level1 math ">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/Geography/7_grade" >七年级</a>
 							</li>
@@ -771,7 +737,7 @@
 						</ul>
 					</div>
 					<div class="col-md-6 column .col-md-offset-6">
-						<ul>
+						<ul style="list-style-type:none;">
 							<li class="level1 math ">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/Geography/xuanxiu2" >选修2</a>
 							</li>
@@ -797,25 +763,9 @@
 		</li>
 </ul>
 </li>
-	<li class="dropdown">
-							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">更多<strong class="caret"></strong></a>
-							<ul class="dropdown-menu">
-								<li>
-									<a href="#">注册</a>
-								</li>
-								<li>
-									<a href="#">我到课程</a>
-								</li>
-								<li>
-									<a href="#">我的学习路线</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									<a href="#">我的成绩</a>
-								</li>
-							</ul>
-						</li>
+<li><a href="<%=request.getContextPath()%>/WEB-INF/pages/common/about.jsp">关于我们</a></li>
+<li><a href="#">加入我们</a></li>
+<li><a href="<%=request.getContextPath()%>/WEB-INF/pages/common/faq.jsp">常见问题</a></li>
 </ul>
 				<!--加进来的注册登录
 					<form class="navbar-form navbar-left" role="search">
@@ -869,9 +819,9 @@
 						<li class="dropdown">
 						    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;&nbsp;&nbsp;<s:property value="#session.user.username"/><strong class="caret"></strong></a>
 							<ul class="dropdown-menu">
-								<li ><s:a action="user_account" namespace="/user">我的账户</s:a></li>
 								<li ><s:a action="user_home" namespace="/user">我的主页</s:a></li>
 								<li ><s:a action="user_myClass" namespace="/user">我的班级</s:a></li>
+								<li ><s:a action="user_account" namespace="/user">设置</s:a></li>
 								<li ><s:a action="user_logout" namespace="/user">退出</s:a></li>
 							</ul>
 
@@ -977,7 +927,6 @@
 </div>
 <script type="text/javascript">
         $(document).ready(function () {
-            $('.dropdown-toggle').dropdown();
 		if(window.location.pathname.indexOf("index")>=0){
 				$(".sign-up").hide();
 			}else{

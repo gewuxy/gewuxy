@@ -544,6 +544,7 @@ margin-top:10px;
 .video-options{
 display:block;
 width:100%;
+line-height:40px;
 height:40px;
 background-color:#333;
 }
@@ -876,20 +877,19 @@ color: #678d00;
 }
 
 .page-content {
-height: auto!important;
 margin-top: -77px;
 margin-bottom:-77px;
-min-height:100%;
 }
-.index-signup-container{
+.signup-container{
 height: 655px;
 background-size: cover;
+background-attachment:fixed;
+background-position:center;
 background-image: linear-gradient(to right,#5e84a8 0,#385178 100%);
 background-image: -webkit-linear-gradient(left,color-stop(#5e84a8 0),color-stop(#385178 100%));
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5e84a8', endColorstr='#ff385178', GradientType=1);
 background-repeat: no-repeat;
 border-bottom: 1px solid #ddd;
-max-width: inherit;
 position: relative;
 }
 .signup-wrapper{
@@ -908,25 +908,30 @@ margin-bottom: 10px;
 width: 100%;
 }
 .study-quotes{
-width:49%;
+width:50%;
 float:left;
 color:white;
-font-size:30px;
+font-size:2em;
 box-sizing: border-box;
 padding-top:150px;
 }
 .student-signup{
 vertical-align:middle;
+margin:0 auto;
+padding:auto;
 }
 .index-signup-widget{
-width:49%;
-float:right;
+width:50%;
+float:left;
 color:white;
 }
 .user-email{
 margin-top:10px;
 margin-bottom:10px;
-margin-left:60px;
+margin-left:auto;
+margin-right:auto;
+width:80%;
+min-width:200px;
 }
 .user-password{
 margin-bottom:10px;
@@ -1014,7 +1019,7 @@ border: 1px solid #D6D6D6;
 float: left;
 width: 200px;
 }
-.about-us,.faq,.advise{
+#about-us,#faq,#advise{
 margin-left: 200px;
 padding: 10px 20px;
 min-height: 500px;
@@ -1073,4 +1078,15 @@ width:35%;
 display:inline-block;
 vertical-align:top;
 padding-left:20px;
+}
+.level1{
+padding-top:3px;
+padding-bottom:3px;
+}
+.level1 a{
+color:white;
+}
+.level1 a:hover{
+color:white;
+text-decoration:none;
 }

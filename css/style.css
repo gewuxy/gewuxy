@@ -931,26 +931,26 @@ margin-bottom:10px;
 margin-left:auto;
 margin-right:auto;
 width:80%;
-min-width:200px;
+text-align:center;
 }
 .user-password{
 margin-bottom:10px;
-margin-left:60px;
-}
-.user-password-confirm{
-margin-left:60px;
-margin-bottom:10px;
+margin-left:auto;
+margin-right:auto;
+width:80%;
+text-align:center;
 }
 .signup-button{
-width:382px;
+width:80%;
 text-align:center;
-margin-left:60px;
 margin-bottom:10px;
+margin-left:auto;
+margin-right:auto;
 }
-.hr-with-words:before{
-right: .5em;
-margin-left:60px;
-
+.hr-with-words{
+text-align:center;
+margin-left:auto;
+margin-right:auto;
 }
 .hr-with-words:before, .hr-with-words:after {
 background-color: #fff;
@@ -961,17 +961,21 @@ position: relative;
 vertical-align: middle;
 width: 36%;
 }
+.sign-up-with-sn{
+clear:both;
+width:80%;
+margin-left:auto;
+margin-right:auto;
+margin-top:10px;
+}
 .QQ-signup{
 float:left;
-width:50%;
+width:48%;
 text-align:center;
-margin-left:-25px;
-margin-right:10px;
 }
 .weibo-signup{
-float:left;
-width:50%;
-margin-left:-20px;
+float:right;
+width:48%;
 text-align:center;
 }
 .student-anim,.teacher-anim,.parent-anim{

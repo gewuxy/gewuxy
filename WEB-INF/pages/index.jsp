@@ -4,12 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>格物</title>
+  <title>格物学院</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
 <link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet">
-	
+<link rel="shortcut icon" href="<%=request.getContextPath()%>/favicon.ico">	
+<link rel="shortcut icon" href="<%=request.getContextPath()%>/img/qq32.ico">
 </head>
 
 <body>
@@ -22,8 +23,6 @@
     	<div class="page-content">
   
   <div class="signup-container">
-	<div class="index-signup-container">
-    <div id="index-signup-container-inner">
     <div class="signup-wrapper">
     <div class="signup-wrapper-container">
       <div class="index-signup-content">
@@ -35,7 +34,7 @@
         <div class="index-signup-widget">
           <h3 class="text-center">免费注册加入格物学院</h3>
           <hr /> 		
-		  <center>
+		  <div style="text-align:center;">
 		<s:form action="user_save" namespace="/user" method="post">
 		  <label for="id">我是</label>
 		  <select  name="category" id="id" style="width:100px">
@@ -43,43 +42,37 @@
 		    <option value="teacher">老师</option>
 			<option value="teacher">家长</option>
 		  </select>
-		  </center>
+		  </div>
 		  <div class="input-group user-email">
-			<span class="input-group-addon" style="color:#000;margin-left:60px;">用户名</span>
-			<input name="username" type="text" class="form-control" style="width:328px;">
+			<span class="input-group-addon" style="color:#000;">用户名</span>
+			<input name="username" type="text" class="form-control">
 		  </div>
 		  <div class="input-group user-email">
 			<span class="input-group-addon" style="color:#000;">电子邮件</span>
-			<input name="email" type="text" class="form-control" style="width:300px;">
+			<input name="email" type="text" class="form-control">
 		  </div>
 		  <div class="input-group user-password">
 			<span class="input-group-addon" style="color:#000;">密码</span>
-			<input name="password" type="password" class="form-control" style="width:328px;">
+			<input name="password" type="password" class="form-control">
 		  </div>
 		   <div class="input-group user-password">
-			<span class="input-group-addon" style="color:#000;">再输入密码</span>
-			<input name="repassword" type="password" class="form-control" style="width:328px;">
+			<span class="input-group-addon" style="color:#000;">再次输入密码</span>
+			<input name="repassword" type="password" class="form-control">
 		  </div>
 		  
-		  <div>
-		    <button type="button submit" class="btn btn-primary signup-button">加入格物学院</button>
+		  <div class="signup-button">
+		    <button type="button submit" class="btn btn-primary" style="width:100%">加入格物学院</button>
 		  </div>
 		</s:form>
 		  <div class="hr-with-words">
 		    或者
 		  </div>
-		  <div class="row" style="clear:both;margin-left:60px;">
-		    <div class="QQ-signup">
-			  <button type="button" class="btn btn-success" style="width:70%;">QQ登录</button>
-			</div>
-			<div class="weibo-signup">
-			  <button type="button" class="btn btn-success" style="width:70%;">新浪微博登录</button>
-			</div>
+		  <div class="sign-up-with-sn">
+			  <button type="button" class="btn btn-success QQ-signup">QQ登录</button>
+			  <button type="button" class="btn btn-success weibo-signup">新浪微博登录</button>
 		  </div>
         </div>
       </div>
-    </div>
-    </div>
     </div>
     </div>
   </div>
@@ -137,7 +130,7 @@
 		</div>
 	</div>
 </div>
-	<div class="row clearfix" style="margin-top:50px">
+	<div class="clearfix">
 		<div class="col-md-12 column">
 			<%@include file="/WEB-INF/pages/common/footer.jsp"%>
 		</div>

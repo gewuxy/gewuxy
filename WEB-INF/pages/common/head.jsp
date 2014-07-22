@@ -796,7 +796,7 @@
 						</div>
 						<button type="button submit" class="btn btn-primary">登录</button>
 						
-				<a class="sign-up" href="#" style="color:white;margin-left:10px;line-height:30px;height:30px;" data-toggle="modal" data-target="#sign-form">注册</a>
+				<a class="sign-up" href="#">注册</a>
 					</s:form></s:if>
 					<s:if test="#session.user!= null">
 					<ul class="nav navbar-nav navbar-right" style="margin:0 auto;">
@@ -911,12 +911,11 @@
 		  <div class="sign-up-sn">
 		    <h4>使用社交账户登录更方便</h4>
 		    <div class="" style="margin-top:5px;margin-bottom:5px;">
-			  <button type="button" class="btn btn-success QQ-signup-btn">QQ 帐号登录</button>
+			  <button type="button" class="btn btn-info QQ-signup-btn"><span class="login_byQQ"></span>用QQ帐号登录</button>
 			</div>
 			<div class="" style="margin-top:5px;margin-bottom:5px;">
-			  <button type="button" class="btn btn-success weibo-signup-btn">新浪微博登录</button>
+			  <button type="button" class="btn btn-warning weibo-signup-btn"><span class="login_bysina"></span>用新浪微博登录</button>
 			</div>
-		
 		  </div>
       </div>
       <div class="modal-footer">
@@ -951,7 +950,10 @@
 				$(".sign-up-email").hide();
 			  }
 			});
-
+			$(".sign-up").click(function(){
+				$('#sign-form').modal();
+				$(".sign-up-tab").trigger("click");
+			});
         });
 function goTopEx() {  
     var obj = document.getElementById("goTopBtn");  

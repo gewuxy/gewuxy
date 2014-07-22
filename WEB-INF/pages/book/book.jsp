@@ -61,7 +61,7 @@ $(window).resize(function(){
 		<li class="section" >
                  <s:a action="bookItem_list" namespace="/bookItem" style="text-decoration:none;width:100%">
 					<s:param name="pid" value="id"> </s:param>
-		<span class="glyphicon glyphicon-adjust tutorial-nav-node-icon"></span><s:property        value="name" />
+		<img src="<%=request.getContextPath()%>/img/favicon.png" alt="icon" style="padding-right:20px"><s:property        value="name" />
 		</s:a></li>
 		<hr color=#de3456/>
 		</s:if>

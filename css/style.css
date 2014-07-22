@@ -30,7 +30,6 @@ padding:0px;
 .content-lists{
 background-color:white;
 width:70%;
-min-height:500px;
 float:right;
 overflow:hidden;
 padding-right:40px;
@@ -150,8 +149,11 @@ padding: 60px 20px 40px 50px;
 font-weight:bold;
 font-size:14px;
 font-family:Microsoft YaHei
+color:white;
 }
-.chapter-title{}
+.chapter-title{
+color:white;
+}
 .subject-description{
 color: #fff;
 font-family: 'Proxima Nova',sans-serif;

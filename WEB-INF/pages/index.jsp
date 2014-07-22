@@ -13,12 +13,24 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-$(".signup-container").height($(window).height());
+if($(".signup-container").height()<$(window).height()){
+		$(".signup-container").height($(window).height());
+	}
 $(".signup-container").width($(document.body).outerWidth());
 $(window).resize(function(){
-		$(".signup-container").width($(document.body).outerWidth());
-	});
+	$(".signup-container").width($(document.body).outerWidth());
+	if($(".signup-container").height()<$(window).height()){
+		$(".signup-container").height($(window).height());
+	}
 });
+$(".weibo-signup").click(function(){
+window.location.href="https://api.weibo.com/oauth2/authorize?client_id=2463745741&redirect_uri=http%3A%2F%2Fpassport.chuanke.com%2Flogin%2FsinaLogin%2Fret%2F&response_type=code&forcelogin=false";
+});
+$(".QQ-signup").click(function(){
+window.location.href="http://openapi.qzone.qq.com/oauth/show?which=Login&display=pc&response_type=code&client_id=100262522&redirect_uri=http%3A%2F%2Fpassport.chuanke.com%2Flogin%2FqqLogin%2Fret%2FaHR0cDovL2NodWFua2UuY29tLw%3D%3D&scope=get_user_info,get_info,add_pic_t,add_idol";
+});
+});
+
 </script>
 </head>
 <body>

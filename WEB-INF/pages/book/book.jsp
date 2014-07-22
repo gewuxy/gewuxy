@@ -10,9 +10,21 @@
 <meta name="description" content=" " />
 <meta name="author" content="">
 <meta name="keywords" content="" />
+<link rel="shortcut icon" href="<%=request.getContextPath()%>/favicon.ico">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
-<style>
-</style>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+if($(".right").height()<$(window).height()-100){
+$(".right").height($(window).height()-100);
+};
+$(window).resize(function(){
+  if($(".right").height()<$(window).height()-100){
+    $(".right").height($(window).height()-100);
+  }
+});
+});
+</script>
 </head>
 
 <body>
@@ -21,14 +33,14 @@
       <%@include file="/WEB-INF/pages/common/head.jsp"%>
 	</div>
   </div>
-  <div  class="external-styles-missing"
+  <!--div  class="external-styles-missing"
         style='background: #f2dede;font:bold 20px Arial, Helvetica;text-align:center'>
         <p>oooohps!格物学院提出了一个问题</p>
         <p>请确保网络畅通哦！或者再刷新一下下，o(∩_∩)o</p>
-  </div>
+  </div-->
   
-  <div style="background-color:blue;margin-top:-20px;width:100%;clear:both;display:table;">
-    <div class="row-fluid">
+  <div class="math-subject">
+    <div class="row-fluid" >
 	  <div class="left">
 		<div class="subject-container">
 		<s:iterator value="pageModel.list">
@@ -61,6 +73,11 @@
 	</div>
   </div>
   
-  <hr color=#de3456/>	 
+  <hr />
+  <div style="clear:both;width:100%;">
+		<div style="margin-top:-70px;">
+			<%@include file="/WEB-INF/pages/common/footer.jsp"%>
+		</div>
+	</div>  
 </body>
 </html>

@@ -19,7 +19,8 @@
 
 </head>
 <body>
-  <div class="modal fade" id="jubao-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <%--举报对话框--%>
+  <div class="modal" id="jubao-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

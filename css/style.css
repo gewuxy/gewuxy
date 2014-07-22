@@ -127,10 +127,10 @@ padding:20px;
 
 }
 .right li:hover{
-background-color:#BBBBBB;
+background-color:#DDD;
 }
 .section-container li:hover{
-background-color:#BBBBBB;
+background-color:#DDD;
 }
 li.myclass-tab>a:hover{}
 .subject-container {

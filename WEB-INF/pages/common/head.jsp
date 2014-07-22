@@ -1,4 +1,4 @@
-<%@page language="java" contentType="text/html; charset=UTF-8" 	pageEncoding="UTF-8"%>
+﻿<%@page language="java" contentType="text/html; charset=UTF-8" 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%String ctx = request.getContextPath();%>
   <!--link rel="stylesheet/less" href="<%=ctx%>/less/bootstrap.less" type="text/css" /-->
@@ -121,7 +121,7 @@
 			<ul style="list-style-type:none;">
 				<li class="level1 math ">
 				<s:a action="book_findByName" namespace="/book">
-					<s:param name="book.name" value="'必修一'"></s:param>
+					<s:param name="book.name" value="'bixiuyi'"></s:param>
 						必修一
 				</s:a>
                 </li>

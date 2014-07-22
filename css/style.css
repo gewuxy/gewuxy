@@ -978,6 +978,16 @@ float:right;
 width:48%;
 text-align:center;
 }
+.login_bysina,.login_byQQ{
+display: inline-block;
+float:left;
+width: 20px;
+height: 20px;
+background: url('/gewuxy.github.io/img/bg_sina_qq.png') no-repeat;
+}
+.login_byQQ{
+background-position: -20px 0;
+}
 .student-anim,.teacher-anim,.parent-anim{
 padding-left:50px;
 }

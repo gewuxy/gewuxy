@@ -10,9 +10,17 @@
   <meta name="author" content="">
 <link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet">
 <link rel="shortcut icon" href="<%=request.getContextPath()%>/favicon.ico">	
-<link rel="shortcut icon" href="<%=request.getContextPath()%>/img/qq32.ico">
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$(".signup-container").height($(window).height());
+$(".signup-container").width($(document.body).outerWidth());
+$(window).resize(function(){
+		$(".signup-container").width($(document.body).outerWidth());
+	});
+});
+</script>
 </head>
-
 <body>
 <div class="container">
      <div class="row clearfix">
@@ -68,8 +76,10 @@
 		    或者
 		  </div>
 		  <div class="sign-up-with-sn">
-			  <button type="button" class="btn btn-success QQ-signup">QQ登录</button>
-			  <button type="button" class="btn btn-success weibo-signup">新浪微博登录</button>
+			  <!--a href="#"><img src="<%=request.getContextPath()%>/img/Connect_qq_long.png" alt="QQ登录"></a>
+			  <a href="#"><img src="<%=request.getContextPath()%>/img/connect_weibo.png" alt="新浪微博登录"></a-->
+			  <button type="button" class="btn btn-info QQ-signup"><span class="login_byQQ"></span>用QQ帐号登录</button>
+			  <button type="button" class="btn btn-warning weibo-signup"><span class="login_bysina"></span>用新浪微博登录</button>
 		  </div>
         </div>
       </div>

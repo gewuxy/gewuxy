@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.lqg.model.profile">
+	<class name="Question" table="tb_question">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="content" not-null="true" length="300"/>
+		<!-- 映射视频 -->
+		<many-to-one name="video" class="com.lqg.model.product.Video" column="videoId"/>
+		<!-- 映射提问者 -->
+		<many-to-one name="student" class="com.lqg.model.user.Student" column="studentId"/>
+		<many-to-one name="teacher" class="com.lqg.model.user.Teacher" column="teacherId"/>
+		<many-to-one name="parent" class="com.lqg.model.user.Parent" column="parentId"/>
+		<!-- 映射回答节点 -->
+		<set name="answers" inverse="true" lazy="extra" cascade="all" order-by="id desc">
+			<key column="questionId"/>
+			<one-to-many class="com.lqg.model.profile.Answer"/>
+		</set>
+		<!-- 映射包含的评论集合 -->
+		<set name="comments" inverse="true" lazy="extra" order-by="id desc">
+			<key column="questionId"/>
+			<one-to-many class="com.lqg.model.profile.Comment" />
+		</set>
+                <property name="createTime"/>
+	</class>
+</hibernate-mapping>

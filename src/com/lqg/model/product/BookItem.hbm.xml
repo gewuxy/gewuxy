@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.lqg.model.product">
+	<class name="BookItem" table="tb_bookItem">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="name" not-null="true" length="50"/>
+		<property name="level"/>
+		<!-- 映射包含的视频集合 -->
+		<set name="videos" inverse="true" lazy="extra">
+			<key column="bookItemId"/>
+			<one-to-many class="Video" />
+		</set>
+		<!-- 映射父节点 -->
+		<many-to-one name="parent" class="BookItem" column="parentId"/>
+		<!-- 映射父节点的下一章节 -->
+		<many-to-one name="parentNext" class="BookItem" column="parentNextId"/>
+		<!-- 映射书本 -->
+		<many-to-one name="book" class="Book" column="bookId"/>
+		<!-- 映射子节点 -->
+		<set name="children" inverse="true" lazy="extra" cascade="all" order-by="id">
+			<key column="parentId"/>
+			<one-to-many class="BookItem"/>
+		</set>
+	</class>
+</hibernate-mapping>

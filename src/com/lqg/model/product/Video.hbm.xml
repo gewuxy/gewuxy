@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.lqg.model.product">
+	<class name="Video" table="tb_video">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="name" not-null="true" length="50"/>
+		<property name="desc" type="text"/>
+		<many-to-one name="clipFile" class="UploadFile" column="clipFileId" unique="true" cascade="all" lazy="false"/>
+		<many-to-one name="videoFile" class="UploadFile" column="videoFileId" unique="true" cascade="all" lazy="false"/>
+		<property name="browseTimes" />
+		<property name="recommended" />
+		<!-- 映射制作者 -->
+		<many-to-one name="student" class="com.lqg.model.user.Student" column="studentId"/>
+		<many-to-one name="teacher" class="com.lqg.model.user.Teacher" column="teacherId"/>
+		<many-to-one name="parent" class="com.lqg.model.user.Parent" column="parentId"/>
+		<!-- 映射书目录 -->
+		<many-to-one name="bookItem" class="BookItem" column="bookItemId"/>
+		<property name="goodCount" />
+		<property name="badCount" />
+		<!-- 映射包含的评论集合 -->
+		<set name="questions" inverse="true" lazy="extra" order-by="id desc">
+			<key column="videoId"/>
+			<one-to-many class="com.lqg.model.profile.Question" />
+		</set>
+		<!-- 映射包含的感谢集合 -->
+		<set name="thanks" inverse="true" lazy="extra" order-by="id desc">
+			<key column="videoId"/>
+			<one-to-many class="com.lqg.model.profile.Thank" />
+		</set>
+		<property name="createTime"/>
+		<property name="thankCount"/>
+	</class>
+</hibernate-mapping>

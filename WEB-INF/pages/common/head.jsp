@@ -121,7 +121,7 @@
 			<ul style="list-style-type:none;">
 				<li class="level1 math ">
 				<s:a action="book_findByName" namespace="/book">
-					<s:param name="book.name" value="'bixiuyi'"></s:param>
+					<s:param name="book.name" value="'必修一'"></s:param>
 						必修一
 				</s:a>
                 </li>

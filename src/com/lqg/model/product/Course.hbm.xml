@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.lqg.model.product">
+	<class name="Course" table="tb_course">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="name" not-null="true" length="50"/>
+		<!-- 映射包含的书集合 -->
+		<set name="books" inverse="true" lazy="extra">
+			<key column="courseId"/>
+			<one-to-many class="Book" />
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,4 +1,4 @@
-﻿<%@page language="java" contentType="text/html; charset=UTF-8" 	pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%String ctx = request.getContextPath();%>
   <!--link rel="stylesheet/less" href="<%=ctx%>/less/bootstrap.less" type="text/css" /-->
@@ -762,9 +762,9 @@
 		</li>
 </ul>
 </li>
-<li><a href="<%=request.getContextPath()%>/WEB-INF/pages/common/about.jsp">关于我们</a></li>
+<li><s:a action="index_about" namespace="/front">关于我们</s:a></li>
 <li><a href="#">加入我们</a></li>
-<li><a href="<%=request.getContextPath()%>/WEB-INF/pages/common/faq.jsp">常见问题</a></li>
+<li><s:a action="index_faq" namespace="/front">常见问题</s:a></li>
 </ul>
 				<!--加进来的注册登录
 					<form class="navbar-form navbar-left" role="search">

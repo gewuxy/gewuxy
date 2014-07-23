@@ -228,6 +228,7 @@ DROP TABLE IF EXISTS `tb_book`;
 CREATE TABLE `tb_book` (
   `id` int(30) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
+  `nickname` varchar(50) NOT NULL,
   `desc` text,
   `uploadFileId` int(11) DEFAULT NULL,
   `courseId` int(11) DEFAULT NULL,
@@ -244,10 +245,10 @@ CREATE TABLE `tb_book` (
 --
 
 /*!40000 ALTER TABLE `tb_book` DISABLE KEYS */;
-INSERT INTO `tb_book` (`id`,`name`,`desc`,`courseId`,`grade`) VALUES 
- (1,'shuxuebixiuyi','高一数学必修一',1,'12'),
- (2,'shuxuebixiuer','高二数学必修二',1,'12'),
-(3,'yuwenbixiuyi','高一语文必修一',2,'12');
+INSERT INTO `tb_book` (`id`,`name`,`nickname`,`desc`,`courseId`,`grade`) VALUES 
+ (1,'shuxuebixiuyi','必修一','高一数学必修一',1,'10'),
+ (2,'shuxuebixiuer','必修二','高二数学必修二',1,'11'),
+ (3,'yuwenbixiuyi','必修一','高一语文必修一',2,'10');
  
 /*!40000 ALTER TABLE `tb_book` ENABLE KEYS */;
 

@@ -216,7 +216,7 @@ CREATE TABLE `tb_course` (
 
 /*!40000 ALTER TABLE `tb_course` DISABLE KEYS */;
 INSERT INTO `tb_course` (`id`,`name`) VALUES 
- (1,'数学'),(2,'语文');
+ (1,'数学'),(2,'语文'),(3,'英语'),(4,'物理'),(5,'化学'),(6,'生物'),(7,'政治'),(8,'历史'),(9,'地理');
  
 /*!40000 ALTER TABLE `tb_course` ENABLE KEYS */;
 
@@ -237,7 +237,7 @@ CREATE TABLE `tb_book` (
   KEY `FKFA98EE3DD0ABD063` (`courseId`),
   CONSTRAINT `FKFA98EE3DD0EDC05E` FOREIGN KEY (`uploadFileId`) REFERENCES `tb_uploadFile` (`id`),
   CONSTRAINT `FKFA98EE3DD0ABD063` FOREIGN KEY (`courseId`) REFERENCES `tb_course` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=gbk;
 
 --
 -- Dumping data for table `tb_book`
@@ -245,8 +245,9 @@ CREATE TABLE `tb_book` (
 
 /*!40000 ALTER TABLE `tb_book` DISABLE KEYS */;
 INSERT INTO `tb_book` (`id`,`name`,`desc`,`courseId`,`grade`) VALUES 
- (1,'bixiuyi','高一数学必修一',1,'12'),
- (2,'bixiuer','高二数学必修二',1,'12');
+ (1,'shuxuebixiuyi','高一数学必修一',1,'12'),
+ (2,'shuxuebixiuer','高二数学必修二',1,'12'),
+(3,'yuwenbixiuyi','高一语文必修一',2,'12');
  
 /*!40000 ALTER TABLE `tb_book` ENABLE KEYS */;
 
@@ -267,7 +268,7 @@ CREATE TABLE `tb_bookItem` (
   KEY `FKB405573CFB337A8C` (`bookId`),
   CONSTRAINT `FKB405573CFB37BC9D` FOREIGN KEY (`parentId`) REFERENCES `tb_bookItem` (`id`),
   CONSTRAINT `FKB405573CFB337A8C` FOREIGN KEY (`bookId`) REFERENCES `tb_book` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=gbk;
 
 --
 -- Dumping data for table `tb_bookItem`
@@ -296,7 +297,11 @@ INSERT INTO `tb_bookItem` (`id`,`name`,`level`,`parentId`, `parentNextId`,`bookI
  (19,'对数运算',3,17,NULL,1),
  (20,'对数运算2',3,17,NULL,1),
  (21,'对数函数',3,17,NULL,1),
- (22,'对数函数2',3,17,NULL,1);
+ (22,'对数函数2',3,17,NULL,1),
+ (23,'第一单元',1,NULL,24,3),
+ (24,'第二单元',1,NULL,25,3),
+ (25,'第三单元',1,NULL,26,3),
+ (26,'第四单元',1,NULL,NULL,3);
  
 /*!40000 ALTER TABLE `tb_bookItem` ENABLE KEYS */;
 

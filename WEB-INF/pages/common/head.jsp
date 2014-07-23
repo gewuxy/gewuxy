@@ -121,13 +121,13 @@
 			<ul style="list-style-type:none;">
 				<li class="level1 math ">
 				<s:a action="book_findByName" namespace="/book">
-					<s:param name="book.name" value="'bixiuyi'"></s:param>
+					<s:param name="book.name" value="'shuxuebixiuyi'"></s:param>
 						必修一
 				</s:a>
                 </li>
                 <li class="level1 math ">
                   <s:a action="book_findByName" namespace="/book">
-					<s:param name="book.name" value="'bixiuer'"></s:param>
+					<s:param name="book.name" value="'shuxuebixiuer'"></s:param>
 						必修二
 				</s:a>
 				</li>
@@ -261,7 +261,10 @@
 		<div class="col-md-4 column .col-md-offset-4">
 			<ul style="list-style-type:none;">
 				<li class="level1 math ">
-                  <a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/bixiu1" >必修一</a>
+                  <s:a action="book_findByName" namespace="/book">
+					<s:param name="book.name" value="'yuwenbixiuyi'"></s:param>
+						必修一
+		 </s:a>
                 </li>
                 <li class="level1 math ">
                   <a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/bixiu2" >必修二</a>

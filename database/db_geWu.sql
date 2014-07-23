@@ -297,11 +297,11 @@ INSERT INTO `tb_bookItem` (`id`,`name`,`level`,`parentId`, `parentNextId`,`bookI
  (19,'对数运算',3,17,NULL,1),
  (20,'对数运算2',3,17,NULL,1),
  (21,'对数函数',3,17,NULL,1),
- (22,'对数函数2',3,17,NULL,1)，
- (23,'第一单元',1,NULL,24,3), 
+ (22,'对数函数2',3,17,NULL,1),
+ (23,'第一单元',1,NULL,24,3),
  (24,'第二单元',1,NULL,25,3),
- (25,'第三单元',1,NULL,26,3)，
- (26,'第四单元',1,NULL,NULL,3)；
+ (25,'第三单元',1,NULL,26,3),
+ (26,'第四单元',1,NULL,NULL,3);
  
 /*!40000 ALTER TABLE `tb_bookItem` ENABLE KEYS */;
 

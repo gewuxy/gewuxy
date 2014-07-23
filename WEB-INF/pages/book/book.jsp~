@@ -45,13 +45,13 @@ $(window).resize(function(){
 		<div class="subject-container">
 		<s:iterator value="pageModel.list">
 		  <div class="subject-info">
-			<h1 class="subject-title"><s:property value="nickname" /></h1>
+			<h1 class="subject-title"><s:property value="name" /></h1>
 			<hr style="color:#333333;"/>
 			<div class="subject-description"><s:property value="desc" /></div>
 			
 		  </div>
 		  </s:iterator>
-		<input id="coursetype" type="text" value="<s:property value="pageModel.list[0].course.name"/>" style="display:none"> </input>
+<input id="coursetype" type="text" value="<s:property value="pageModel.list[0].course.name"/>" style="display:none"> </input>
 		</div>
 	  </div>
 	  <div class="right">
@@ -62,7 +62,7 @@ $(window).resize(function(){
 		<li class="section" >
                  <s:a action="bookItem_list" namespace="/bookItem" style="text-decoration:none;width:100%">
 					<s:param name="pid" value="id"> </s:param>
-		<span class="glyphicon glyphicon-adjust tutorial-nav-node-icon"></span><s:property        value="name" />
+		<img src="<%=request.getContextPath()%>/img/favicon.png" alt="icon" style="padding-right:20px"><s:property        value="name" />
 		</s:a></li>
 		<hr color=#de3456/>
 		</s:if>

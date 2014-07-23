@@ -19,8 +19,7 @@
 
 </head>
 <body>
-  <%--举报对话框--%>
-  <div class="modal" id="jubao-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal fade" id="jubao-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -267,21 +266,21 @@
   <p></p>
   <script>
 $(document).ready(function(){
-$(".tutorial-mulu").click(function(){
+$(".tutorial-mulu").live('click',function(){
 $(".tutorial-nav-content").css("display","block");
 $(".tutorial-nav-ask-questions").css("display","none");
 $(".tutorial-mulu").css("background-color","#fff");
 $(".tutorial-tiwen").css("background-color","#999");
 });
 
-$(".tutorial-tiwen").click(function(){
+$(".tutorial-tiwen").live('click',function(){
 $(".tutorial-nav-content").css("display","none");
 $(".tutorial-nav-ask-questions").css("display","block");
 $(".tutorial-mulu").css("background-color","#999");
 $(".tutorial-tiwen").css("background-color","#fff");
 });
 
-$(".ask-question .discussion-text").click(function(){
+$(".ask-question .discussion-text").live('click',function(){
 var user = $("#userName").val();
 if(user==""){$("#sign-form").show({
 		autoOpen: false,
@@ -298,14 +297,14 @@ $(".ask-question .discussion-text").attr("placeholder","");
 }
 });
 
-$(".ask-question .discussion-cancel").click(function(){
+$(".ask-question .discussion-cancel").live('click',function(){
 $(".ask-question .question-guidelines").slideUp();
 $(".ask-question .discussion-text").removeClass("open");
 $(".ask-question .discussion-controls").css("display","none");
 $(".ask-question .discussion-text").attr("placeholder","点击提问");
 });
 
-$(".close").click(function(){
+$(".close").live('click',function(){
 $(".video-feedback-block").slideUp();
 });
 /*模板live监听
@@ -314,7 +313,7 @@ var mid = $(this).attr(“mid”);
 alert(mid);
 });*/
 //问题评论锚点滚动到回答问题处
-$(".question .reply-options .discussion-reply").click(function(){
+$(".question .reply-options .discussion-reply").live('click',function(){
 var user = $("#userName").val();
 if(user==""){$("#sign-form").show({
 		autoOpen: false,
@@ -338,7 +337,7 @@ scrollTop:scroll_offset.top-400 //让body的scrollTop等于pos的top，就实现
 });
 
 //回答评论锚点滚动到回答问题处
-$(".answer .reply-options .discussion-reply").click(function(){
+$(".answer .reply-options .discussion-reply").live('click',function(){
 var user = $("#userName").val();
 if(user==""){$("#sign-form").show({
 		autoOpen: false,
@@ -361,27 +360,27 @@ scrollTop:scroll_offset.top-400 //让body的scrollTop等于pos的top，就实现
 }
 });
 
-$(".discussion-list-content .toggle-replies").click(function(){
+$(".discussion-list-content .toggle-replies").live('click',function(){
 var id=$(this).parent().parent().parent().parent().attr("id");
 $("#"+id+".discussion-list-content .comment .replies-container").toggle();
 }); 
 
-$(".question .toggle-replies").click(function(){
+$(".question .toggle-replies").live('click',function(){
 var id=$(this).parent().parent().parent().attr("id");
 $("#"+id+"> .replies-container").toggle();
 });
 
-$(".answer .toggle-replies").click(function(){
+$(".answer .toggle-replies").live('click',function(){
 var id=$(this).parent().parent().parent().attr("id");
 $("#"+id+"> .replies-container").toggle();
 });
 
-$(".comment .toggle-replies").click(function(){
+$(".comment .toggle-replies").live('click',function(){
 var id=$(this).parent().parent().parent().attr("id");
 $("#"+id+".comment .replies-container").toggle();
 });
 
-$(".suggest-modify-question").click(function(){
+$(".suggest-modify-question").live('click',function(){
 var user = $("#userName").val();
 if(user==""){$("#sign-form").show({
 		autoOpen: false,
@@ -397,19 +396,19 @@ $("#"+id+"> .replies-container> .replies-panel> .add-reply> .discussion-item > .
 }
 });
 
-$(".question .comments-block .discussion-cancel").click(function(){
+$(".question .comments-block .discussion-cancel").live('click',function(){
  var id=$(this).parent().parent().parent().parent().parent().parent().parent().attr("id");
 $("#"+id+"> .replies-container> .replies-panel> .add-reply> .discussion-item > .reply-options").css("display","table");
 $("#"+id+"> .replies-container> .replies-panel> .add-reply> .discussion-item > .comments-block").css("display","none");
 });
 
-$(".answer .comments-block .discussion-cancel").click(function(){
+$(".answer .comments-block .discussion-cancel").live('click',function(){
 var id=$(this).parent().parent().parent().parent().parent().parent().parent().attr("id");
 $("#"+id+"> .replies-container> .replies-panel> .add-reply> .discussion-item > .reply-options").css("display","table");
 $("#"+id+"> .replies-container> .replies-panel> .add-reply> .discussion-item > .comments-block").css("display","none");
 });
 
-$(".show-answer-links .show-hidden-answers").click(function(){
+$(".show-answer-links .show-hidden-answers").live('click',function(){
 var id=$(this).parent().parent().attr("id");
 $("#"+id+">.hidden-answers").toggle();
 if($("#"+id+">.hidden-answers").is(":hidden")){
@@ -419,7 +418,7 @@ $("#"+id+">.show-answer-links >.show-hidden-answers").text("收起回答");
 }
 });
 
-$(".add-answer .discussion-text").click(function(){
+$(".add-answer .discussion-text").live('click',function(){
 var user = $("#userName").val();
 if(user==""){$("#sign-form").show({
 		autoOpen: false,
@@ -436,14 +435,14 @@ $("#"+id+".add-answer .discussion-text").attr("placeholder","");
 }
 });
 
-$(".add-answer .discussion-controls .answer-cancel").click(function(){
+$(".add-answer .discussion-controls .answer-cancel").live('click',function(){
 var id=$(this).parent().parent().parent().parent().attr("id");
 $("#"+id+".add-answer .discussion-controls").css("display","none");
 $("#"+id+".add-answer .discussion-text").removeClass("open");
 $("#"+id+".add-answer .discussion-text").attr("placeholder","回答这个问题");
 });
 
-$("#questions-tab-header").click(function(){
+$("#questions-tab-header").live('click',function(){
 if($(".question-tab").is(":hidden")){
  $(".comments-tab"). hide(); 
  $(".question-tab"). show(); 
@@ -452,7 +451,7 @@ if($(".question-tab").is(":hidden")){
 }
 });
 
-$("#comments-tab-header").click(function(){
+$("#comments-tab-header").live('click',function(){
 if($(".comments-tab").is(":hidden")){
  $(".question-tab"). hide(); 
  $(".comments-tab"). show();
@@ -461,7 +460,7 @@ if($(".comments-tab").is(":hidden")){
 }
 });
 
-$(".post-feedback .comment .discussion-text").click(function(){
+$(".post-feedback .comment .discussion-text").live('click',function(){
 var user = $("#userName").val();
 if(user==""){$("#sign-form").show({
 		autoOpen: false,
@@ -478,7 +477,7 @@ $(".post-feedback .comment .discussion-text").attr("placeholder","");
 }
 });
 
-$(".post-feedback .comment .discussion-cancel").click(function(){
+$(".post-feedback .comment .discussion-cancel").live('click',function(){
 
 $(".comments-tab .feed-guidelines").slideUp();
 $(".post-feedback .comment .discussion-text").removeClass("open");
@@ -486,13 +485,13 @@ $(".post-feedback .comment .discussion-controls").css("display","none");
 $(".post-feedback .comment .discussion-text").attr("placeholder","传递我的谢意...");
 });
 
-$(".comments .discussion-cancel").click(function(){
+$(".comments .discussion-cancel").live('click',function(){
 var id=$(this).parent().parent().parent().parent().parent().parent().parent().attr("id");
 $("#"+id+"> .replies-container").css("display","none");
 });
 
 //提问题
-$("#tiwenjson").click(function(){
+$("#tiwenjson").live('click',function(){
 	  var params = {
         "video.id" : $("#videoId").val(),
         "content" : $("#questionContent").val()
@@ -520,7 +519,7 @@ $("#tiwenjson").click(function(){
         
       });
 //问题的评论
-$(".question .comments-block .discussion-submit").click(function(){
+$(".question .comments-block .discussion-submit").live('click',function(){
 	     
          var id=$(this).parent().parent().parent().parent().parent().parent().parent().attr("id");
           var params = {
@@ -553,7 +552,7 @@ $(".question .comments-block .discussion-submit").click(function(){
         
       });
 //回答问题
-$(".add-answer .answer .comments-block .discussion-submit").click(function(){
+$(".add-answer .answer .comments-block .discussion-submit").live('click',function(){
           var id=$(this).parent().parent().parent().parent().attr("id");
 	  var answers=$("#"+id).prev().attr("id");
           var params = {
@@ -586,7 +585,7 @@ $(".add-answer .answer .comments-block .discussion-submit").click(function(){
         
       });
 //回答评论
-$(".answers .answer .comments-block .discussion-submit").click(function(){
+$(".answers .answer .comments-block .discussion-submit").live('click',function(){
           var id=$(this).parent().parent().parent().parent().parent().parent().parent().attr("id");
 	  var params = {
         "answer.id" : $("#"+id+"> #answerId").val(),
@@ -622,7 +621,7 @@ $(".answers .answer .comments-block .discussion-submit").click(function(){
         
       });
 //发送感谢
-$(".post-feedback .comment .discussion-submit").click(function(){
+$(".post-feedback .comment .discussion-submit").live('click',function(){
  var params = {
         "video.id" : $("#videoId").val(),
         "content" : $(".post-feedback .comment .discussion-text").val()
@@ -641,7 +640,7 @@ $(".post-feedback .comment .discussion-submit").click(function(){
         data:params,
 	dataType:"json",
         success:function(data){ 
-              var reply=$(".comments-tab> .comments> .discussion-list> .discussion-list-content> #thanktemplate").html().replace("thank0","thank"+data.thank.id).replace("thankcontent",data.thank.content).replace("thankcreatetime",data.thank.createTime).replace("thankusername",$("#userName").val());
+              var reply=$(".comments-tab> .comments> .discussion-list> .discussion-list-content> #thanktemplate").html().replace("thank0","thank"+data.thank.id).replace("thankId0",data.thank.id).replace("thankcontent",data.thank.content).replace("thankcreatetime",data.thank.createTime).replace("thankusername",$("#userName").val());
               $(".comments-tab> .comments> .discussion-list> .discussion-list-content").prepend(reply);
         },
 	error: function(data){
@@ -651,7 +650,7 @@ $(".post-feedback .comment .discussion-submit").click(function(){
         });
 });
 //发送感谢评论
-$(".comments-tab .comments .comment  .discussion-submit").click(function(){
+$(".comments-tab .comments .comment  .discussion-submit").live('click',function(){
 var user = $("#userName").val();
 if(user==""){$("#sign-form").show({
 		autoOpen: false,
@@ -689,11 +688,12 @@ else{
         });
 }
 });
-//更多问题
-$("#moreQuestions").click(function(){
-var pageNo=new Number($("#pageNo").val());
+
+//更多问题live(‘click’, function() {
+$("#moreQuestions").live('click',function(){
+var pageNo=new Number($("#pageNo").val())+1;
 var pages=new Number($("#pages").val());
-if(pageNo>=pages){
+if(pageNo>pages){
 alert("没有其他问题了!");
 }else{
      var params = {
@@ -720,8 +720,8 @@ alert("没有其他问题了!");
 
 });
 //更多感谢
-$("#moreThanks").click(function(){
-var pageNo=new Number($("#thankpageNo").val());
+$("#moreThanks").live('click',function(){
+var pageNo=new Number($("#thankpageNo").val())+1;
 var pages=new Number($("#thankpages").val());
 
 if(pageNo>=pages){
@@ -752,6 +752,6 @@ alert("没有其他感谢了!");
 });
   });
 </script>
-<div id="hhh"></div>
+
 </body>
 </html>

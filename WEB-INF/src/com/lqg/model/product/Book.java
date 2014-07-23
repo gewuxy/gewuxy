@@ -17,6 +17,8 @@ public class Book implements Serializable{
 	private String name;
 	//��Ľ���
 	private String desc;
+	//缩写
+	private String nickname;
 	//��ķ����ͼƬ
 	private UploadFile uploadFile;
 	//���������Ŀ
@@ -67,5 +69,11 @@ public class Book implements Serializable{
 	}
 	public void setBookItems(Set<BookItem> bookItems) {
 		this.bookItems=bookItems;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 }

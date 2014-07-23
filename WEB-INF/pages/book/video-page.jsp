@@ -466,15 +466,12 @@ if($(".comments-tab").is(":hidden")){
 }
 });
 
-<<<<<<< HEAD
 if($(".tutorial-nav-content-list").height()>430){
 $(".tutorial-nav-content-list").css("overflow-y","scroll");
 }
 
-$(".post-feedback .comment .discussion-text").click(function(){
-=======
+
 $(".post-feedback .comment .discussion-text").live('click',function(){
->>>>>>> 50a4e04d3877630744547b16685783a0b8797395
 var user = $("#userName").val();
 if(user==""){$("#sign-form").show({
 		autoOpen: false,
@@ -766,14 +763,10 @@ alert("没有其他感谢了!");
 });
   });
 </script>
-<<<<<<< HEAD
 <div style="clear:both;width:100%;">
 		<div style="margin-top:-50px;">
 			<%@include file="/WEB-INF/pages/common/footer.jsp"%>
 		</div>
 	</div> 
-=======
-
->>>>>>> 50a4e04d3877630744547b16685783a0b8797395
 </body>
 </html>

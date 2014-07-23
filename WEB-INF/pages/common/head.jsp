@@ -52,7 +52,7 @@
 }  
 </style>
   
-	<script type="text/javascript" src="<%=ctx%>/js/jquery.min.js"></script>
+	<script type="text/javascript" src="<%=ctx%>/js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="<%=ctx%>/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="<%=ctx%>/js/scripts.js"></script>
 	<script type="text/javascript" src="<%=ctx%>/js/bootstrap-select.min.js"></script>

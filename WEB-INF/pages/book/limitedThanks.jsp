@@ -16,8 +16,8 @@
 						<span data-vote-type="1" class="question-vote-up glyphicon glyphicon-arrow-up"></span>
 						<span class="vote-num">5个踩</span>
 						<span data-vote-type="-1" class="question-vote-down glyphicon glyphicon-arrow-down"></span>
-						<span class="toolbar-item-separator">•</span>
-						<a title="" href="javascript:void(0);" class="toggle-replies show-replies">0个评论</a>
+						<span class="toolbar-item-separator">•</span><span class="toolbar-item-separator" id="thankcommentcount">0</span>
+						<a title="" href="javascript:void(0);" class="toggle-replies show-replies">个评论</a>
 						<span class="toolbar-item-separator">•</span>
 						<span class="question-share-num">10个
 						<div style="display:inline;" class="dropdown">
@@ -45,8 +45,24 @@
 					  <div class="replies-triangle"></div>
 					  <div class="replies-panel">
 					    <div class="replies">
-						  
-						</div>
+						<div style="display:none" id="thankcommenttemplate">
+						<div class="discussion-item reply" id="">
+						    <div class="discussion-content">
+							   thankcomentcontent
+							</div>
+							<div class="discussion-meta">
+							  <div class="discussion-meta-info">
+							    <span class="question-time" title="2014-8-17 16:30">thankcommentcreatetime</span>
+								<a class="author-nickname" data-user-id="" href="#">
+								  <img class="author-avatar" src="/img/favicon.png">thankcommentuser
+								</a>
+							  </div>
+							</div>							
+						  </div>
+
+
+</div>  
+						</div><span class="discussion-meta-separator"><hr></span>
 						<div class="add-reply">
 						  <div class="discussion-item reply ">
 						    
@@ -142,8 +158,8 @@
 								</a>
 							  </div>
 							</div>							
-						  </div><span class="discussion-meta-separator"></span></s:iterator>
-						</div>
+						  </div></s:iterator>
+						</div><span class="discussion-meta-separator"><hr></span>
 						<div class="add-reply">
 						  <div class="discussion-item reply ">
 						    

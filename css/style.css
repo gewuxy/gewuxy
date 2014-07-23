@@ -178,7 +178,6 @@ z-index: 2;
 
 .settings
 {
-
 float:left;
 width:100%;
 margin:0;
@@ -445,20 +444,21 @@ margin:8px;
 #date-picker{
 }
 .flash-page{
-width:80%;
-margin:0 auto;
+width:100%;
 margin-bottom:10px;
-/*background-image: linear-gradient(to right,#5e85a8 0,#385168 100%);
-background-repeat: repeat-x;*/
+background-color:#f7f7f7;
+height:640px;
+margin-top:-20px;
 }
 .tutorial-wrap{
-margin:10px;
+width:980px;
+margin:0 auto;
+padding-top:20px;
 }
 .flash-box{
 float:left;
-width: 80%;
+width: 78%;
 height: 500px;
-background-color:#333333;
 }
 .tutorial-nav{
 width: 20%;
@@ -466,29 +466,23 @@ height:500px;
 float:right;
 }
 .tutorial-nav-header{
-height:45px;
-background-color:#999999;
+
 }
 .tutorial-nav-header-item{
-float: left;
-height: 45px;
-width: 50%;
-text-align: center;
-line-height: 44px;
-color: #666;
+
 }
 .back-to-section{
 }
 .tutorial-title{
+color: #4b565e;
+font-weight:bold;
 }
 .tutorial-nav-body{
 overflow: hidden;
-width: auto;
-height: 358px;
+width: 100%;
 }
 
 .tutorial-nav-content{
-opacity:0.5;
 }
 li.tutorial-nav-node{
 box-sizing:content-box;
@@ -502,20 +496,28 @@ padding-bottom:5px;
 padding-top:10px;
 padding-bottom:10px;
 font-size:17px;
+color:#999;
+font-family:SimSun;
+}
+.tutorial-tab-link:hover{
+text-decoration:none;
+}
+.tutorial-nav-content-list:first-child{
+margin-top:10px;
 }
 .tutorial-nav-node-icon{
 margin-left:-9px;
 z-index:10;
 }
 li.tutorial-nav-node:hover{
-background-color:#666666;
+background-color:#f0f0f0;
 }
 div.tutorial-nav-next{
-border-top:1px solid;
+border-top:1px solid #aaa;
 margin-left:10px;
 }
 div.tutorial-nav-next:hover{
-background-color:#666666;
+background-color:#f0f0f0;
 }
 ol{
 list-style:none;
@@ -562,10 +564,7 @@ float:right;
 color:white;
 }
 .tutorial-footer{
-width:80%;
-padding-top:40px;
-margin-left:20px;
-margin-right:20px;
+width:980px;
 margin:0 auto;
 }
 .tutorial-footer-container{
@@ -578,7 +577,6 @@ margin-left: -10px;
 min-height: 200px;
 width: 79%;
 float: left;
-
 }
 .discussion-guideline{
 color: #888;
@@ -613,6 +611,8 @@ margin-left:20px;
 background-color: #719807;
 float:right;
 color:white;
+clear:left;
+display:block;
 }
 .close{
 position: relative;
@@ -638,8 +638,7 @@ border-bottom: 1px solid #ccc;
 height: 20px;
 margin-bottom: 10px;
 padding-bottom: 10px;
-margin-top:40px;
-
+clear:both;
 }
 .tabrow{
 font-size: 17px;

@@ -44,7 +44,7 @@ $(window).resize(function(){
 		    <div class="chapter-backto-subject">
 			  <s:a class="subject-link" action="book_findByName" namespace="/book">
 					<s:param name="book.name" value="pageModel.list[0].book.name"></s:param>
-				        <span><--返回<s:property value="pageModel.list[0].book.name" /></span></s:a>
+				        <span class="subject-back"><--返回<s:property value="pageModel.list[0].book.name" /></span></s:a>
 			</div>			
             <h2 class="chapter-title"><s:property value="pageModel.list[0].parent.name" /></h2>
 			<hr style="color:#333333;"/>

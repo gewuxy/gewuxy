@@ -164,7 +164,7 @@
 	</div>
   </div>
   
-  <div style="margin-top:45px;visibility:hidden;">sorry to use you to adjust layout</div>
+  <div style="margin-top:0px;visibility:hidden;">sorry to use you to adjust layout</div>
   <div class="tutorial-footer">
     <div class="tutorial-footer-container">
 	  <div class="video-discussion">

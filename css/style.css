@@ -178,7 +178,6 @@ z-index: 2;
 
 .settings
 {
-
 float:left;
 width:100%;
 margin:0;
@@ -565,10 +564,7 @@ float:right;
 color:white;
 }
 .tutorial-footer{
-width:80%;
-padding-top:40px;
-margin-left:20px;
-margin-right:20px;
+width:980px;
 margin:0 auto;
 }
 .tutorial-footer-container{
@@ -581,7 +577,6 @@ margin-left: -10px;
 min-height: 200px;
 width: 79%;
 float: left;
-
 }
 .discussion-guideline{
 color: #888;
@@ -616,6 +611,8 @@ margin-left:20px;
 background-color: #719807;
 float:right;
 color:white;
+clear:left;
+display:block;
 }
 .close{
 position: relative;
@@ -641,8 +638,7 @@ border-bottom: 1px solid #ccc;
 height: 20px;
 margin-bottom: 10px;
 padding-bottom: 10px;
-margin-top:40px;
-
+clear:both;
 }
 .tabrow{
 font-size: 17px;

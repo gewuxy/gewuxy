@@ -102,7 +102,7 @@
           </s:iterator>
 	  </div>
 	  <div class="tutorial-nav">
-	    <!--div  class="tutorial-nav-header">
+	    <div  class="tutorial-nav-header">
 		  <a href="#" class="tutorial-nav-header-item tutorial-mulu" style="background-color:white;">
 		    <span class="glyphicon glyphicon-th-list"></span>
 			 目录
@@ -111,26 +111,20 @@
 		    <span class="glyphicon glyphicon-question-sign"></span>
 			 提问
 		  </a>
-		</div-->
-		<ul class="nav nav-pills tutorial-nav-header" role="tablist">
-		  <li role="presentation" class="tutorial-nav-header-item tutorial-mulu active">
-		    <a href="#"><span class="glyphicon glyphicon-th-list" style="padding-right:5px;"></span>目录</a>
-		  </li>
-		  <li role="presentation" class="tutorial-nav-header-item tutorial-tiwen">
-		    <a href="#"><span class="glyphicon glyphicon-question-sign" style="padding-right:5px;"></span>提问</a>
-		  </li>
-		</ul>
+		</div>
 		<div class="tutorial-nav-body">
 		  <div class="tutorial-nav-content">
 		    <ol class="tutorial-nav-content-list">
 		      <s:iterator value="pageModel.list[0].bookItem.parent.children">
 		      <li class="tutorial-nav-node">
-					<s:a action="video_getByBookItemId" namespace="/video" cssClass="tutorial-tab-link" >
-					  <span class="glyphicon glyphicon-adjust tutorial-nav-node-icon"></span>
-                      <s:param name="bookItem.id" value="id"/> <s:property value="name" />
-					</s:a>
+			    
+				    <span class="glyphicon glyphicon-adjust tutorial-nav-node-icon"></span>
+					<h4><s:a action="video_getByBookItemId" namespace="/video" cssClass="tutorial-tab-link" >
+                                <s:param name="bookItem.id" value="id"/> <s:property value="name" /></s:a></h4>
+				
 			  </li>
-			  </s:iterator>
+			</s:iterator>
+			  
 		    </ol>
 		    <div class="tutorial-nav-next">
 			    <s:if test="pageModel.list[0].bookItem.parentNext.children.size()==0">
@@ -164,7 +158,7 @@
 	</div>
   </div>
   
-  <div style="margin-top:0px;visibility:hidden;">sorry to use you to adjust layout</div>
+  <div style="margin-top:45px;visibility:hidden;">sorry to use you to adjust layout</div>
   <div class="tutorial-footer">
     <div class="tutorial-footer-container">
 	  <div class="video-discussion">
@@ -228,6 +222,8 @@
 		  </div>
 		  <div class="questions">
 		    <div class="question-list">
+<input id="pageNo" type="text" value="1" style="display:none"> </input>
+  
 			 <s:action name="question_findByVideo" executeResult="true" namespace="/question"> 
    			 	<s:param name="question.video.id" ><s:property value="pageModel.list[0].id"/></s:param> 
   			 </s:action> 
@@ -254,6 +250,8 @@
           </div>
 		  <div class="comments">
 			   <div class="discussion-list">
+<input id="thankpageNo" type="text" value="1" style="display:none"> </input>
+  
 		  		<s:action name="thank_getByVideoId" executeResult="true" namespace="/thank"> 
    			 	<s:param name="thank.video.id" ><s:property value="pageModel.list[0].id"/></s:param> 
   			 	</s:action>
@@ -268,22 +266,477 @@
 	  <div class="discussion-guideline"></div>
 	</div>
   </div>
-  <div class="clear"></div>
-  <p></p>
+  <!--模板-->
+<!--问题模板-->
+			  <div id="template" style="display:none">
+			  <div class="thread" id="whole0" style="padding-bottom:60px" >
+				  <div class="question discussion-item" name="questionId" id="question0">
+				<input id="questionId" type="text" value="questionId0" style="display:none"> </input>
+				    <div class="question-content" name="question-content">quesitoncontent</div>
+					<div class="question-toolbar">
+					  <div class="question-toolbar-item">
+					    <span class="vote-num">5个同问</span>
+						<span class="question-vote-up glyphicon glyphicon-arrow-up" title="顶起，我有同样的问题；顶起后问题有新回答我们将通知您
+
+" data-vote-type="1"></span>
+						<span class="toolbar-item-separator">•</span><span id="questioncommentsize">0</span>
+						<a class="toggle-replies show-replies" href="javascript:void(0);" title="添加回答或者申请修改问题">个评论</a>
+						<span class="toolbar-item-separator">•</span>
+						<span class="question-share-num">10个
+						<div class="dropdown" style="display:inline;">
+						  <div class="dropdown-toggle" data-toggle="dropdown" style="display:inline;"><a href="javascript:void(0);">分享
+
+</a></div>
+						  <ul class="dropdown-menu">
+							<li><a href="#">分享到QQ空间</a></li>
+							<li><a href="#">分享到新浪微博</a></li>
+							<li><a href="#">分享到人人网</a></li>
+						  </ul>
+						  </div>
+						</span>
+						<span class="toolbar-item-separator">•</span>
+						<span class="mute-question">
+						  <a href="#" class="jubao-mute-question" data-toggle="modal" data-target="#jubao-form">举报</a>
+						</span>
+					  </div>
+					  <div class="question-user-info">
+					    <a href="javascript:void(0);" class="question-time" title="2014-7-1 15:36">twoweeks</a>
+						<a href="javascript:void(0);" class="author-nickname" data-user-id="">
+						  <img class="author-avatar" src="/img/favicon.png">questionuser
+						</a>
+					  </div>
+					</div>
+					<div class="replies-container" style="display:none;">
+					  <div class="replies-triangle"></div>
+					  <div class="replies-panel">
+					<div class="replies">
+						<!--问题评论的模板-->
+					    <div style="display:none" id="questioncommenttemplate">
+						<div class="discussion-item reply" id="questioncoment0">
+						    <div class="discussion-content">
+							  questioncommentcontent
+							</div>
+							<div class="discussion-meta">
+							  <div class="discussion-meta-info">
+							    <span class="question-time" title="2014-8-17 16:30">questioncommenttime</span>
+								<a class="author-nickname" data-user-id="" href="#">questioncommentuser
+								  <img class="author-avatar" src="/img/favicon.png">
+								</a>
+							  </div>
+							</div>
+							<div class="item-separator"></div>
+						  </div>
+</div>
+ 						<!--问题评论的模板结尾-->
+						</div>
+							<span class="discussion-meta-separator"><hr></span>
+						<div class="add-reply">
+						  <div class="discussion-item reply ">
+						    <div class="reply-options" style="display:table;">
+							  <div>
+							    <input type="button" class="btn btn-primary discussion-reply" value="回答问题">
+							  </div>
+							  <div class="or">或者</div>
+							  <div class="suggest-modify-question">
+							    <textarea class="suggest-modify-question-dummy" placeholder="建议修改问题..."></textarea>
+							  </div>
+							</div>
+							<div class="comments-block" style="display:none">
+							<textarea class="discussion-text open"></textarea>
+							<div class="discussion-controls">
+							  <input type="button" class="btn btn-primary discussion-submit" value="评论">
+							  <a href="javascript:void(0);" class="discussion-cancel" tabindex="3">取消</a>
+							</div>
+							</div>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				  <div class="answers" id="answers0">
+					  
+					  
+				<!--问题回答的模板-->
+				<div id="answertemplate" style="display:none">
+<span class="discussion-meta-separator"><hr></span>
+<div id="answer0" data-question-key="" class="answer  discussion-item">
+<input type="text" style="display:none" id="answerId" value="questionAnswerId">
+					  <div class="item-separator"></div>
+						<div class="discussion-content">
+						 answercontent
+						</div>
+						<div class="question-toolbar">
+					  <div class="question-toolbar-item">
+					    <span class="vote-num">5个赞</span>
+						<span data-vote-type="1" title="答案很好，顶上去让大家看到" class="question-vote-up glyphicon glyphicon-arrow-up"></span>
+						<span class="vote-num">5个踩</span>
+						<span data-vote-type="-1" title="答非所问或者回答的不好" class="question-vote-down glyphicon glyphicon-arrow-down"></span>
+						<span class="toolbar-item-separator">•</span><span id="answercommentsize">0</span>
+						<a title="" href="javascript:void(0);" class="toggle-replies show-replies">个评论</a>
+						<span class="toolbar-item-separator">•</span>
+						<span class="question-share-num">10个
+						<div style="display:inline;" class="dropdown">
+						  <div style="display:inline;" data-toggle="dropdown" class="dropdown-toggle"><a href="javascript:void(0);">分享</a></div>
+						  <ul class="dropdown-menu">
+							<li><a href="#">分享到QQ空间</a></li>
+							<li><a href="#">分享到新浪微博</a></li>
+							<li><a href="#">分享到人人网</a></li>
+						  </ul>
+						  </div>
+						</span>
+						<span class="toolbar-item-separator">•</span>
+						<span class="mute-question">
+						  <a data-target="#jubao-form" data-toggle="modal" class="jubao-mute-question" href="#">举报</a>
+						</span>
+					  </div>
+					  <div class="question-user-info">
+					    <a title="2014-7-1 15:36" class="question-time" href="javascript:void(0);">answercreatetime</a>
+						<a data-user-id="" class="author-nickname" href="javascript:void(0);">
+						  <img src="/img/favicon.png" class="author-avatar">answeruser
+						</a>
+					  </div>
+					</div>
+						<div style="display: none" class="discussion-controls">
+						  <a tabindex="3" class="discussion-cancel" href="#">Cancel</a>
+						  or
+						  <input tabindex="2" value="Edit this answer" class="simple-button primary discussion-submit" type="button">
+						</div>
+						<div style="display: none;" class="replies-container">
+					  <div class="replies-triangle"></div>
+					  <div class="replies-panel">
+					    <div class="replies">
+						<!--回答的评论模板-->
+						<div style="display:none" id="answercommenttemplate">
+						<div class="discussion-item reply" id="answercomment0">
+						    <div class="discussion-content">
+							 answercommentcontent
+							</div>
+							<div class="discussion-meta">
+							  <div class="discussion-meta-info">
+							    <span class="question-time" title="2014-8-17 16:30">answercommentcreatetime</span>
+								<a class="author-nickname" data-user-id="" href="#">
+								  <img class="author-avatar" src="/img/favicon.png">answercommentuser
+								</a>
+							  </div>
+							</div>
+							<div class="item-separator"></div>
+						  </div>
+</div>
+						<!--回答的评论模板结尾-->
+						
+						</div><span class="discussion-meta-separator"><hr></span>
+						<div class="add-reply">
+						  
+						  <div class="discussion-item reply ">
+						    <div style="display:table;" class="reply-options">
+							  <div>
+							    <input value="回答问题" class="btn btn-primary discussion-reply" type="button">
+							  </div>
+							  <div class="or">或者</div>
+							  <div class="suggest-modify-question">
+							    <textarea placeholder="建议修改回答..." class="suggest-modify-question-dummy"></textarea>
+							  </div>
+							</div>
+							<div class="comments-block" style="display: none">
+							<textarea class="discussion-text open"></textarea>
+							<div class="discussion-controls">
+							  <input class="btn btn-primary discussion-submit" value="评论" type="button">
+							  <a href="javascript:void(0);" class="discussion-cancel" tabindex="3">取消</a>
+							</div>
+							</div>
+						  </div>
+						
+						</div>
+					  </div>
+					</div>
+					  </div>
+</div>
+				<!--问题回答的模板结尾-->
+                                
+					
+					  <div class="hidden-answers" style="display:none">
+						
+					  </div>
+					
+					</div>
+				    <div class="add-answer" style="" id="addanswer0">
+					  
+					<input id="questionId" type="text" value="addanswerquestionId"  style="display:none"> </input>
+					  <div class="answer">
+						<input name="question-key" value="" type="hidden">
+						<div class="comments-block">
+							<textarea class="discussion-text" placeholder="回答这个问题..."></textarea>
+							<div class="discussion-controls" style="display:none;">
+							  <input class="btn btn-primary discussion-submit" value="回答" type="button">
+							  <a href="javascript:void(0);" class="answer-cancel" tabindex="3">取消</a>
+							</div>
+						</div>
+					  </div>
+					
+					</div>
+				</div>
+			</div>
+			 <!--问题模板的结尾-->
+					<!--问题评论的模板-->
+					    <div id="questioncommenttemplate" style="display:none">
+						<div id="questioncoment0" class="discussion-item reply">
+						    <div class="discussion-content">
+							  questioncommentcontent
+							</div>
+							<div class="discussion-meta">
+							  <div class="discussion-meta-info">
+							    <span title="2014-8-17 16:30" class="question-time">questioncommenttime</span>
+								<a href="#" data-user-id="" class="author-nickname">questioncommentuser
+								  <img src="/img/favicon.png" class="author-avatar">
+								</a>
+							  </div>
+							</div>
+							<div class="item-separator"></div>
+						  </div>
+</div>
+ 						<!--问题评论的模板结尾-->
+
+
+					<!--问题回答的模板-->
+				<div id="answertemplate" style="display:none">
+<span class="discussion-meta-separator"><hr></span>
+<div id="answer0" data-question-key="" class="answer  discussion-item">
+<input id="answerId" type="text"  style="display:none"> </input>
+					  <div class="item-separator"></div>
+						<div class="discussion-content">
+						 answercontent
+						</div>
+						<div class="question-toolbar">
+					  <div class="question-toolbar-item">
+					    <span class="vote-num">5个赞</span>
+						<span data-vote-type="1" title="答案很好，顶上去让大家看到" class="question-vote-up glyphicon glyphicon-arrow-up"></span>
+						<span class="vote-num">5个踩</span>
+						<span data-vote-type="-1" title="答非所问或者回答的不好" class="question-vote-down glyphicon glyphicon-arrow-down"></span>
+						<span class="toolbar-item-separator">•</span><span id="answercommentsize">0</span>
+						<a title="" href="javascript:void(0);" class="toggle-replies show-replies">个评论</a>
+						<span class="toolbar-item-separator">•</span>
+						<span class="question-share-num">10个
+						<div style="display:inline;" class="dropdown">
+						  <div style="display:inline;" data-toggle="dropdown" class="dropdown-toggle"><a href="javascript:void(0);">分享</a></div>
+						  <ul class="dropdown-menu">
+							<li><a href="#">分享到QQ空间</a></li>
+							<li><a href="#">分享到新浪微博</a></li>
+							<li><a href="#">分享到人人网</a></li>
+						  </ul>
+						  </div>
+						</span>
+						<span class="toolbar-item-separator">•</span>
+						<span class="mute-question">
+						  <a data-target="#jubao-form" data-toggle="modal" class="jubao-mute-question" href="#">举报</a>
+						</span>
+					  </div>
+					  <div class="question-user-info">
+					    <a title="2014-7-1 15:36" class="question-time" href="javascript:void(0);">answercreatetime</a>
+						<a data-user-id="" class="author-nickname" href="javascript:void(0);">
+						  <img src="/img/favicon.png" class="author-avatar">answeruser
+						</a>
+					  </div>
+					</div>
+						<div style="display: none" class="discussion-controls">
+						  <a tabindex="3" class="discussion-cancel" href="#">Cancel</a>
+						  or
+						  <input type="button" tabindex="2" value="Edit this answer" class="simple-button primary discussion-submit">
+						</div>
+						<div style="display: none;" class="replies-container">
+					  <div class="replies-triangle"></div>
+					  <div class="replies-panel">
+					    <div class="replies">
+						 
+						<!--回答的评论模板-->
+						<div id="answercommenttemplate" style="display:none">
+						<div id="answercomment0" class="discussion-item reply">
+						    <div class="discussion-content">
+							 answercommentcontent
+							</div>
+							<div class="discussion-meta">
+							  <div class="discussion-meta-info">
+							    <span title="2014-8-17 16:30" class="question-time">answercommentcreatetime</span>
+								<a href="#" data-user-id="" class="author-nickname">
+								  <img src="/img/favicon.png" class="author-avatar">answercommentuser
+								</a>
+							  </div>
+							</div>
+							<div class="item-separator"></div>
+						  </div>
+</div>
+						<!--回答的评论模板结尾-->
+						
+						
+						</div><span class="discussion-meta-separator"><hr></span>
+						<div class="add-reply">
+						  
+						  <div class="discussion-item reply ">
+						    <div style="display:table;" class="reply-options">
+							  <div>
+							    <input value="回答问题" class="btn btn-primary discussion-reply" type="button">
+							  </div>
+							  <div class="or">或者</div>
+							  <div class="suggest-modify-question">
+							    <textarea placeholder="建议修改回答..." class="suggest-modify-question-dummy"></textarea>
+							  </div>
+							</div>
+							<div class="comments-block" style="display: none">
+							<textarea class="discussion-text open"></textarea>
+							<div class="discussion-controls">
+							  <input class="btn btn-primary discussion-submit" value="评论" type="button">
+							  <a href="javascript:void(0);" class="discussion-cancel" tabindex="3">取消</a>
+							</div>
+							</div>
+						  </div>
+						
+						</div>
+					  </div>
+					</div>
+					  </div>
+</div>
+				<!--问题回答的模板结尾-->
+
+					<!--回答的评论模板-->
+						<div id="answercommenttemplate" style="display:none">
+						<div id="answercomment0" class="discussion-item reply">
+						    <div class="discussion-content">
+							 answercommentcontent
+							</div>
+							<div class="discussion-meta">
+							  <div class="discussion-meta-info">
+							    <span title="2014-8-17 16:30" class="question-time">answercommentcreatetime</span>
+								<a href="#" data-user-id="" class="author-nickname">
+								  <img src="/img/favicon.png" class="author-avatar">answercommentuser
+								</a>
+							  </div>
+							</div>
+							<div class="item-separator"></div>
+						  </div>
+</div>
+						<!--回答的评论模板结尾-->
+					<!--感谢的模板-->
+			<div id="thanktemplate" style="display:none">
+			<div data-key="" id="thank0" class="comment  discussion-item">
+				<input id="thankId" type="text" value="thankId0" style="display:none"> </input>
+				<div class="item-separator"></div>
+				<div class="discussion-content">
+				 thankcontent
+				</div>
+				<div class="question-toolbar">
+					  <div class="question-toolbar-item">
+					    <span class="vote-num">5个赞</span>
+						<span data-vote-type="1" class="question-vote-up glyphicon glyphicon-arrow-up"></span>
+						<span class="vote-num">5个踩</span>
+						<span data-vote-type="-1" class="question-vote-down glyphicon glyphicon-arrow-down"></span>
+						<span class="toolbar-item-separator">•</span><span class="toolbar-item-separator" id="thankcommentcount">0</span>
+						<a title="" href="javascript:void(0);" class="toggle-replies show-replies">个评论</a>
+						<span class="toolbar-item-separator">•</span>
+						<span class="question-share-num">10个
+						<div style="display:inline;" class="dropdown">
+						  <div style="display:inline;" data-toggle="dropdown" class="dropdown-toggle"><a href="javascript:void(0);">分享</a></div>
+						  <ul class="dropdown-menu">
+							<li><a href="#">分享到QQ空间</a></li>
+							<li><a href="#">分享到新浪微博</a></li>
+							<li><a href="#">分享到人人网</a></li>
+						  </ul>
+						  </div>
+						</span>
+						<span class="toolbar-item-separator">•</span>
+						<span class="mute-question">
+						  <a data-target="#jubao-form" data-toggle="modal" class="jubao-mute-question" href="#">举报</a>
+						</span>
+					  </div>
+					  <div class="question-user-info">
+					    <a title="2014-7-1 15:36" class="question-time" href="javascript:void(0);">thankcreatetime</a>
+						<a data-user-id="" class="author-nickname" href="javascript:void(0);">
+						  <img src="/img/favicon.png" class="author-avatar">thankusername
+						</a>
+					  </div>
+					</div>
+					<div style="display: none;" class="replies-container">
+					  <div class="replies-triangle"></div>
+					  <div class="replies-panel">
+					    <div class="replies">
+						<div style="display:none" id="thankcommenttemplate">
+						<div class="discussion-item reply" id="">
+						    <div class="discussion-content">
+							   thankcomentcontent
+							</div>
+							<div class="discussion-meta">
+							  <div class="discussion-meta-info">
+							    <span class="question-time" title="2014-8-17 16:30">thankcommentcreatetime</span>
+								<a class="author-nickname" data-user-id="" href="#">
+								  <img class="author-avatar" src="/img/favicon.png">thankcommentuser
+								</a>
+							  </div>
+							</div>							
+						  </div>
+
+
+</div>  
+						</div><span class="discussion-meta-separator"><hr></span>
+						<div class="add-reply">
+						  <div class="discussion-item reply ">
+						    
+							<div class="comments-block">
+							<textarea class="discussion-text open"></textarea>
+							<div class="discussion-controls">
+							  <input type="button" value="评论" class="btn btn-primary discussion-submit">
+							  <a tabindex="3" class="discussion-cancel" href="javascript:void(0);">取消</a>
+							</div>
+							</div>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				  </div>
+		<span class="discussion-meta-separator"><hr></span>
+</div>
+		</div>
+			<!--感谢的模板结束-->
+		<!--感谢评论的模板-->
+						<div id="thankcommenttemplate" style="display:none">
+						<div id="" class="discussion-item reply">
+						    <div class="discussion-content">
+							   thankcomentcontent
+							</div>
+							<div class="discussion-meta">
+							  <div class="discussion-meta-info">
+							    <span title="2014-8-17 16:30" class="question-time">thankcommentcreatetime</span>
+								<a href="#" data-user-id="" class="author-nickname">
+								  <img src="/img/favicon.png" class="author-avatar">thankcommentuser
+								</a>
+							  </div>
+							</div>							
+						  </div>
+<span class="discussion-meta-separator"></span>
+
+</div>
+						<!--感谢评论的模板结尾-->	
+
+
+
+
+
+
+
+
+ <!--模板结尾-->
+  
   <script>
 $(document).ready(function(){
 $(".tutorial-mulu").live('click',function(){
 $(".tutorial-nav-content").css("display","block");
 $(".tutorial-nav-ask-questions").css("display","none");
-$(".tutorial-mulu").addClass("active");
-$(".tutorial-tiwen").removeClass("active");
+$(".tutorial-mulu").css("background-color","#fff");
+$(".tutorial-tiwen").css("background-color","#999");
 });
 
 $(".tutorial-tiwen").live('click',function(){
 $(".tutorial-nav-content").css("display","none");
 $(".tutorial-nav-ask-questions").css("display","block");
-$(".tutorial-mulu").removeClass("active");
-$(".tutorial-tiwen").addClass("active");
+$(".tutorial-mulu").css("background-color","#999");
+$(".tutorial-tiwen").css("background-color","#fff");
 });
 
 $(".ask-question .discussion-text").live('click',function(){
@@ -466,11 +919,6 @@ if($(".comments-tab").is(":hidden")){
 }
 });
 
-if($(".tutorial-nav-content-list").height()>430){
-$(".tutorial-nav-content-list").css("overflow-y","scroll");
-}
-
-
 $(".post-feedback .comment .discussion-text").live('click',function(){
 var user = $("#userName").val();
 if(user==""){$("#sign-form").show({
@@ -519,7 +967,7 @@ $("#tiwenjson").live('click',function(){
         data:params,
 	dataType:"json",
         success:function(data){ 
-              var reply=$("#template").html().replace("whole0","whole"+data.question.id).replace("question0","question"+data.question.id).replace("quesitoncontent",data.question.content).replace("twoweeks",data.question.createTime).replace("answers0","answers"+data.question.id).replace("addanswer0","addanswer"+data.question.id).replace("questionuser",$("#userName").val());
+	      var reply=$("#template").html().replace("whole0","whole"+data.question.id).replace("questionId0",data.question.id).replace("addanswerquestionId",data.question.id).replace("question0","question"+data.question.id).replace("quesitoncontent",data.question.content).replace("twoweeks",data.question.createTime).replace("answers0","answers"+data.question.id).replace("addanswer0","addanswer"+data.question.id).replace("questionuser",$("#userName").val());
               $(".question-list-content").prepend(reply);
         },
 	error: function(data){
@@ -549,7 +997,7 @@ $(".question .comments-block .discussion-submit").live('click',function(){
 	dataType:"json",
         success:function(data){ 
 		
-		var reply=$("#"+id+"> .replies-container> .replies-panel> .replies> #questioncommenttemplate").html().replace("questioncoment0","questioncoment"+data.comment.id).replace("questioncommentcontent",data.comment.content).replace("questioncommenttime",data.comment.createTime).replace("questioncommentuser",$("#userName").val());
+		var reply=$("#questioncommenttemplate").html().replace("questioncoment0","questioncoment"+data.comment.id).replace("questioncommentcontent",data.comment.content).replace("questioncommenttime",data.comment.createTime).replace("questioncommentuser",$("#userName").val());
               $("#"+id+"> .replies-container> .replies-panel> .replies").prepend(reply);
 	      var num=new Number($("#"+id+"> .question-toolbar> .question-toolbar-item> #questioncommentsize").text());
 	      //alert(num);
@@ -585,7 +1033,8 @@ $(".add-answer .answer .comments-block .discussion-submit").live('click',functio
         data:params,
 	dataType:"json",
         success:function(data){ 
-               var reply=$("#"+answers+">#answertemplate").html().replace("answer0","answer"+data.answer.id).replace("answercontent",data.answer.content).replace("answercreatetime",data.answer.createTime).replace("answeruser",$("#userName").val());
+		
+               var reply=$("#answertemplate").html().replace("answer0","answer"+data.answer.id).replace("questionAnswerId",data.answer.id).replace("answercontent",data.answer.content).replace("answercreatetime",data.answer.createTime).replace("answeruser",$("#userName").val());
               $("#"+answers).prepend(reply);
         },
 	error: function(data){
@@ -618,7 +1067,7 @@ $(".answers .answer .comments-block .discussion-submit").live('click',function()
         data:params,
 	dataType:"json",
         success:function(data){ 
-               var reply=$("#"+id+"> .replies-container> .replies-panel> .replies>#answercommenttemplate").html().replace("answercomment0","answercomment"+data.comment.id).replace("answercommentcontent",data.comment.content).replace("answercommentcreatetime",data.comment.createTime).replace("answercommentuser",$("#userName").val());
+               var reply=$("#answercommenttemplate").html().replace("answercomment0","answercomment"+data.comment.id).replace("answercommentcontent",data.comment.content).replace("answercommentcreatetime",data.comment.createTime).replace("answercommentuser",$("#userName").val());
               $("#"+id+"> .replies-container> .replies-panel> .replies").prepend(reply);
 	      var num=new Number($("#"+id+"> .question-toolbar> .question-toolbar-item> #answercommentsize").text());
 	      //alert(num);
@@ -651,7 +1100,7 @@ $(".post-feedback .comment .discussion-submit").live('click',function(){
         data:params,
 	dataType:"json",
         success:function(data){ 
-              var reply=$(".comments-tab> .comments> .discussion-list> .discussion-list-content> #thanktemplate").html().replace("thank0","thank"+data.thank.id).replace("thankId0",data.thank.id).replace("thankcontent",data.thank.content).replace("thankcreatetime",data.thank.createTime).replace("thankusername",$("#userName").val());
+              var reply=$("#thanktemplate").html().replace("thank0","thank"+data.thank.id).replace("thankId0",data.thank.id).replace("thankcontent",data.thank.content).replace("thankcreatetime",data.thank.createTime).replace("thankusername",$("#userName").val());
               $(".comments-tab> .comments> .discussion-list> .discussion-list-content").prepend(reply);
         },
 	error: function(data){
@@ -686,7 +1135,7 @@ else{
         data:params,
 	dataType:"json",
         success:function(data){ 
-              var reply=$("#"+id+"> .replies-container> .replies-panel> .replies> #thankcommenttemplate").html().replace("thankcomentcontent",data.comment.content).replace("thankcommentcreatetime",data.comment.createTime).replace("thankcommentuser",$("#userName").val());
+              var reply=$("#thankcommenttemplate").html().replace("thankcomentcontent",data.comment.content).replace("thankcommentcreatetime",data.comment.createTime).replace("thankcommentuser",$("#userName").val());
               $("#"+id+"> .replies-container> .replies-panel> .replies").prepend(reply);
 	       var num=new Number($("#"+id+"> .question-toolbar> .question-toolbar-item> #thankcommentcount").text());
 	      //alert(num);
@@ -735,7 +1184,7 @@ $("#moreThanks").live('click',function(){
 var pageNo=new Number($("#thankpageNo").val())+1;
 var pages=new Number($("#thankpages").val());
 
-if(pageNo>=pages){
+if(pageNo> pages){
 alert("没有其他感谢了!");
 }else{
      var params = {
@@ -763,10 +1212,6 @@ alert("没有其他感谢了!");
 });
   });
 </script>
-<div style="clear:both;width:100%;">
-		<div style="margin-top:-50px;">
-			<%@include file="/WEB-INF/pages/common/footer.jsp"%>
-		</div>
-	</div> 
+
 </body>
 </html>

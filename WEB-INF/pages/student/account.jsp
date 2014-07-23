@@ -14,11 +14,6 @@
 
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-ui-datepicker.js"></script> 
-
-
-
-
 <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
@@ -68,13 +63,13 @@
       <%@include file="/WEB-INF/pages/common/head.jsp"%>
 	</div>
   </div>
-  <div style="width:100%;padding-left:300px;padding-right:300px;">
-  <ul class="settings">
-	<li class="settings-item-selected" style="display:inline;"><a class="settings-item" href="#">基本资料</a></li>
-	<li style="display:inline;"><a class="settings-item" href="/qianduan/settings/password.jsp">密码</a></li>
-	<li style="display:inline;"><a class="settings-item" href="/qianduan/settings/link-sn.jsp">社区绑定</a></li>
-	<li style="display:inline;"><a class="settings-item" href="/qianduan/settings/email.jsp">邮件</a></li>
-  </ul>
+  <div style="width:760px;margin:0 auto;">
+    <ul class="nav nav-tabs" role="tablist">
+	  <li role="presentation" class="active"><a href="#">基本资料</a></li>
+	  <li role="presentation"><a href="<%=request.getContextPath()%>/WEB-INF/pages/password.jsp">密码</a></li>
+	  <li role="presentation"><a href="<%=request.getContextPath()%>/WEB-INF/pages/link-sn.jsp">社区绑定</a></li>
+	  <li role="presentation"><a href="<%=request.getContextPath()%>/WEB-INF/pages/email.jsp">邮件</a></li>
+	</ul>
   <div style="height:20px"></div>
   <div class="settings-body">
     <form action="account.jsp" method="POST" >
@@ -115,44 +110,7 @@
 		
 		<div class="item-info">
 		  <label for="birthday">生日：</label>
-		  <input id="date-picker" type="text" readonly="readonly"/>
-		  <span class="add-on"><i class="icon-th"></i></span>
-		    <fieldset class="date-picker">
-			  <select class="birth-year">
-			    <option value="0"></option>
-				<option value="2014">2014</option>
-				<option value="2013">2013</option>
-				<option value="2012">2012</option>
-				<option value="2011">2011</option>
-				<option value="2010">2010</option>
-				<option value="2009">2009</option>
-				<option value="2008">2008</option>
-				<option value="2007">2007</option>
-				<option value="2006">2006</option>
-				<option value="2005">2005</option>
-				<option value="2004">2004</option>
-				<option value="2003">2003</option>
-				<option value="2002">2002</option>
-				<option value="2001">2001</option>
-			  </select>
-			  <select class="birthday-month">
-			    <option value="0"></option>
-				<option value="1"></option>
-				<option value="2"></option>
-				<option value="3"></option>
-				<option value="4"></option>
-				<option value="5"></option>
-				<option value="6"></option>
-				<option value="7"></option>
-				<option value="8"></option>
-				<option value="9"></option>
-				<option value="10"></option>
-				<option value="11"></option>
-				<option value="12"></option>
-			  </select>
-			  <select></select>
-			</fieldset>
-		  
+		  <input id="date-picker" type="text"/>
 		</div>
 		<hr style="line-height:50%;"/>
 		

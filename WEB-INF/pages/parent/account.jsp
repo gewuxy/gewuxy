@@ -68,13 +68,19 @@
       <%@include file="/WEB-INF/pages/common/head.jsp"%>
 	</div>
   </div>
-  <div style="width:100%;padding-left:300px;padding-right:300px;">
-  <ul class="settings">
+  <div style="width:760px;margin:0 auto;">
+  <!--ul class="settings">
 	<li class="settings-item-selected" style="display:inline;"><a class="settings-item" href="#">基本资料</a></li>
 	<li style="display:inline;"><a class="settings-item" href="/qianduan/settings/password.jsp">密码</a></li>
 	<li style="display:inline;"><a class="settings-item" href="/qianduan/settings/link-sn.jsp">社区绑定</a></li>
 	<li style="display:inline;"><a class="settings-item" href="/qianduan/settings/email.jsp">邮件</a></li>
-  </ul>
+  </ul-->
+    <ul class="nav nav-tabs" role="tablist">
+	  <li role="presentation" class="active"><a href="#">基本资料</a></li>
+	  <li role="presentation"><a href="/qianduan/settings/password.jsp">密码</a></li>
+	  <li role="presentation"><a href="/qianduan/settings/link-sn.jsp">社区绑定</a></li>
+	  <li role="presentation"><a href="/qianduan/settings/email.jsp">邮件</a></li>
+	</ul>
   <div style="height:20px"></div>
   <div class="settings-body">
     <form action="account.jsp" method="POST" >
@@ -117,7 +123,7 @@
 		  <label for="birthday">生日：</label>
 		  <input id="date-picker" type="text" readonly="readonly"/>
 		  <span class="add-on"><i class="icon-th"></i></span>
-		    <fieldset class="date-picker">
+		    <!--fieldset class="date-picker">
 			  <select class="birth-year">
 			    <option value="0"></option>
 				<option value="2014">2014</option>
@@ -151,7 +157,7 @@
 				<option value="12"></option>
 			  </select>
 			  <select></select>
-			</fieldset>
+			</fieldset-->
 		  
 		</div>
 		<hr style="line-height:50%;"/>

@@ -156,6 +156,9 @@ color:white;
 .chapter-title{
 color:white;
 }
+.subject-title{
+color:white;
+}
 .subject-description{
 color: #fff;
 font-family: 'Proxima Nova',sans-serif;
@@ -546,10 +549,12 @@ margin-top:10px;
 }
 .video-options{
 display:block;
+margin-top:-3px;
+border-radius:4px;
 width:100%;
 line-height:40px;
 height:40px;
-background-color:#333;
+background-color:#d0d0d0;
 }
 .report-video-problem{
 line-height:33px;
@@ -558,10 +563,10 @@ color:white;
 }
 .share-video{
 cursor: pointer;
-margin:7px;
 position:relative;
 float:right;
 color:white;
+margin-right:10px;
 }
 .tutorial-footer{
 width:980px;
@@ -931,6 +936,7 @@ margin-bottom:10px;
 margin-left:auto;
 margin-right:auto;
 width:80%;
+max-width:350px;
 text-align:center;
 }
 .user-password{
@@ -938,10 +944,12 @@ margin-bottom:10px;
 margin-left:auto;
 margin-right:auto;
 width:80%;
+max-width:350px;
 text-align:center;
 }
 .signup-button{
 width:80%;
+max-width:350px;
 text-align:center;
 margin-bottom:10px;
 margin-left:auto;
@@ -960,10 +968,12 @@ height: 1px;
 position: relative;
 vertical-align: middle;
 width: 36%;
+max-width:160px;
 }
 .sign-up-with-sn{
 clear:both;
 width:80%;
+max-width:350px;
 margin-left:auto;
 margin-right:auto;
 margin-top:10px;

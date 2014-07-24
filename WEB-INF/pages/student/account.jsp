@@ -79,7 +79,7 @@
 		  <label for="headicon">头像：</label>
 		  <img src="qianduan/img/apple-touch-icon-144-precomposed.png" style="width:100px;height:100px;"/>
 		  <div style="display:inline-block">
-		  <button type="submit" style="width:100px">上传头像</button>
+		  <input name="imgfile" type="file" accept="image/gif,image/jpeg,image/png">
 		  <div>支持 JPG、PNG、GIF 格式，不要超过 2M </div>
 		  </div>
 		</div>

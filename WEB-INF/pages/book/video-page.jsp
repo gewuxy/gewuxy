@@ -102,7 +102,7 @@
           </s:iterator>
 	  </div>
 	  <div class="tutorial-nav">
-	    <div  class="tutorial-nav-header">
+	    <!--div  class="tutorial-nav-header">
 		  <a href="#" class="tutorial-nav-header-item tutorial-mulu" style="background-color:white;">
 		    <span class="glyphicon glyphicon-th-list"></span>
 			 目录
@@ -111,17 +111,24 @@
 		    <span class="glyphicon glyphicon-question-sign"></span>
 			 提问
 		  </a>
-		</div>
+		</div-->
+		<ul class="nav nav-pills tutorial-nav-header" role="tablist">
+ 		  <li role="presentation" class="tutorial-nav-header-item tutorial-mulu active">
+ 		    <a href="#"><span class="glyphicon glyphicon-th-list" style="padding-right:5px;"></span>目录</a>
+ 		  </li>
+ 		  <li role="presentation" class="tutorial-nav-header-item tutorial-tiwen">
+ 		    <a href="#"><span class="glyphicon glyphicon-question-sign" style="padding-right:5px;"></span>提问</a>
+ 		  </li>
+ 		</ul>
 		<div class="tutorial-nav-body">
 		  <div class="tutorial-nav-content">
 		    <ol class="tutorial-nav-content-list">
 		      <s:iterator value="pageModel.list[0].bookItem.parent.children">
 		      <li class="tutorial-nav-node">
-			    
-				    <span class="glyphicon glyphicon-adjust tutorial-nav-node-icon"></span>
-					<h4><s:a action="video_getByBookItemId" namespace="/video" cssClass="tutorial-tab-link" >
-                                <s:param name="bookItem.id" value="id"/> <s:property value="name" /></s:a></h4>
-				
+			    <s:a action="video_getByBookItemId" namespace="/video" cssClass="tutorial-tab-link" >
+					  <span class="glyphicon glyphicon-adjust tutorial-nav-node-icon"></span>
+                      <s:param name="bookItem.id" value="id"/> <s:property value="name" />
+					</s:a>
 			  </li>
 			</s:iterator>
 			  
@@ -158,7 +165,7 @@
 	</div>
   </div>
   
-  <div style="margin-top:45px;visibility:hidden;">sorry to use you to adjust layout</div>
+  <div style="margin-top:0px;visibility:hidden;">sorry to use you to adjust layout</div>
   <div class="tutorial-footer">
     <div class="tutorial-footer-container">
 	  <div class="video-discussion">
@@ -725,28 +732,26 @@
   
   <script>
 $(document).ready(function(){
+if($(".tutorial-nav-content-list").height()>430){
+ $(".tutorial-nav-content-list").css("overflow-y","scroll");
+ }
 $(".tutorial-mulu").live('click',function(){
 $(".tutorial-nav-content").css("display","block");
 $(".tutorial-nav-ask-questions").css("display","none");
-$(".tutorial-mulu").css("background-color","#fff");
-$(".tutorial-tiwen").css("background-color","#999");
+$(".tutorial-mulu").addClass("active");
+$(".tutorial-tiwen").removeClass("active");
 });
 
 $(".tutorial-tiwen").live('click',function(){
 $(".tutorial-nav-content").css("display","none");
 $(".tutorial-nav-ask-questions").css("display","block");
-$(".tutorial-mulu").css("background-color","#999");
-$(".tutorial-tiwen").css("background-color","#fff");
+$(".tutorial-mulu").removeClass("active");
+$(".tutorial-tiwen").addClass("active");
 });
 
 $(".ask-question .discussion-text").live('click',function(){
 var user = $("#userName").val();
-if(user==""){$("#sign-form").show({
-		autoOpen: false,
-		modal:true,
-		show:"slide",
-		hide:"slide"
-		});
+if(user==""){$("#sign-form").modal();
 }
 else{
 $(".ask-question .question-guidelines").slideDown();
@@ -1212,6 +1217,10 @@ alert("没有其他感谢了!");
 });
   });
 </script>
-
+<div style="clear:both;width:100%;">
+		<div style="margin-top:-50px;">
+			<%@include file="/WEB-INF/pages/common/footer.jsp"%>
+		</div>
+	</div> 
 </body>
 </html>

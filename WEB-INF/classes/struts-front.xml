@@ -72,6 +72,12 @@
 		<result name="teacherClass">/WEB-INF/pages/teacher/myclass.jsp</result>
 		<result name="prePage">/WEB-INF/pages/common/logon_result.jsp</result>
 		<result name="input">/WEB-INF/pages/common/error.jsp</result>
+		<result name="logonError" type="json">
+			 <param name="includeProperties">erroMessage</param>  
+		 </result>
+		 <result name="registerError" type="json">
+			 <param name="includeProperties">erroMessage</param>  
+		 </result>
 		<interceptor-ref name="userDefaultStack"/>  	 
    		</action>
 	</package>

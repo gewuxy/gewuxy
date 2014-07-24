@@ -877,7 +877,7 @@
 			  <input name="password" type="password" class="form-control" style="">
 			</div>
 			<div class="input-group" style="padding-top:5px;padding-bottom:5px;">
-			  <span class="input-group-addon" style="color:#000;">再输入密码</span>
+			  <span class="input-group-addon" style="color:#000;">确认密码</span>
 			  <input name="repassword" type="password" class="form-control" style="">
 			</div>
 			<div style="padding-top:5px;padding-bottom:5px;float:right;">

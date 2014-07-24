@@ -76,7 +76,7 @@ window.location.href="http://openapi.qzone.qq.com/oauth/show?which=Login&display
 			<input name="password" type="password" class="form-control">
 		  </div>
 		   <div class="input-group user-password">
-			<span class="input-group-addon" style="color:#000;">再次输入密码</span>
+			<span class="input-group-addon" style="color:#000;">确认密码</span>
 			<input name="repassword" type="password" class="form-control">
 		  </div>
 		  

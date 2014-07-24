@@ -73,10 +73,10 @@
 	<div style="clear:both;"></div>
   </div>
 </div>
-<div class="clearfix">
-		<div class="col-md-12 column">
-			<%@include file="footer.jsp"%>
+<div style="clear:both;width:100%;">
+		<div style="margin-top:0px;">
+			<%@include file="/WEB-INF/pages/common/footer.jsp"%>
 		</div>
-  </div>
+	</div> 
 </body>
 </html>

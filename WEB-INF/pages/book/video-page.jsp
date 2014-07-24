@@ -222,7 +222,7 @@
 		  </div>
 		  <div class="questions">
 		    <div class="question-list">
-<input id="pageNo" type="text" value="1" style="display:none"> </input>
+<input id="pageNo" type="text" value="2" style="display:none"> </input>
   
 			 <s:action name="question_findByVideo" executeResult="true" namespace="/question"> 
    			 	<s:param name="question.video.id" ><s:property value="pageModel.list[0].id"/></s:param> 
@@ -250,7 +250,7 @@
           </div>
 		  <div class="comments">
 			   <div class="discussion-list">
-<input id="thankpageNo" type="text" value="1" style="display:none"> </input>
+<input id="thankpageNo" type="text" value="2" style="display:none"> </input>
   
 		  		<s:action name="thank_getByVideoId" executeResult="true" namespace="/thank"> 
    			 	<s:param name="thank.video.id" ><s:property value="pageModel.list[0].id"/></s:param> 
@@ -475,7 +475,7 @@
 					
 					</div>
 				</div>
-			</div>
+			
 			 <!--问题模板的结尾-->
 					<!--问题评论的模板-->
 					    <div id="questioncommenttemplate" style="display:none">
@@ -692,7 +692,7 @@
 				  </div>
 		<span class="discussion-meta-separator"><hr></span>
 </div>
-		</div>
+		
 			<!--感谢的模板结束-->
 		<!--感谢评论的模板-->
 						<div id="thankcommenttemplate" style="display:none">
@@ -712,9 +712,9 @@
 <span class="discussion-meta-separator"></span>
 
 </div>
-						<!--感谢评论的模板结尾-->	
+</div>						<!--感谢评论的模板结尾-->	
 
-
+</div>
 
 
 
@@ -1151,7 +1151,7 @@ else{
 
 //更多问题live(‘click’, function() {
 $("#moreQuestions").live('click',function(){
-var pageNo=new Number($("#pageNo").val())+1;
+var pageNo=new Number($("#pageNo").val());
 var pages=new Number($("#pages").val());
 if(pageNo>pages){
 alert("没有其他问题了!");
@@ -1181,7 +1181,7 @@ alert("没有其他问题了!");
 });
 //更多感谢
 $("#moreThanks").live('click',function(){
-var pageNo=new Number($("#thankpageNo").val())+1;
+var pageNo=new Number($("#thankpageNo").val());
 var pages=new Number($("#thankpages").val());
 
 if(pageNo> pages){

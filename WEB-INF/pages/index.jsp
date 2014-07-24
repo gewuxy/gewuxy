@@ -53,7 +53,7 @@ window.location.href="http://openapi.qzone.qq.com/oauth/show?which=Login&display
         </div>
         <div class="index-signup-widget">
           <h3 class="text-center">免费注册加入格物学院</h3>
-          <hr /> 		
+          <hr style="width:90%;max-width:400px;"/> 		
 		  <div style="text-align:center;">
 		<s:form action="user_save" namespace="/user" method="post">
 		  <label for="id">我是</label>

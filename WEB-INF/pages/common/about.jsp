@@ -18,10 +18,10 @@
 <body>
 <div class="container">
      <div class="clearfix">
-			<div class="col-md-12 column">
-				<%@include file="head.jsp"%>
-			</div>
+	<div class="col-md-12 column">
+      <%@include file="/WEB-INF/pages/common/head.jsp"%>
 	</div>
+  </div>
   <div class="body-wrapper">
     <div class="body-content-wrapper">
 	  <div class="sidebar">

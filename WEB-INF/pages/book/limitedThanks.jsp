@@ -23,10 +23,28 @@
 						<div class="dropdown" style="display:inline;">
 						  <div class="dropdown-toggle" data-toggle="dropdown" style="display:inline;"><a href="javascript:void(0);">分享</a></div>
 						  <ul class="dropdown-menu">
-							<li><a href="#">分享到QQ空间</a></li>
-							<li><a href="#">分享到新浪微博</a></li>
-							<li><a href="#">分享到人人网</a></li>
+							<li><a href="javascript:;" class="jiathis_button_qzone">分享到QQ空间</a></li>
+							<li><a href="javascript:;" class="jiathis_button_weixin">分享到微信朋友圈</a></li>
+							<li><a href="javascript:;" class="jiathis_button_tsina">分享到新浪微博</a></li>
+							<li><a href="javascript:;" class="jiathis_button_tqq">分享到腾讯微博</a></li>
+							<li><a href="javascript:;" class="jiathis_button_renren">分享到人人网</a></li>
 						  </ul>
+						  <script type="text/javascript" >
+var jiathis_config={
+	siteNum:6,
+	sm:"tsina,qzone,weixin,renren,cqq,douban",
+	summary:$(".tutorial-title").text(),
+	title:"格物学院",
+	boldNum:0,
+	appkey:{
+		"tsina":"weibo",
+		"tqq":"tencent-weibo"
+	},
+	shortUrl:false,
+	hideMore:true
+}
+		  </script>
+		  <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
 						  </div>
 						</span>
 						<span class="toolbar-item-separator">•</span>

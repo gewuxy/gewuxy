@@ -108,8 +108,8 @@ var jiathis_config = {
 var jiathis_config={
 	siteNum:6,
 	sm:"tsina,qzone,weixin,renren,cqq,douban",
-	summary:"视频很棒",
-	title:"格物学院 ##",
+	summary:$(".tutorial-title").text(),
+	title:"格物学院",
 	boldNum:0,
 	appkey:{
 		"tsina":"weibo",

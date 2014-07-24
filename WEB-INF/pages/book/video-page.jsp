@@ -10,13 +10,12 @@
 <meta name="description" content=" " />
 <meta name="author" content="">
 <meta name="keywords" content="" />
-
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.ui.datepicker.js"></script> 
-
-
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
-
-
+<script>
+var jiathis_config = {
+   
+}
+</script>
 </head>
 <body>
   <div class="modal fade" id="jubao-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -98,16 +97,32 @@
 			</ul>
 		  </div-->
 		  <!-- JiaThis Button BEGIN -->
-		  <div class="jiathis_style_24x24" style="padding-top:7px;padding-left:5px;">
-			<span class="jiathis_txt" style="color:#333;font-size:14px;">分享到：</span>
+		  <div class="jiathis_style_24x24" style="padding-top:7px;">
+			<span class="jiathis_txt" style="padding-left:5px;font-size:14px;">分享到：</span>
 			<a class="jiathis_button_qzone"></a>
-			<a class="jiathis_button_tsina" style="line-height:40px;height:40px;"></a>
-			<a class="jiathis_button_tqq" style="line-height:40px;height:40px;"></a>
-			<a class="jiathis_button_weixin" style="line-height:40px;height:40px;"></a>
-			<a class="jiathis_button_renren" style="line-height:40px;height:40px;"></a>
+			<a class="jiathis_button_weixin"></a>
+			<a class="jiathis_button_tsina"></a>
+			<a class="jiathis_button_tqq"></a>
+			<a class="jiathis_button_renren"></a>
 		  </div>
-		  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+		  <script type="text/javascript" >
+var jiathis_config={
+	siteNum:6,
+	sm:"tsina,qzone,weixin,renren,cqq,douban",
+	summary:$(".tutorial-title").text(),
+	title:"格物学院",
+	boldNum:0,
+	appkey:{
+		"tsina":"weibo",
+		"tqq":"tencent-weibo"
+	},
+	shortUrl:false,
+	hideMore:true
+}
+		  </script>
+		  <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
 		  <!-- JiaThis Button END -->
+
 		  <!--div style="float:right;"><a href="javascript:void(0);" class="report-video-problem">报告视频问题</a></div-->
 	    </div>
           </s:iterator>
@@ -302,14 +317,30 @@
 						<span class="toolbar-item-separator">•</span>
 						<span class="question-share-num">10个
 						<div class="dropdown" style="display:inline;">
-						  <div class="dropdown-toggle" data-toggle="dropdown" style="display:inline;"><a href="javascript:void(0);">分享
-
-</a></div>
+						  <div class="dropdown-toggle" data-toggle="dropdown" style="display:inline;"><a href="javascript:void(0);">分享</a></div>
 						  <ul class="dropdown-menu">
-							<li><a href="#">分享到QQ空间</a></li>
-							<li><a href="#">分享到新浪微博</a></li>
-							<li><a href="#">分享到人人网</a></li>
+							<li><a class="jiathis_button_qzone">分享到QQ空间</a></li>
+							<li><a class="jiathis_button_weixin">分享到微信朋友圈</a></li>
+							<li><a class="jiathis_button_tsina">分享到新浪微博</a></li>
+							<li><a class="jiathis_button_tqq">分享到腾讯微博</a></li>
+							<li><a class="jiathis_button_renren">分享到人人网</a></li>
 						  </ul>
+						  <script type="text/javascript" >
+var jiathis_config={
+	siteNum:6,
+	sm:"tsina,qzone,weixin,renren,cqq,douban",
+	summary:$(".tutorial-title").text(),
+	title:"格物学院",
+	boldNum:0,
+	appkey:{
+		"tsina":"weibo",
+		"tqq":"tencent-weibo"
+	},
+	shortUrl:false,
+	hideMore:true
+}
+		  </script>
+		  <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
 						  </div>
 						</span>
 						<span class="toolbar-item-separator">•</span>
@@ -396,10 +427,28 @@
 						<div style="display:inline;" class="dropdown">
 						  <div style="display:inline;" data-toggle="dropdown" class="dropdown-toggle"><a href="javascript:void(0);">分享</a></div>
 						  <ul class="dropdown-menu">
-							<li><a href="#">分享到QQ空间</a></li>
-							<li><a href="#">分享到新浪微博</a></li>
-							<li><a href="#">分享到人人网</a></li>
+							<li><a href="javascript:;" class="jiathis_button_qzone">分享到QQ空间</a></li>
+							<li><a href="javascript:;" class="jiathis_button_weixin">分享到微信朋友圈</a></li>
+							<li><a href="javascript:;" class="jiathis_button_tsina">分享到新浪微博</a></li>
+							<li><a href="javascript:;" class="jiathis_button_tqq">分享到腾讯微博</a></li>
+							<li><a href="javascript:;" class="jiathis_button_renren">分享到人人网</a></li>
 						  </ul>
+						  <script type="text/javascript" >
+var jiathis_config={
+	siteNum:6,
+	sm:"tsina,qzone,weixin,renren,cqq,douban",
+	summary:$(".tutorial-title").text(),
+	title:"格物学院",
+	boldNum:0,
+	appkey:{
+		"tsina":"weibo",
+		"tqq":"tencent-weibo"
+	},
+	shortUrl:false,
+	hideMore:true
+}
+		  </script>
+		  <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
 						  </div>
 						</span>
 						<span class="toolbar-item-separator">•</span>
@@ -537,10 +586,28 @@
 						<div style="display:inline;" class="dropdown">
 						  <div style="display:inline;" data-toggle="dropdown" class="dropdown-toggle"><a href="javascript:void(0);">分享</a></div>
 						  <ul class="dropdown-menu">
-							<li><a href="#">分享到QQ空间</a></li>
-							<li><a href="#">分享到新浪微博</a></li>
-							<li><a href="#">分享到人人网</a></li>
+							<li><a href="javascript:;" class="jiathis_button_qzone">分享到QQ空间</a></li>
+							<li><a href="javascript:;" class="jiathis_button_weixin">分享到微信朋友圈</a></li>
+							<li><a href="javascript:;" class="jiathis_button_tsina">分享到新浪微博</a></li>
+							<li><a href="javascript:;" class="jiathis_button_tqq">分享到腾讯微博</a></li>
+							<li><a href="javascript:;" class="jiathis_button_renren">分享到人人网</a></li>
 						  </ul>
+						  <script type="text/javascript" >
+var jiathis_config={
+	siteNum:6,
+	sm:"tsina,qzone,weixin,renren,cqq,douban",
+	summary:$(".tutorial-title").text(),
+	title:"格物学院",
+	boldNum:0,
+	appkey:{
+		"tsina":"weibo",
+		"tqq":"tencent-weibo"
+	},
+	shortUrl:false,
+	hideMore:true
+}
+		  </script>
+		  <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
 						  </div>
 						</span>
 						<span class="toolbar-item-separator">•</span>
@@ -653,10 +720,28 @@
 						<div style="display:inline;" class="dropdown">
 						  <div style="display:inline;" data-toggle="dropdown" class="dropdown-toggle"><a href="javascript:void(0);">分享</a></div>
 						  <ul class="dropdown-menu">
-							<li><a href="#">分享到QQ空间</a></li>
-							<li><a href="#">分享到新浪微博</a></li>
-							<li><a href="#">分享到人人网</a></li>
+							<li><a href="javascript:;" class="jiathis_button_qzone">分享到QQ空间</a></li>
+							<li><a href="javascript:;" class="jiathis_button_weixin">分享到微信朋友圈</a></li>
+							<li><a href="javascript:;" class="jiathis_button_tsina">分享到新浪微博</a></li>
+							<li><a href="javascript:;" class="jiathis_button_tqq">分享到腾讯微博</a></li>
+							<li><a href="javascript:;" class="jiathis_button_renren">分享到人人网</a></li>
 						  </ul>
+						  <script type="text/javascript" >
+var jiathis_config={
+	siteNum:6,
+	sm:"tsina,qzone,weixin,renren,cqq,douban",
+	summary:$(".tutorial-title").text(),
+	title:"格物学院",
+	boldNum:0,
+	appkey:{
+		"tsina":"weibo",
+		"tqq":"tencent-weibo"
+	},
+	shortUrl:false,
+	hideMore:true
+}
+		  </script>
+		  <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
 						  </div>
 						</span>
 						<span class="toolbar-item-separator">•</span>
@@ -790,12 +875,7 @@ alert(mid);
 //问题评论锚点滚动到回答问题处
 $(".question .reply-options .discussion-reply").live('click',function(){
 var user = $("#userName").val();
-if(user==""){$("#sign-form").show({
-		autoOpen: false,
-		modal:true,
-		show:"slide",
-		hide:"slide"
-		});
+if(user==""){$("#sign-form").modal();
 }
 else{
 var id=$(this).parent().parent().parent().parent().parent().parent().parent().parent().attr("id");
@@ -814,12 +894,7 @@ scrollTop:scroll_offset.top-400 //让body的scrollTop等于pos的top，就实现
 //回答评论锚点滚动到回答问题处
 $(".answer .reply-options .discussion-reply").live('click',function(){
 var user = $("#userName").val();
-if(user==""){$("#sign-form").show({
-		autoOpen: false,
-		modal:true,
-		show:"slide",
-		hide:"slide"
-		});
+if(user==""){$("#sign-form").modal();
 }
 else{
 var id=$(this).parent().parent().parent().parent().parent().parent().parent().parent().parent().attr("id");
@@ -857,12 +932,7 @@ $("#"+id+".comment .replies-container").toggle();
 
 $(".suggest-modify-question").live('click',function(){
 var user = $("#userName").val();
-if(user==""){$("#sign-form").show({
-		autoOpen: false,
-		modal:true,
-		show:"slide",
-		hide:"slide"
-		});
+if(user==""){$("#sign-form").modal();
 }
 else{
  var id=$(this).parent().parent().parent().parent().parent().parent().attr("id");
@@ -895,12 +965,7 @@ $("#"+id+">.show-answer-links >.show-hidden-answers").text("收起回答");
 
 $(".add-answer .discussion-text").live('click',function(){
 var user = $("#userName").val();
-if(user==""){$("#sign-form").show({
-		autoOpen: false,
-		modal:true,
-		show:"slide",
-		hide:"slide"
-		});
+if(user==""){$("#sign-form").modal();
 }
 else{
 var id=$(this).parent().parent().parent().attr("id");
@@ -937,12 +1002,7 @@ if($(".comments-tab").is(":hidden")){
 
 $(".post-feedback .comment .discussion-text").live('click',function(){
 var user = $("#userName").val();
-if(user==""){$("#sign-form").show({
-		autoOpen: false,
-		modal:true,
-		show:"slide",
-		hide:"slide"
-		});
+if(user==""){$("#sign-form").modal();
 }
 else{
 $(".comments-tab .feed-guidelines").slideDown();
@@ -1128,12 +1188,7 @@ $(".post-feedback .comment .discussion-submit").live('click',function(){
 //发送感谢评论
 $(".comments-tab .comments .comment  .discussion-submit").live('click',function(){
 var user = $("#userName").val();
-if(user==""){$("#sign-form").show({
-		autoOpen: false,
-		modal:true,
-		show:"slide",
-		hide:"slide"
-		});
+if(user==""){$("#sign-form").modal();
 }
 else{
  var id=$(this).parent().parent().parent().parent().parent().parent().parent().attr("id");

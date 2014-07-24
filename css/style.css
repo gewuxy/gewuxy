@@ -549,10 +549,12 @@ margin-top:10px;
 }
 .video-options{
 display:block;
+margin-top:-3px;
+border-radius:4px;
 width:100%;
 line-height:40px;
 height:40px;
-background-color:#333;
+background-color:#d0d0d0;
 }
 .report-video-problem{
 line-height:33px;
@@ -561,10 +563,10 @@ color:white;
 }
 .share-video{
 cursor: pointer;
-margin:7px;
 position:relative;
 float:right;
 color:white;
+margin-right:10px;
 }
 .tutorial-footer{
 width:980px;

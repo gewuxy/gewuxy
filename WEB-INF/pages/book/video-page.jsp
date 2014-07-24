@@ -87,7 +87,7 @@
 		frameborder="1" webkitAllowFullScreen mozallowfullscreen allowfullscreen>
 		</iframe>
 		<div class="video-options">
-	      <div class="dropdown" style="float:right;">
+	      <!--div class="dropdown" style="float:right;">
             <div class="dropdown-toggle share-video" data-toggle="dropdown">
 			  <span class="glyphicon glyphicon-share"></span>分享
 			</div>
@@ -96,7 +96,18 @@
 			  <li><a href="#">分享到新浪微博</a></li>
 			  <li><a href="#">分享到人人网</a></li>
 			</ul>
+		  </div-->
+		  <!-- JiaThis Button BEGIN -->
+		  <div class="jiathis_style_24x24" style="padding-top:7px;padding-left:5px;">
+			<span class="jiathis_txt" style="color:#333;font-size:14px;">分享到：</span>
+			<a class="jiathis_button_qzone"></a>
+			<a class="jiathis_button_tsina" style="line-height:40px;height:40px;"></a>
+			<a class="jiathis_button_tqq" style="line-height:40px;height:40px;"></a>
+			<a class="jiathis_button_weixin" style="line-height:40px;height:40px;"></a>
+			<a class="jiathis_button_renren" style="line-height:40px;height:40px;"></a>
 		  </div>
+		  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+		  <!-- JiaThis Button END -->
 		  <!--div style="float:right;"><a href="javascript:void(0);" class="report-video-problem">报告视频问题</a></div-->
 	    </div>
           </s:iterator>
@@ -144,7 +155,7 @@
 			</s:if>
 				<s:iterator value="pageModel.list[0].bookItem.parentNext.children" status="status" >
 				<s:if test="#status.index== 0">
-				<s:a action="video_getByBookItemId" namespace="/video" cssClass="tutorial-tab-link" 						style="text-align:center;">
+				<s:a action="video_getByBookItemId" namespace="/video" cssClass="tutorial-tab-link" style="text-align:center;">
                                 <s:param name="bookItem.id" value="id"/> 
 				  <div class="tutorial-nav-next-right">
 				   <div class="tutorial-nav-next-section-label">下一节</div>

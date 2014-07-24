@@ -782,7 +782,7 @@
 				
 					<s:if test="#session.user== null">
 					
-					<s:form cssClass="navbar-form navbar-right" role="form" style="" action="user_logon" namespace="/user" method="post">	
+					<form class="navbar-form navbar-right" role="form" style="">	
 						<div class="form-group">
 							<label class="sr-only" for="exampleInputEmail1">Email address</label>
 							<input type="email" class="form-control" id="exampleInputEmail1" name="email" autocomplete="on" placeholder="邮件地址">
@@ -791,16 +791,16 @@
 							<label class="sr-only" for="exampleInputPassword2">Password</label>
 							<input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="密码">
 						</div>
-						<button class="btn btn-default" type="button">?</button>
+						<button id="cuowutishi" class="btn btn-default" type="button">?</button>
 						<div class="checkbox">
 							<label>
 								<input type="checkbox"> <font color="white">记住密码</font>
 							</label>
 						</div>
-						<button type="button submit" class="btn btn-primary">登录</button>
+						<button id="denglu" type="button" class="btn btn-primary">登录</button>
 						
 				<a class="sign-up" href="#">注册</a>
-					</s:form></s:if>
+					</form></s:if>
 					<s:if test="#session.user!= null">
 					<ul class="nav navbar-nav navbar-right" style="margin:0 auto;">
 						<li class="dropdown">
@@ -956,6 +956,27 @@
 			$(".sign-up").click(function(){
 				$('#sign-form').modal();
 				$(".sign-up-tab").trigger("click");
+			});
+			$("#denglu").click(function(){
+				var params = {
+				"email" : $("#exampleInputEmail1").val(),
+				"password" : $("#exampleInputPassword2").val()
+			      };
+ 
+			      $.ajax({
+				    type: "POST",
+				url: "../user/user_logon.html",
+			 	data:params,
+			       	dataType:"json",
+				success:function(data){ 
+				 $("#cuowutishi").text(data.erroMessage);
+				},
+				error: function(data){
+				  alert("data=" + data.responseText);
+
+				  return false;
+				}
+				});
 			});
         });
 function goTopEx() {  

@@ -26,10 +26,18 @@
     <div class="body-content-wrapper">
 	  <div class="sidebar">
 		  <ul class="nav nav-pills nav-stacked">
-		    <li class="tab-about-us"><a href="/qianduan/about.jsp">关于我们</a></li>
-			<li class="tab-join-us"><a href="javascript:;">加入我们</a></li>
-			<li class="tab-faq"><a href="/qianduan/faq.jsp">常见问题</a></li>
-			<li class="tab-advise active"><a href="javascript:;">给我们建议</a></li>
+		    <li class="tab-about-us">
+			  <s:a action="index_about" namespace="/front">关于我们</s:a>
+			</li>
+			<li class="tab-join-us">
+			<a href="javascript:;">加入我们</a>
+			</li>
+			<li class="tab-faq">
+			  <s:a action="index_faq" namespace="/front">常见问题</s:a>
+			</li>
+			<li class="tab-advise active">
+			  <a href="javascript:;">给我们建议</a>
+			</li>
 		  </ul>
 	  </div>
 	<div id="advise">

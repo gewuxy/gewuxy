@@ -10,13 +10,12 @@
 <meta name="description" content=" " />
 <meta name="author" content="">
 <meta name="keywords" content="" />
-
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.ui.datepicker.js"></script> 
-
-
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
-
-
+<script>
+var jiathis_config = {
+   
+}
+</script>
 </head>
 <body>
   <div class="modal fade" id="jubao-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -98,16 +97,31 @@
 			</ul>
 		  </div-->
 		  <!-- JiaThis Button BEGIN -->
-		  <div class="jiathis_style_24x24" style="padding-top:7px;padding-left:5px;">
-			<span class="jiathis_txt" style="color:#333;font-size:14px;">分享到：</span>
+		  <div class="jiathis_style_24x24" style="padding-top:7px;">
+			<span class="jiathis_txt" style="padding-left:5px;font-size:14px;">分享到：</span>
 			<a class="jiathis_button_qzone"></a>
-			<a class="jiathis_button_tsina" style="line-height:40px;height:40px;"></a>
-			<a class="jiathis_button_tqq" style="line-height:40px;height:40px;"></a>
-			<a class="jiathis_button_weixin" style="line-height:40px;height:40px;"></a>
-			<a class="jiathis_button_renren" style="line-height:40px;height:40px;"></a>
+			<a class="jiathis_button_tsina"></a>
+			<a class="jiathis_button_tqq"></a>
+			<a class="jiathis_button_renren"></a>
 		  </div>
-		  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+		  <script type="text/javascript" >
+var jiathis_config={
+	siteNum:6,
+	sm:"tsina,qzone,weixin,renren,cqq,douban",
+	summary:"视频很棒",
+	title:"格物学院 ##",
+	boldNum:0,
+	appkey:{
+		"tsina":"weibo",
+		"tqq":"tencent-weibo"
+	},
+	shortUrl:false,
+	hideMore:true
+}
+		  </script>
+		  <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
 		  <!-- JiaThis Button END -->
+
 		  <!--div style="float:right;"><a href="javascript:void(0);" class="report-video-problem">报告视频问题</a></div-->
 	    </div>
           </s:iterator>

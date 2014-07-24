@@ -928,7 +928,7 @@
 </div>
 <script type="text/javascript">
         $(document).ready(function () {
-		if(window.location.pathname.indexOf("index")>=0){
+		if(window.location.pathname.indexOf("index.jsp")>=0){
 				$(".sign-up").hide();
 			}else{
 				$(".sign-up").show();

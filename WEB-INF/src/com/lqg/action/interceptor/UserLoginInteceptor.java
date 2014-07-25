@@ -72,9 +72,9 @@ public class UserLoginInteceptor extends AbstractInterceptor{
 	                                
 	                               
 	                            }  
-	                            
+	                         }   
 	                        session.put("prePage", url);   
-	                  }
+	                  
 	                 return invocation.invoke();  
 	        }  
 	

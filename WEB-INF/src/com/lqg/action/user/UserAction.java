@@ -1,5 +1,7 @@
 package com.lqg.action.user;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
@@ -138,8 +140,12 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	        }
 		}
 		else {
-			setErroMessage("用户邮箱和密码不一致");	
-			return LOGONERERROR;//锟斤拷锟斤拷锟斤拷站锟
+			HttpServletResponse response = ServletActionContext.getResponse();
+			PrintWriter out = response.getWriter();
+			out.write("<script>alert('密码和邮箱不一致');</script>");
+			out.flush();
+	        out.close();
+			return null;//锟斤拷锟斤拷锟斤拷站锟
 		}
 	}
 	/**

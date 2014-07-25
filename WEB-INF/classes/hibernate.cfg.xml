@@ -11,7 +11,7 @@
 		<!-- 数据库连接信息 -->
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_geWu</property>
 		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password"> 1qaz2wsx</property>
+		<property name="hibernate.connection.password"> sp2571mk397liqiuguo</property>
 		<!-- 打印SQL语句 -->
 		<property name="hibernate.show_sql">true</property>
 		<!-- 不格式化SQL语句 -->

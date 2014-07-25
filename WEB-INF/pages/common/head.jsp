@@ -782,7 +782,7 @@
 				
 					<s:if test="#session.user== null">
 					
-					<form class="navbar-form navbar-right" role="form" style="">	
+					<s:form action="user_logon" namespace="/user" cssClass="navbar-form navbar-right" role="form" style="" >	
 						<div class="form-group">
 							<label class="sr-only" for="exampleInputEmail1">Email address</label>
 							<input type="email" class="form-control" id="exampleInputEmail1" name="email" autocomplete="on" placeholder="邮件地址">
@@ -797,10 +797,10 @@
 								<input type="checkbox"> <font color="white">记住密码</font>
 							</label>
 						</div>
-						<button id="denglu" type="button" class="btn btn-primary">登录</button>
+						<button id="denglu" type="button submit" class="btn btn-primary">登录</button>
 						
 				<a class="sign-up" href="#">注册</a>
-					</form></s:if>
+					</s:form></s:if>
 					<s:if test="#session.user!= null">
 					<ul class="nav navbar-nav navbar-right" style="margin:0 auto;">
 						<li class="dropdown">
@@ -858,7 +858,7 @@
 		<s:form action="user_save" namespace="/user" method="post">
 			<div style="margin-left:auto;margin-right:auto;text-align:center;">
 			  <label for="id">我是</label>
-			  <select name="category" style="width:100px">
+			  <select id="categoryId" name="category" style="width:100px">
 				<option value="student">学生</option>
 				<option value="teacher">老师</option>
 				<option value="parent">家长</option>
@@ -866,22 +866,22 @@
 			</div>
 			<div class="input-group" style="padding-top:5px;padding-bottom:5px;">
 			  <span class="input-group-addon" style="color:#000;">用户名</span>
-			  <input name="username" type="text" class="form-control">
+			  <input id="usernameId" name="username" type="text" class="form-control">
 			</div>
 			<div class="input-group" style="padding-top:5px;padding-bottom:5px;">
 			  <span class="input-group-addon" style="color:#000;">电子邮件</span>
-			  <input name="email" type="text" class="form-control" style="">
+			  <input id="emailId"  name="email" type="text" class="form-control" style="">
 			</div>
 			<div class="input-group" style="padding-top:5px;padding-bottom:5px;">
 			  <span class="input-group-addon" style="color:#000;">密码</span>
-			  <input name="password" type="password" class="form-control" style="">
+			  <input id="passwordId" name="password" type="password" class="form-control" style="">
 			</div>
 			<div class="input-group" style="padding-top:5px;padding-bottom:5px;">
 			  <span class="input-group-addon" style="color:#000;">确认密码</span>
-			  <input name="repassword" type="password" class="form-control" style="">
+			  <input id="repasswordId" name="repassword" type="password" class="form-control" style="">
 			</div>
 			<div style="padding-top:5px;padding-bottom:5px;float:right;">
-		      <button type="button submit" class="btn btn-primary">加入格物学院</button>
+		      <button id="register" type="button submit" class="btn btn-primary">加入格物学院</button>
 			</div>
 			<div class="input-group" style="padding-top:5px;padding-bottom:5px;">
 			  <s：fielderror cssClass="input-group-addon" style="color:#000;"></s：fielderror>
@@ -890,15 +890,15 @@
 		</s:form>
 		  <div class="sign-in-email" style="display:none;">
 		  <h4>登录格物学院</h4>
-            <s:form action="user_logon" namespace="/user" method="post">
-		<s:fielderror></s:fielderror>
+            <s:form action="user_logon" namespace="/user">
+		
 		  <div class="input-group" style="padding-top:5px;padding-bottom:5px;">
 			<span class="input-group-addon" style="color:#000;">电子邮件</span>
-			<input name="email" type="text" class="form-control" style="">
+			<input id="email2" name="email" type="text" class="form-control" style="">
 		  </div>
 		  <div class="input-group" style="padding-top:5px;padding-bottom:5px;">
 			<span class="input-group-addon" style="color:#000;">密码</span>
-			<input name="password" type="password" class="form-control" style="">
+			<input id="password2" name="password" type="password" class="form-control" style="">
 		  </div>
 		  <div style="padding-top:5px;padding-bottom:5px;float:right;">
 		    <div class="checkbox" style="display:inline-block;">
@@ -907,7 +907,7 @@
 				</label>
 			</div>
 			<a href="#">忘记密码？</a>
-		    <button type="button submit" class="btn btn-primary">登录</button>
+		    <button id="denglu2" type="button submit" class="btn btn-primary">登录</button>
 		  </div>
 		</div>
 	    </s:form>
@@ -957,7 +957,56 @@
 				$('#sign-form').modal();
 				$(".sign-up-tab").trigger("click");
 			});
-			$("#denglu").click(function(){
+			/*$("#denglu").click(function(){
+				var params = {
+				"email" : $("#exampleInputEmail1").val(),
+				"password" : $("#exampleInputPassword2").val()
+			      };
+ 
+			      $.ajax({
+				    type: "POST",
+				url: "../user/user_logon.html",
+			 	data:params,
+			       	dataType:"json",
+				success:function(data){ 
+					var msg="用户邮箱和密码不一致";
+					if(data.erroMessage!=''){
+				 	$("#exampleInputEmail1").val("用户邮箱和密码不一致")
+					}
+				},
+				error: function(data){
+				  
+
+				  return false;
+				}
+				});
+			});
+			$("#denglu2").click(function(){
+				var params = {
+				"email" : $("#email2").val(),
+				"password" : $("#password2").val()
+			      };
+ 
+			      $.ajax({
+				    type: "POST",
+				url: "../user/user_logon.html",
+			 	data:params,
+			       	dataType:"json",
+				success:function(data){ 
+					var msg="用户邮箱和密码不一致";
+					//alert(msg);
+					if(data.erroMessage!=''){
+				 	$("#email2").val("用户邮箱和密码不一致")
+					}
+				},
+				error: function(data){
+				  
+
+				  return false;
+				}
+				});
+			});
+			$("#register").click(function(){
 				var params = {
 				"email" : $("#exampleInputEmail1").val(),
 				"password" : $("#exampleInputPassword2").val()
@@ -972,12 +1021,12 @@
 				 $("#cuowutishi").text(data.erroMessage);
 				},
 				error: function(data){
-				  alert("data=" + data.responseText);
+				  
 
 				  return false;
 				}
 				});
-			});
+			});*/
         });
 function goTopEx() {  
     var obj = document.getElementById("goTopBtn");  

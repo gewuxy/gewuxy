@@ -1,5 +1,7 @@
 package com.lqg.action.user;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -7,6 +9,7 @@ import com.lqg.action.BaseAction;
 import com.lqg.model.user.Parent;
 import com.lqg.model.user.Student;
 import com.lqg.model.user.Teacher;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ModelDriven;
 /**
  * 锟剿匡拷Action
@@ -134,8 +137,8 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	        }
 		}
 		else {
-			setErroMessage("用户邮箱和密码不一致");
-			return LOGONERERROR;//锟斤拷锟斤拷锟斤拷站锟斤拷页
+			session.put("erromessage", "密码和邮箱不一致");
+			return null;//锟斤拷锟斤拷锟斤拷站锟斤拷页
 		}
 	}
 	/**

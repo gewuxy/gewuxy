@@ -29,6 +29,9 @@ public class UserLoginInteceptor extends AbstractInterceptor{
 	            HttpServletRequest req = ServletActionContext.getRequest();
 	                 //如果referer不为空 直接使用它。如果为空我们分别获得命名空间，action名,以及请求参数  
 	                        //从新构造成一个URL保存在session中  
+	            if (req.getHeader("X-Requested-With") == null
+                		&& !req.getHeader("X-Requested-With").equalsIgnoreCase(     
+                		"XMLHttpRequest")) {  
 	                        String url=req.getHeader("referer");  
 	                        
 	                        if(url==null || url.equals(""))  
@@ -46,7 +49,7 @@ public class UserLoginInteceptor extends AbstractInterceptor{
 	                                    {  
 	                                        url = url+"/"+actionName+".action"+"?";  
 	                                    }  
-	                                  
+	                               
 	                                Map<String,String[]> zzMap = req.getParameterMap();  
 	                                if(zzMap!=null)  
 	                                    {  
@@ -60,12 +63,14 @@ public class UserLoginInteceptor extends AbstractInterceptor{
 	                                                  
 	                                            }  
 	                                    }  
+	                                
 	                               
 	                            }  
 	                        session.put("prePage", url);   
 	                  
 	                 return invocation.invoke();  
-	        }          
+	        }  
+		}
 	           
 	           
 	       

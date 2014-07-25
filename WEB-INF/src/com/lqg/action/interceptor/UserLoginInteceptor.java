@@ -31,7 +31,9 @@ public class UserLoginInteceptor extends AbstractInterceptor{
 	                        //从新构造成一个URL保存在session中  
 	            if (req.getHeader("X-Requested-With") != null
                 		&& req.getHeader("X-Requested-With").equalsIgnoreCase(     
-                		"XMLHttpRequest")) { return invocation.invoke();}
+                		"XMLHttpRequest")) { 
+	            	session.put("prePage", "");
+	            	return invocation.invoke();}
 	            else{
 	                        String url=req.getHeader("referer");  
 	                        

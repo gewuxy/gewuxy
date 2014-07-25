@@ -183,7 +183,7 @@ var jiathis_config={
 	  <div class="video-discussion">
 	    <div class="video-feedback-block">
 		  <div class="video-feedback">
-		    <span class="glyphicon glyphicon-remove close"></span>
+		    <span class="glyphicon glyphicon-remove closefeedback"></span>
 			<div class="feedback-questions">此课是否有帮助？</div>
 			<div class="feedback-options">
 			  <label for="answer-helpful">
@@ -863,7 +863,7 @@ $(".ask-question .discussion-controls").css("display","none");
 $(".ask-question .discussion-text").attr("placeholder","点击提问");
 });
 
-$(".close").live('click',function(){
+$(".closefeedback").live('click',function(){
 $(".video-feedback-block").slideUp();
 });
 /*模板live监听

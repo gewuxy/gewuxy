@@ -11,14 +11,10 @@
 <meta name="author" content="">
 <meta name="keywords" content="" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
-<script>
-var jiathis_config = {
-   
-}
-</script>
+
 </head>
 <body>
-  <div class="modal fade" id="jubao-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal" id="jubao-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -29,25 +25,25 @@ var jiathis_config = {
 	    <div class="jubao-options">
         <div class="radio">
 		  <label>
-			<input type="radio" name="optionsRadios" id="Radios-ad" value="1">
+			<input type="radio" name="jubaoRadios" id="Radios-ad" value="1">
 			广告等垃圾信息
 		  </label>
 		</div>
 		<div class="radio">
 		  <label>
-			<input type="radio" name="optionsRadios" id="Radios-mute" value="2">
+			<input type="radio" name="jubaoRadios" id="Radios-mute" value="2">
 			内容诋毁他人，语言不友善
 		  </label>
 		</div>
 		<div class="radio">
 		  <label>
-			<input type="radio" name="optionsRadios" id="Radios-not-helpful" value="3">
+			<input type="radio" name="jubaoRadios" id="Radios-not-helpful" value="3">
 			内容没有帮助
 		  </label>
 		</div>
 		<div class="radio">
 		  <label>
-			<input type="radio" name="optionsRadios" id="Radios-others" value="4" onclick="show-jubao-others(4)">
+			<input type="radio" name="jubaoRadios" id="Radios-others" value="4" onclick="show-jubao-others(4)">
 			其他
 		  </label>
 		</div>
@@ -187,7 +183,7 @@ var jiathis_config={
 	  <div class="video-discussion">
 	    <div class="video-feedback-block">
 		  <div class="video-feedback">
-		    <span class="glyphicon glyphicon-remove close"></span>
+		    <span class="glyphicon glyphicon-remove closefeedback"></span>
 			<div class="feedback-questions">此课是否有帮助？</div>
 			<div class="feedback-options">
 			  <label for="answer-helpful">
@@ -818,6 +814,14 @@ var jiathis_config={
   
   <script>
 $(document).ready(function(){
+$('input[name="jubaoRadios"]').change(function(){
+if($('input[name="jubaoRadios"]:checked').val()=='4'){
+$('.jubao-others-reason').show();
+}
+else{
+$('.jubao-others-reason').hide();
+}
+});
 
 $("li > a.jiathis_button_qzone,li > a.jiathis_button_weixin,li > a.jiathis_button_tsina,li > a.jiathis_button_tqq,li > a.jiathis_button_renren").mouseover(function(){
 $(this).removeAttr('title');
@@ -859,7 +863,7 @@ $(".ask-question .discussion-controls").css("display","none");
 $(".ask-question .discussion-text").attr("placeholder","点击提问");
 });
 
-$(".close").live('click',function(){
+$(".closefeedback").live('click',function(){
 $(".video-feedback-block").slideUp();
 });
 /*模板live监听

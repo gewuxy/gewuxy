@@ -619,13 +619,14 @@ color:white;
 clear:left;
 display:block;
 }
-.close{
+.closefeedback{
 position: relative;
 right: 4px;
 top: 2px;
 float: right;
 line-height: 20px;
 color: #000;
+cursor:pointer;
 text-shadow: 0 1px 0 #fff;
 opacity: .2;
 }

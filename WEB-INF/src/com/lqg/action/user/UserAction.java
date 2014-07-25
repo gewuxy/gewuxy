@@ -1,7 +1,5 @@
 package com.lqg.action.user;
 
-import java.io.PrintWriter;
-
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
@@ -33,7 +31,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	private static final String STUDENT_CLASS = "studentClass";
 	private static final String PREPAGE = "prePage";
 	private static final String REGISTERERROR = "registerError";
-	private static final String LOGONERERROR = "logonError";
+	private static final String LOGONERROR = "logonError";
 	private String prePage;
 	private String erroMessage;
 	public String login() throws Exception{
@@ -140,12 +138,8 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	        }
 		}
 		else {
-			HttpServletResponse response = ServletActionContext.getResponse();
-			PrintWriter out = response.getWriter();
-			out.write("<script>alert(\"密码和邮箱不一致\");</script>");
-			out.flush();
-	        out.close();
-			return PREPAGE;//锟斤拷锟斤拷锟斤拷站锟
+			setErroMessage("密码和邮箱不一致");
+			return LOGONERROR;
 		}
 	}
 	/**

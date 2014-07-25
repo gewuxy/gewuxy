@@ -584,13 +584,24 @@ width: 79%;
 float: left;
 }
 .discussion-guideline{
-color: #888;
-font-size: 12px;
-float: left;
+float: right;
 margin-bottom: 15px;
 margin-top: 10px;
+margin-left:20px;
+margin-right:-40px;
 width: 20%;
-
+}
+.good-question-answer,.give-question-answer{
+font-size:14px;
+font-weight:bold;
+font-family:Microsoft YaHei;
+color:#777;
+margin-bottom:-10px;
+}
+.discussion-guideline>p{
+font-size:12px;
+font-family:SimSun;
+color:#777;
 }
 .clear{
 clear: both;

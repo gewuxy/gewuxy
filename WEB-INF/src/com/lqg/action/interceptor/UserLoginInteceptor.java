@@ -52,7 +52,10 @@ public class UserLoginInteceptor extends AbstractInterceptor{
 	                                    {  
 	                                        url = url+"/"+actionName+".action"+"?";  
 	                                    }  
-	                               
+	                                if (req.getHeader("X-Requested-With") != null
+	                                		&& !req.getHeader("X-Requested-With").equalsIgnoreCase(     
+	                                		"XMLHttpRequest")) {                 	            	
+	                	          
 	                                Map<String,String[]> zzMap = req.getParameterMap();  
 	                                if(zzMap!=null)  
 	                                    {  
@@ -69,8 +72,9 @@ public class UserLoginInteceptor extends AbstractInterceptor{
 	                                
 	                               
 	                            }  
+	                            
 	                        session.put("prePage", url);   
-	                  
+	                  }
 	                 return invocation.invoke();  
 	        }  
 	

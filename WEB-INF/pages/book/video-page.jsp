@@ -86,16 +86,6 @@ var jiathis_config = {
 		frameborder="1" webkitAllowFullScreen mozallowfullscreen allowfullscreen>
 		</iframe>
 		<div class="video-options">
-	      <!--div class="dropdown" style="float:right;">
-            <div class="dropdown-toggle share-video" data-toggle="dropdown">
-			  <span class="glyphicon glyphicon-share"></span>分享
-			</div>
-			<ul class="dropdown-menu dropdown-menu-right">
-			  <li><a href="#">分享到QQ空间</a></li>
-			  <li><a href="#">分享到新浪微博</a></li>
-			  <li><a href="#">分享到人人网</a></li>
-			</ul>
-		  </div-->
 		  <!-- JiaThis Button BEGIN -->
 		  <div class="jiathis_style_24x24" style="padding-top:7px;">
 			<span class="jiathis_txt" style="padding-left:5px;font-size:14px;">分享到：</span>
@@ -828,6 +818,11 @@ var jiathis_config={
   
   <script>
 $(document).ready(function(){
+
+$("li > a.jiathis_button_qzone,li > a.jiathis_button_weixin,li > a.jiathis_button_tsina,li > a.jiathis_button_tqq,li > a.jiathis_button_renren").mouseover(function(){
+$(this).removeAttr('title');
+});
+
 if($(".tutorial-nav-content-list").height()>430){
  $(".tutorial-nav-content-list").css("overflow-y","scroll");
  }

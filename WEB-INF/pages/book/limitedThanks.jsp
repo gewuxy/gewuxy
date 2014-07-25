@@ -96,4 +96,8 @@ var jiathis_config={
 					</div>
 				  </div><span class="discussion-meta-separator"><hr/></span></s:iterator>
 				</div>
-
+<script>
+$("li > a.jiathis_button_qzone,li > a.jiathis_button_weixin,li > a.jiathis_button_tsina,li > a.jiathis_button_tqq,li > a.jiathis_button_renren").mouseover(function(){
+$(this).removeAttr('title');
+});
+</script>

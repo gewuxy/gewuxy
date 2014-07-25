@@ -138,10 +138,8 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	        }
 		}
 		else {
-			HttpServletResponse response = ServletActionContext.getResponse();
-			response.getWriter().write("密码和邮箱不一致");  
-			
-			return null;//锟斤拷锟斤拷锟斤拷站锟
+			setErroMessage("用户邮箱和密码不一致");	
+			return LOGONERERROR;//锟斤拷锟斤拷锟斤拷站锟
 		}
 	}
 	/**

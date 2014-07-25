@@ -782,7 +782,7 @@
 				
 					<s:if test="#session.user== null">
 					
-					<s:form action="user_logon" namespace="/user" cssClass="navbar-form navbar-right" role="form" style="" >	
+					<form class="navbar-form navbar-right" role="form" style="" >	
 						<div class="form-group">
 							<label class="sr-only" for="exampleInputEmail1">Email address</label>
 							<input type="email" class="form-control" id="exampleInputEmail1" name="email" autocomplete="on" placeholder="邮件地址">
@@ -797,10 +797,10 @@
 								<input type="checkbox"> <font color="white">记住密码</font>
 							</label>
 						</div>
-						<button id="denglu" type="button submit" class="btn btn-primary">登录</button>
+						<button id="denglu" type="button " class="btn btn-primary">登录</button>
 						
 				<a class="sign-up" href="#">注册</a>
-					</s:form></s:if>
+					</form></s:if>
 					<s:if test="#session.user!= null">
 					<ul class="nav navbar-nav navbar-right" style="margin:0 auto;">
 						<li class="dropdown">
@@ -907,7 +907,7 @@
 				</label>
 			</div>
 			<a href="#">忘记密码？</a>
-		    <button id="denglu2" type="button submit" class="btn btn-primary">登录</button>
+		    <button id="denglu2" type="button " class="btn btn-primary">登录</button>
 		  </div>
 		</div>
 	    </s:form>
@@ -957,7 +957,16 @@
 				$('#sign-form').modal();
 				$(".sign-up-tab").trigger("click");
 			});
-			/*$("#denglu").click(function(){
+			$("#denglu").click(function(){
+					if($("#exampleInputEmail1").val()==''){
+						alert("没有输入邮箱，请输入邮箱!");
+						$("#exampleInputEmail1").focus();
+						return;
+					}
+					if($("#exampleInputPassword2").val()==''){
+						alert("没有输入密码，请输入密码!");
+						return;
+					}
 				var params = {
 				"email" : $("#exampleInputEmail1").val(),
 				"password" : $("#exampleInputPassword2").val()
@@ -967,12 +976,15 @@
 				    type: "POST",
 				url: "../user/user_logon.html",
 			 	data:params,
+				//async:false, 
 			       	dataType:"json",
 				success:function(data){ 
-					var msg="用户邮箱和密码不一致";
+					
+					//var msg="用户邮箱和密码不一致";
 					if(data.erroMessage!=''){
-				 	$("#exampleInputEmail1").val("用户邮箱和密码不一致")
+				 	$("#exampleInputEmail1").val(data.erroMessage)
 					}
+				  //location.href ="<s:property value="#session.prePage"/>";
 				},
 				error: function(data){
 				  
@@ -1026,7 +1038,7 @@
 				  return false;
 				}
 				});
-			});*/
+			});
         });
 function goTopEx() {  
     var obj = document.getElementById("goTopBtn");  
@@ -1050,7 +1062,7 @@ function goTopEx() {
             if (getScrollTop() < 1) clearInterval(goTop);  
         }  
     }  
-}  
+} 
 	
    </script>
 	

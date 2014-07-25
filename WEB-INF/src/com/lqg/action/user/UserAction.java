@@ -2,6 +2,7 @@ package com.lqg.action.user;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -137,8 +138,10 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	        }
 		}
 		else {
-			session.put("erromessage", "密码和邮箱不一致");
-			return null;//锟斤拷锟斤拷锟斤拷站锟斤拷页
+			HttpServletResponse response = ServletActionContext.getResponse();
+			response.getWriter().write("密码和邮箱不一致");  
+			
+			return null;//锟斤拷锟斤拷锟斤拷站锟
 		}
 	}
 	/**

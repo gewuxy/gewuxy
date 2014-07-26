@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
+<link rel="shortcut icon" type="image/png" href="<%=request.getContextPath()%>/favicon.png">
 <style>
 </style>
     <script type="text/javascript">

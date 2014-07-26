@@ -11,7 +11,7 @@
 <meta name="author" content="">
 <meta name="keywords" content="" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
-
+<link rel="shortcut icon" type="image/png" href="<%=request.getContextPath()%>/favicon.png">
 </head>
 <body>
   <div class="modal" id="jubao-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

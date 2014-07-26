@@ -11,7 +11,8 @@
 <meta name="author" content="">
 <meta name="keywords" content="" />
 
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
+<link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet">
+<link rel="shortcut icon" type="image/png" href="<%=request.getContextPath()%>/favicon.png">
 </head>
 <body>
   <div class="clearfix">

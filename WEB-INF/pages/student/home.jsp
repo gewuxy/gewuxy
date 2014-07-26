@@ -11,11 +11,7 @@
 <meta name="author" content="">
 <meta name="keywords" content="" />
 
-
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-ui-datepicker.js"></script> 
-
-
-
+<link rel="shortcut icon" type="image/png" href="<%=request.getContextPath()%>/favicon.png">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
 <script>
 $(document).ready(function(){

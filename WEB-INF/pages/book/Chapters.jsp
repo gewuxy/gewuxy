@@ -12,8 +12,8 @@
 <meta name="description" content=" " />
 <meta name="author" content="">
 <meta name="keywords" content="" />
-<link rel="shortcut icon" href="<%=request.getContextPath()%>/favicon.ico">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
+<link rel="shortcut icon" type="image/png" href="<%=request.getContextPath()%>/favicon.png">
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 <script>
 $(document).ready(function(){

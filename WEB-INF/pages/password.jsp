@@ -11,20 +11,8 @@
 <meta name="author" content="">
 <meta name="keywords" content="" />
 
-<script type="text/javascript" src="/qianduan/js/jquery.min.js"></script>
-<script type="text/javascript" src="/qianduan/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/qianduan/js/scripts.js"></script>
-<script type="text/javascript" src="js/jquery-ui-datepicker.js"></script> 
-
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/qianduan/img/apple-touch-icon-144-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/qianduan/img/apple-touch-icon-114-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/qianduan/img/apple-touch-icon-72-precomposed.png">
-<link rel="apple-touch-icon-precomposed" href="/qianduan/img/apple-touch-icon-57-precomposed.png">
-<link rel="shortcut icon" href="/qianduan/img/favicon.png">
-
-<link rel="stylesheet" href="/qianduan/css/bootstrap.min.css">
-<link rel="stylesheet" href="/qianduan/css/style.css">
-<link rel="stylesheet" href="/qianduan/css/datepicker.css">
+<link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet">
+<link rel="shortcut icon" type="image/png" href="<%=request.getContextPath()%>/favicon.png">
 
 <style>
 </style>

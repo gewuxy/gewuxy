@@ -782,14 +782,14 @@
 				
 					<s:if test="#session.user== null">
 					
-					<s:form action="user_logon" namespace="/user" cssClass="navbar-form navbar-right" role="form" style="" >	
+					<form class="navbar-form navbar-right" role="form" style="" >	
 						<div class="form-group">
 							<label class="sr-only" for="exampleInputEmail1">Email address</label>
-							<input type="email" class="form-control" id="exampleInputEmail1" name="email" autocomplete="on" placeholder="邮件地址">
+							<input type="email" class="form-control" id="exampleInputEmail1"  autocomplete="on" placeholder="邮件地址">
 						</div>
 						<div class="form-group">
 							<label class="sr-only" for="exampleInputPassword2">Password</label>
-							<input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="密码">
+							<input type="password"  class="form-control" id="exampleInputPassword2" placeholder="密码">
 						</div>
 						<button id="cuowutishi" class="btn btn-default" type="button">?</button>
 						<div class="checkbox">
@@ -797,10 +797,10 @@
 								<input type="checkbox"> <font color="white">记住密码</font>
 							</label>
 						</div>
-						<button id="denglu" type="button submit" class="btn btn-primary">登录</button>
+						<button id="denglu" type="button" class="btn btn-primary">登录</button>
 						
 				<a class="sign-up" href="#">注册</a>
-					</s:form></s:if>
+					</form></s:if>
 					<s:if test="#session.user!= null">
 					<ul class="nav navbar-nav navbar-right" style="margin:0 auto;">
 						<li class="dropdown">
@@ -824,7 +824,7 @@
 								<li ><s:a action="user_home" namespace="/user">我的主页</s:a></li>
 								<li ><s:a action="user_myClass" namespace="/user">我的班级</s:a></li>
 								<li ><s:a action="user_account" namespace="/user">设置</s:a></li>
-								<li ><s:a action="user_logout" namespace="/user">退出</s:a></li>
+								<li ><a href="javascript:void(0);" id="logout">退出</a></li>
 							</ul>
 
 						</li>		    
@@ -866,19 +866,19 @@
 			</div>
 			<div class="input-group" style="padding-top:5px;padding-bottom:5px;">
 			  <span class="input-group-addon" style="color:#000;">用户名</span>
-			  <input id="usernameId" name="username" type="text" class="form-control">
+			  <input id="usernameId"  type="text" class="form-control">
 			</div>
 			<div class="input-group" style="padding-top:5px;padding-bottom:5px;">
 			  <span class="input-group-addon" style="color:#000;">电子邮件</span>
-			  <input id="emailId"  name="email" type="text" class="form-control" style="">
+			  <input id="emailId"   type="text" class="form-control" style="">
 			</div>
 			<div class="input-group" style="padding-top:5px;padding-bottom:5px;">
 			  <span class="input-group-addon" style="color:#000;">密码</span>
-			  <input id="passwordId" name="password" type="password" class="form-control" style="">
+			  <input id="passwordId"  type="password" class="form-control" style="">
 			</div>
 			<div class="input-group" style="padding-top:5px;padding-bottom:5px;">
 			  <span class="input-group-addon" style="color:#000;">确认密码</span>
-			  <input id="repasswordId" name="repassword" type="password" class="form-control" style="">
+			  <input id="repasswordId"  type="password" class="form-control" style="">
 			</div>
 			<div style="padding-top:5px;padding-bottom:5px;float:right;">
 		      <button id="register" type="button submit" class="btn btn-primary">加入格物学院</button>
@@ -890,15 +890,15 @@
 		</s:form>
 		  <div class="sign-in-email" style="display:none;">
 		  <h4>登录格物学院</h4>
-            <s:form action="user_logon" namespace="/user">
+            <form >
 		
 		  <div class="input-group" style="padding-top:5px;padding-bottom:5px;">
 			<span class="input-group-addon" style="color:#000;">电子邮件</span>
-			<input id="email2" name="email" type="text" class="form-control" style="">
+			<input id="email2"  type="text" class="form-control" style="">
 		  </div>
 		  <div class="input-group" style="padding-top:5px;padding-bottom:5px;">
 			<span class="input-group-addon" style="color:#000;">密码</span>
-			<input id="password2" name="password" type="password" class="form-control" style="">
+			<input id="password2"  type="password" class="form-control" style="">
 		  </div>
 		  <div style="padding-top:5px;padding-bottom:5px;float:right;">
 		    <div class="checkbox" style="display:inline-block;">
@@ -907,10 +907,10 @@
 				</label>
 			</div>
 			<a href="#">忘记密码？</a>
-		    <button id="denglu2" type="button submit" class="btn btn-primary">登录</button>
+		    <button id="denglu2" type="button" class="btn btn-primary">登录</button>
 		  </div>
 		</div>
-	    </s:form>
+	    </form>
 		  <div class="sign-up-sn">
 		    <h4>使用社交账户登录更方便</h4>
 		    <div class="" style="margin-top:5px;margin-bottom:5px;">
@@ -957,7 +957,7 @@
 				$('#sign-form').modal();
 				$(".sign-up-tab").trigger("click");
 			});
-			/*$("#denglu").click(function(){
+			$("#denglu").click(function(){
 				var params = {
 				"email" : $("#exampleInputEmail1").val(),
 				"password" : $("#exampleInputPassword2").val()
@@ -967,12 +967,22 @@
 				    type: "POST",
 				url: "../user/user_logon.html",
 			 	data:params,
+				async:false,
 			       	dataType:"json",
 				success:function(data){ 
-					var msg="用户邮箱和密码不一致";
-					if(data.erroMessage!=''){
-				 	$("#exampleInputEmail1").val("用户邮箱和密码不一致")
+					var msg="密码和邮箱不一致";
+					var msgok="登录成功";
+					if(data.erroMessage==msg){
+				 	$("#exampleInputEmail1").val(data.erroMessage);
+					return;
 					}
+					if (data.erroMessage==msgok){
+					//alert(data.prePage);
+					window.location.href=data.prePage;
+					}
+					
+					
+					
 				},
 				error: function(data){
 				  
@@ -991,12 +1001,40 @@
 				    type: "POST",
 				url: "../user/user_logon.html",
 			 	data:params,
+				async:false,
 			       	dataType:"json",
 				success:function(data){ 
-					var msg="用户邮箱和密码不一致";
-					//alert(msg);
-					if(data.erroMessage!=''){
-				 	$("#email2").val("用户邮箱和密码不一致")
+					var msg="密码和邮箱不一致";
+					var msgok="登录成功";
+					if(data.erroMessage==msg){
+				 	$("#email2").val(data.erroMessage);
+					return;
+					}
+					if (data.erroMessage==msgok){
+					//alert(data.prePage);
+					window.location.href=data.prePage;
+					}
+				},
+				error: function(data){
+				  
+
+				  return false;
+				}
+				});
+			}); 
+			$("#logout").click(function(){
+				
+ 
+			      $.ajax({
+				    type: "POST",
+				url: "../user/user_logout.html",
+			 	//async:false,
+			       	dataType:"json",
+				success:function(data){ 
+					var msg="退出成功";
+					if(data.erroMessage==msg){
+				 	alert(data.erroMessage);
+					window.location.href=data.prePage;
 					}
 				},
 				error: function(data){
@@ -1006,7 +1044,7 @@
 				}
 				});
 			});
-			$("#register").click(function(){
+			/*$("#register").click(function(){
 				var params = {
 				"email" : $("#exampleInputEmail1").val(),
 				"password" : $("#exampleInputPassword2").val()
@@ -1016,6 +1054,7 @@
 				    type: "POST",
 				url: "../user/user_logon.html",
 			 	data:params,
+				async: false,
 			       	dataType:"json",
 				success:function(data){ 
 				 $("#cuowutishi").text(data.erroMessage);

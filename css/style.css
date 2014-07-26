@@ -145,15 +145,13 @@ padding: 60px 20px 40px 50px;
 }
 
 .subject-link{
-font-weight:bold;
 font-size:14px;
 font-family:Microsoft YaHei;
+color:#fff;
 }
-.subject-link:hover{
+a.subject-link:hover{
 text-decoration:none;
-}
-.subject-back{
-color:white;
+color:#fff;
 }
 .chapter-title{
 color:white;

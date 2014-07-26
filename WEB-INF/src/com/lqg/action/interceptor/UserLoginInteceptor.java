@@ -22,20 +22,9 @@ public class UserLoginInteceptor extends AbstractInterceptor{
 	public String intercept(ActionInvocation invocation) throws Exception {
 		ActionContext context = invocation.getInvocationContext();// ��ȡActionContext
 		Map<String, Object> session = context.getSession();// ��ȡMap���͵�session
-		//session.remove("prePage");
-		if(session.get("user") == null){// �ж��û��Ƿ��¼ 
-			
-	            // 获取HttpServletRequest对象
-	            HttpServletRequest req = ServletActionContext.getRequest();
-	                 //如果referer不为空 直接使用它。如果为空我们分别获得命名空间，action名,以及请求参数  
-	                        //从新构造成一个URL保存在session中  
-	            /*if (req.getHeader("X-Requested-With") != null
-                		&& req.getHeader("X-Requested-With").equalsIgnoreCase(     
-                		"XMLHttpRequest")) { 
-	            	session.put("prePage", "");
-	            	return invocation.invoke();}
-	            else{*/
-	                        String url=req.getHeader("referer");  
+		// 获取HttpServletRequest对象
+	     HttpServletRequest req = ServletActionContext.getRequest();
+	            	       String url=req.getHeader("referer");  
 	                        
 	                        if(url==null || url.equals(""))  
 	                            {  
@@ -72,14 +61,7 @@ public class UserLoginInteceptor extends AbstractInterceptor{
 	                             }   
 	                        session.put("prePage", url);   
 	                  
-	                 return invocation.invoke();  
-	        }  
-	
-	           
-	           
 	       
-			
-		
 		return invocation.invoke();// 用户已经登录，放行
 	}
 }

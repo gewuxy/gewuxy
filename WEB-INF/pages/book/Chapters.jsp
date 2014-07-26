@@ -5,17 +5,19 @@
 <html >
 <head>
 
-<title>格物学院</title>
+<title></title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="description" content=" " />
 <meta name="author" content="">
 <meta name="keywords" content="" />
+<link rel="shortcut icon" href="<%=request.getContextPath()%>/favicon.ico">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
+document.title=$(".chapter-title").text()+"|"+$(".subject-back").text()+"|格物学院";
 if($(".content-lists").height()<$(window).height()-100){
 $(".content-lists").height($(window).height()-100);
 };
@@ -44,7 +46,7 @@ $(window).resize(function(){
 		    <div class="chapter-backto-subject">
 			  <s:a class="subject-link" action="book_findByName" namespace="/book">
 					<s:param name="book.name" value="pageModel.list[0].book.name"></s:param>
-				        <span class="subject-back"><--返回<s:property value="pageModel.list[0].book.nickname" /></span></s:a>
+				        <span style="color:white;"><--返回</span><span class="subject-back"><s:property value="pageModel.list[0].book.nickname" /></span></s:a>
 			</div>			
             <h2 class="chapter-title"><s:property value="pageModel.list[0].parent.name" /></h2>
 			<hr style="color:#333333;"/>

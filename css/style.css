@@ -143,12 +143,14 @@ font-family: 'Proxima Nova Semibold',sans-serif;
 max-width: 635px;
 padding: 60px 20px 40px 50px;
 }
-.chapter-info{}
-.chapter-backto-subject{}
+
 .subject-link{
 font-weight:bold;
 font-size:14px;
 font-family:Microsoft YaHei;
+}
+.subject-link:hover{
+text-decoration:none;
 }
 .subject-back{
 color:white;

@@ -44,7 +44,7 @@ $("#register0").click(function(){
 				if($(".regist-verify").is(":hidden")){$(".regist-verify").show();}
 				$("#emailId0").focus();
 				return false;
-				}else{                        //判断邮件格式
+				}else{                        //判断邮件格式是否正确
 				var reg = new RegExp("^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$");
 				if(!reg.test($("#emailId0").val())){
 				$(".regist-verify").text("请输入正确的电子邮件");
@@ -56,14 +56,18 @@ $("#register0").click(function(){
 				
 				//判断密码是否为空
 				if($("#passwordId0").val()==""){
-				$(".regist-verify").text("未设置密码，密码必须包含字母和数字，且不少于6位");
+				$(".regist-verify").text("未设置密码，密码必须包含字母和数字，6位到16位之间");
 				if($(".regist-verify").is(":hidden")){$(".regist-verify").show();}
 				$("#passwordId0").focus();
 				return false;
-				}else if($("#passwordId0").val().length < 6){
-				$(".regist-verify").text("密码必须包含字母和数字，且不少于6位");
+				}else{                            //判断密码格式：包含字母和数字，位数在6-16位之间
+				var reg = new RegExp("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$");
+				if(!reg.test($("#passwordId0").val())){
+				$(".regist-verify").text("密码必须包含字母和数字，6位到16位之间");
 				if($(".regist-verify").is(":hidden")){$(".regist-verify").show();}
+				$("#passwordId0").focus();
 				return false;
+				}
 				}
 				
 				//判断密码是否一致

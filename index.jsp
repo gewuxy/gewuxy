@@ -1,1 +1,2 @@
-<jsp:forward page="/WEB-INF/pages/index.jsp"/>
+
+<meta http-equiv="refresh" content="0;URL=front/index_home.html"> 

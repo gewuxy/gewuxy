@@ -8,8 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
+  <link rel="shortcut icon" type="image/png" href="<%=request.getContextPath()%>/favicon.png">
 <link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet">
-<link rel="shortcut icon" href="<%=request.getContextPath()%>/favicon.ico">	
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 <script>
 $(document).ready(function(){

@@ -21,7 +21,6 @@
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%=ctx%>/img/apple-touch-icon-114-precomposed.png">
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%=ctx%>/img/apple-touch-icon-72-precomposed.png">
   <link rel="apple-touch-icon-precomposed" href="<%=ctx%>/img/apple-touch-icon-57-precomposed.png">
-  
   <!-- fonts -->
 
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
@@ -929,12 +928,6 @@
 </div>
 <script type="text/javascript">
         $(document).ready(function () {
-		//解决IE下不支持placeholder
-if($.browser.msie) { 
-$(":input[placeholder]").each(function(){
-$(this).placeholder();
-});
-}
 		if(window.location.pathname.indexOf("index.jsp")>=0){
 				$(".sign-up").hide();
 			}else{
@@ -964,12 +957,7 @@ $(this).placeholder();
 				$('#sign-form').modal();
 				$(".sign-up-tab").trigger("click");
 			});
-<<<<<<< HEAD
 			$("#denglu").click(function(){
-=======
-			
-			/*$("#denglu").click(function(){
->>>>>>> 8d6badd9fe1d171f9744bc31a18f60617cd71e7b
 				var params = {
 				"email" : $("#exampleInputEmail1").val(),
 				"password" : $("#exampleInputPassword2").val()

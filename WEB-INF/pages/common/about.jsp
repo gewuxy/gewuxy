@@ -7,8 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
 
+<link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet">
+<link rel="shortcut icon" type="image/png" href="<%=request.getContextPath()%>/favicon.png">
 <script>
 
 </script>

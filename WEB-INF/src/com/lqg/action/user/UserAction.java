@@ -47,6 +47,9 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 		boolean unique = studentDao.isUnique(student.getEmail());//锟叫讹拷锟矫伙拷锟斤拷锟角凤拷锟斤拷锟�
 		if(unique){//锟斤拷锟斤拷没锟斤拷锟斤拷锟斤拷
 			studentDao.save(student);//锟斤拷锟斤拷注锟斤拷锟斤拷息
+			setErroMessage("注册成功，请到邮箱激活认证");
+			//获取跳转到登陆界面之前的页面地址，由拦截器提供
+	        prePage = (String) session.get("prePage");	
 			return USER_LOGIN;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
 		}else{
 			setErroMessage("用户邮箱已经被占有，请另选其它邮箱注册");
@@ -60,6 +63,9 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 				teacher.setEmail(student.getEmail());
 				teacher.setPassword(student.getPassword());
 				teacherDao.save(teacher);//锟斤拷锟斤拷注锟斤拷锟斤拷息
+				setErroMessage("注册成功，请到邮箱激活认证");
+				//获取跳转到登陆界面之前的页面地址，由拦截器提供
+		        prePage = (String) session.get("prePage");
 				return USER_LOGIN;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
 			}else{
 				setErroMessage("用户邮箱已经被占有，请另选其它邮箱注册");
@@ -73,6 +79,9 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 				parent.setEmail(student.getEmail());
 				parent.setPassword(student.getPassword());
 				parentDao.save(parent);//锟斤拷锟斤拷注锟斤拷锟斤拷息
+				setErroMessage("注册成功，请到邮箱激活认证");
+				//获取跳转到登陆界面之前的页面地址，由拦截器提供
+		        prePage = (String) session.get("prePage");
 				return USER_LOGIN;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
 			}else{
 				setErroMessage("用户邮箱已经被占有，请另选其它邮箱注册");

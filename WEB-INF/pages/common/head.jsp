@@ -929,6 +929,12 @@
 </div>
 <script type="text/javascript">
         $(document).ready(function () {
+		//解决IE下不支持placeholder
+if($.browser.msie) { 
+$(":input[placeholder]").each(function(){
+$(this).placeholder();
+});
+}
 		if(window.location.pathname.indexOf("index.jsp")>=0){
 				$(".sign-up").hide();
 			}else{
@@ -958,6 +964,26 @@
 				$('#sign-form').modal();
 				$(".sign-up-tab").trigger("click");
 			});
+			/*$(function(){
+if(!placeholderSupport()){   // 判断浏览器是否支持 placeholder
+    $('[placeholder]').focus(function() {
+        var input = $(this);
+        if (input.val() == input.attr('placeholder')) {
+            input.val('');
+            input.removeClass('placeholder');
+        }
+    }).blur(function() {
+        var input = $(this);
+        if (input.val() == '' || input.val() == input.attr('placeholder')) {
+            input.addClass('placeholder');
+            input.val(input.attr('placeholder'));
+        }
+    }).blur();
+};
+})
+function placeholderSupport() {
+    return 'placeholder' in document.createElement('input');
+}*/
 			/*$("#denglu").click(function(){
 				var params = {
 				"email" : $("#exampleInputEmail1").val(),

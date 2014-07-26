@@ -29,6 +29,63 @@ window.location.href="https://api.weibo.com/oauth2/authorize?client_id=246374574
 $(".QQ-signup").click(function(){
 window.location.href="http://openapi.qzone.qq.com/oauth/show?which=Login&display=pc&response_type=code&client_id=100262522&redirect_uri=http%3A%2F%2Fpassport.chuanke.com%2Flogin%2FqqLogin%2Fret%2FaHR0cDovL2NodWFua2UuY29tLw%3D%3D&scope=get_user_info,get_info,add_pic_t,add_idol";
 });
+$("#register0").click(function(){
+				if($("#usernameId0").val()==""){
+				$("#usernameId0").val("请输入5-32个英文和数字组成的名字");
+				return false;
+				}
+				if($("#emailId0").val()==""){
+				$("#emailId0").val("请输入邮箱");
+				return false;
+				}
+				if($("#passwordId0").val()==""){
+				//$("#passwordId0").focu();
+				alert("密码要六位以上");
+				return false;
+				}
+				if($("#repasswordId0").val()==""){
+				//$("#repasswordId0").focu();
+				alert("请输入6位以上的密码");
+				return false;
+				}
+				if($("#passwordId0").val()!=$("#repasswordId0").val()){
+				alert("两次密码不一致");
+				return false;
+				}
+				var params = {
+				"category":$("#categoryId0").val(),
+				"username":$("#usernameId0").val(),
+				"email" : $("#emailId0").val(),
+				"password" : $("#passwordId0").val(),
+				"repassword":$("#repasswordId0").val()
+			      };
+ 
+			      $.ajax({
+				    type: "POST",
+				url: "../user/user_save.html",
+			 	data:params,
+				//async: false,
+			       	dataType:"json",
+				success:function(data){ 
+				 	var msg="用户邮箱已经被占有，请另选其它邮箱注册";
+					var msgok="注册成功，请到邮箱激活认证";
+					if(data.erroMessage==msg){
+					alert(data.erroMessage);
+				 	//$("#emailId").val(data.erroMessage);
+					return false;
+					}
+					if (data.erroMessage==msgok){
+					alert(data.erroMessage);
+					window.location.href=data.prePage;
+					}
+				},
+				error: function(data){
+				  
+
+				  return false;
+				}
+				});
+			});
 });
 
 </script>
@@ -55,9 +112,9 @@ window.location.href="http://openapi.qzone.qq.com/oauth/show?which=Login&display
           <h3 class="text-center">免费注册加入格物学院</h3>
           <hr style="width:90%;max-width:400px;"/> 		
 		  <div style="text-align:center;">
-		<s:form action="user_save" namespace="/user" method="post">
+		<form>
 		  <label for="id">我是</label>
-		  <select  name="category" id="id" style="width:100px">
+		  <select  id="categoryId0"  style="width:100px">
 		     <option value="student">学生</option>
 		    <option value="teacher">老师</option>
 			<option value="teacher">家长</option>
@@ -65,25 +122,25 @@ window.location.href="http://openapi.qzone.qq.com/oauth/show?which=Login&display
 		  </div>
 		  <div class="input-group user-email">
 			<span class="input-group-addon" style="color:#000;">用户名</span>
-			<input name="username" type="text" class="form-control">
+			<input id="usernameId0" type="text" class="form-control">
 		  </div>
 		  <div class="input-group user-email">
 			<span class="input-group-addon" style="color:#000;">电子邮件</span>
-			<input name="email" type="text" class="form-control">
+			<input id="emailId0" type="text" class="form-control">
 		  </div>
 		  <div class="input-group user-password">
 			<span class="input-group-addon" style="color:#000;">密码</span>
-			<input name="password" type="password" class="form-control">
+			<input id="passwordId0" type="password" class="form-control">
 		  </div>
 		   <div class="input-group user-password">
 			<span class="input-group-addon" style="color:#000;">确认密码</span>
-			<input name="repassword" type="password" class="form-control">
+			<input id="repasswordId0" type="password" class="form-control">
 		  </div>
 		  
 		  <div class="signup-button">
-		    <button type="button submit" class="btn btn-primary" style="width:100%">加入格物学院</button>
+		    <button id="register0" type="button" class="btn btn-primary" style="width:100%">加入格物学院</button>
 		  </div>
-		</s:form>
+		</form>
 		  <div class="hr-with-words">
 		    或者
 		  </div>

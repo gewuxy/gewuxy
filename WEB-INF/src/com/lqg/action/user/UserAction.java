@@ -161,7 +161,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	        session.remove("prePage");
 			
 		}
-		return null;
+		return LOGOUT;
 	}
 	
 	public String home() throws Exception{

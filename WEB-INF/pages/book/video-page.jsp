@@ -287,7 +287,7 @@ var jiathis_config={
 	  <div class="give-question-answer">给出好问题，给出好答案</div>
 	  <hr style="line-height:1px;height:1px;"/>
 	  <p style="">在这里，我们彼此互相学习；</p>
-	  <p>简介明了的问题更能让其他人明白，提出有价值的问题还常能得到意想不到的收获；</p>
+	  <p>简洁明了的问题更能让其他人明白，提出有价值的问题还常能得到意想不到的收获；</p>
 	  <p>回答问题也不要简单的YES或者NO，像老师一样分享你的答案</p>
 	  <div class="good-question-answer" style="padding-top:20px;">让好问题脱颖而出</div>
 	  <hr style="line-height:1px;height:1px;"/>

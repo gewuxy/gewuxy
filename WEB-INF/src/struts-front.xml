@@ -73,6 +73,9 @@
 		<result name="teacherClass">/WEB-INF/pages/teacher/myclass.jsp</result>
 		<result name="prePage">/WEB-INF/pages/common/logon_result.jsp</result>
 		<result name="input">/WEB-INF/pages/common/error.jsp</result>
+		<result name="email">/WEB-INF/pages/common/email.jsp</result>
+		<result name="password">/WEB-INF/pages/common/password.jsp</result>
+		<result name="linkSn">/WEB-INF/pages/common/link-sn.jsp</result>
 		<result name="logonError" type="json">
 			 <param name="includeProperties">erroMessage, prePage</param>  
 		 </result>

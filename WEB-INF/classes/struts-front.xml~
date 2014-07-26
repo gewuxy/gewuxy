@@ -8,15 +8,15 @@
 	<!-- 前台登录 -->
 	<!-- 配置拦截器 -->
 	<package name="geWu.protect" extends="json-default" namespace="/">
-		<interceptors>
+	<interceptors>
 			<!-- 验证用户登录的拦截器 -->
 			<interceptor name="loginInterceptor" class="com.lqg.action.interceptor.UserLoginInteceptor"/>
 			<interceptor-stack name="userDefaultStack">
 				<interceptor-ref name="loginInterceptor"/>
     			<interceptor-ref name="defaultStack"/>
 			</interceptor-stack>
-		</interceptors>
-		<global-results>
+		</interceptors>		
+	   <global-results>
 			<!-- 错误页面 -->
             <result name="error">/WEB-INF/pages/common/error.jsp</result>
             <!-- 程序主页面 -->
@@ -26,7 +26,7 @@
             <!--会员注册 -->
             <result name="reg">/WEB-INF/pages/index.jsp</result>
             <!--会员登录-->
-	   		 <result name="userLogin">/WEB-INF/pages/common/error.jsp</result>
+	    <result name="userLogin">/WEB-INF/pages/common/error.jsp</result>
             <!--管理员登录-->
             <result name="managerLogin">/WEB-INF/pages/admin/user/user_login.jsp</result>
         </global-results>
@@ -58,7 +58,8 @@
 	<!-- 用户Action -->
 	<package name="geWu.user" extends="geWu.protect" namespace="/user">
 		<action name="user_*" method="{1}" class="userAction">
-		<result name="userLogin">/WEB-INF/pages/common/success.jsp</result>		
+		<result name="userLogin">/WEB-INF/pages/common/success.jsp</result>
+		<result name="logout">/WEB-INF/pages/common/logon_result.jsp</result>
 		<result name="error">/WEB-INF/pages/common/error.jsp</result>
 		<result name="studentHome">/WEB-INF/pages/student/home.jsp</result>		
 		<result name="studentAccount">/WEB-INF/pages/student/account.jsp</result>
@@ -72,15 +73,12 @@
 		<result name="prePage">/WEB-INF/pages/common/logon_result.jsp</result>
 		<result name="input">/WEB-INF/pages/common/error.jsp</result>
 		<result name="logonError" type="json">
-			 <param name="includeProperties">erroMessage, prePage</param>  
+			 <param name="includeProperties">erroMessage</param>  
 		 </result>
-		 <result name="logout" type="json">
-		<param name="includeProperties">erroMessage, prePage</param>  
-		</result>
 		 <result name="registerError" type="json">
 			 <param name="includeProperties">erroMessage</param>  
 		 </result>
-		<interceptor-ref name="userDefaultStack"/>  	 
+		<interceptor-ref name="userDefaultStack"/>
    		</action>
 	</package>
 	<!-- 书Action -->

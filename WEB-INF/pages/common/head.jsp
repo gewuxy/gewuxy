@@ -933,7 +933,7 @@ $(":input[placeholder]").each(function(){
 $(this).placeholder();
 });
 }
-		if(window.location.pathname.indexOf("index.jsp")>=0){
+		if(window.location.pathname.indexOf("index_home")>=0){
 				$(".sign-up").hide();
 			}else{
 				$(".sign-up").show();

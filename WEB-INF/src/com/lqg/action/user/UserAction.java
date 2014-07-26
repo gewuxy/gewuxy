@@ -97,8 +97,9 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 		if(logonstudent!=null){
 			session.put("user", logonstudent);//将学生放入user 的session
 			session.put("type", "student");
+			setErroMessage("登录成功");
 			//获取跳转到登陆界面之前的页面地址，由拦截器提供
-	        prePage = (String) session.get("prePage");
+	        prePage = (String) session.get("prePage");	        
 	        //清除session中的数据
 	        //session.remove("prePage");
 	        if (prePage == null) {
@@ -112,10 +113,11 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 		else if(logonparent!=null){
 			session.put("user", logonparent);//将学生放入user 的session
 			session.put("type", "parent");
+			setErroMessage("登录成功");
 			//获取跳转到登陆界面之前的页面地址，由拦截器提供
 	        prePage = (String) session.get("prePage");
 	        //清除session中的数据
-	       // session.remove("prePage");
+	       // session.remove("prePage");	        
 	        if (prePage == null) {
 	            //不是拦截器跳转到登陆页面的，直接访问的登陆页面
 	            return PARENT_HOME;
@@ -126,10 +128,11 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 		else if(logonteacher!=null){
 			session.put("user", logonteacher);//将学生放入user 的session
 			session.put("type", "teacher");
+			 setErroMessage("登录成功");
 			//获取跳转到登陆界面之前的页面地址，由拦截器提供
 	        prePage = (String) session.get("prePage");
 	        //清除session中的数据
-	        //session.remove("prePage");
+	        //session.remove("prePage");	       
 	        if (prePage == null) {
 	            //不是拦截器跳转到登陆页面的，直接访问的登陆页面
 	            return TEACHER_HOME;

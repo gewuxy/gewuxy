@@ -58,7 +58,9 @@
 	<!-- 用户Action -->
 	<package name="geWu.user" extends="geWu.protect" namespace="/user">
 		<action name="user_*" method="{1}" class="userAction">
-		<result name="userLogin">/WEB-INF/pages/common/success.jsp</result>		
+		<result name="userLogin" type="json">
+		 <param name="includeProperties">erroMessage, prePage</param>
+		</result>		
 		<result name="error">/WEB-INF/pages/common/error.jsp</result>
 		<result name="studentHome">/WEB-INF/pages/student/home.jsp</result>		
 		<result name="studentAccount">/WEB-INF/pages/student/account.jsp</result>

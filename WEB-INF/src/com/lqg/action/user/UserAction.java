@@ -154,8 +154,14 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 		if(session != null && session.size() > 0){
 			session.remove("user");
 			session.remove("type");
+			setErroMessage("退出成功");
+			//获取跳转到登陆界面之前的页面地址，由拦截器提供
+	        prePage = (String) session.get("prePage");	        
+	        //清除session中的数据
+	        session.remove("prePage");
+			
 		}
-		return LOGOUT;
+		return null;
 	}
 	
 	public String home() throws Exception{

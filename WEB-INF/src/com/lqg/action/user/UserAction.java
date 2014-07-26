@@ -32,6 +32,9 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	private static final String PREPAGE = "prePage";
 	private static final String REGISTERERROR = "registerError";
 	private static final String LOGONERROR = "logonError";
+	private static final String EMAIL = "email";
+	private static final String PASSWORD = "password";
+	private static final String LINKSN = "linkSn";
 	private String prePage;
 	private String erroMessage;
 	public String login() throws Exception{
@@ -237,6 +240,54 @@ public String myClass() throws Exception{
 		 else {
 			 return ERROR;		
 		 }
+	}
+	
+		else{
+			return ERROR;
+		}
+	}
+/*
+ * 个人email
+ */
+public String email() throws Exception{
+	
+	if(session.get("user")!= null){
+		
+		 
+			 return EMAIL;		
+		 
+	}
+	
+		else{
+			return ERROR;
+		}
+	}
+/*
+ * 个人password
+ */
+public String password() throws Exception{
+	
+	if(session.get("user")!= null){
+		
+		 
+			 return PASSWORD;		
+		 
+	}
+	
+		else{
+			return ERROR;
+		}
+	}
+/*
+ * 个人linkSn
+ */
+public String linkSn() throws Exception{
+	
+	if(session.get("user")!= null){
+		
+		 
+			 return LINKSN;		
+		 
 	}
 	
 		else{

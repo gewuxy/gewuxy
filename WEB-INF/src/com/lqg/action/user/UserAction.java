@@ -106,7 +106,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	            //不是拦截器跳转到登陆页面的，直接访问的登陆页面
 	            return STUDENT_HOME;
 	        } else {
-	        	 return PREPAGE;
+	        	 return LOGONERROR;
 	        }
 			
 			}
@@ -122,7 +122,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	            //不是拦截器跳转到登陆页面的，直接访问的登陆页面
 	            return PARENT_HOME;
 	        } else {
-	            return PREPAGE;
+	        	return LOGONERROR;
 	        }
 		}
 		else if(logonteacher!=null){
@@ -137,7 +137,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	            //不是拦截器跳转到登陆页面的，直接访问的登陆页面
 	            return TEACHER_HOME;
 	        } else {
-	            return PREPAGE;
+	        	return LOGONERROR;
 	        }
 		}
 		else {

@@ -881,6 +881,7 @@
 			  <span class="input-group-addon" style="color:#000;">确认密码</span>
 			  <input id="repasswordId"  type="password" class="form-control" style="">
 			</div>
+			<div class="alert alert-danger regist-verify" role="alert"></div>
 			<div style="padding-top:5px;padding-bottom:5px;float:right;">
 		      <button id="register" type="button" class="btn btn-primary">加入格物学院</button>
 			</div>
@@ -1066,28 +1067,61 @@ $(this).placeholder();
 				});
 			});
 			$("#register").click(function(){
+				//判断用户名是否为空
 				if($("#usernameId").val()==""){
-				$("#usernameId").val("请输入5-32个英文和数字组成的名字");
+				$(".regist-verify").text("用户名未填写");
+				if($(".regist-verify").is(":hidden")){$(".regist-verify").show();}
+				$("#usernameId").focus();
 				return false;
 				}
+				
+				//判断邮件是否为空
 				if($("#emailId").val()==""){
-				$("#emailId").val("请输入邮箱");
+				$(".regist-verify").text("电子邮件未填写");
+				if($(".regist-verify").is(":hidden")){$(".regist-verify").show();}
+				$("#emailId").focus();
+				return false;
+				}else{                        //判断邮件格式是否正确
+				var reg = new RegExp("^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$");
+				if(!reg.test($("#emailId").val())){
+				$(".regist-verify").text("请输入正确的电子邮件");
+				if($(".regist-verify").is(":hidden")){$(".regist-verify").show();}
+				$("#emailId").focus();
 				return false;
 				}
+				}
+				
+				//判断密码是否为空
 				if($("#passwordId").val()==""){
-				//$("#passwordId").focu();
-				alert("密码要六位以上");
+				$(".regist-verify").text("未设置密码，密码必须包含字母和数字，6位到16位之间");
+				if($(".regist-verify").is(":hidden")){$(".regist-verify").show();}
+				$("#passwordId").focus();
+				return false;
+				}else{                            //判断密码格式：包含字母和数字，位数在6-16位之间
+				var reg = new RegExp("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$");
+				if(!reg.test($("#passwordId").val())){
+				$(".regist-verify").text("密码必须包含字母和数字，6位到16位之间");
+				if($(".regist-verify").is(":hidden")){$(".regist-verify").show();}
+				$("#passwordId").focus();
 				return false;
 				}
+				}
+				
+				//判断密码是否一致
 				if($("#repasswordId").val()==""){
-				//$("#repasswordId").focu();
-				alert("请输入6位以上的密码");
+				$(".regist-verify").text("请再次输入密码！");
+				if($(".regist-verify").is(":hidden")){$(".regist-verify").show();}
+				$("#repasswordId").focus();
 				return false;
 				}
-				if($("#passwordId").val()!=$("#repasswordId").val()){
-				alert("两次密码不一致");
+				if($("#passwordId").val()!=$("#repasswordId0").val()){
+				$(".regist-verify").text("两次密码输入不一致");
 				return false;
 				}
+				
+				//关闭提示框
+				if(!$(".regist-verify").is(":hidden")){$(".regist-verify").hide();}
+				
 				var params = {
 				"category":$("#categoryId").val(),
 				"username":$("#usernameId").val(),

@@ -32,23 +32,23 @@ window.location.href="http://openapi.qzone.qq.com/oauth/show?which=Login&display
 $("#register0").click(function(){
 				//判断用户名是否为空
 				if($("#usernameId0").val()==""){
-				$(".regist-verify").text("用户名未填写");
-				if($(".regist-verify").is(":hidden")){$(".regist-verify").show();}
+				$(".regist-verify0").text("用户名未填写");
+				if($(".regist-verify0").is(":hidden")){$(".regist-verify0").show();}
 				$("#usernameId0").focus();
 				return false;
 				}
 				
 				//判断邮件是否为空
 				if($("#emailId0").val()==""){
-				$(".regist-verify").text("电子邮件未填写");
-				if($(".regist-verify").is(":hidden")){$(".regist-verify").show();}
+				$(".regist-verify0").text("电子邮件未填写");
+				if($(".regist-verify0").is(":hidden")){$(".regist-verify0").show();}
 				$("#emailId0").focus();
 				return false;
 				}else{                        //判断邮件格式是否正确
 				var reg = new RegExp("^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$");
 				if(!reg.test($("#emailId0").val())){
-				$(".regist-verify").text("请输入正确的电子邮件");
-				if($(".regist-verify").is(":hidden")){$(".regist-verify").show();}
+				$(".regist-verify0").text("请输入正确的电子邮件");
+				if($(".regist-verify0").is(":hidden")){$(".regist-verify0").show();}
 				$("#emailId0").focus();
 				return false;
 				}
@@ -56,15 +56,15 @@ $("#register0").click(function(){
 				
 				//判断密码是否为空
 				if($("#passwordId0").val()==""){
-				$(".regist-verify").text("未设置密码，密码必须包含字母和数字，6位到16位之间");
-				if($(".regist-verify").is(":hidden")){$(".regist-verify").show();}
+				$(".regist-verify0").text("未设置密码，密码必须包含字母和数字，6位到16位之间");
+				if($(".regist-verify0").is(":hidden")){$(".regist-verify0").show();}
 				$("#passwordId0").focus();
 				return false;
 				}else{                            //判断密码格式：包含字母和数字，位数在6-16位之间
 				var reg = new RegExp("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$");
 				if(!reg.test($("#passwordId0").val())){
-				$(".regist-verify").text("密码必须包含字母和数字，6位到16位之间");
-				if($(".regist-verify").is(":hidden")){$(".regist-verify").show();}
+				$(".regist-verify0").text("密码必须包含字母和数字，6位到16位之间");
+				if($(".regist-verify0").is(":hidden")){$(".regist-verify0").show();}
 				$("#passwordId0").focus();
 				return false;
 				}
@@ -72,18 +72,19 @@ $("#register0").click(function(){
 				
 				//判断密码是否一致
 				if($("#repasswordId0").val()==""){
-				$(".regist-verify").text("请再次输入密码！");
-				if($(".regist-verify").is(":hidden")){$(".regist-verify").show();}
+				$(".regist-verify0").text("请再次输入密码！");
+				if($(".regist-verify0").is(":hidden")){$(".regist-verify0").show();}
 				$("#repasswordId0").focus();
 				return false;
 				}
 				if($("#passwordId0").val()!=$("#repasswordId0").val()){
-				$(".regist-verify").text("两次密码输入不一致");
+				$(".regist-verify0").text("两次密码输入不一致");
+				if($(".regist-verify0").is(":hidden")){$(".regist-verify0").show();}
 				return false;
 				}
 				
 				//关闭提示框
-				if(!$(".regist-verify").is(":hidden")){$(".regist-verify").hide();}
+				if(!$(".regist-verify0").is(":hidden")){$(".regist-verify0").hide();}
 				
 				var params = {
 				"category":$("#categoryId0").val(),
@@ -169,7 +170,7 @@ $("#register0").click(function(){
 			<span class="input-group-addon" style="color:#000;">确认密码</span>
 			<input id="repasswordId0" type="password" class="form-control">
 		  </div>
-		  <div class="alert alert-danger regist-verify" role="alert"></div>
+		  <div class="alert alert-danger regist-verify0" role="alert"></div>
 		  <div class="signup-button">
 		    <button id="register0" type="button" class="btn btn-primary" style="width:100%">加入格物学院</button>
 		  </div>

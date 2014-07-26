@@ -77,10 +77,10 @@
 	<li style="display:inline;"><a class="settings-item" href="/qianduan/settings/email.jsp">邮件</a></li>
   </ul-->
     <ul class="nav nav-tabs" role="tablist">
-	  <li role="presentation" class="active"><a href="#">基本资料</a></li>
-	  <li role="presentation"><a href="/qianduan/settings/password.jsp">密码</a></li>
-	  <li role="presentation"><a href="/qianduan/settings/link-sn.jsp">社区绑定</a></li>
-	  <li role="presentation"><a href="/qianduan/settings/email.jsp">邮件</a></li>
+	  <li role="presentation" class="active"><s: a action="user_account" namespace="/user">基本资料</s:a></li>
+	  <li role="presentation"><s: a action="user_password" namespace="/user">密码</s:a></li>
+	  <li role="presentation"><s: a action="user_linkSn" namespace="/user">社区绑定</s:a></li>
+	  <li role="presentation"><s: a action="user_email" namespace="/user">邮件</a></li>
 	</ul>
   <div style="height:20px"></div>
   <div class="settings-body">

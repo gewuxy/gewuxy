@@ -856,10 +856,10 @@
       <div class="modal-body">
 	    
 		  <div class="sign-up-email">
-		<s:form action="user_save" namespace="/user" method="post">
+		<form >
 			<div style="margin-left:auto;margin-right:auto;text-align:center;">
 			  <label for="id">我是</label>
-			  <select id="categoryId" name="category" style="width:100px">
+			  <select id="categoryId"  style="width:100px">
 				<option value="student">学生</option>
 				<option value="teacher">老师</option>
 				<option value="parent">家长</option>
@@ -882,13 +882,11 @@
 			  <input id="repasswordId"  type="password" class="form-control" style="">
 			</div>
 			<div style="padding-top:5px;padding-bottom:5px;float:right;">
-		      <button id="register" type="button submit" class="btn btn-primary">加入格物学院</button>
+		      <button id="register" type="button" class="btn btn-primary">加入格物学院</button>
 			</div>
-			<div class="input-group" style="padding-top:5px;padding-bottom:5px;">
-			  <s：fielderror cssClass="input-group-addon" style="color:#000;"></s：fielderror>
-	        	</div>	
+				
 		  </div>
-		</s:form>
+		</form>
 		  <div class="sign-in-email" style="display:none;">
 		  <h4>登录格物学院</h4>
             <form >
@@ -964,12 +962,15 @@ $(this).placeholder();
 				$('#sign-form').modal();
 				$(".sign-up-tab").trigger("click");
 			});
-<<<<<<< HEAD
 			$("#denglu").click(function(){
-=======
-			
-			/*$("#denglu").click(function(){
->>>>>>> 8d6badd9fe1d171f9744bc31a18f60617cd71e7b
+				if($("#exampleInputEmail1").val()==""){
+				$("#exampleInputEmail1").val("请输入邮箱");
+				return false;
+				}
+				if($("#exampleInputPassword2").val()==""){
+				$("#exampleInputPassword2").focus();
+				return false;
+				}
 				var params = {
 				"email" : $("#exampleInputEmail1").val(),
 				"password" : $("#exampleInputPassword2").val()
@@ -986,7 +987,7 @@ $(this).placeholder();
 					var msgok="登录成功";
 					if(data.erroMessage==msg){
 				 	$("#exampleInputEmail1").val(data.erroMessage);
-					return;
+					return false;
 					}
 					if (data.erroMessage==msgok){
 					//alert(data.prePage);
@@ -1004,6 +1005,14 @@ $(this).placeholder();
 				});
 			});
 			$("#denglu2").click(function(){
+				if($("#email2").val()==""){
+				$("#email2").val("请输入邮箱");
+				return false;
+				}
+				if($("#password2").val()==""){
+				$("#password2").focus();
+				return false;
+				}
 				var params = {
 				"email" : $("#email2").val(),
 				"password" : $("#password2").val()
@@ -1056,20 +1065,55 @@ $(this).placeholder();
 				}
 				});
 			});
-			/*$("#register").click(function(){
+			$("#register").click(function(){
+				if($("#usernameId").val()==""){
+				$("#usernameId").val("请输入5-32个英文和数字组成的名字");
+				return false;
+				}
+				if($("#emailId").val()==""){
+				$("#emailId").val("请输入邮箱");
+				return false;
+				}
+				if($("#passwordId").val()==""){
+				//$("#passwordId").focu();
+				alert("密码要六位以上");
+				return false;
+				}
+				if($("#repasswordId").val()==""){
+				//$("#repasswordId").focu();
+				alert("请输入6位以上的密码");
+				return false;
+				}
+				if($("#passwordId").val()!=$("#repasswordId").val()){
+				alert("两次密码不一致");
+				return false;
+				}
 				var params = {
-				"email" : $("#exampleInputEmail1").val(),
-				"password" : $("#exampleInputPassword2").val()
+				"category":$("#categoryId").val(),
+				"username":$("#usernameId").val(),
+				"email" : $("#emailId").val(),
+				"password" : $("#passwordId").val(),
+				"repassword":$("#repasswordId").val()
 			      };
  
 			      $.ajax({
 				    type: "POST",
-				url: "../user/user_logon.html",
+				url: "../user/user_save.html",
 			 	data:params,
-				async: false,
+				//async: false,
 			       	dataType:"json",
 				success:function(data){ 
-				 $("#cuowutishi").text(data.erroMessage);
+				 	var msg="用户邮箱已经被占有，请另选其它邮箱注册";
+					var msgok="注册成功，请到邮箱激活认证";
+					if(data.erroMessage==msg){
+					alert(data.erroMessage);
+				 	//$("#emailId").val(data.erroMessage);
+					return false;
+					}
+					if (data.erroMessage==msgok){
+					alert(data.erroMessage);
+					window.location.href=data.prePage;
+					}
 				},
 				error: function(data){
 				  
@@ -1077,7 +1121,7 @@ $(this).placeholder();
 				  return false;
 				}
 				});
-			});*/
+			});
         });
 function goTopEx() {  
     var obj = document.getElementById("goTopBtn");  

@@ -1103,7 +1103,7 @@ $(this).placeholder();
 				//async: false,
 			       	dataType:"json",
 				success:function(data){ 
-				 	var msg="用户邮箱已经被占有，请另选其它邮箱注册";
+				 	var msg="此邮箱已经注册过，请直接登录";
 					var msgok="注册成功，请到邮箱激活认证";
 					if(data.erroMessage==msg){
 					alert(data.erroMessage);

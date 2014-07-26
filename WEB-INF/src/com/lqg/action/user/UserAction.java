@@ -44,61 +44,62 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	 */
 	public String save() throws Exception{
 		if(category.equals("student")){
-		boolean unique = studentDao.isUnique(student.getEmail());
-		if(unique){
-			studentDao.save(student);
+		boolean unique = studentDao.isUnique(student.getEmail());//锟叫讹拷锟矫伙拷锟斤拷锟角凤拷锟斤拷锟�
+		if(unique){//锟斤拷锟斤拷没锟斤拷锟斤拷锟斤拷
+			studentDao.save(student);//锟斤拷锟斤拷注锟斤拷锟斤拷息
 			setErroMessage("注册成功，请到邮箱激活认证");
 			//获取跳转到登陆界面之前的页面地址，由拦截器提供
 	        prePage = (String) session.get("prePage");	
-			return USER_LOGIN;
+			return USER_LOGIN;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
 		}else{
 			setErroMessage("此邮箱已经注册过，请直接登录");
 			return REGISTERERROR;
 		}}
 		else if(category.equals("teacher")){
-			boolean unique = teacherDao.isUnique(student.getEmail());
-			if(unique){
+			boolean unique = teacherDao.isUnique(student.getEmail());//锟叫讹拷锟矫伙拷锟斤拷锟角凤拷锟斤拷锟�
+			if(unique){//锟斤拷锟斤拷没锟斤拷锟斤拷锟斤拷
 				Teacher teacher=new Teacher();
 				teacher.setUsername(student.getUsername());
 				teacher.setEmail(student.getEmail());
 				teacher.setPassword(student.getPassword());
-				teacherDao.save(teacher);
+				teacherDao.save(teacher);//锟斤拷锟斤拷注锟斤拷锟斤拷息
 				setErroMessage("注册成功，请到邮箱激活认证");
 				//获取跳转到登陆界面之前的页面地址，由拦截器提供
 		        prePage = (String) session.get("prePage");
-				return USER_LOGIN;
+				return USER_LOGIN;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
 			}else{
 				setErroMessage("此邮箱已经注册过，请直接登录");
 				return REGISTERERROR;
 			}}
 		else if (category.equals("parent")){
-			boolean unique = parentDao.isUnique(student.getEmail());
-			if(unique){
+			boolean unique = parentDao.isUnique(student.getEmail());//锟叫讹拷锟矫伙拷锟斤拷锟角凤拷锟斤拷锟�
+			if(unique){//锟斤拷锟斤拷没锟斤拷锟斤拷锟斤拷
 				Parent parent=new Parent();
 				parent.setUsername(student.getUsername());
 				parent.setEmail(student.getEmail());
 				parent.setPassword(student.getPassword());
-				parentDao.save(parent);
+				parentDao.save(parent);//锟斤拷锟斤拷注锟斤拷锟斤拷息
 				setErroMessage("注册成功，请到邮箱激活认证");
 				//获取跳转到登陆界面之前的页面地址，由拦截器提供
 		        prePage = (String) session.get("prePage");
-				return USER_LOGIN;
+				return USER_LOGIN;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
 			}else{
 				setErroMessage("此邮箱已经注册过，请直接登录");
 				return REGISTERERROR;
 			}}
 		else {
-			setErroMessage("用户邮箱已经被占有，请另选其它邮箱注册");
+			setErroMessage("此邮箱已经注册过，请直接登录");
 			return REGISTERERROR;
 		}
 
 	}
 	/**
+	 * 锟矫伙拷锟斤拷录 
 	 * @return
 	 * @throws Exception
 	 */
 	public String logon() throws Exception{
-		
+		//锟斤拷证锟矫伙拷锟斤拷锟斤拷锟斤拷锟斤拷欠锟斤拷锟饺�
 		Student logonstudent=studentDao.login(student.getEmail(), student.getPassword());
 		Parent logonparent=parentDao.login(student.getEmail(), student.getPassword());
 		Teacher logonteacher=teacherDao.login(student.getEmail(), student.getPassword());

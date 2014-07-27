@@ -62,20 +62,14 @@
 		 <param name="includeProperties">erroMessage, prePage</param>
 		</result>		
 		<result name="error">/WEB-INF/pages/common/error.jsp</result>
-		<result name="studentHome">/WEB-INF/pages/student/home.jsp</result>		
-		<result name="studentAccount">/WEB-INF/pages/student/account.jsp</result>
-		<result name="studentClass">/WEB-INF/pages/student/myclass.jsp</result>
-		<result name="parentHome">/WEB-INF/pages/parent/home.jsp</result>		
-		<result name="parentAccount">/WEB-INF/pages/parent/account.jsp</result>
-		<result name="parentClass">/WEB-INF/pages/parent/myclass.jsp</result>
-		<result name="teacherHome">/WEB-INF/pages/teacher/home.jsp</result>		
-		<result name="teacherAccount">/WEB-INF/pages/teacher/account.jsp</result>
-		<result name="teacherClass">/WEB-INF/pages/teacher/myclass.jsp</result>
+		<result name="home">/WEB-INF/pages/setting/home.jsp</result>		
+		<result name="account">/WEB-INF/pages/setting/account.jsp</result>
+		<result name="class">/WEB-INF/pages/setting/myclass.jsp</result>
 		<result name="prePage">/WEB-INF/pages/common/logon_result.jsp</result>
 		<result name="input">/WEB-INF/pages/common/error.jsp</result>
-		<result name="email">/WEB-INF/pages/common/email.jsp</result>
-		<result name="password">/WEB-INF/pages/common/password.jsp</result>
-		<result name="linkSn">/WEB-INF/pages/common/link-sn.jsp</result>
+		<result name="email">/WEB-INF/pages/setting/email.jsp</result>
+		<result name="password">/WEB-INF/pages/setting/password.jsp</result>
+		<result name="linkSn">/WEB-INF/pages/setting/link-sn.jsp</result>
 		<result name="logonError" type="json">
 			 <param name="includeProperties">erroMessage, prePage</param>  
 		 </result>

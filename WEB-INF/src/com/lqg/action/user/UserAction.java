@@ -20,15 +20,9 @@ import com.opensymphony.xwork2.ModelDriven;
 @Controller("userAction")
 public class UserAction extends BaseAction implements ModelDriven<Student>{
 	private static final long serialVersionUID = 1L;
-	private static final String STUDENT_HOME = "studentHome";
-	private static final String PARENT_HOME = "parentHome";
-	private static final String TEACHER_HOME = "teacherHome";
-	private static final String STUDENT_ACCOUNT = "studentAccount";
-	private static final String PARENT_ACCOUNT = "parentAccount";
-	private static final String TEACHER_ACCOUNT = "teacherAccount";
-	private static final String TEACHER_CLASS = "teacherClass";
-	private static final String PARENT_CLASS = "parentClass";
-	private static final String STUDENT_CLASS = "studentClass";
+	private static final String HOME = "home";
+	private static final String ACCOUNT = "account";
+	private static final String CLASS = "class";
 	private static final String PREPAGE = "prePage";
 	private static final String REGISTERERROR = "registerError";
 	private static final String LOGONERROR = "logonError";
@@ -116,7 +110,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	        //session.remove("prePage");
 	        if (prePage == null) {
 	            //不是拦截器跳转到登陆页面的，直接访问的登陆页面
-	            return STUDENT_HOME;
+	            return HOME;
 	        } else {
 	        	 return LOGONERROR;
 	        }
@@ -132,7 +126,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	       // session.remove("prePage");	        
 	        if (prePage == null) {
 	            //不是拦截器跳转到登陆页面的，直接访问的登陆页面
-	            return PARENT_HOME;
+	            return HOME;
 	        } else {
 	        	return LOGONERROR;
 	        }
@@ -147,7 +141,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	        //session.remove("prePage");	       
 	        if (prePage == null) {
 	            //不是拦截器跳转到登陆页面的，直接访问的登陆页面
-	            return TEACHER_HOME;
+	            return HOME;
 	        } else {
 	        	return LOGONERROR;
 	        }
@@ -178,24 +172,10 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	
 	public String home() throws Exception{
 		
-		if(session.get("user")!= null){
-			
-			 if(session.get("type")=="student"){
-				 return STUDENT_HOME;
-			 }
-			 else if(session.get("type")=="parent"){
-				 return PARENT_HOME;
-			 }
-			 else if (session.get("type")=="teacher"){
-				 return TEACHER_HOME;
-			 }
-			 else {
-				 return ERROR;
-			 }
-			
-		}
-		
-		else{
+		if(session.get("user")!= null){			
+			 
+				 return HOME;
+		}else{
 			return ERROR;
 		}
 		
@@ -203,46 +183,20 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	
 public String account() throws Exception{
 		
-	if(session.get("user")!= null){
+	if(session.get("user")!= null){		
+		 
+			 return ACCOUNT;		 
 		
-		 if(session.get("type")=="student"){
-			 return STUDENT_ACCOUNT;
-		 }
-		 else if(session.get("type")=="parent"){
-			 return PARENT_ACCOUNT;
-		 }
-		 else if (session.get("type")=="teacher"){
-			 return TEACHER_ACCOUNT;
-		 }
-		 else {
-			 return ERROR;
-		 }
-		
-	}
-	
-		else{
+	}else{
 			return ERROR;
 		}
 	}
 public String myClass() throws Exception{
 	
-	if(session.get("user")!= null){
-		
-		 if(session.get("type")=="student"){
-			 return STUDENT_CLASS;
-		 }
-		 else if(session.get("type")=="parent"){
-			 return PARENT_CLASS;
-		 }
-		 else if (session.get("type")=="teacher"){
-			 return TEACHER_CLASS;
-		 }
-		 else {
-			 return ERROR;		
-		 }
-	}
-	
-		else{
+	if(session.get("user")!= null){	
+		 
+			 return CLASS;
+		 }else{
 			return ERROR;
 		}
 	}

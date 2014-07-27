@@ -792,7 +792,7 @@
 							<label class="sr-only" for="exampleInputPassword2">Password</label>
 							<input type="password"  class="form-control" id="exampleInputPassword2" placeholder="密码">
 						</div>
-						<button id="cuowutishi" class="btn btn-default" type="button">?</button>
+						<button id="cuowutishi" class="btn btn-default" type="button" title="忘记密码？">?</button>
 						<div class="checkbox">
 							<label>
 								<input type="checkbox"> <font color="white">记住密码</font>

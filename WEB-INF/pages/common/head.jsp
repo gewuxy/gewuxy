@@ -1169,8 +1169,9 @@ function goTopEx() {
             document.body.scrollTop = value;  
         }  
     }  
-    window.onscroll = function() {  
-        getScrollTop() > 0 ? obj.style.display = "": obj.style.display = "none";  
+    window.onscroll = function() {
+		var h=window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        getScrollTop() > h ? obj.style.display = "": obj.style.display = "none";  
     }  
     obj.onclick = function() {  
         var goTop = setInterval(scrollMove, 5);  

@@ -786,11 +786,13 @@
 					<form class="navbar-form navbar-right" role="form" style="" >	
 						<div class="form-group">
 							<label class="sr-only" for="exampleInputEmail1">Email address</label>
-							<input type="email" class="form-control" id="exampleInputEmail1"  autocomplete="on" placeholder="邮件地址">
+							<input type="email" class="form-control" id="exampleInputEmail1"  autocomplete="on" placeholder="邮件地址"
+							data-container="body" data-toggle="popover" data-trigger="manual" data-placement="bottom" data-content="">
 						</div>
 						<div class="form-group">
 							<label class="sr-only" for="exampleInputPassword2">Password</label>
-							<input type="password"  class="form-control" id="exampleInputPassword2" placeholder="密码">
+							<input type="password"  class="form-control" id="exampleInputPassword2" placeholder="密码"
+							data-container="body" data-toggle="popover" data-trigger="manual" data-placement="bottom" data-content="">
 						</div>
 						<button id="cuowutishi" class="btn btn-default" type="button" title="忘记密码？">?</button>
 						<div class="checkbox">
@@ -799,8 +801,7 @@
 							</label>
 						</div>
 						<button id="denglu" type="button" class="btn btn-primary">登录</button>
-						
-				<a class="sign-up" href="#">注册</a>
+						<a class="sign-up" href="#">注册</a>
 					</form></s:if>
 					<s:if test="#session.user!= null">
 					<ul class="nav navbar-nav navbar-right" style="margin:0 auto;">
@@ -964,14 +965,36 @@ $(this).placeholder();
 				$(".sign-up-tab").trigger("click");
 			});
 			$("#denglu").click(function(){
+				//判断电子邮件
 				if($("#exampleInputEmail1").val()==""){
-				$("#exampleInputEmail1").val("请输入邮箱");
-				return false;
+				  $('#exampleInputEmail1').popover('destroy');
+				  $("#exampleInputPassword2").popover('destroy');
+				  $('#exampleInputEmail1').popover({content:"请输入电子邮件"});
+				  $('#exampleInputEmail1').popover('show');
+				  $("#exampleInputEmail1").focus();
+				  return false;
+				}else{
+				  var reg = new RegExp("^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$");
+				  if(!reg.test($("#exampleInputEmail1").val())){
+				    $('#exampleInputEmail1').popover('destroy');
+					$("#exampleInputPassword2").popover('destroy');
+				    $('#exampleInputEmail1').popover({content:"请输入正确的电子邮件"});
+					$('#exampleInputEmail1').popover('show');
+				    $("#exampleInputEmail1").focus();
+					return false;
+				  }
 				}
+				
+				//判断密码
 				if($("#exampleInputPassword2").val()==""){
+				$("#exampleInputPassword2").popover({content:"请输入密码"});
+				$('#exampleInputEmail1').popover('destroy');
+				$("#exampleInputPassword2").popover('show');
 				$("#exampleInputPassword2").focus();
 				return false;
 				}
+				$('#exampleInputEmail1').popover('destroy');
+				$("#exampleInputPassword2").popover('destroy');
 				var params = {
 				"email" : $("#exampleInputEmail1").val(),
 				"password" : $("#exampleInputPassword2").val()

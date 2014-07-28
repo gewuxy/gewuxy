@@ -145,9 +145,9 @@ $("#register0").click(function(){
         </div>
         <div class="index-signup-widget">
           <h3 class="text-center">免费注册加入格物学院</h3>
-          <hr style="width:90%;max-width:400px;"/> 		
+          <hr style="width:90%;max-width:400px;"/> 	
+		  <form>
 		  <div style="text-align:center;">
-		<form>
 		  <label for="id">我是</label>
 		  <select  id="categoryId0"  style="width:100px">
 		     <option value="student">学生</option>

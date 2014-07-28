@@ -112,30 +112,31 @@
                         </div>
                         <div class="row">
 			
-                          <div class="col-sm-6" id="target"  style="width:300px;height:300px;overflow:hidden; border:1px solid gray;">
-                            <div class="big"><img  src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:300px;height:300px;" />
-                            </div>
+                          <div  id="target"  style="width:300px;height:300px;overflow:hidden; border:1px solid gray;display:inline;">
+                            <img  src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:300px;height:300px;" />
+                           
                           </div>
-                          <div class="col-sm-6" id="preview"  style="width:300px;height:300px;overflow:hidden; border:1px solid gray;">
-			 <div class="row">
-                            <div class="col-sm-4"><img  src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:150px;height:150px;"/>
+			
+                          <div id="preview"  style="width:300px;height:300px;overflow:hidden;margin-left:320px;margin-top:-300px">
+			 
+                            <div><img  src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:150px;height:150px;"/>
                             </div>150x150像素
-                          
-                          <div class="col-sm-2" style="width:100px;height:150px;overflow:hidden; border:1px solid gray;margin-left:200px;">
-                            <div class="small"><img  src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:75px;height:75px;"/>
+                         
+                          <div style="width:100px;height:150px;margin-left:170px;display:block;margin-top:-170px">
+                            <div ><img  src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:75px;height:75px;"/>
                             </div>75x75像素
-                            <div class="smaller"><img  src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:50px;height:50px;"/>
+                            <div ><img  src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:50px;height:50px;"/>
                             </div>50x50像素
 			     </div>
 			    </div>
-                          </div>
+                         
                         </div>
                       </form>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+           
 <script type="text/javascript">
  $(document).ready(function () {
 

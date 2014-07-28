@@ -1156,7 +1156,7 @@ $(this).placeholder();
 				$("#repasswordId").focus();
 				return false;
 				}
-				if($("#passwordId").val()!=$("#repasswordId0").val()){
+				if($("#passwordId").val()!=$("#repasswordId").val()){
 				$(".regist-verify").text("两次密码输入不一致");
 				if($(".regist-verify").is(":hidden")){$(".regist-verify").show();}
 				return false;

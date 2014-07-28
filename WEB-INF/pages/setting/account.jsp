@@ -30,7 +30,7 @@
     <form class="form-horizontal" role="form">
   <div class="form-group">
 	<label for="headicon" class="col-sm-2 control-label">头像</label>
-	<img src="" style="width:100px;height:100px;margin-left:2%"/>
+	<img src="" style="width:100px;height:100px;margin-left:2%" alt="头像"/>
 	<div style="display:inline-block">
 	  <input name="imgfile" type="file" accept="image/gif,image/jpeg,image/png">
 	  <div>支持 JPG、PNG、GIF 格式，不要超过 2M </div>

@@ -13,7 +13,7 @@ margin-left:0px;
 width:50%;
 height:auto;
 float:left;
-padding:0px;
+padding:0;
 }
 .right{
 background-color:white;
@@ -205,7 +205,6 @@ background-color:#EEEEEE;
 
 .settings a:hover {background-color:#EEEEEE;text-decoration:none;}
 .settings a:active {background-color:#EEEEEE;text-decoration:none;}
-/*.headicon:hover {background-color:#EEFFFF;cursor:pointer;}*/
 .settings-body{
 margin-top:10px;
 padding-top:10px;
@@ -897,6 +896,16 @@ color: #678d00;
 margin-top: -77px;
 margin-bottom:-77px;
 }
+.reset-ps-container{
+width:100%;
+background-size: cover;
+background-attachment:fixed;
+background-position:center;
+background-image: linear-gradient(to right,#5e84a8 0,#385178 100%);
+background-image: -webkit-linear-gradient(left,color-stop(#5e84a8 0),color-stop(#385178 100%));
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5e84a8', endColorstr='#ff385178', GradientType=1);
+background-repeat: no-repeat;
+}
 .signup-container{
 height: 600px;
 background-size: cover;
@@ -966,7 +975,7 @@ margin-bottom:10px;
 margin-left:auto;
 margin-right:auto;
 }
-.regist-verify0,.regist-verify{
+.regist-verify0,.regist-verify,.signin-verify{
 display:none;
 }
 
@@ -1144,4 +1153,9 @@ height:30px;
 .QQ-signup-btn,.weibo-signup-btn{
 width:90%;
 text-align:center;
+}
+.change-ps-label{
+margin-left:5%;
+color:#999;
+padding-bottom:20px;
 }

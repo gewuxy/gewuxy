@@ -80,6 +80,7 @@ $("#register0").click(function(){
 				if($("#passwordId0").val()!=$("#repasswordId0").val()){
 				$(".regist-verify0").text("两次密码输入不一致");
 				if($(".regist-verify0").is(":hidden")){$(".regist-verify0").show();}
+				$("#repasswordId0").focus();
 				return false;
 				}
 				
@@ -144,9 +145,9 @@ $("#register0").click(function(){
         </div>
         <div class="index-signup-widget">
           <h3 class="text-center">免费注册加入格物学院</h3>
-          <hr style="width:90%;max-width:400px;"/> 		
+          <hr style="width:90%;max-width:400px;"/> 	
+		  <form>
 		  <div style="text-align:center;">
-		<form>
 		  <label for="id">我是</label>
 		  <select  id="categoryId0"  style="width:100px">
 		     <option value="student">学生</option>
@@ -156,11 +157,11 @@ $("#register0").click(function(){
 		  </div>
 		  <div class="input-group user-email">
 			<span class="input-group-addon" style="color:#000;">用户名</span>
-			<input id="usernameId0" type="text" class="form-control">
+			<input id="usernameId0" type="text" class="form-control" autocomplete='on'>
 		  </div>
 		  <div class="input-group user-email">
 			<span class="input-group-addon" style="color:#000;">电子邮件</span>
-			<input id="emailId0" type="text" class="form-control">
+			<input id="emailId0" type="text" class="form-control" autocomplete='on'>
 		  </div>
 		  <div class="input-group user-password">
 			<span class="input-group-addon" style="color:#000;">密码</span>

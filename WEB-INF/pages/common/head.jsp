@@ -783,7 +783,7 @@
 				
 					<s:if test="#session.user== null">
 					
-					<form class="navbar-form navbar-right" role="form" style="" >	
+					<form class="navbar-form navbar-right" role="form">	
 						<div class="form-group">
 							<label class="sr-only" for="exampleInputEmail1">Email address</label>
 							<input type="email" class="form-control" id="exampleInputEmail1"  autocomplete="on" placeholder="邮件地址"
@@ -868,19 +868,19 @@
 			</div>
 			<div class="input-group" style="padding-top:5px;padding-bottom:5px;">
 			  <span class="input-group-addon" style="color:#000;">用户名</span>
-			  <input id="usernameId"  type="text" class="form-control">
+			  <input id="usernameId"  type="text" class="form-control" autocomplete='on'>
 			</div>
 			<div class="input-group" style="padding-top:5px;padding-bottom:5px;">
 			  <span class="input-group-addon" style="color:#000;">电子邮件</span>
-			  <input id="emailId"   type="text" class="form-control" style="">
+			  <input id="emailId"   type="text" class="form-control" autocomplete='on'>
 			</div>
 			<div class="input-group" style="padding-top:5px;padding-bottom:5px;">
 			  <span class="input-group-addon" style="color:#000;">密码</span>
-			  <input id="passwordId"  type="password" class="form-control" style="">
+			  <input id="passwordId"  type="password" class="form-control">
 			</div>
 			<div class="input-group" style="padding-top:5px;padding-bottom:5px;">
 			  <span class="input-group-addon" style="color:#000;">确认密码</span>
-			  <input id="repasswordId"  type="password" class="form-control" style="">
+			  <input id="repasswordId"  type="password" class="form-control">
 			</div>
 			<div class="alert alert-danger regist-verify" role="alert"></div>
 			<div style="padding-top:5px;padding-bottom:5px;float:right;">
@@ -895,7 +895,7 @@
 		
 		  <div class="input-group" style="padding-top:5px;padding-bottom:5px;">
 			<span class="input-group-addon" style="color:#000;">电子邮件</span>
-			<input id="email2"  type="text" class="form-control" style="">
+			<input id="email2"  type="text" class="form-control" autocomplete='on'>
 		  </div>
 		  <div class="input-group" style="padding-top:5px;padding-bottom:5px;">
 			<span class="input-group-addon" style="color:#000;">密码</span>
@@ -908,8 +908,9 @@
 				</label>
 			</div>
 			<a href="#">忘记密码？</a>
-		    <button id="denglu2" type="button" class="btn btn-primary">登录</button>
 		  </div>
+		  <div class="alert alert-danger signin-verify" role="alert" style="clear:both"></div>
+		    <button id="denglu2" type="button" class="btn btn-primary" style="clear:both;float:right">登录</button>
 		</div>
 	    </form>
 		  <div class="sign-up-sn">
@@ -1010,7 +1011,8 @@ $(this).placeholder();
 					var msg="密码和邮箱不一致";
 					var msgok="登录成功";
 					if(data.erroMessage==msg){
-				 	$("#exampleInputEmail1").val(data.erroMessage);
+				 	$("#exampleInputEmail1").popover({content:msg});
+					$("#exampleInputEmail1").popover('show');
 					return false;
 					}
 					if (data.erroMessage==msgok){
@@ -1030,13 +1032,29 @@ $(this).placeholder();
 			});
 			$("#denglu2").click(function(){
 				if($("#email2").val()==""){
-				$("#email2").val("请输入邮箱");
+				$(".signin-verify").text("电子邮件未填写");
+				if($(".signin-verify").is(":hidden")){$(".signin-verify").show();}
+				$("#email2").focus();
+				return false;
+				}else{
+				var reg = new RegExp("^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$");
+				if(!reg.test($("#email2").val())){
+				$(".signin-verify").text("请输入正确的电子邮件");
+				if($(".signin-verify").is(":hidden")){$(".signin-verify").show();}
+				$("#email2").focus();
 				return false;
 				}
+				}
+				
 				if($("#password2").val()==""){
+				$(".signin-verify").text("请输入密码");
+				if($(".signin-verify").is(":hidden")){$(".signin-verify").show();}
 				$("#password2").focus();
 				return false;
 				}
+				
+				$(".signin-verify").hide();
+				
 				var params = {
 				"email" : $("#email2").val(),
 				"password" : $("#password2").val()
@@ -1052,7 +1070,8 @@ $(this).placeholder();
 					var msg="密码和邮箱不一致";
 					var msgok="登录成功";
 					if(data.erroMessage==msg){
-				 	$("#email2").val(data.erroMessage);
+					$(".signin-verify").text(data.erroMessage);
+					$(".signin-verify").show();
 					return;
 					}
 					if (data.erroMessage==msgok){
@@ -1139,6 +1158,7 @@ $(this).placeholder();
 				}
 				if($("#passwordId").val()!=$("#repasswordId0").val()){
 				$(".regist-verify").text("两次密码输入不一致");
+				if($(".regist-verify").is(":hidden")){$(".regist-verify").show();}
 				return false;
 				}
 				
@@ -1164,7 +1184,6 @@ $(this).placeholder();
 					var msgok="注册成功，请到邮箱激活认证";
 					if(data.erroMessage==msg){
 					alert(data.erroMessage);
-				 	//$("#emailId").val(data.erroMessage);
 					return false;
 					}
 					if (data.erroMessage==msgok){

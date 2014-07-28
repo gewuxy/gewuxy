@@ -80,6 +80,7 @@ $("#register0").click(function(){
 				if($("#passwordId0").val()!=$("#repasswordId0").val()){
 				$(".regist-verify0").text("两次密码输入不一致");
 				if($(".regist-verify0").is(":hidden")){$(".regist-verify0").show();}
+				$("#repasswordId0").focus();
 				return false;
 				}
 				
@@ -156,11 +157,11 @@ $("#register0").click(function(){
 		  </div>
 		  <div class="input-group user-email">
 			<span class="input-group-addon" style="color:#000;">用户名</span>
-			<input id="usernameId0" type="text" class="form-control">
+			<input id="usernameId0" type="text" class="form-control" autocomplete='on'>
 		  </div>
 		  <div class="input-group user-email">
 			<span class="input-group-addon" style="color:#000;">电子邮件</span>
-			<input id="emailId0" type="text" class="form-control">
+			<input id="emailId0" type="text" class="form-control" autocomplete='on'>
 		  </div>
 		  <div class="input-group user-password">
 			<span class="input-group-addon" style="color:#000;">密码</span>

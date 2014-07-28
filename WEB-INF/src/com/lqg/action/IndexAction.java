@@ -1,4 +1,4 @@
-package com.lqg.action;
+﻿package com.lqg.action;
 
 import java.util.Map;
 
@@ -57,25 +57,25 @@ public class IndexAction extends ActionSupport implements RequestAware,
 	
 	
 	
-	// MapÀàÐÍµÄrequest
+
 		protected Map<String, Object> request;
-		// MapÀàÐÍµÄsession
+
 		protected Map<String, Object> session;
-		// MapÀàÐÍµÄapplication
+
 		protected Map<String, Object> application;
 		@Override
 		public void setRequest(Map<String, Object> request) {
-			// »ñÈ¡MapÀàÐÍµÄrequestž³Öµ
+
 			this.request = request;
 		}
 		@Override
 		public void setApplication(Map<String, Object> application) {
-			// »ñÈ¡MapÀàÐÍµÄapplicationž³Öµ
+
 			this.application = application;
 		}
 		@Override
 		public void setSession(Map<String, Object> session) {
-			// »ñÈ¡MapÀàÐÍµÄsessionž³Öµ
+
 			this.session = session;
 		}
 

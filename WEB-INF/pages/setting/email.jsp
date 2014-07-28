@@ -35,9 +35,9 @@
 	  <div class="settings-info">
 	    <h3>订阅格物学院每周精选</h3>
 	    <h4>开通后，格物学院将每周为您进行挑选您感兴趣的知识和话题</h4>
-		<div class="toggle-switch off-red" data-reactid=".1.0.1.$all-email.1.$all-email">
-		  <input type="checkbox" id="toggle-switch-all-email" name="all-email" checked="" data-reactid=".1.0.1.$all-email.1.$all-email.0">
-		  <label for="toggle-switch-all-email" data-reactid=".1.0.1.$all-email.1.$all-email.1">
+		<div class="toggle-switch off-red">
+		  <input type="checkbox" id="toggle-switch-all-email" name="all-email">
+		  <label for="toggle-switch-all-email">
 		  </label>
 		</div>
 		<div style="margin:10px;"><button type="button" class="btn btn-success btn-lg" style="padding-top:2px;padding-bottom:2px;">保存</button></div>

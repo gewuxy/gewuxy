@@ -32,8 +32,12 @@
     <h4 style="margin-bottom:30px;">绑定社区帐号，把最好的知识分享给最好的朋友</h4>
     <form action="account.jsp" method="POST" >
 	  <div class="settings-info">
-	    <div style="margin:10px;"><button type="button" class="btn btn-success btn-lg" style="padding-top:2px;padding-bottom:2px;">绑定QQ帐号</button></div>
-		<div style="margin:10px;"><button type="button" class="btn btn-success btn-lg" style="padding-top:2px;padding-bottom:2px;">绑定新浪微博帐号</button></div>
+	    <div style="margin:10px;">
+		  <button type="button" class="btn btn-success btn-lg" style="padding-top:2px;padding-bottom:2px;">绑定QQ帐号</button>
+		</div>
+		<div style="margin:10px;">
+		  <button type="button" class="btn btn-success btn-lg" style="padding-top:2px;padding-bottom:2px;">绑定新浪微博帐号</button>
+		</div>
 	  </div>
 	</form>
   </div>

@@ -57,7 +57,6 @@
 	<script type="text/javascript" src="<%=ctx%>/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="<%=ctx%>/js/scripts.js"></script>
 	<script type="text/javascript" src="<%=ctx%>/js/bootstrap-select.min.js"></script>
-	<script type="text/javascript" src="<%=ctx%>/js/jquery-ui-datepicker.js"></script> 
 	
 
 <div class="row clearfix">       

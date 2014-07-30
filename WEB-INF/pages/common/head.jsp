@@ -964,6 +964,12 @@ $(this).placeholder();
 				$('#sign-form').modal();
 				$(".sign-up-tab").trigger("click");
 			});
+			$("#exampleInputEmail1").blur(function(){
+			  $('#exampleInputEmail1').popover('destroy');
+			});
+			$("#exampleInputPassword2").blur(function(){
+			  $('#exampleInputPassword2').popover('destroy');
+			});
 			$("#denglu").click(function(){
 				//判断电子邮件
 				if($("#exampleInputEmail1").val()==""){
@@ -1012,6 +1018,7 @@ $(this).placeholder();
 					if(data.erroMessage==msg){
 				 	$("#exampleInputEmail1").popover({content:msg});
 					$("#exampleInputEmail1").popover('show');
+					$("#exampleInputEmail1").focus();
 					return false;
 					}
 					if (data.erroMessage==msgok){

@@ -785,7 +785,7 @@
 					<form class="navbar-form navbar-right" role="form">	
 						<div class="form-group">
 							<label class="sr-only" for="exampleInputEmail1">Email address</label>
-							<input type="email" class="form-control" id="exampleInputEmail1"  autocomplete="on" placeholder="邮件地址"
+							<input type="email" class="form-control" id="exampleInputEmail1"  autocomplete="on" placeholder="邮箱"
 							data-container="body" data-toggle="popover" data-trigger="manual" data-placement="bottom" data-content="">
 						</div>
 						<div class="form-group">

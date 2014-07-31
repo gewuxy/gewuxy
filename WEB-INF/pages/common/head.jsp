@@ -766,7 +766,7 @@
 </ul>
 </li>
 <li><s:a action="index_about" namespace="/front">关于我们</s:a></li>
-<li><a href="#">加入我们</a></li>
+<li><s:a action="index_joinUs" namespace="/front">加入我们</s:a></li>
 <li><s:a action="index_faq" namespace="/front">常见问题</s:a></li>
 </ul>
 				<!--加进来的注册登录
@@ -793,7 +793,7 @@
 							<input type="password"  class="form-control" id="exampleInputPassword2" placeholder="密码"
 							data-container="body" data-toggle="popover" data-trigger="manual" data-placement="bottom" data-content="">
 						</div>
-						<button id="cuowutishi" class="btn btn-default" type="button" title="忘记密码？">?</button>
+						<button id="cuowutishi" class="btn btn-default" type="button" title="忘记密码？" onclick="window.location.href='../front/index_rePassword.html'" >?</button>
 						<div class="checkbox">
 							<label>
 								<input type="checkbox"> <font color="white">记住密码</font>
@@ -906,7 +906,7 @@
 					<input type="checkbox">记住我
 				</label>
 			</div>
-			<a href="#">忘记密码？</a>
+			<s:a action="index_rePassword" namespace="/front">忘记密码？</s:a>
 		  </div>
 		  <div class="alert alert-danger signin-verify" role="alert" style="clear:both"></div>
 		    <button id="denglu2" type="button" class="btn btn-primary" style="clear:both;float:right">登录</button>

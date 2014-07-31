@@ -906,7 +906,7 @@
 					<input type="checkbox">记住我
 				</label>
 			</div>
-			<a href="#">忘记密码？</a>
+			<s:a action="index_rePassword" namespace="/front">忘记密码？</s:a>
 		  </div>
 		  <div class="alert alert-danger signin-verify" role="alert" style="clear:both"></div>
 		    <button id="denglu2" type="button" class="btn btn-primary" style="clear:both;float:right">登录</button>

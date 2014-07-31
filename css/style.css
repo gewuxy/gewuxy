@@ -1159,3 +1159,27 @@ margin-left:5%;
 color:#999;
 padding-bottom:20px;
 }
+.our-quotes{
+margin-top:-20px;
+padding: 100px 0;
+background-size: cover;
+background-attachment:fixed;
+background-position:center;
+background-image: linear-gradient(to right,#0077D9 0,#1A98FF 100%);
+background-image: -webkit-linear-gradient(left,color-stop(#0077D9 0),color-stop(#1A98FF 100%));
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0077D9', endColorstr='#ff1A98FF', GradientType=1);
+background-repeat: no-repeat;
+min-height: 140px;
+}
+.our-quotes-wrapper{
+width: 740px;
+margin: 0 auto;
+}
+.our-quotes-wrapper h2,.our-quotes-wrapper p{
+color:#fff;
+font-weight:bold;
+}
+.our-quotes-wrapper > .desc{
+padding-top:20px;
+padding-bottom:10px;
+}

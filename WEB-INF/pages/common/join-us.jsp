@@ -24,11 +24,11 @@
     <div class="body-content-wrapper">
 	  <div class="sidebar">
 		  <ul class="nav nav-pills nav-stacked">
-		    <li class="tab-about-us active">
+		    <li class="tab-about-us ">
 			  <s:a action="index_about" namespace="/front">关于我们</s:a>
 			</li>
-			<li class="tab-join-us">
-			  ><a href="javascript:;">加入我们</a>
+			<li class="tab-join-us active">
+			  <a href="javascript:;">加入我们</a>
 			</li>
 			<li class="tab-faq">
 			  <s:a action="index_faq" namespace="/front">常见问题</s:a>
@@ -38,7 +38,7 @@
 			</li>
 		  </ul>
 	  </div>
-	  <div id="join-us">
+	  <div id="about-us">
 		  <div class="about-body">
 		    <h2 id="about-our-team">加入我们</h2>
 			<p>
@@ -66,7 +66,7 @@
 	</div>
 	<div style="clear:both;"></div>
   </div>
-</div>
+
   <div style="clear:both;width:100%;">
 		<div style="margin-top:-50px;">
 			<%@include file="/WEB-INF/pages/common/footer.jsp"%>

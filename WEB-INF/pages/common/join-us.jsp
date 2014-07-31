@@ -14,16 +14,16 @@
 <link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet">
 <link rel="shortcut icon" type="image/png" href="<%=request.getContextPath()%>/favicon.png">
 </head>
-<body>
-  <div class="clearfix">
+<body>//<div class="container">
+     <div class="clearfix">
 	<div class="col-md-12 column">
       <%@include file="/WEB-INF/pages/common/head.jsp"%>
 	</div>
   </div>
-<div class="body-wrapper">
+  <div class="body-wrapper">
     <div class="body-content-wrapper">
 	  <div class="sidebar">
-		  <ul class="nav nav-pills nav-stacked">
+		 <ul class="nav nav-pills nav-stacked">
 		    <li class="tab-about-us ">
 			  <s:a action="index_about" namespace="/front">关于我们</s:a>
 			</li>
@@ -40,7 +40,7 @@
 	  </div>
 	  <div id="about-us">
 		  <div class="about-body">
-		    <h2 id="about-our-team">加入我们</h2>
+		    <h2 id="about-our-team">关于我们</h2>
 			<p>
 			  只要知道去哪里，全世界人都会帮助你！
 				我们是一个小小的公益创业团队。
@@ -66,11 +66,15 @@
 	</div>
 	<div style="clear:both;"></div>
   </div>
-
-  <div style="clear:both;width:100%;">
-		<div style="margin-top:-50px;">
+</div>
+<div style="clear:both;width:100%;">
+		<div style="margin-top:0px;">
 			<%@include file="/WEB-INF/pages/common/footer.jsp"%>
 		</div>
 	</div> 
+
+
+		  
+	  
 </body>
 </html>

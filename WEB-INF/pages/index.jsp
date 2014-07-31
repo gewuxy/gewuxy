@@ -180,8 +180,6 @@ $("#register0").click(function(){
 		    或者
 		  </div>
 		  <div class="sign-up-with-sn">
-			  <!--a href="#"><img src="<%=request.getContextPath()%>/img/Connect_qq_long.png" alt="QQ登录"></a>
-			  <a href="#"><img src="<%=request.getContextPath()%>/img/connect_weibo.png" alt="新浪微博登录"></a-->
 			  <button type="button" class="btn btn-info QQ-signup"><span class="login_byQQ"></span>用QQ帐号登录</button>
 			  <button type="button" class="btn btn-warning weibo-signup"><span class="login_bysina"></span>用新浪微博登录</button>
 		  </div>
@@ -192,7 +190,7 @@ $("#register0").click(function(){
   </div>
   <div class="container" id="introduction-container">
 	<div class="row student-introduction-container">
-		<div class="col-xs-6 student-anim" id="">
+		<div class="col-xs-6 student-anim">
 		  <img src="<%=ctx%>/img/student.png" alt="我是学生" class="student-img">
 		</div>
 		<div class="col-xs-6 student-intro">
@@ -249,6 +247,7 @@ $("#register0").click(function(){
 			<%@include file="/WEB-INF/pages/common/footer.jsp"%>
 		</div>
 	</div>
+</div>
 </div>
 </body>
 </html>

@@ -40,7 +40,7 @@
 	  </div>
 	  <div id="about-us">
 		  <div class="about-body">
-		    <h2 id="about-our-team">关于我们</h2>
+		    <h2 id="about-our-team">加入我们</h2>
 			<p>
 			  只要知道去哪里，全世界人都会帮助你！
 				我们是一个小小的公益创业团队。

@@ -41,7 +41,8 @@
 			<result name="about">/WEB-INF/pages/common/about.jsp</result>
 			<result name="advise">/WEB-INF/pages/common/advise.jsp</result>
 			<result name="faq">/WEB-INF/pages/common/faq.jsp</result>
-			
+			<result name="joinUs">/WEB-INF/pages/common/join-us.jsp</result>
+			<result name="repassword">/WEB-INF/pages/common/reset-password.jsp.jsp</result>
 		</action>
 	</package>
 	<!-- 学生Action -->

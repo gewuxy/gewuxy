@@ -99,10 +99,11 @@
                         <div class="row btns">
                           <div class="col-xs-8">
                             <label class="btn-choose-file">选择照片
-                              <input id="uploadfile" type="file">
+                              <input id="uploadfile" type="file" name="pic">			      
                             </label>
                           </div>
                           <div class="col-xs-4">
+			    <input type="button" value="上传" id="sub_upload">
                             <input type="submit" value="确定" class="btn btn-ok">
                             <input type="button" value="取消" class="btn btn-cancel">
                           </div>
@@ -113,19 +114,19 @@
                         <div class="row">
 			
                           <div  id="target"  style="width:300px;height:300px;overflow:hidden; border:1px solid gray;display:inline;">
-                            <img  src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:300px;height:300px;" />
+                            <img id="targetpic" src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:300px;height:300px;" />
                            
                           </div>
 			
                           <div id="preview"  style="width:300px;height:300px;overflow:hidden;margin-left:320px;margin-top:-300px">
 			 
-                            <div><img  src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:150px;height:150px;"/>
+                            <div><img id="previewpic" src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:150px;height:150px;"/>
                             </div>150x150像素
                          
                           <div style="width:100px;height:150px;margin-left:170px;display:block;margin-top:-170px">
-                            <div ><img  src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:75px;height:75px;"/>
+                            <div ><img  id="previewpic1" src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:75px;height:75px;"/>
                             </div>75x75像素
-                            <div ><img  src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:50px;height:50px;"/>
+                            <div ><img id="previewpic2" src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:50px;height:50px;"/>
                             </div>50x50像素
 			     </div>
 			    </div>
@@ -182,40 +183,67 @@ $("#myImage").click(function(){
 				//alert("happddsf");
 				//$(".sign-up-tab").trigger("click");
 			});
-$("#uploadfile").click(function(){
+$("#sub_upload").click(function(){	
 				var filename=$("#uploadfile").val();//待上传的文件，如“/www/data/index.php”等
-				var postf=/\.[^\.]+$/.exec(filename);//后缀名				
-				alert(postf);
-				var params = {
-				"pic":$("#uploadfile").val(),
-				"picFileName":postf				
-			      };
-				/*$.ajax({
-				    type: "POST",
-				url: "../user/user_save.html",
-			 	data:params,
-				//async: false,
-			       	dataType:"json",
-				success:function(data){ 
-				 	var msg="此邮箱已经注册过，请直接登录";
-					var msgok="注册成功，请到邮箱激活认证";
-					if(data.erroMessage==msg){
-					alert(data.erroMessage);
-					return false;
-					}
-					if (data.erroMessage==msgok){
-					alert(data.erroMessage);
-					window.location.href=data.prePage;
-					}
-				},
-				error: function(data){
-				  
-
+				//判断上传文件格式
+				  var suffixs=new Array(".jpg", ".jpeg", ".bmp", ".gif");
+				  //截取上传文件格式
+				  var fileType=filename.substring(filename.lastIndexOf('.'));	
+				if(filename==""){
+				  alert("请选择需要上传的图片");
 				  return false;
-				}
+				}else{
+				 
+				  //截取上传文件格式
+				   if($.inArray(fileType,suffixs)<=-1){
+				    alert("图片格式错误");
+				    return false;
+				  }else{
+				    var	uploadUrl="../user/user_uploadPic?picFileName="+fileType;
+				  //starting setting some animation when the ajax starts and completes
+				$("#loading")
+				.ajaxStart(function(){
+					$(this).show();
+				})
+				.ajaxComplete(function(){
+					$(this).hide();
 				});
-			     });*/
-			});
+		
+				/*
+					prepareing ajax file upload
+					url: the url of script file handling the uploaded files
+				        fileElementId: the file type of input element id and it will be the index of  $_FILES Array()
+					dataType: it support json, xml
+					secureuri:use secure protocol
+					success: call back function when the ajax complete
+					error: callback function when the ajax failed
+			
+				*/
+				    //异步上传
+				    $.ajaxFileUpload({
+				      url:uploadUrl,
+				      secureuri:false,
+				      fileElementId:"uploadfile",//上传id，这里是<input type="file" name="uploadfile" id="file"/>
+				      dataType:'json',
+				      success:function(data){
+					  if(data.imageMessage=="文件过大"){
+					  alert("文件过大");
+					}else if(data.imageMessage=="文件上传失败"){
+					  alert("文件上传失败!");
+					}
+					else {
+						$("#targetpic").src(<%=request.getContextPath()%>/img/data.uploadFile.path);
+					}
+				
+				      },
+				      error:function(){
+					alert("异步失败");
+				      }
+				    });
+				  }
+				}
+      			});
+			
 		});
     </script>
 </body>

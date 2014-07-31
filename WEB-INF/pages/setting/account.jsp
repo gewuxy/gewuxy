@@ -95,11 +95,11 @@
                 <div class="modal-dialog" >
                   <div class="modal-content">
                     <div class="modal-body" >
-                      <form role="form" action="/do_base64_avatar" method="post" enctype="multipart/form-data" class="upload-form container-fluid" >
+                      <form role="form"  enctype="multipart/form-data" class="upload-form container-fluid" >
                         <div class="row btns">
                           <div class="col-xs-8">
                             <label class="btn-choose-file">选择照片
-                              <input type="file" name="tmp_avatar_file">
+                              <input id="uploadfile" type="file">
                             </label>
                           </div>
                           <div class="col-xs-4">
@@ -181,6 +181,40 @@ $("#myImage").click(function(){
 
 				//alert("happddsf");
 				//$(".sign-up-tab").trigger("click");
+			});
+$("#uploadfile").click(function(){
+				var filename=$("#uploadfile").val();//待上传的文件，如“/www/data/index.php”等
+				var postf=/\.[^\.]+$/.exec(filename);//后缀名				
+				alert(postf);
+				var params = {
+				"pic":$("#uploadfile").val(),
+				"picFileName":postf				
+			      };
+				/*$.ajax({
+				    type: "POST",
+				url: "../user/user_save.html",
+			 	data:params,
+				//async: false,
+			       	dataType:"json",
+				success:function(data){ 
+				 	var msg="此邮箱已经注册过，请直接登录";
+					var msgok="注册成功，请到邮箱激活认证";
+					if(data.erroMessage==msg){
+					alert(data.erroMessage);
+					return false;
+					}
+					if (data.erroMessage==msgok){
+					alert(data.erroMessage);
+					window.location.href=data.prePage;
+					}
+				},
+				error: function(data){
+				  
+
+				  return false;
+				}
+				});
+			     });*/
 			});
 		});
     </script>

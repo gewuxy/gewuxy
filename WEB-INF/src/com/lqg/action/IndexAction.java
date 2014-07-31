@@ -1,4 +1,4 @@
-﻿package com.lqg.action;
+package com.lqg.action;
 
 import java.util.Map;
 
@@ -30,6 +30,8 @@ public class IndexAction extends ActionSupport implements RequestAware,
 	public static final String ABOUT = "about";
 	public static final String ADVISE = "advise";
 	public static final String FAQ = "faq";
+	private static final String JOINUS = "joinUs";
+	private static final String REPASSWORD = "repassword";
 	
 	
 	public String home() throws Exception {
@@ -45,7 +47,12 @@ public class IndexAction extends ActionSupport implements RequestAware,
 		return FAQ;
 	}
 	
-	
+	public String joinUs() throws Exception {
+		return JOINUS;
+	}
+	public String rePassword() throws Exception {
+		return REPASSWORD;
+	}
 	@Override
 	public String execute() throws Exception {
 		return SUCCESS;
@@ -57,25 +64,25 @@ public class IndexAction extends ActionSupport implements RequestAware,
 	
 	
 	
-
+	// MapÀàÐÍµÄrequest
 		protected Map<String, Object> request;
-
+		// MapÀàÐÍµÄsession
 		protected Map<String, Object> session;
-
+		// MapÀàÐÍµÄapplication
 		protected Map<String, Object> application;
 		@Override
 		public void setRequest(Map<String, Object> request) {
-
+			// »ñÈ¡MapÀàÐÍµÄrequestž³Öµ
 			this.request = request;
 		}
 		@Override
 		public void setApplication(Map<String, Object> application) {
-
+			// »ñÈ¡MapÀàÐÍµÄapplicationž³Öµ
 			this.application = application;
 		}
 		@Override
 		public void setSession(Map<String, Object> session) {
-
+			// »ñÈ¡MapÀàÐÍµÄsessionž³Öµ
 			this.session = session;
 		}
 

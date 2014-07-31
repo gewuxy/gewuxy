@@ -31,7 +31,7 @@
 			  <s:a action="index_about" namespace="/front">关于我们</s:a>
 			</li>
 			<li class="tab-join-us">
-			<a href="javascript:;">加入我们</a>
+			 <s:a action="index_joinUs" namespace="/front">加入我们</s:a>
 			</li>
 			<li class="tab-faq">
 			  <s:a action="index_faq" namespace="/front">常见问题</s:a>

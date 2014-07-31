@@ -1,15 +1,21 @@
 package com.lqg.action.user;
 
+import java.io.File;
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.lqg.action.BaseAction;
+import com.lqg.model.product.UploadFile;
 import com.lqg.model.user.Parent;
 import com.lqg.model.user.Student;
 import com.lqg.model.user.Teacher;
+import com.lqg.util.StringUitl;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ModelDriven;
 /**
@@ -31,6 +37,10 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	private static final String LINKSN = "linkSn";
 	private String prePage;
 	private String erroMessage;
+	private String imageMessage;
+	private File pic;   //(上传图片的file)  
+	private String picFileName; //（上传图片的file的文件名）
+	private UploadFile uploadFile;//上传后的图片
 	public String login() throws Exception{
 		return USER_LOGIN;
 	}
@@ -40,8 +50,9 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	 * @throws Exception
 	 */
 	public String save() throws Exception{
-		if(category.equals("student")){
-		boolean unique = studentDao.isUnique(student.getEmail());//锟叫讹拷锟矫伙拷锟斤拷锟角凤拷锟斤拷锟�
+		boolean unique = studentDao.isUnique(student.getEmail())&&teacherDao.isUnique(student.getEmail())
+				&&parentDao.isUnique(student.getEmail());//锟叫讹拷锟矫伙拷锟斤拷锟角凤拷锟斤拷锟�
+		if(category.equals("student")){		
 		if(unique){//锟斤拷锟斤拷没锟斤拷锟斤拷锟斤拷
 			studentDao.save(student);//锟斤拷锟斤拷注锟斤拷锟斤拷息
 			setErroMessage("注册成功，请到邮箱激活认证");
@@ -52,8 +63,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 			setErroMessage("此邮箱已经注册过，请直接登录");
 			return REGISTERERROR;
 		}}
-		else if(category.equals("teacher")){
-			boolean unique = teacherDao.isUnique(student.getEmail());//锟叫讹拷锟矫伙拷锟斤拷锟角凤拷锟斤拷锟�
+		else if(category.equals("teacher")){			
 			if(unique){//锟斤拷锟斤拷没锟斤拷锟斤拷锟斤拷
 				Teacher teacher=new Teacher();
 				teacher.setUsername(student.getUsername());
@@ -68,8 +78,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 				setErroMessage("此邮箱已经注册过，请直接登录");
 				return REGISTERERROR;
 			}}
-		else if (category.equals("parent")){
-			boolean unique = parentDao.isUnique(student.getEmail());//锟叫讹拷锟矫伙拷锟斤拷锟角凤拷锟斤拷锟�
+		else if (category.equals("parent")){			
 			if(unique){//锟斤拷锟斤拷没锟斤拷锟斤拷锟斤拷
 				Parent parent=new Parent();
 				parent.setUsername(student.getUsername());
@@ -248,12 +257,54 @@ public String linkSn() throws Exception{
 			return ERROR;
 		}
 	}
+/*
+ * 个人上传图片的action
+ */
+
+public String uploadPic() {  
+    String[] str = { ".jpg", ".jpeg", ".bmp", ".gif" };  
+    // 获取用户登录名  
+   // TbUser curruser = (TbUser) getValue(SCOPE_SESSION, "curruser");  
+    // 限定文件大小是4MB  
+    if (pic == null || pic.length() > 4194304) {  
+        
+		//文件过大  
+    	setImageMessage("文件过大");
+        return "imageLimited";  
+    }  
+    for (String s : str) {  
+        if (picFileName.endsWith(s)) {  
+            String realPath = ServletActionContext.getServletContext().getRealPath("/img");// 在tomcat中保存图片的实际路径  ==  "webRoot/img/" 
+            String fileName = StringUitl.getStringTime() + ".jpg";//×Ô¶šÒåÍŒÆ¬Ãû³Æ
+            File saveFile = new File(new File(realPath), fileName); // 在该实际路径下实例化一个文件  
+            // 判断父目录是否存在  
+            if (!saveFile.getParentFile().exists()) {  
+                saveFile.getParentFile().mkdirs();  
+            }  
+            try {  
+                // 执行文件上传  
+                // FileUtils 类名 org.apache.commons.io.FileUtils;  
+                // 是commons-io包中的，commons-fileupload 必须依赖  
+                // commons-io包实现文件上次，实际上就是将一个文件转换成流文件进行读写  
+                FileUtils.copyFile(pic, saveFile);  
+               	uploadFile.setPath(fileName);//ÉèÖÃÎÄŒþÃû³Æ
+				uploadFileDao.save(uploadFile);
+            } catch (IOException e) {  
+            	setImageMessage("文件上传失败");
+                return "imageError";  
+            }  
+        }  
+    } 
+    setImageMessage("文件上传成功");
+    return "imageSuccess";  
+}  
 	// 锟斤拷锟斤拷员
 	private Student student = new Student();
 	// 确锟斤拷锟斤拷锟斤拷
 	private String repassword;
         //登录者类型
 	private String category;
+	  
 	public Student getStudent() {
 		return student;
 	}
@@ -288,5 +339,31 @@ public String linkSn() throws Exception{
 	public void setErroMessage(String erroMessage) {
 		this.erroMessage = erroMessage;
 	}
+	public File getPic() {
+		return pic;
+	}
+	public void setPic(File pic) {
+		this.pic = pic;
+	}
+	public String getPicFileName() {
+		return picFileName;
+	}
+	public void setPicFileName(String picFileName) {
+		this.picFileName = picFileName;
+	}
+	public UploadFile getUploadFile() {
+		return uploadFile;
+	}
+	public void setUploadFile(UploadFile uploadFile) {
+		this.uploadFile = uploadFile;
+	}
+	
+	public String getImageMessage() {
+		return imageMessage;
+	}
+	public void setImageMessage(String imageMessage) {
+		this.imageMessage = imageMessage;
+	}
+	
 	
 }

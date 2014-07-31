@@ -12,6 +12,7 @@
 <meta name="keywords" content="" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
 <link rel="shortcut icon" type="image/png" href="<%=request.getContextPath()%>/favicon.png">  
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/ajaxfileupload.js"></script>
 </head>
 <body>
   <div class="clearfix">
@@ -95,13 +96,14 @@
                 <div class="modal-dialog" >
                   <div class="modal-content">
                     <div class="modal-body" >
-                      <form role="form"  enctype="multipart/form-data" class="upload-form container-fluid" >
+                      <form action="" method="post" enctype="multipart/form-data" >
                         <div class="row btns">
                           <div class="col-xs-8">
                             <label class="btn-choose-file">选择照片
                               <input id="uploadfile" type="file" name="pic">			      
                             </label>
                           </div>
+			 <div id="loading" style="display:none;"><img  id="previewpic1" src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/></div>
                           <div class="col-xs-4">
 			    <input type="button" value="上传" id="sub_upload">
                             <input type="submit" value="确定" class="btn btn-ok">
@@ -199,13 +201,11 @@ $("#sub_upload").click(function(){
 				    alert("图片格式错误");
 				    return false;
 				  }else{
-				    var	uploadUrl="../user/user_uploadPic?picFileName="+fileType;
+				    var	uploadUrl="../user/user_uploadPic.html?picFileName="+filename;
 				  //starting setting some animation when the ajax starts and completes
-				$("#loading")
-				.ajaxStart(function(){
+				$("#loading").ajaxStart(function(){
 					$(this).show();
-				})
-				.ajaxComplete(function(){
+				}).ajaxComplete(function(){
 					$(this).hide();
 				});
 		

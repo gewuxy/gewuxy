@@ -40,7 +40,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	private String imageMessage;
 	private File pic;   //(上传图片的file)  
 	private String picFileName; //（上传图片的file的文件名）
-	private UploadFile uploadFile;//上传后的图片
+	private UploadFile uploadFile=new UploadFile();//上传后的图片
 	public String login() throws Exception{
 		return USER_LOGIN;
 	}
@@ -287,7 +287,7 @@ public String uploadPic() {
                 // 是commons-io包中的，commons-fileupload 必须依赖  
                 // commons-io包实现文件上次，实际上就是将一个文件转换成流文件进行读写  
                 FileUtils.copyFile(pic, saveFile);  
-               	uploadFile.setPath(fileName);//ÉèÖÃÎÄŒþÃû³Æ
+               	uploadFile.setPath(realPath+fileName);//ÉèÖÃÎÄŒþÃû³Æ
 				uploadFileDao.save(uploadFile);
             } catch (IOException e) {  
             	setImageMessage("文件上传失败");

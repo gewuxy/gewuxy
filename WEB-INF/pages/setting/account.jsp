@@ -104,13 +104,14 @@
                           </div>
 			 <div id="loading" style="display:none;"><img  id="previewpic1" src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/></div>
                           <div class="col-xs-4">
-			    <input type="button" value="上传" id="sub_upload" >
+			    
                             <input type="submit" value="确定" class="btn btn-ok">
                             <input type="button" value="取消" class="btn btn-cancel">
                           </div>
                         </div>
                         <div class="row">
-                          <div class="col-xs-12"><span class="upload-tip">仅支持JPG, GIF, PNG格式，文件小于5M。</span></div>
+                          <div class="col-xs-12"><span class="upload-tip">仅支持JPG, GIF, PNG格式，文件小于5M。</span> <input type="button" value="上传" id="sub_upload" ></div>
+			 
                         </div>
                         <div class="row">
 			
@@ -125,7 +126,7 @@
                             </div>150x150像素
                          
                           <div style="width:100px;height:150px;margin-left:170px;display:block;margin-top:-170px">
-                            <div ><img  id="previewpic1" src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:75px;height:75px;"/>
+                            <div ><img id="previewpic1" src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:75px;height:75px;"/>
                             </div>75x75像素
                             <div ><img id="previewpic2" src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:50px;height:50px;"/>
                             </div>50x50像素
@@ -213,23 +214,26 @@ $("#sub_upload").click(function(){
 				      secureuri:false,
 				      fileElementId:"uploadfile",
 				      dataType:'json',
-				      success:function(data,status){ alert("文件过大");
-					   var messageBig='文件过大';
-					   var messageFai='文件上传失败';
-					   var messageSuc='文件上传成功';
+				      success:function(data,status){ 
+					   var messageBig="文件过大";
+					   var messageFai="文件上传失败";
+					   var messageSuc="文件上传成功";
 						
 					   if(data.imageMessage==messageBig){
-					  alert("文件过大");
-						}else if(data.imageMessage==messageFai){
-					  alert("文件上传失败!");
+					  alert("文件过大");return false;
 						}
-						else if(data.imgaMessage==messageSuc) {
+					   if(data.imageMessage==messageFai){
+					  alert("文件上传失败!");return false;
+						}
+					  if(data.imageMessage==messageSuc) {
 						var hostname='<%=request.getContextPath()%>';
 						var pathPic=hostname+"/img/"+data.uploadFile.path;
-						alert(pathPic);
+						//alert(pathPic);
 						$("#targetpic").attr("src",pathPic);
-						}
-					    	else{alert("文件上传失败");}
+						$("#previewpic").attr("src",pathPic);
+						$("#previewpic1").attr("src",pathPic);
+						$("#previewpic2").attr("src",pathPic);
+						}			 
 					
 				      },
 				      error:function(){

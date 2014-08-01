@@ -31,8 +31,8 @@
 	    <button type="button" class="btn btn-success">查看职位</button>
 	  </div>
 	  </div>
-	  <div class="img">
-	    <img src="<%=ctx%>/img/joinus.png">
+	  <div>
+	    <img src="<%=ctx%>/img/joinus.png" alt="logo">
 	  </div>
 	</div>
   </div>

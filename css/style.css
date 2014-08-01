@@ -1191,11 +1191,10 @@ padding-bottom:10px;
 display:table-cell;
 width:490px;
 padding-right:40px;
-padding-top:40px;
 margin: 0 auto;
 float:left;
 }
-.our-quotes-wrapper .img{
+.our-quotes-wrapper img{
 display:table-cell;
 width:250px;
 height:250px;

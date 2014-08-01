@@ -28,7 +28,7 @@
 	  <form role="form" method="post">
 	    <div class="form-group">
 		  <div class="col-sm-12">
-			<input type="email" class="form-control" placeholder="邮箱" autocomplete='on'>
+			<input type="email" id="your-email" class="form-control" placeholder="邮箱" autocomplete='on'>
 		  </div>
 		</div>
 		<div class="form-group">
@@ -56,7 +56,22 @@ $(window).resize(function(){
 		$(".reset-ps-container").height($(window).height());
 	}
 });
-
+$(".reset-password").click(function(){
+  if($("#your-email").val()==""){
+	$(".reset-ps-failure").text("邮箱未填写");
+	if($(".reset-ps-failure").is(":hidden")){$(".reset-ps-failure").show();}
+		$("#your-email").focus();
+		return false;
+  }else{                        //判断邮件格式是否正确
+		var reg = new RegExp("^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$");
+		if(!reg.test($("#your-email").val())){
+		$(".reset-ps-failure").text("请输入正确的邮箱");
+		if($(".reset-ps-failure").is(":hidden")){$(".reset-ps-failure").show();}
+			$("#your-email").focus();
+			return false;
+		}
+  }
+});
 })
 </script>  
 </body>

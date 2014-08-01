@@ -26,7 +26,7 @@
 	  <div class="text">
 	  <h1>加入格物学院</h1>
 	  <p class="desc">如果有机会使得教育更加开放，公平，富有效率，为什么不这样做呢！</p>
-	  <p>格物学院是一个小小的团队，理想是给教育带来一点点积极地改变</p>
+	  <p>格物学院是一个小小的团队，理想是给教育带来一点点积极地改变。</p>
 	  <div>
 	    <a type="button" class="btn btn-success" href="#open-jobs">查看职位</a>
 	  </div>

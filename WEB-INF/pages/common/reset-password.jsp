@@ -28,7 +28,7 @@ $(window).resize(function(){
 </head>
 
 <body>
-  <div class="row clearfix">
+  <div class="clearfix">
 	<div class="col-md-12 column">
 	  <%@include file="/WEB-INF/pages/common/head.jsp"%>
 	</div>

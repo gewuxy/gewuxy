@@ -28,7 +28,7 @@
 	  <p class="desc">如果有机会使得教育更加开放，公平，富有效率，为什么不这样做呢！</p>
 	  <p>格物学院是一个小小的团队，理想是给教育带来一点点积极地改变</p>
 	  <div>
-	    <button type="button" class="btn btn-success">查看职位</button>
+	    <a type="button" class="btn btn-success" href="#open-jobs">查看职位</a>
 	  </div>
 	  </div>
 	  <div>
@@ -36,7 +36,7 @@
 	  </div>
 	</div>
   </div>
-  <div class="open-jobs">
+  <div id="open-jobs">
     <div class="open-jobs-label">开放职位</div>
 	<div>
 	  <div class="col-sm-6 col-md-4 col-lg-3 ">

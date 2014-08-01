@@ -1200,11 +1200,11 @@ width:250px;
 height:250px;
 float:right;
 }
-.open-jobs{
+#open-jobs{
 width:960px;
 margin:0 auto;
 }
-.open-jobs img{
+#open-jobs img{
 max-width:100%;
 height:auto;
 }

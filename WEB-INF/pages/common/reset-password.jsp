@@ -39,7 +39,7 @@
 	  </form>
 	</div>
   </div>
-  <div style="clear:both;width:100%;margin-top:-20px;">
+  <div style="clear:both;margin-top:-25px;margin-bottom:-25px;">
 	  <%@include file="/WEB-INF/pages/common/footer.jsp"%>
   </div>
 <script>

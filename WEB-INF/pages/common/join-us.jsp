@@ -36,6 +36,41 @@
 	  </div>
 	</div>
   </div>
+  <div class="open-jobs">
+    <div class="open-jobs-label">开放职位</div>
+	<div>
+	  <div class="col-sm-6 col-md-4 col-lg-3 ">
+          <div class="thumbnail">
+            <a href="#" target="_blank">
+			  <img src="<%=ctx%>/img/web-dev.png" width="300" height="150" alt="Web developers">
+			</a>
+            <div class="">
+              <h4> 
+                <a  class="job-des" href="#" target="_blank">后端开发工程师</a>
+              </h4>
+              <p>
+              实现稳定可扩展的后台服务，不断对后台进行改善，完成产品的快速迭代。
+              </p>
+            </div>
+          </div>
+        </div>
+		<div class="col-sm-6 col-md-4 col-lg-3 ">
+          <div class="thumbnail">
+            <a href="#" target="_blank">
+			  <img src="<%=ctx%>/img/web-dev.png" width="300" height="150" alt="Web developers">
+			</a>
+            <div class="">
+              <h4> 
+                <a  class="job-des" href="#" target="_blank">前端开发工程师</a>
+              </h4>
+              <p>
+              负责用户界面的交互开发，并对现有产品进行改进，持续完善高性能可复用的前端组件。
+              </p>
+            </div>
+          </div>
+        </div>
+	</div>
+  </div>
 </div>
 <div style="clear:both;width:100%;">
 		<div style="margin-top:0px;">

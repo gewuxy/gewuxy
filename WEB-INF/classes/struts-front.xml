@@ -81,7 +81,7 @@
 			 <param name="includeProperties">erroMessage</param>  
 		 </result>
 		 <result name="imageSuccess" type="json">
-			 <param name="includeProperties">uploadFile,imageMessage</param>  
+			 <param name="includeProperties">uploadFile\.id,uploadFile\.path,imageMessage</param>  
 		 </result>
 		 <result name="imageLimited" type="json">
 			 <param name="includeProperties">imageMessage</param>  

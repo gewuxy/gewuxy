@@ -15,6 +15,7 @@ import com.lqg.model.product.UploadFile;
 import com.lqg.model.user.Parent;
 import com.lqg.model.user.Student;
 import com.lqg.model.user.Teacher;
+import com.lqg.util.OperateImage;
 import com.lqg.util.StringUitl;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ModelDriven;
@@ -41,6 +42,8 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	private File pic;   //(上传图片的file)  
 	private String picFileName; //（上传图片的file的文件名）
 	private UploadFile uploadFile=new UploadFile();//上传后的图片
+	private OperateImage image;
+	private String cuttingImageName;
 	public String login() throws Exception{
 		return USER_LOGIN;
 	}
@@ -298,6 +301,37 @@ public String uploadPic() {
     setImageMessage("文件上传成功");
     return "imageSuccess";  
 }  
+//剪切图片
+public String cutPic(){  
+        String name = ServletActionContext.getServletContext().getRealPath("/img/"+cuttingImageName);  
+        image.setSrcpath(name);  
+        int index=cuttingImageName.lastIndexOf(".");
+        String nameCut=cuttingImageName.substring(0,index-1)+"jianqie.jpg";
+        image.setSubpath(ServletActionContext.getServletContext().getRealPath("/img/"+nameCut));  
+        try {  
+            image.cut(); //执行裁剪操作  执行完后即可生成目标图在对应文件夹内。</span>  
+            uploadFile.setPath(nameCut);//ÉèÖÃÎÄŒþÃû³Æ
+			uploadFileDao.save(uploadFile);
+			if(session.get("type")=="student"){
+				Student student=(Student) session.get("user");
+				student.setImage(uploadFile);
+				studentDao.saveOrUpdate(student);
+			}
+			if(session.get("type")=="parent"){
+				Parent parent=(Parent) session.get("user");
+				parent.setImage(uploadFile);
+				parentDao.saveOrUpdate(parent);
+			}
+			if(session.get("type")=="teacher"){
+				Teacher teacher=(Teacher) session.get("user");
+				teacher.setImage(uploadFile);
+				teacherDao.saveOrUpdate(teacher);
+			}
+        } catch (IOException e) {  
+            e.printStackTrace();  
+        }  
+        return "cutsuccess";  
+    }  
 	// 锟斤拷锟斤拷员
 	private Student student = new Student();
 	// 确锟斤拷锟斤拷锟斤拷
@@ -363,6 +397,18 @@ public String uploadPic() {
 	}
 	public void setImageMessage(String imageMessage) {
 		this.imageMessage = imageMessage;
+	}
+	public OperateImage getImage() {
+		return image;
+	}
+	public void setImage(OperateImage image) {
+		this.image = image;
+	}
+	public String getCuttingImageName() {
+		return cuttingImageName;
+	}
+	public void setCuttingImageName(String cuttingImageName) {
+		this.cuttingImageName = cuttingImageName;
 	}
 	
 	

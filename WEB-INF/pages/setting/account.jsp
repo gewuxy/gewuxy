@@ -12,7 +12,6 @@
 <meta name="keywords" content="" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
 <link rel="shortcut icon" type="image/png" href="<%=request.getContextPath()%>/favicon.png">  
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/ajaxfileupload.js"></script>
 </head>
 <body>
   <div class="clearfix">
@@ -105,7 +104,7 @@
                           </div>
 			 <div id="loading" style="display:none;"><img  id="previewpic1" src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/></div>
                           <div class="col-xs-4">
-			    <input type="button" value="上传" id="sub_upload">
+			    <input type="button" value="上传" id="sub_upload" onclick="return ajaxFileUpload();">
                             <input type="submit" value="确定" class="btn btn-ok">
                             <input type="button" value="取消" class="btn btn-cancel">
                           </div>
@@ -139,7 +138,7 @@
                   </div>
                 </div>
               </div>
-           
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/ajaxfileupload.js"></script>          
 <script type="text/javascript">
  $(document).ready(function () {
 
@@ -208,33 +207,26 @@ $("#sub_upload").click(function(){
 				}).ajaxComplete(function(){
 					$(this).hide();
 				});
-		
-				/*
-					prepareing ajax file upload
-					url: the url of script file handling the uploaded files
-				        fileElementId: the file type of input element id and it will be the index of  $_FILES Array()
-					dataType: it support json, xml
-					secureuri:use secure protocol
-					success: call back function when the ajax complete
-					error: callback function when the ajax failed
-			
-				*/
-				    //异步上传
+		                 //异步上传
 				    $.ajaxFileUpload({
 				      url:uploadUrl,
 				      secureuri:false,
-				      fileElementId:"uploadfile",//上传id，这里是<input type="file" name="uploadfile" id="file"/>
+				      fileElementId:"uploadfile",
 				      dataType:'json',
-				      success:function(data){
-					  if(data.imageMessage=="文件过大"){
+				      success:function(data,status){
+					 if (status == "success") {  
+					   if(data.imageMessage=="文件过大"){
 					  alert("文件过大");
-					}else if(data.imageMessage=="文件上传失败"){
+						}else if(data.imageMessage=="文件上传失败"){
 					  alert("文件上传失败!");
-					}
-					else {
+						}
+						else {
 						$("#targetpic").src(<%=request.getContextPath()%>/img/data.uploadFile.path);
-					}
-				
+						}
+					     }
+					else {  
+					    alert(data.imageMessage+"Error");  
+					}  
 				      },
 				      error:function(){
 					alert("异步失败");

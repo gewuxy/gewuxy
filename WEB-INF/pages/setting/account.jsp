@@ -95,7 +95,7 @@
                 <div class="modal-dialog" >
                   <div class="modal-content">
                     <div class="modal-body" >
-                      <form action="" method="post" enctype="multipart/form-data" >
+                      
                         <div class="row btns">
                           <div class="col-xs-8">
                             <label class="btn-choose-file">选择照片
@@ -104,7 +104,7 @@
                           </div>
 			 <div id="loading" style="display:none;"><img  id="previewpic1" src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/></div>
                           <div class="col-xs-4">
-			    <input type="button" value="上传" id="sub_upload" onclick="return ajaxFileUpload();">
+			    <input type="button" value="上传" id="sub_upload" >
                             <input type="submit" value="确定" class="btn btn-ok">
                             <input type="button" value="取消" class="btn btn-cancel">
                           </div>
@@ -133,7 +133,7 @@
 			    </div>
                          
                         </div>
-                      </form>
+                     
                     </div>
                   </div>
                 </div>
@@ -213,20 +213,24 @@ $("#sub_upload").click(function(){
 				      secureuri:false,
 				      fileElementId:"uploadfile",
 				      dataType:'json',
-				      success:function(data,status){
-					 if (status == "success") {  
-					   if(data.imageMessage=="文件过大"){
+				      success:function(data,status){ alert("文件过大");
+					   var messageBig='文件过大';
+					   var messageFai='文件上传失败';
+					   var messageSuc='文件上传成功';
+						
+					   if(data.imageMessage==messageBig){
 					  alert("文件过大");
-						}else if(data.imageMessage=="文件上传失败"){
+						}else if(data.imageMessage==messageFai){
 					  alert("文件上传失败!");
 						}
-						else {
-						$("#targetpic").src(<%=request.getContextPath()%>/img/data.uploadFile.path);
+						else if(data.imgaMessage==messageSuc) {
+						var hostname='<%=request.getContextPath()%>';
+						var pathPic=hostname+"/img/"+data.uploadFile.path;
+						alert(pathPic);
+						$("#targetpic").attr("src",pathPic);
 						}
-					     }
-					else {  
-					    alert(data.imageMessage+"Error");  
-					}  
+					    	else{alert("文件上传失败");}
+					
 				      },
 				      error:function(){
 					alert("异步失败");

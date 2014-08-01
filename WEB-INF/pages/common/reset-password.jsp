@@ -39,21 +39,19 @@
 	  </form>
 	</div>
   </div>
-  <div style="clear:both;width:100%;">
-	<div style="margin-top:0px;">
+  <div style="clear:both;width:100%;margin-top:-20px;">
 	  <%@include file="/WEB-INF/pages/common/footer.jsp"%>
-	</div>
   </div>
 <script>
 $(document).ready(function(){
-  if($(".reset-ps-container").height()<$(window).height()){
-		$(".reset-ps-container").height($(window).height());
+  if($(".reset-ps-container").height()<$(window).height()-70){
+		$(".reset-ps-container").height($(window).height()-70);
   }
 $(".reset-ps-container").width($(document.body).outerWidth());
 $(window).resize(function(){
 	$(".reset-ps-container").width($(document.body).outerWidth());
-	if($(".reset-ps-container").height()<$(window).height()){
-		$(".reset-ps-container").height($(window).height());
+	if($(".reset-ps-container").height()<$(window).height()-70){
+		$(".reset-ps-container").height($(window).height()-70);
 	}
 });
 $(".reset-password").click(function(){

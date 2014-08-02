@@ -32,8 +32,10 @@
     <form class="form-horizontal" role="form">
   <div class="form-group">
 	<label for="headicon" class="col-sm-2 control-label">头像</label> 
-	<a href="javascript:void(0);" id="myImage" alt="头像">
-<img id="myCutImage" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:100px;height:100px;margin-left:2%" />
+	<a href="javascript:void(0);" id="myImage" alt="头像"><s:if test="#session.user.image==null"><img id="myCutImage" src="<%=request.getContextPath()%>/img/joinus.png" style="width:100px;height:100px;margin-left:2%" />
+	</s:if>
+<s:if test="#session.user.image!=null">
+<img id="myCutImage" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:100px;height:100px;margin-left:2%" /></s:if>
 </a> &nbsp&nbsp点击头像上传照片
 	
   </div>
@@ -129,19 +131,34 @@
                         <div class="row">
 			
                           <div  id="target"  style="width:300px;height:300px;overflow:hidden; border:1px solid gray;display:inline;">
-                            <img id="targetpic" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:300px;height:300px;" />
+<s:if test="#session.user.image==null"><img id="targetpic" src="<%=request.getContextPath()%>/img/joinus.png" style="width:300px;height:300px;"/>
+	</s:if>
+<s:if test="#session.user.image!=null">
+                            <img id="targetpic" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:300px;height:300px;" /></s:if>
                            
                           </div>
 			
                           <div id="preview"  style="width:300px;height:300px;overflow:hidden;margin-left:320px;margin-top:-300px">
 			 
-                            <div><img id="previewpic" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:150px;height:150px;"/>
+                            <div>
+<s:if test="#session.user.image==null"><img id="previewpic" src="<%=request.getContextPath()%>/img/joinus.png" style="width:150px;height:150px;" />
+	</s:if>
+<s:if test="#session.user.image!=null">
+<img id="previewpic" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:150px;height:150px;"/></s:if>
                             </div>150x150像素
                          
                           <div style="width:100px;height:150px;margin-left:170px;display:block;margin-top:-170px">
-                            <div ><img id="previewpic1" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:75px;height:75px;"/>
+                            <div >
+<s:if test="#session.user.image==null"><img id="previewpic1" src="<%=request.getContextPath()%>/img/joinus.png" style="width:75px;height:75px;" />
+	</s:if>
+<s:if test="#session.user.image!=null">
+<img id="previewpic1" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:75px;height:75px;"/></s:if>
                             </div>75x75像素
-                            <div ><img id="previewpic2" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:50px;height:50px;"/>
+                            <div >
+<s:if test="#session.user.image==null"><img id="previewpic2" src="<%=request.getContextPath()%>/img/joinus.png" style="width:50px;height:50px;" />
+	</s:if>
+<s:if test="#session.user.image!=null">
+<img id="previewpic2" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:50px;height:50px;"/></s:if>
                             </div>50x50像素
 			     </div>
 			    </div>

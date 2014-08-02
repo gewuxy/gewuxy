@@ -1269,7 +1269,16 @@ color: #788087;
 font-size:20px;
 }
 .jobs-section .body{
-padding: 30px 50px;
+padding: 10px 50px;
 font-size: 16px;
 color: #788087;
+}
+.jobs-section .body h3{
+font-weight:bold;
+font-size: 16px;
+}
+.jobs-section .body ul{
+margin-top: 12px;
+list-style: circle;
+padding-left: 20px;
 }

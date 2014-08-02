@@ -94,9 +94,7 @@
 		 	<param name="contentType">text/html</param>
 			 <param name="includeProperties">imageMessage</param>  
 		 </result>
-		 <result name="cutsuccess" type="json">
-		 <param name="includeProperties">uploadFile\.id,uploadFile\.path,image\.srcpath, image\.subpath</param>
-         </result>
+		 <result name="cutsuccess">/WEB-INF/pages/setting/account.jsp</result>
 		<interceptor-ref name="userDefaultStack"/>  	 
    		</action>
 	</package>

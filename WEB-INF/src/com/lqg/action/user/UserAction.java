@@ -291,8 +291,7 @@ public String uploadPic() {
                 // commons-io包实现文件上次，实际上就是将一个文件转换成流文件进行读写  
                 FileUtils.copyFile(pic, saveFile);  
                	uploadFile.setPath(fileName);//ÉèÖÃÎÄŒþÃû³Æ
-				uploadFileDao.save(uploadFile);
-            } catch (IOException e) {  
+			    } catch (IOException e) {  
             	setImageMessage("文件上传失败");
                 return "imageError";  
             }  
@@ -303,13 +302,11 @@ public String uploadPic() {
 }  
 //剪切图片
 public String cutPic(){  
-        String hostname = ServletActionContext.getServletContext().getRealPath("/img");  
-        String name=hostname+"/"+getCuttingImageName();
+        String name=getCuttingImageName();
         image.setSrcpath(name);  
         int index=getCuttingImageName().lastIndexOf(".");
         String nameCut=getCuttingImageName().substring(0,index-1)+"jianqie.jpg";
-        String nameCut2=hostname+"/"+nameCut;
-        image.setSubpath(nameCut2);  
+        image.setSubpath(nameCut);  
         try {  
             image.cut(); //执行裁剪操作  执行完后即可生成目标图在对应文件夹内。</span>  
             uploadFile.setPath(nameCut);//ÉèÖÃÎÄŒþÃû³Æ

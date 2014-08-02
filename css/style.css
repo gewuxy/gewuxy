@@ -1168,7 +1168,7 @@ margin-left:5%;
 color:#999;
 padding-bottom:20px;
 }
-.our-quotes{
+.our-quotes,.jobs{
 margin-top:-20px;
 padding: 100px 0;
 background-size: cover;
@@ -1180,12 +1180,19 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0077D9', en
 background-repeat: no-repeat;
 min-height: 140px;
 }
+.jobs{
+padding:50px 0;
+min-height: 250px;
+}
 .our-quotes-wrapper{
 width: 740px;
 margin: 0 auto;
 display:table;
 }
-.our-quotes-wrapper h1,.our-quotes-wrapper p,.reset-ps-wrapper h1,.reset-ps-wrapper p{
+.jobs h1{
+text-align:center;
+}
+.our-quotes-wrapper h1,.our-quotes-wrapper p,.reset-ps-wrapper h1,.reset-ps-wrapper p,.jobs h1{
 color:#fff;
 font-weight:bold;
 }
@@ -1233,4 +1240,13 @@ text-decoration:none;
 display:none;
 margin-left:10px;
 margin-right:10px;
+}
+.jobs-section{
+width:740px;
+margin:0 auto;
+background-color: #f0f3f5;
+padding: 60px 0;
+box-shadow: 0 1px 2px rgba(19,74,119,.1);
+border-radius: 4px;
+margin-top:-100px;
 }

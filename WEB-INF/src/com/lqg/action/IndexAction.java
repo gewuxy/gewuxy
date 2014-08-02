@@ -33,7 +33,7 @@ public class IndexAction extends ActionSupport implements RequestAware,
 	private static final String JOINUS = "joinUs";
 	private static final String REPASSWORD = "repassword";
 	private static final String HOUDUAN = "houduan";
-	
+	private static final String QIANDUAN = "qianduan";
 	public String home() throws Exception {
 		return HOME;
 	}
@@ -55,6 +55,9 @@ public class IndexAction extends ActionSupport implements RequestAware,
 	}
 	public String houduan() throws Exception {
 		return HOUDUAN;
+	}
+	public String qianduan() throws Exception {
+		return QIANDUAN;
 	}
 	@Override
 	public String execute() throws Exception {

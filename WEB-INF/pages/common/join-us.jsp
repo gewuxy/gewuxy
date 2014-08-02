@@ -72,7 +72,7 @@
 		<div class="col-sm-6 col-md-4 col-lg-3 ">
           <div class="thumbnail">
             <s:a action="index_neirong" namespace="/front" target="_blank">
-			  <img src="<%=ctx%>/img/web-dev.png" width="300" height="150" alt="内容策划">
+			  <img src="<%=ctx%>/img/neirong.jpg" width="300" height="150" alt="内容策划">
 			</s:a>
             <div class="">
               <h4> 

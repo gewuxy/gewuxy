@@ -43,8 +43,6 @@
 			<result name="faq">/WEB-INF/pages/common/faq.jsp</result>
 			<result name="joinUs">/WEB-INF/pages/common/join-us.jsp</result>
 			<result name="repassword">/WEB-INF/pages/common/reset-password.jsp</result>
-			<result name="houduan">/WEB-INF/pages/common/houduan.jsp</result>
-			<result name="qianduan">/WEB-INF/pages/common/qianduan.jsp</result>
 		</action>
 	</package>
 	<!-- 学生Action -->
@@ -94,7 +92,9 @@
 		 	<param name="contentType">text/html</param>
 			 <param name="includeProperties">imageMessage</param>  
 		 </result>
-		 <result name="cutsuccess">/WEB-INF/pages/setting/account.jsp</result>
+		 <result name="cutsuccess" type="json">
+		 <param name="includeProperties">uploadFile\.id,uploadFile\.path</param>
+         </result>
 		<interceptor-ref name="userDefaultStack"/>  	 
    		</action>
 	</package>

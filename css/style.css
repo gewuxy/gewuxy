@@ -1182,7 +1182,7 @@ min-height: 140px;
 }
 .jobs{
 padding:50px 0;
-min-height: 250px;
+min-height: 240px;
 }
 .our-quotes-wrapper{
 width: 740px;
@@ -1241,12 +1241,35 @@ display:none;
 margin-left:10px;
 margin-right:10px;
 }
+.job-section-wrap{
+background-color: #f0f3f5;
+padding: 60px 0;
+}
 .jobs-section{
 width:740px;
 margin:0 auto;
-background-color: #f0f3f5;
-padding: 60px 0;
+background-color: #fff;
+padding: 20px 0;
 box-shadow: 0 1px 2px rgba(19,74,119,.1);
 border-radius: 4px;
-margin-top:-100px;
+margin-top:-150px;
+}
+.job-location{
+float:right;
+margin-right: 50px;
+margin-top: 20px;
+color: #B8C1C8;
+font-size: 16px;
+}
+.jobs-section .title{
+padding: 15px 50px;
+text-align: left;
+border-bottom: 1px solid #EBF0F4;
+color: #788087;
+font-size:20px;
+}
+.jobs-section .body{
+padding: 30px 50px;
+font-size: 16px;
+color: #788087;
 }

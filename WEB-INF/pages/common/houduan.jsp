@@ -21,8 +21,14 @@
   <div class="jobs">
 	  <h1>加入格物学院</h1>
   </div>
+  <div class="job-section-wrap">
   <div class="jobs-section">
-	    低端劳动力的劳动力
+	<span class="glyphicon glyphicon-map-marker job-location">广州</span>
+	<div class="title">Web后端开发工程师</div>
+	<div class="body">
+	  
+	</div>
+  </div>
   </div>
   <div style="clear:both;margin-top:-25px;margin-bottom:-25px;">
 	  <%@include file="/WEB-INF/pages/common/footer.jsp"%>

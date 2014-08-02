@@ -33,8 +33,8 @@
   <div class="form-group">
 	<label for="headicon" class="col-sm-2 control-label">头像</label> 
 	<a href="javascript:void(0);" id="myImage" alt="头像">
-<img src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:100px;height:100px;margin-left:2%" />
-</a> &nbsp&nbsp点击头像上传照片<s:property value="#session.user.image.id"/>
+<img id="myCutImage" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:100px;height:100px;margin-left:2%" />
+</a> &nbsp&nbsp点击头像上传照片
 	
   </div>
   <div class="form-group">
@@ -108,16 +108,16 @@
                           </div>
 			 <div id="loading" style="display:none;"><img src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/></div>
                           <div class="col-xs-4">
-			    <form > 
-			    <input type="hidden"  id="cuttingImage"/>       
-			    <input type="hidden"  id="x"/>  
-			    <input type="hidden"  id="y"/>  
-			    <input type="hidden"  id="width"/>  
-			    <input type="hidden"  id="height"/>  
-			    <input type="button" value="确定" id="cutLoad"/>  
+			    <s:form action="user_cutPic" namespace="/user" method="post"> 
+			    <input type="hidden" name="cuttingImageName" id="cuttingImage"/>       
+			    <input type="hidden" name="cuttingImageX" id="x"/>  
+			    <input type="hidden" name="cuttingImageY" id="y"/>  
+			    <input type="hidden" name="cuttingImageWidth"  id="width"/>  
+			    <input type="hidden" name="cuttingImageHeight" id="height"/>  
+			    <input type="submit" value="确定" id="cutLoad"/>  
 			    <input type="button" value="取消" class="btn btn-cancel">
 			    
-			   </form> 
+			   </s:form> 
 			    
                             
                           </div>
@@ -129,19 +129,19 @@
                         <div class="row">
 			
                           <div  id="target"  style="width:300px;height:300px;overflow:hidden; border:1px solid gray;display:inline;">
-                            <img id="targetpic" src="<%=request.getContextPath()%>/img/201408011026140126.jpg" style="width:300px;height:300px;" />
+                            <img id="targetpic" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:300px;height:300px;" />
                            
                           </div>
 			
                           <div id="preview"  style="width:300px;height:300px;overflow:hidden;margin-left:320px;margin-top:-300px">
 			 
-                            <div><img id="previewpic" src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:150px;height:150px;"/>
+                            <div><img id="previewpic" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:150px;height:150px;"/>
                             </div>150x150像素
                          
                           <div style="width:100px;height:150px;margin-left:170px;display:block;margin-top:-170px">
-                            <div ><img id="previewpic1" src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:75px;height:75px;"/>
+                            <div ><img id="previewpic1" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:75px;height:75px;"/>
                             </div>75x75像素
-                            <div ><img id="previewpic2" src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:50px;height:50px;"/>
+                            <div ><img id="previewpic2" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:50px;height:50px;"/>
                             </div>50x50像素
 			     </div>
 			    </div>
@@ -241,7 +241,7 @@
             }  
           };  
     });
-$("#cutLoad").click(function(){
+/*$("#cutLoad").click(function(){
 			   var params = {
 				"cuttingImageName":$("#cuttingImage").val(),
 				"cuttingImageX":$("#x").val(),
@@ -256,9 +256,15 @@ $("#cutLoad").click(function(){
 			 	data:params,
 				//async: false,
 			       	dataType:"json",
-				success:function(data){ 
-				 	
-					alert(data);					
+				success:function(data){ 				 	
+					        var hostname='<%=request.getContextPath()%>';
+						var pathPic=hostname+"/img/"+data.uploadFile.path;
+						$("#myCutImage").attr("src",pathPic);
+						$("#targetpic").attr("src",pathPic);
+						$("#previewpic").attr("src",pathPic);
+						$("#previewpic1").attr("src",pathPic);
+						$("#previewpic2").attr("src",pathPic);	
+						$("#upload-picture").modal('hide');				
 					
 				},
 				error: function(data){
@@ -267,7 +273,7 @@ $("#cutLoad").click(function(){
 				  return false;
 				}
 				});
-});  
+});  */
 $("#myImage").click(function(){
 				$("#upload-picture").modal();
 

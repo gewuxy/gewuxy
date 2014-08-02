@@ -41,9 +41,9 @@
 	<div>
 	  <div class="col-sm-6 col-md-4 col-lg-3 ">
           <div class="thumbnail">
-            <a href="#" target="_blank">
+            <s:a action="index_houduan" namespace="/front" target="_blank">
 			  <img src="<%=ctx%>/img/web-dev.png" width="300" height="150" alt="Web developers">
-			</a>
+			</s:a>
             <div class="">
               <h4> 
                 <s:a action="index_houduan" namespace="/front" cssClass="job-des" target="_blank">后端开发工程师</s:a>
@@ -56,9 +56,9 @@
         </div>
 		<div class="col-sm-6 col-md-4 col-lg-3 ">
           <div class="thumbnail">
-            <a href="#" target="_blank">
+            <s:a  action="index_qianduan" namespace="/front" target="_blank">
 			  <img src="<%=ctx%>/img/web-dev.png" width="300" height="150" alt="Web developers">
-			</a>
+			</s:a>
             <div class="">
               <h4> 
                 <s:a  action="index_qianduan" namespace="/front" cssClass="job-des" target="_blank">前端开发工程师</s:a>

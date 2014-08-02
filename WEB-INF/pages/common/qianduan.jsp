@@ -57,6 +57,10 @@
 		  <li>有前端性能优化经验</li>
 		</ul>
 	  </div>
+	  <hr />
+	  <div class="section joinus">
+	    应聘该职位请将简历发送到：<a href="mailto:2723728494@qq.com">2723728494@qq.com</a>，邮件标题注明所应聘的职位，如格式“[应聘]姓名+前端开发工程师”
+	  </div>
 	</div>
   </div>
   </div>

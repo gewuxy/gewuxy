@@ -44,6 +44,7 @@
 			<result name="joinUs">/WEB-INF/pages/common/join-us.jsp</result>
 			<result name="repassword">/WEB-INF/pages/common/reset-password.jsp</result>
 			<result name="houduan">/WEB-INF/pages/common/houduan.jsp</result>
+			<result name="qianduan">/WEB-INF/pages/common/qianduan.jsp</result>
 		</action>
 	</package>
 	<!-- 学生Action -->

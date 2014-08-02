@@ -296,9 +296,9 @@ $("#sub_upload").click(function(){
 						$("#previewpic").attr("src",pathPic);
 						$("#previewpic1").attr("src",pathPic);
 						$("#previewpic2").attr("src",pathPic);	
-						var pathcut="/img/"+data.uploadFile.path;					
-						$("#cuttingImage").val(pathcut);
-						alert($("#cuttingImage").val());
+						//var pathcut="../img/"+data.uploadFile.path;					
+						$("#cuttingImage").val(data.uploadFile.path);
+						//alert($("#cuttingImage").val());
 						
 						}			 
 					

@@ -100,7 +100,7 @@ public class OperateImage {
              * 图片裁剪区域。Rectangle 指定了坐标空间中的一个区域，通过 Rectangle 对象 
              * 的左上顶点的坐标（x，y）、宽度和高度可以定义这个区域。 
              */  
-            Rectangle rect = new Rectangle(x, y, width, height);  
+            Rectangle rect = new Rectangle(getX(), getY(), getWidth(), getHeight());  
             // 提供一个 BufferedImage，将其用作解码像素数据的目标。  
             param.setSourceRegion(rect);  
             /* 

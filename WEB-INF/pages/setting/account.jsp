@@ -111,7 +111,7 @@
 			 <div id="loading" style="display:none;"><img src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/></div>
                           <div class="col-xs-4">
 			    <s:form action="user_cutPic" namespace="/user" method="post"> 
-			    <input type="hidden" name="cuttingImageName" id="cuttingImageName"/>       
+			    <input type="hidden" name="cuttingImageName" id="cuttingImage"/>       
 			    <input type="hidden" name="image.x" id="x"/>  
 			    <input type="hidden" name="image.y" id="y"/>  
 			    <input type="hidden" name="image.width" id="width"/>  
@@ -297,7 +297,9 @@ $("#sub_upload").click(function(){
 						$("#previewpic").attr("src",pathPic);
 						$("#previewpic1").attr("src",pathPic);
 						$("#previewpic2").attr("src",pathPic);
-						$("#cuttingImageName").val(data.uploadFile.path);
+						//alert(data.uploadFile.path);
+						$("#cuttingImage").val(data.uploadFile.path);
+						alert($("#cuttingImage").val());
 						}			 
 					
 				      },

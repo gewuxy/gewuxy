@@ -42,7 +42,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	private File pic;   //(上传图片的file)  
 	private String picFileName; //（上传图片的file的文件名）
 	private UploadFile uploadFile=new UploadFile();//上传后的图片
-	private OperateImage image;
+	private OperateImage image=new OperateImage();
 	private String cuttingImageName;
 	public String login() throws Exception{
 		return USER_LOGIN;
@@ -304,10 +304,10 @@ public String uploadPic() {
 //剪切图片
 public String cutPic(){  
         String hostname = ServletActionContext.getServletContext().getRealPath("/img");  
-        String name=hostname+"/"+cuttingImageName;
+        String name=hostname+"/"+getCuttingImageName();
         image.setSrcpath(name);  
-        int index=cuttingImageName.lastIndexOf(".");
-        String nameCut=cuttingImageName.substring(0,index-1)+"jianqie.jpg";
+        int index=getCuttingImageName().lastIndexOf(".");
+        String nameCut=getCuttingImageName().substring(0,index-1)+"jianqie.jpg";
         String nameCut2=hostname+"/"+nameCut;
         image.setSubpath(nameCut2);  
         try {  

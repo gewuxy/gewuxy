@@ -219,22 +219,22 @@
         function updatePreview(c){  
             if (parseInt(c.w) > 0){    
                 $("#previewpic").css({  
-                    width: Math.round(200/c.w * boundx) + 'px',   //200 为预览div的宽和高
-                    height: Math.round(200/c.h * boundy) + 'px',  
-                    marginLeft: '-' + Math.round(200/c.w * c.x) + 'px',  
-                    marginTop: '-' + Math.round(200/c.h * c.y) + 'px'  
+                    width: Math.round(150/c.w * boundx) + 'px',   //150 为预览div的宽和高
+                    height: Math.round(150/c.h * boundy) + 'px',  
+                    marginLeft: '-' + Math.round(150/c.w * c.x) + 'px',  
+                    marginTop: '-' + Math.round(150/c.h * c.y) + 'px'  
                 });  
 		$("#previewpic1").css({  
-                    width: Math.round(200/c.w * boundx) + 'px',   //200 为预览div的宽和高
-                    height: Math.round(200/c.h * boundy) + 'px',  
-                    marginLeft: '-' + Math.round(200/c.w * c.x) + 'px',  
-                    marginTop: '-' + Math.round(200/c.h * c.y) + 'px'  
+                    width: Math.round(75/c.w * boundx) + 'px',   //75 为预览div的宽和高
+                    height: Math.round(75/c.h * boundy) + 'px',  
+                    marginLeft: '-' + Math.round(75/c.w * c.x) + 'px',  
+                    marginTop: '-' + Math.round(75/c.h * c.y) + 'px'  
                 });  
 		$("#previewpic2").css({  
-                    width: Math.round(200/c.w * boundx) + 'px',   //200 为预览div的宽和高
-                    height: Math.round(200/c.h * boundy) + 'px',  
-                    marginLeft: '-' + Math.round(200/c.w * c.x) + 'px',  
-                    marginTop: '-' + Math.round(200/c.h * c.y) + 'px'  
+                    width: Math.round(50/c.w * boundx) + 'px',   //50 为预览div的宽和高
+                    height: Math.round(50/c.h * boundy) + 'px',  
+                    marginLeft: '-' + Math.round(50/c.w * c.x) + 'px',  
+                    marginTop: '-' + Math.round(50/c.h * c.y) + 'px'  
                 });  
                 $('#width').val(c.w);  //c.w 裁剪区域的宽  
                 $('#height').val(c.h); //c.h 裁剪区域的高  
@@ -292,14 +292,14 @@ $("#sub_upload").click(function(){
 					  if(data.imageMessage==messageSuc) {
 						var hostname='<%=request.getContextPath()%>';
 						var pathPic=hostname+"/img/"+data.uploadFile.path;
-						//alert(pathPic);
 						$("#targetpic").attr("src",pathPic);
 						$("#previewpic").attr("src",pathPic);
 						$("#previewpic1").attr("src",pathPic);
-						$("#previewpic2").attr("src",pathPic);
-						//alert(data.uploadFile.path);
-						$("#cuttingImage").val(data.uploadFile.path);
+						$("#previewpic2").attr("src",pathPic);	
+						var pathcut="/img/"+data.uploadFile.path;					
+						$("#cuttingImage").val(pathcut);
 						alert($("#cuttingImage").val());
+						
 						}			 
 					
 				      },

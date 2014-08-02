@@ -108,16 +108,16 @@
                           </div>
 			 <div id="loading" style="display:none;"><img src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/></div>
                           <div class="col-xs-4">
-			    <s:form action="user_cutPic" namespace="/user" method="post"> 
-			    <input type="hidden" name="cuttingImageName" id="cuttingImage"/>       
-			    <input type="hidden" name="cuttingImageX" id="x"/>  
-			    <input type="hidden" name="cuttingImageY" id="y"/>  
-			    <input type="hidden" name="cuttingImageWidth"  id="width"/>  
-			    <input type="hidden" name="cuttingImageHeight" id="height"/>  
-			    <input type="submit" value="确定" id="cutLoad"/>  
-			    <input type="button" value="取消" class="btn btn-cancel">
+			    <form> 
+			    <input type="hidden"  id="cuttingImage"/>       
+			    <input type="hidden"  id="x"/>  
+			    <input type="hidden"  id="y"/>  
+			    <input type="hidden"   id="width"/>  
+			    <input type="hidden"  id="height"/>  
+			    <input type="button" value="确定" id="cutLoad"/>  
+			    <input id="cutPicCancel" type="button" value="取消" class="btn btn-cancel">
 			    
-			   </s:form> 
+			   </form> 
 			    
                             
                           </div>
@@ -193,7 +193,7 @@
         $.datepicker.setDefaults($.datepicker.regional['zh-CN']);
         $('#date-picker').datepicker({changeMonth:true,changeYear:true,yearRange:'1900:2014'});
       });*/
-	//剪切功能
+	//剪切功能name="cuttingImageName" name="cuttingImageX" name="cuttingImageY" name="cuttingImageWidth" name="cuttingImageHeight"
     var x;  
     var y;  
     var width;  
@@ -241,7 +241,7 @@
             }  
           };  
     });
-/*$("#cutLoad").click(function(){
+$("#cutLoad").click(function(){
 			   var params = {
 				"cuttingImageName":$("#cuttingImage").val(),
 				"cuttingImageX":$("#x").val(),
@@ -273,7 +273,10 @@
 				  return false;
 				}
 				});
-});  */
+}); 
+$("#cutPicCancel").click(function(){
+			$("#upload-picture").modal('hide');
+});
 $("#myImage").click(function(){
 				$("#upload-picture").modal();
 

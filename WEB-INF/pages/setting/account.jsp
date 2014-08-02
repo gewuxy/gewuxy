@@ -32,8 +32,10 @@
     <form class="form-horizontal" role="form">
   <div class="form-group">
 	<label for="headicon" class="col-sm-2 control-label">头像</label> 
-	<a href="javascript:void(0);" id="myImage" alt="头像">
-<img id="myCutImage" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:100px;height:100px;margin-left:2%" />
+	<a href="javascript:void(0);" id="myImage" alt="头像"><s:if test="#session.user.image==null"><img id="myCutImage" src="<%=request.getContextPath()%>/img/joinus.png" style="width:100px;height:100px;margin-left:2%" />
+	</s:if>
+<s:if test="#session.user.image!=null">
+<img id="myCutImage" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:100px;height:100px;margin-left:2%" /></s:if>
 </a> &nbsp&nbsp点击头像上传照片
 	
   </div>
@@ -108,16 +110,16 @@
                           </div>
 			 <div id="loading" style="display:none;"><img src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/></div>
                           <div class="col-xs-4">
-			    <s:form action="user_cutPic" namespace="/user" method="post"> 
-			    <input type="hidden" name="cuttingImageName" id="cuttingImage"/>       
-			    <input type="hidden" name="cuttingImageX" id="x"/>  
-			    <input type="hidden" name="cuttingImageY" id="y"/>  
-			    <input type="hidden" name="cuttingImageWidth"  id="width"/>  
-			    <input type="hidden" name="cuttingImageHeight" id="height"/>  
-			    <input type="submit" value="确定" id="cutLoad"/>  
-			    <input type="button" value="取消" class="btn btn-cancel">
+			    <form> 
+			    <input type="hidden"  id="cuttingImage"/>       
+			    <input type="hidden"  id="x"/>  
+			    <input type="hidden"  id="y"/>  
+			    <input type="hidden"   id="width"/>  
+			    <input type="hidden"  id="height"/>  
+			    <input type="button" value="确定" id="cutLoad"/>  
+			    <input id="cutPicCancel" type="button" value="取消" class="btn btn-cancel">
 			    
-			   </s:form> 
+			   </form> 
 			    
                             
                           </div>
@@ -129,19 +131,34 @@
                         <div class="row">
 			
                           <div  id="target"  style="width:300px;height:300px;overflow:hidden; border:1px solid gray;display:inline;">
-                            <img id="targetpic" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:300px;height:300px;" />
+<s:if test="#session.user.image==null"><img id="targetpic" src="<%=request.getContextPath()%>/img/joinus.png" style="width:300px;height:300px;"/>
+	</s:if>
+<s:if test="#session.user.image!=null">
+                            <img id="targetpic" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:300px;height:300px;" /></s:if>
                            
                           </div>
 			
                           <div id="preview"  style="width:300px;height:300px;overflow:hidden;margin-left:320px;margin-top:-300px">
 			 
-                            <div><img id="previewpic" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:150px;height:150px;"/>
+                            <div>
+<s:if test="#session.user.image==null"><img id="previewpic" src="<%=request.getContextPath()%>/img/joinus.png" style="width:150px;height:150px;" />
+	</s:if>
+<s:if test="#session.user.image!=null">
+<img id="previewpic" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:150px;height:150px;"/></s:if>
                             </div>150x150像素
                          
                           <div style="width:100px;height:150px;margin-left:170px;display:block;margin-top:-170px">
-                            <div ><img id="previewpic1" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:75px;height:75px;"/>
+                            <div >
+<s:if test="#session.user.image==null"><img id="previewpic1" src="<%=request.getContextPath()%>/img/joinus.png" style="width:75px;height:75px;" />
+	</s:if>
+<s:if test="#session.user.image!=null">
+<img id="previewpic1" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:75px;height:75px;"/></s:if>
                             </div>75x75像素
-                            <div ><img id="previewpic2" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:50px;height:50px;"/>
+                            <div >
+<s:if test="#session.user.image==null"><img id="previewpic2" src="<%=request.getContextPath()%>/img/joinus.png" style="width:50px;height:50px;" />
+	</s:if>
+<s:if test="#session.user.image!=null">
+<img id="previewpic2" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:50px;height:50px;"/></s:if>
                             </div>50x50像素
 			     </div>
 			    </div>
@@ -193,7 +210,7 @@
         $.datepicker.setDefaults($.datepicker.regional['zh-CN']);
         $('#date-picker').datepicker({changeMonth:true,changeYear:true,yearRange:'1900:2014'});
       });*/
-	//剪切功能
+	//剪切功能name="cuttingImageName" name="cuttingImageX" name="cuttingImageY" name="cuttingImageWidth" name="cuttingImageHeight"
     var x;  
     var y;  
     var width;  
@@ -241,7 +258,7 @@
             }  
           };  
     });
-/*$("#cutLoad").click(function(){
+$("#cutLoad").click(function(){
 			   var params = {
 				"cuttingImageName":$("#cuttingImage").val(),
 				"cuttingImageX":$("#x").val(),
@@ -273,7 +290,10 @@
 				  return false;
 				}
 				});
-});  */
+}); 
+$("#cutPicCancel").click(function(){
+			$("#upload-picture").modal('hide');
+});
 $("#myImage").click(function(){
 				$("#upload-picture").modal();
 

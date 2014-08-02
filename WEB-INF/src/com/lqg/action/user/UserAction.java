@@ -303,11 +303,11 @@ public String uploadPic() {
 //剪切图片
 public String cutPic(){  
 	    String hostPath = ServletActionContext.getServletContext().getRealPath("/img");// 在tomcat中保存图片的实际路径  ==  "webRoot/img/" 
-        String name=hostPath+getCuttingImageName();
+        String name=hostPath+"/"+getCuttingImageName();
         image.setSrcpath(name);  
         int index=getCuttingImageName().lastIndexOf(".");
         String nameCut=getCuttingImageName().substring(0,index)+"jianqie.jpg";
-        String cutImage=hostPath+nameCut;
+        String cutImage=hostPath+"/"+nameCut;
         image.setSubpath(cutImage);  
         try {  
             image.cut(); //执行裁剪操作  执行完后即可生成目标图在对应文件夹内。</span>  

@@ -305,7 +305,7 @@ public String cutPic(){
         String name=getCuttingImageName();
         image.setSrcpath(name);  
         int index=getCuttingImageName().lastIndexOf(".");
-        String nameCut=getCuttingImageName().substring(0,index-1)+"jianqie.jpg";
+        String nameCut=getCuttingImageName().substring(0,index)+"jianqie.jpg";
         image.setSubpath(nameCut);  
         try {  
             image.cut(); //执行裁剪操作  执行完后即可生成目标图在对应文件夹内。</span>  

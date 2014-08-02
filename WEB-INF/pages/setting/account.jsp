@@ -32,10 +32,8 @@
     <form class="form-horizontal" role="form">
   <div class="form-group">
 	<label for="headicon" class="col-sm-2 control-label">头像</label> 
-	<a href="javascript:void(0);" id="myImage" alt="头像"><s:if test="#session.user.image==null">
-<img src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:100px;height:100px;margin-left:2%" /></s:if>
-<s:if test="#session.user.image!=null">
-<img src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:100px;height:100px;margin-left:2%" /></s:if>
+	<a href="javascript:void(0);" id="myImage" alt="头像">
+<img id="myCutImage" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:100px;height:100px;margin-left:2%" />
 </a> &nbsp&nbsp点击头像上传照片
 	
   </div>
@@ -112,11 +110,11 @@
                           <div class="col-xs-4">
 			    <s:form action="user_cutPic" namespace="/user" method="post"> 
 			    <input type="hidden" name="cuttingImageName" id="cuttingImage"/>       
-			    <input type="hidden" name="image.x" id="x"/>  
-			    <input type="hidden" name="image.y" id="y"/>  
-			    <input type="hidden" name="image.width" id="width"/>  
-			    <input type="hidden" name="image.height" id="height"/>  
-			    <input type="submit" value="确定" />  
+			    <input type="hidden" name="cuttingImageX" id="x"/>  
+			    <input type="hidden" name="cuttingImageY" id="y"/>  
+			    <input type="hidden" name="cuttingImageWidth"  id="width"/>  
+			    <input type="hidden" name="cuttingImageHeight" id="height"/>  
+			    <input type="submit" value="确定" id="cutLoad"/>  
 			    <input type="button" value="取消" class="btn btn-cancel">
 			    
 			   </s:form> 
@@ -131,19 +129,19 @@
                         <div class="row">
 			
                           <div  id="target"  style="width:300px;height:300px;overflow:hidden; border:1px solid gray;display:inline;">
-                            <img id="targetpic" src="<%=request.getContextPath()%>/img/201408011026140126.jpg" style="width:300px;height:300px;" />
+                            <img id="targetpic" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:300px;height:300px;" />
                            
                           </div>
 			
                           <div id="preview"  style="width:300px;height:300px;overflow:hidden;margin-left:320px;margin-top:-300px">
 			 
-                            <div><img id="previewpic" src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:150px;height:150px;"/>
+                            <div><img id="previewpic" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:150px;height:150px;"/>
                             </div>150x150像素
                          
                           <div style="width:100px;height:150px;margin-left:170px;display:block;margin-top:-170px">
-                            <div ><img id="previewpic1" src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:75px;height:75px;"/>
+                            <div ><img id="previewpic1" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:75px;height:75px;"/>
                             </div>75x75像素
-                            <div ><img id="previewpic2" src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:50px;height:50px;"/>
+                            <div ><img id="previewpic2" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:50px;height:50px;"/>
                             </div>50x50像素
 			     </div>
 			    </div>
@@ -236,13 +234,46 @@
                     marginLeft: '-' + Math.round(50/c.w * c.x) + 'px',  
                     marginTop: '-' + Math.round(50/c.h * c.y) + 'px'  
                 });  
-                $('#width').val(c.w);  //c.w 裁剪区域的宽  
-                $('#height').val(c.h); //c.h 裁剪区域的高  
-                $('#x').val(c.x);  //c.x 裁剪区域左上角顶点相对于图片左上角顶点的x坐标  
-                $('#y').val(c.y);  //c.y 裁剪区域顶点的y坐标 
+                $("#width").val(c.w);  //c.w 裁剪区域的宽  
+                $("#height").val(c.h); //c.h 裁剪区域的高  
+                $("#x").val(c.x);  //c.x 裁剪区域左上角顶点相对于图片左上角顶点的x坐标  
+                $("#y").val(c.y);  //c.y 裁剪区域顶点的y坐标 
             }  
           };  
-    });  
+    });
+/*$("#cutLoad").click(function(){
+			   var params = {
+				"cuttingImageName":$("#cuttingImage").val(),
+				"cuttingImageX":$("#x").val(),
+				"cuttingImageY" : $("#y").val(),
+				"cuttingImageWidth" : $("#width").val(),
+				"cuttingImageHeight":$("#height").val()
+			      };
+ 
+			      $.ajax({
+				    type: "POST",
+				url: "../user/user_cutPic.html",
+			 	data:params,
+				//async: false,
+			       	dataType:"json",
+				success:function(data){ 				 	
+					        var hostname='<%=request.getContextPath()%>';
+						var pathPic=hostname+"/img/"+data.uploadFile.path;
+						$("#myCutImage").attr("src",pathPic);
+						$("#targetpic").attr("src",pathPic);
+						$("#previewpic").attr("src",pathPic);
+						$("#previewpic1").attr("src",pathPic);
+						$("#previewpic2").attr("src",pathPic);	
+						$("#upload-picture").modal('hide');				
+					
+				},
+				error: function(data){
+				  
+
+				  return false;
+				}
+				});
+});  */
 $("#myImage").click(function(){
 				$("#upload-picture").modal();
 

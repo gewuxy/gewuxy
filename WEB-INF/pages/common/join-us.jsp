@@ -46,7 +46,7 @@
 			</a>
             <div class="">
               <h4> 
-                <a  class="job-des" href="#" target="_blank">后端开发工程师</a>
+                <s:a action="index_houduan" namespace="/front" cssClass="job-des" target="_blank">后端开发工程师</s:a>
               </h4>
               <p>
               实现稳定可扩展的后台服务，不断对后台进行改善，完成产品的快速迭代。

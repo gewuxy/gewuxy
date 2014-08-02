@@ -110,16 +110,16 @@
                           </div>
 			 <div id="loading" style="display:none;"><img src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/></div>
                           <div class="col-xs-4">
-			    <s:form action="user_cutPic" namespace="/user" method="post"> 
-			    <input type="hidden" name="cuttingImageName" id="cuttingImage"/>       
-			    <input type="hidden" name="image.x" id="x"/>  
-			    <input type="hidden" name="image.y" id="y"/>  
-			    <input type="hidden" name="image.width" id="width"/>  
-			    <input type="hidden" name="image.height" id="height"/>  
-			    <input type="submit" value="确定" />  
+			    <form > 
+			    <input type="hidden"  id="cuttingImage"/>       
+			    <input type="hidden"  id="x"/>  
+			    <input type="hidden"  id="y"/>  
+			    <input type="hidden"  id="width"/>  
+			    <input type="hidden"  id="height"/>  
+			    <input type="button" value="确定" id="cutLoad"/>  
 			    <input type="button" value="取消" class="btn btn-cancel">
 			    
-			   </s:form> 
+			   </form> 
 			    
                             
                           </div>
@@ -236,13 +236,40 @@
                     marginLeft: '-' + Math.round(50/c.w * c.x) + 'px',  
                     marginTop: '-' + Math.round(50/c.h * c.y) + 'px'  
                 });  
-                $('#width').val(c.w);  //c.w 裁剪区域的宽  
-                $('#height').val(c.h); //c.h 裁剪区域的高  
-                $('#x').val(c.x);  //c.x 裁剪区域左上角顶点相对于图片左上角顶点的x坐标  
-                $('#y').val(c.y);  //c.y 裁剪区域顶点的y坐标 
+                $("#width").val(c.w);  //c.w 裁剪区域的宽  
+                $("#height").val(c.h); //c.h 裁剪区域的高  
+                $("#x").val(c.x);  //c.x 裁剪区域左上角顶点相对于图片左上角顶点的x坐标  
+                $("#y").val(c.y);  //c.y 裁剪区域顶点的y坐标 
             }  
           };  
-    });  
+    });
+$("#cutLoad").click(function(){
+			   var params = {
+				"cuttingImageName":$("#cuttingImage").val(),
+				"cuttingImageX":$("#x").val(),
+				"cuttingImageY" : $("#y").val(),
+				"cuttingImageWidth" : $("#width").val(),
+				"cuttingImageHeight":$("#height").val()
+			      };
+ 
+			      $.ajax({
+				    type: "POST",
+				url: "../user/user_cutPic.html",
+			 	data:params,
+				//async: false,
+			       	dataType:"json",
+				success:function(data){ 
+				 	
+					alert(data);					
+					
+				},
+				error: function(data){
+				  
+
+				  return false;
+				}
+				});
+});  
 $("#myImage").click(function(){
 				$("#upload-picture").modal();
 

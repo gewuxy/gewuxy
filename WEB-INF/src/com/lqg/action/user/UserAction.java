@@ -303,11 +303,13 @@ public String uploadPic() {
 }  
 //剪切图片
 public String cutPic(){  
-        String name = ServletActionContext.getServletContext().getRealPath("/img/"+cuttingImageName);  
+        String hostname = ServletActionContext.getServletContext().getRealPath("/img");  
+        String name=hostname+"/"+cuttingImageName;
         image.setSrcpath(name);  
         int index=cuttingImageName.lastIndexOf(".");
         String nameCut=cuttingImageName.substring(0,index-1)+"jianqie.jpg";
-        image.setSubpath(ServletActionContext.getServletContext().getRealPath("/img/"+nameCut));  
+        String nameCut2=hostname+"/"+nameCut;
+        image.setSubpath(nameCut2);  
         try {  
             image.cut(); //执行裁剪操作  执行完后即可生成目标图在对应文件夹内。</span>  
             uploadFile.setPath(nameCut);//ÉèÖÃÎÄŒþÃû³Æ

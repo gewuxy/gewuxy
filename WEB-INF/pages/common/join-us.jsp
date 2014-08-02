@@ -69,6 +69,21 @@
             </div>
           </div>
         </div>
+		<div class="col-sm-6 col-md-4 col-lg-3 ">
+          <div class="thumbnail">
+            <s:a action="index_neirong" namespace="/front" target="_blank">
+			  <img src="<%=ctx%>/img/web-dev.png" width="300" height="150" alt="内容策划">
+			</s:a>
+            <div class="">
+              <h4> 
+                <s:a action="index_neirong" namespace="/front" cssClass="job-des" target="_blank">内容策划</s:a>
+              </h4>
+              <p>
+              负责学院课程的生产渠道，扩展课程的生产方式，丰富学院的课程，保证课程的质量。
+              </p>
+            </div>
+          </div>
+        </div>
 	</div>
   </div>
 </div>

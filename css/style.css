@@ -917,13 +917,7 @@ padding-top:10%;
 }
 .signup-container{
 height: 600px;
-background-size: cover;
-background-attachment:fixed;
-background-position:center;
-background-image: linear-gradient(to right,#5e84a8 0,#385178 100%);
-background-image: -webkit-linear-gradient(left,color-stop(#5e84a8 0),color-stop(#385178 100%));
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5e84a8', endColorstr='#ff385178', GradientType=1);
-background-repeat: no-repeat;
+background:#5e84a8 url(/gewuxy.github.io/img/) repeat fixed center;
 border-bottom: 1px solid #ddd;
 position: relative;
 }

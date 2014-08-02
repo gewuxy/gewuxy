@@ -12,7 +12,8 @@
 <meta name="keywords" content="" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
 <link rel="shortcut icon" type="image/png" href="<%=request.getContextPath()%>/favicon.png">  
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/jquery.Jcrop.css" type="text/css" /> 
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/jquery.Jcrop.css" type="text/css" />     
+
 </head>
 <body>
   <div class="clearfix">
@@ -31,7 +32,11 @@
     <form class="form-horizontal" role="form">
   <div class="form-group">
 	<label for="headicon" class="col-sm-2 control-label">头像</label> 
-	<a href="javascript:void(0);" id="myImage" alt="头像"><img src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:100px;height:100px;margin-left:2%" /></a> &nbsp&nbsp点击头像上传照片
+	<a href="javascript:void(0);" id="myImage" alt="头像"><s:if test="#session.user.image==null">
+<img src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:100px;height:100px;margin-left:2%" /></s:if>
+<s:if test="#session.user.image!=null">
+<img src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:100px;height:100px;margin-left:2%" /></s:if>
+</a> &nbsp&nbsp点击头像上传照片
 	
   </div>
   <div class="form-group">
@@ -103,14 +108,20 @@
                               <input id="uploadfile" type="file" name="pic">			      
                             </label>
                           </div>
-			 <div id="loading" style="display:none;"><img  id="previewpic1" src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/></div>
+			 <div id="loading" style="display:none;"><img src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/></div>
                           <div class="col-xs-4">
-			     <input type="hidden" name="image.x" id="x"/>  
+			    <s:form action="user_cutPic" namespace="/user" method="post"> 
+			    <input type="hidden" name="cuttingImageName" id="cuttingImageName"/>       
+			    <input type="hidden" name="image.x" id="x"/>  
 			    <input type="hidden" name="image.y" id="y"/>  
 			    <input type="hidden" name="image.width" id="width"/>  
 			    <input type="hidden" name="image.height" id="height"/>  
-                            <input type="submit" value="确定" class="btn btn-ok">
-                            <input type="button" value="取消" class="btn btn-cancel">
+			    <input type="submit" value="确定" />  
+			    <input type="button" value="取消" class="btn btn-cancel">
+			    
+			   </s:form> 
+			    
+                            
                           </div>
                         </div>
                         <div class="row">
@@ -144,12 +155,12 @@
                 </div>
               </div>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/ajaxfileupload.js"></script>  
-<script src="<%=request.getContextPath()%>/js/jquery.Jcrop.js" type="text/javascript"></script>        
+<script src="<%=request.getContextPath()%>/js/jquery.Jcrop.js" type="text/javascript"></script>    
 <script type="text/javascript">
 
      
  $(document).ready(function () {
-            $(function(){
+            /*$(function(){
         $.datepicker.regional['zh-CN'] = {
           clearText: '清除',
           clearStatus: '清除已选日期',
@@ -183,33 +194,16 @@
         };
         $.datepicker.setDefaults($.datepicker.regional['zh-CN']);
         $('#date-picker').datepicker({changeMonth:true,changeYear:true,yearRange:'1900:2014'});
-      });
+      });*/
 	//剪切功能
-	 $(function(){
-	    var x;  
-	    var y;  
-	    var width;  
-	    var height;     
-       
-      //裁剪过程中，每改变裁剪大小执行该函数 
-        function updatePreview(c){  
-            if (parseInt(c.w) > 0){    
-                $('#preview').css({  
-                    width: Math.round(200 / c.w * boundx) + 'px',  //200 为预览div的宽和高</
-                    height: Math.round(200 / c.h * boundy) + 'px',  
-                    marginLeft: '-' + Math.round(200 / c.w * c.x) + 'px',  
-                    marginTop: '-' + Math.round(200 / c.h * c.y) + 'px'  
-                });  
-                //
-		$('#width').val(c.w);  //c.w 裁剪区域的宽  
-                $('#height').val(c.h); //c.h 裁剪区域的高  
-                $('#x').val(c.x);  //c.x 裁剪区域左上角顶点相对于图片左上角顶点的x坐标  
-                $('#y').val(c.y);  //c.y 裁剪区域顶点的y坐标</span>  
-            }  
-          };  
- var jcrop_api, boundx, boundy;  
-      //使原图具有裁剪功能  
-        $('#target').Jcrop({  
+    var x;  
+    var y;  
+    var width;  
+    var height;  
+    $(function(){  
+        var jcrop_api, boundx, boundy;  
+       //使原图具有裁剪功能 
+        $("#targetpic").Jcrop({  
             onChange: updatePreview,  
             onSelect: updatePreview,  
             aspectRatio: 1  
@@ -221,7 +215,34 @@
             // Store the API in the jcrop_api variable  
             jcrop_api = this;  
         });  
-     });
+       //裁剪过程中，每改变裁剪大小执行该函数  
+        function updatePreview(c){  
+            if (parseInt(c.w) > 0){    
+                $("#previewpic").css({  
+                    width: Math.round(200/c.w * boundx) + 'px',   //200 为预览div的宽和高
+                    height: Math.round(200/c.h * boundy) + 'px',  
+                    marginLeft: '-' + Math.round(200/c.w * c.x) + 'px',  
+                    marginTop: '-' + Math.round(200/c.h * c.y) + 'px'  
+                });  
+		$("#previewpic1").css({  
+                    width: Math.round(200/c.w * boundx) + 'px',   //200 为预览div的宽和高
+                    height: Math.round(200/c.h * boundy) + 'px',  
+                    marginLeft: '-' + Math.round(200/c.w * c.x) + 'px',  
+                    marginTop: '-' + Math.round(200/c.h * c.y) + 'px'  
+                });  
+		$("#previewpic2").css({  
+                    width: Math.round(200/c.w * boundx) + 'px',   //200 为预览div的宽和高
+                    height: Math.round(200/c.h * boundy) + 'px',  
+                    marginLeft: '-' + Math.round(200/c.w * c.x) + 'px',  
+                    marginTop: '-' + Math.round(200/c.h * c.y) + 'px'  
+                });  
+                $('#width').val(c.w);  //c.w 裁剪区域的宽  
+                $('#height').val(c.h); //c.h 裁剪区域的高  
+                $('#x').val(c.x);  //c.x 裁剪区域左上角顶点相对于图片左上角顶点的x坐标  
+                $('#y').val(c.y);  //c.y 裁剪区域顶点的y坐标 
+            }  
+          };  
+    });  
 $("#myImage").click(function(){
 				$("#upload-picture").modal();
 
@@ -276,6 +297,7 @@ $("#sub_upload").click(function(){
 						$("#previewpic").attr("src",pathPic);
 						$("#previewpic1").attr("src",pathPic);
 						$("#previewpic2").attr("src",pathPic);
+						$("#cuttingImageName").val(data.uploadFile.path);
 						}			 
 					
 				      },

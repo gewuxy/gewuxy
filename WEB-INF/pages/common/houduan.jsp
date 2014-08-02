@@ -56,6 +56,10 @@
 		  <li>对开源技术有强烈的兴趣和爱好，参与或向开发者提交过 bug 和 patch</li>
 		</ul>
 	  </div>
+	  <hr />
+	  <div class="section joinus">
+	    应聘该职位请将简历发送到：<a href="mailto:2723728494@qq.com">2723728494@qq.com</a>，邮件标题注明所应聘的职位，如格式“[应聘]姓名+后端开发工程师”
+	  </div>
 	</div>
   </div>
   </div>

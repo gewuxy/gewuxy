@@ -44,6 +44,10 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	private UploadFile uploadFile=new UploadFile();//上传后的图片
 	private OperateImage image=new OperateImage();
 	private String cuttingImageName;
+	private int cuttingImageX;
+	private int cuttingImageY;
+	private int cuttingImageWidth;
+	private int cuttingImageHeight;
 	public String login() throws Exception{
 		return USER_LOGIN;
 	}
@@ -308,7 +312,11 @@ public String cutPic(){
         int index=getCuttingImageName().lastIndexOf(".");
         String nameCut=getCuttingImageName().substring(0,index)+"jianqie.jpg";
         String cutImage=hostPath+"/"+nameCut;
-        image.setSubpath(cutImage);  
+        image.setSubpath(cutImage); 
+        image.setX(getCuttingImageX());
+        image.setY(getCuttingImageY());
+        image.setWidth(getCuttingImageWidth());
+        image.setHeight(getCuttingImageHeight());
         try {  
             image.cut(); //执行裁剪操作  执行完后即可生成目标图在对应文件夹内。</span>  
             uploadFile.setPath(nameCut);//ÉèÖÃÎÄŒþÃû³Æ
@@ -410,6 +418,30 @@ public String cutPic(){
 	}
 	public void setCuttingImageName(String cuttingImageName) {
 		this.cuttingImageName = cuttingImageName;
+	}
+	public int getCuttingImageX() {
+		return cuttingImageX;
+	}
+	public void setCuttingImageX(int cuttingImageX) {
+		this.cuttingImageX = cuttingImageX;
+	}
+	public int getCuttingImageY() {
+		return cuttingImageY;
+	}
+	public void setCuttingImageY(int cuttingImageY) {
+		this.cuttingImageY = cuttingImageY;
+	}
+	public int getCuttingImageWidth() {
+		return cuttingImageWidth;
+	}
+	public void setCuttingImageWidth(int cuttingImageWidth) {
+		this.cuttingImageWidth = cuttingImageWidth;
+	}
+	public int getCuttingImageHeight() {
+		return cuttingImageHeight;
+	}
+	public void setCuttingImageHeight(int cuttingImageHeight) {
+		this.cuttingImageHeight = cuttingImageHeight;
 	}
 	
 	

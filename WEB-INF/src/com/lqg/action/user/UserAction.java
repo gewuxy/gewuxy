@@ -321,20 +321,20 @@ public String cutPic(){
             image.cut(); //执行裁剪操作  执行完后即可生成目标图在对应文件夹内。</span>  
             uploadFile.setPath(nameCut);//ÉèÖÃÎÄŒþÃû³Æ
 			uploadFileDao.save(uploadFile);
-			if(session.get("type")=="student"){
-				Student student=(Student) session.get("user");
+			if(session.get("type")=="student"){				
+				Student student = studentDao.load(((Student) session.get("user")).getId());
 				student.setImage(uploadFile);
-				studentDao.saveOrUpdate(student);
+				studentDao.update(student);
 			}
 			if(session.get("type")=="parent"){
-				Parent parent=(Parent) session.get("user");
+				Parent parent=parentDao.load(((Parent) session.get("user")).getId());
 				parent.setImage(uploadFile);
-				parentDao.saveOrUpdate(parent);
+				parentDao.update(parent);
 			}
 			if(session.get("type")=="teacher"){
-				Teacher teacher=(Teacher) session.get("user");
+				Teacher teacher=teacherDao.load(((Teacher) session.get("user")).getId());
 				teacher.setImage(uploadFile);
-				teacherDao.saveOrUpdate(teacher);
+				teacherDao.update(teacher);
 			}
         } catch (IOException e) {  
             e.printStackTrace();  

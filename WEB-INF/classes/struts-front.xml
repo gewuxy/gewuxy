@@ -95,7 +95,7 @@
 			 <param name="includeProperties">imageMessage</param>  
 		 </result>
 		 <result name="cutsuccess" type="json">
-		 <param name="includeProperties">uploadFile\.id,uploadFile\.path</param>
+		 <param name="includeProperties">uploadFile\.id,uploadFile\.path,image\.srcpath, image\.subpath</param>
          </result>
 		<interceptor-ref name="userDefaultStack"/>  	 
    		</action>

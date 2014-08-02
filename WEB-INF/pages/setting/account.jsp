@@ -131,7 +131,7 @@
                         <div class="row">
 			
                           <div  id="target"  style="width:300px;height:300px;overflow:hidden; border:1px solid gray;display:inline;">
-                            <img id="targetpic" src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:300px;height:300px;" />
+                            <img id="targetpic" src="<%=request.getContextPath()%>/img/201408011026140126.jpg" style="width:300px;height:300px;" />
                            
                           </div>
 			

@@ -32,11 +32,9 @@
     <form class="form-horizontal" role="form">
   <div class="form-group">
 	<label for="headicon" class="col-sm-2 control-label">头像</label> 
-	<a href="javascript:void(0);" id="myImage" alt="头像"><s:if test="#session.user.image==null">
-<img src="<%=request.getContextPath()%>/img/apple-touch-icon-144-precomposed.png" style="width:100px;height:100px;margin-left:2%" /></s:if>
-<s:if test="#session.user.image!=null">
-<img src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:100px;height:100px;margin-left:2%" /></s:if>
-</a> &nbsp&nbsp点击头像上传照片
+	<a href="javascript:void(0);" id="myImage" alt="头像">
+<img src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:100px;height:100px;margin-left:2%" />
+</a> &nbsp&nbsp点击头像上传照片<s:property value="#session.user.image.id"/>
 	
   </div>
   <div class="form-group">

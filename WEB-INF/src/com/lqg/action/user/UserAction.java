@@ -456,8 +456,8 @@ public String saveProfile() throws Exception{
 public String modifyPassword() throws Exception{
 	if(session.get("type")=="student"){			
 		Student studentM=studentDao.load(((Student) session.get("user")).getId());
-		if(student.getPassword()!=studentM.getPassword()){
-			setErroMessage("原密码错误"+student.getPassword()+" "+studentM.getPassword());
+		if(!(student.getPassword().equals(studentM.getPassword()))){
+			setErroMessage("原密码错误");
 			return USERPROFILE;
 		}
 		studentM.setPassword(getRepassword());
@@ -470,7 +470,7 @@ public String modifyPassword() throws Exception{
 	}
 	else if(session.get("type")=="teacher"){			  
 			Teacher teacher=teacherDao.load(((Teacher) session.get("user")).getId());
-			if(student.getPassword()!=teacher.getPassword()){
+			if(!(student.getPassword().equals(teacher.getPassword()))){
 				setErroMessage("原密码错误");
 				return USERPROFILE;
 			}
@@ -484,7 +484,7 @@ public String modifyPassword() throws Exception{
 		}
 	else if (session.get("type")=="parent"){			
 		Parent parent=parentDao.load(((Parent) session.get("user")).getId());
-		if(student.getPassword()!=parent.getPassword()){
+		if(!(student.getPassword().equals(parent.getPassword()))){
 			setErroMessage("原密码错误");
 			return USERPROFILE;
 		}

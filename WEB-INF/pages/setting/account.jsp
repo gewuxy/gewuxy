@@ -53,12 +53,10 @@
   </div>
   <div class="form-group">
     <label for="gender" class="col-sm-2 control-label">性别</label>
-	<div class="col-sm-6">
-	<select name="gender" id="gender" class="form-control">
-		<option value="none"> </option>
-	    <option value="male">男</option>
-		<option value="female">女</option>
-	</select>
+	<div class="col-sm-6">			
+<s:select name="sex" id="gender" cssClass="form-control"
+ list="@com.lqg.model.Sex@getValues()"></s:select>
+	
 	</div>
   </div>
   <div class="form-group">
@@ -171,11 +169,13 @@
               </div>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/ajaxfileupload.js"></script>  
 <script src="<%=request.getContextPath()%>/js/jquery.Jcrop.js" type="text/javascript"></script>    
+<script src="<%=request.getContextPath()%>/js/jquery-ui-1.10.3.full.min.js" type="text/javascript"></script>    
 <script type="text/javascript">
 
      
  $(document).ready(function () {
-            /*$(function(){
+//生日时间挑选
+            $(function(){
         $.datepicker.regional['zh-CN'] = {
           clearText: '清除',
           clearStatus: '清除已选日期',
@@ -208,9 +208,9 @@
           isRTL: false
         };
         $.datepicker.setDefaults($.datepicker.regional['zh-CN']);
-        $('#date-picker').datepicker({changeMonth:true,changeYear:true,yearRange:'1900:2014'});
-      });*/
-	//剪切功能name="cuttingImageName" name="cuttingImageX" name="cuttingImageY" name="cuttingImageWidth" name="cuttingImageHeight"
+        $("#birthday").datepicker({changeMonth:true,changeYear:true,yearRange:'1900:2014'});
+      });
+//剪切功能name="cuttingImageName" name="cuttingImageX" name="cuttingImageY" name="cuttingImageWidth" name="cuttingImageHeight"
     var x;  
     var y;  
     var width;  
@@ -258,6 +258,7 @@
             }  
           };  
     });
+//剪切完后上传
 $("#cutLoad").click(function(){
                                 if($("#cuttingImage").val()==""){
 				alert("没有选择上传图片!!!");
@@ -304,15 +305,18 @@ $("#cutLoad").click(function(){
 				}
 				});
 }); 
+//取消按钮退出modal对话框
 $("#cutPicCancel").click(function(){
 			$("#upload-picture").modal('hide');
 });
+//modal对话框出现
 $("#myImage").click(function(){
 				$("#upload-picture").modal();
 
 				//alert("happddsf");
 				//$(".sign-up-tab").trigger("click");
 			});
+//上传相片
 $("#sub_upload").click(function(){	
 				var filename=$("#uploadfile").val();//待上传的文件，如“/www/data/index.php”等
 				//判断上传文件格式

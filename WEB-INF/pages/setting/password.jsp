@@ -50,10 +50,62 @@
     </div>
 	<div class="form-group">
     <div style="margin-left:58%;">
-      <button type="submit" class="btn btn-success">保存</button>
+      <button id= "passwordmodify" class="btn btn-success">保存</button>
     </div>
   </div>
   </form>
   </div>
+<script type="text/javascript">
+
+     
+ $(document).ready(function () {
+//修改个人密码
+$("#passwordmodify").click(function(){
+                                if($("#curPassword").val()==""){
+				alert("没有填写原来密码!!!");
+				return false;
+				}
+				if($("#newPassword").val()==""){
+				alert("没有填写新密码!!!");
+				return false;
+				}
+				if($("#curPassword").val()==$("#newPassword").val()){
+				alert("新旧密码一致，重新选择密码!!!");
+				return false;
+				}
+                               if($("#confirmPassword").val()==""){
+				alert("没有填写再一次的新密码!!!");
+				return false;
+				}
+				 if($("#confirmPassword").val()!=$("#newPassword").val()){
+				alert("新密码两次不一致!!!");
+				return false;
+				}			 
+				
+			   var params = {
+				"student.password":$("#curPassword").val(),				
+				"repassword":$("#newPassword").val()
+			      };
+ 
+			      $.ajax({
+				    type: "POST",
+				url: "../user/user_modifyPassword.html",
+			 	data:params,
+				async: false,
+			       	dataType:"json",
+				success:function(data){ 				 	
+					        alert(data.erroMessage);			
+					
+				},
+				error: function(data){
+				  
+                                     alert(data.erroMessage)
+				  return false;
+				}
+				});
+}); 
+			
+		});
+    </script>
 </body>
 </html>

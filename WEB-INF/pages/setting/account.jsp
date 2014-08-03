@@ -30,7 +30,8 @@
 	  <li role="presentation"><s:a action="user_email" namespace="/user">邮件</s:a></li>
 	</ul>
     <div style="height:20px"></div>
-    <form class="form-horizontal" role="form">
+	
+	<form class="form-horizontal" role="form">
   <div class="form-group">
 	<label for="headicon" class="col-sm-2 control-label">头像</label> 
 	<a href="javascript:void(0);" id="myImage" alt="头像"><s:if test="#session.user.image==null"><img id="myCutImage" src="<%=request.getContextPath()%>/img/joinus.png" style="width:100px;height:100px;margin-left:2%" />
@@ -55,7 +56,7 @@
   <div class="form-group">
     <label for="gender" class="col-sm-2 control-label">性别</label>
 	<div class="col-sm-6">			
-<s:select name="sex" id="gender" cssClass="form-control"
+<s:select  id="gender" cssClass="form-control"
  list="@com.lqg.model.Sex@getValues()"></s:select>
 	
 	</div>
@@ -86,7 +87,7 @@
   </div>
   <div class="form-group">
     <div style="margin-left:58%;">
-      <button type="submit" class="btn btn-success">保存</button>
+      <button id="profileSave" class="btn btn-success">保存</button>
     </div>
   </div>
 </form>
@@ -379,6 +380,64 @@ $("#sub_upload").click(function(){
 				  }
 				}
       			});
+//保存个人信息
+$("#profileSave").click(function(){
+                                if($("#nickname").val()==""){
+				alert("没有填写昵称!!!");
+				return false;
+				}
+				if($("#realname").val()==""){
+				alert("没有填写用户名!!!");
+				return false;
+				}
+				if($("#gender").val()==""){
+				alert("没有选择性别!!!");
+				return false;
+				}
+                               if($("#birthday").val()==""){
+				alert("没有选择生日!!!");
+				return false;
+				}
+				 if($("#school").val()==""){
+				alert("没有填写学校!!!");
+				return false;
+				}
+				 if($("#advantage").val()==""){
+				alert("没有填写特长!!!");
+				return false;
+				}
+				if($("#bio").val()==""){
+				alert("没有填写个人介绍!!!");
+				return false;
+				}
+				
+			   var params = {
+				"student.nickname":$("#nickname").val(),
+				"student.username":$("#realname").val(),
+				"student.sex" : $("#gender").val(),
+				"student.birthday" : $("#birthday").val(),
+				"student.school" : $("#school").val(),
+				"student.aptcourses" : $("#advantage").val(),
+				"student.introduction":$("#bio").val()
+			      };
+ 
+			      $.ajax({
+				    type: "POST",
+				url: "../user/user_saveProfile.html",
+			 	data:params,
+				//async: false,
+			       	dataType:"json",
+				success:function(data){ 				 	
+					        alert(data.erroMessage);			
+					
+				},
+				error: function(data){
+				  
+
+				  return false;
+				}
+				});
+}); 
 			
 		});
     </script>

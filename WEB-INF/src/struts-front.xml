@@ -98,6 +98,9 @@
 		 <result name="cutsuccess" type="json">
 		 <param name="includeProperties">uploadFile\.id,uploadFile\.path,image\.srcpath, image\.subpath</param>
          </result>
+         <result name="userprofile" type="json">
+		 <param name="includeProperties">erroMessage</param>
+	     </result>
 		<interceptor-ref name="userDefaultStack"/>  	 
    		</action>
 	</package>

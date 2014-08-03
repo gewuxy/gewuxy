@@ -425,7 +425,7 @@ $("#profileSave").click(function(){
 				    type: "POST",
 				url: "../user/user_saveProfile.html",
 			 	data:params,
-				//async: false,
+				async: false,
 			       	dataType:"json",
 				success:function(data){ 				 	
 					        alert(data.erroMessage);			

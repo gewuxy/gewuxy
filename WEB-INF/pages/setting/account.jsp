@@ -44,45 +44,45 @@
   <div class="form-group">
 	<label for="nickname" class="col-sm-2 control-label">昵称</label>
 	<div class="col-sm-6">
-	  <input type="text" autocomplete="on" id="nickname" class="form-control">
+	  <input type="text" autocomplete="on" id="nickname" class="form-control" value="<s:property value="#session.user.nickname"/>">
 	</div>
   </div>
   <div class="form-group">
     <label for="realname" class="col-sm-2 control-label">姓名</label>
 	<div class="col-sm-6">
-	  <input type="text" autocomplete="on" id="realname" class="form-control">
+	  <input type="text" autocomplete="on" id="realname" class="form-control" value="<s:property value="#session.user.username"/>">
 	</div>
   </div>
   <div class="form-group">
     <label for="gender" class="col-sm-2 control-label">性别</label>
 	<div class="col-sm-6">			
-<s:select  id="gender" cssClass="form-control"
- list="@com.lqg.model.Sex@getValues()"></s:select>
+<s:select  id="gender" cssClass="form-control" 
+ list="@com.lqg.model.Sex@getValues()" ></s:select>
 	
 	</div>
   </div>
   <div class="form-group">
     <label for="birthday" class="col-sm-2 control-label">生日</label>
 	<div class="col-sm-6">
-	  <input type="date" id="birthday" class="form-control">
+	  <input type="date" id="birthday" class="form-control" value="<s:property value="#session.user.birthday"/>">
 	</div>
   </div>
   <div class="form-group">
     <label for="school" class="col-sm-2 control-label">学校</label>
 	<div class="col-sm-6">
-	  <input type="text" id="school" class="form-control">
+	  <input type="text" id="school" class="form-control" value="<s:property value="#session.user.school"/>">
 	</div>
   </div>
   <div class="form-group">
     <label for="advantage" class="col-sm-2 control-label">擅长科目</label>
 	<div class="col-sm-6">
-	  <input type="text" id="advantage" class="form-control">
+	  <input type="text" id="advantage" class="form-control" value="<s:property value="#session.user.aptcourses"/>">
 	</div>
   </div>
   <div class="form-group">
     <label for="bio" class="col-sm-2 control-label">一句话介绍</label>
 	<div class="col-sm-6">
-	  <input type="text" id="bio" class="form-control">
+	  <input type="text" id="bio" class="form-control" value="<s:property value="#session.user.introduction"/>">
 	</div>
   </div>
   <div class="form-group">
@@ -382,7 +382,7 @@ $("#sub_upload").click(function(){
       			});
 //保存个人信息
 $("#profileSave").click(function(){
-                                if($("#nickname").val()==""){
+                                /*if($("#nickname").val()==""){
 				alert("没有填写昵称!!!");
 				return false;
 				}
@@ -409,7 +409,7 @@ $("#profileSave").click(function(){
 				if($("#bio").val()==""){
 				alert("没有填写个人介绍!!!");
 				return false;
-				}
+				}*/
 				
 			   var params = {
 				"student.nickname":$("#nickname").val(),
@@ -433,7 +433,7 @@ $("#profileSave").click(function(){
 				},
 				error: function(data){
 				  
-
+                                     alert(data.erroMessage)
 				  return false;
 				}
 				});

@@ -22,9 +22,9 @@ public class Student implements Serializable{
 	// 密码
 	private String password;
 	//性别
-	private Sex sex;
+	private String sex;
 	//出生年月
-	private Date birthday;
+	private String birthday;
 	//学校
 	private String school;
 	//擅长学科
@@ -74,16 +74,16 @@ public class Student implements Serializable{
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-	public Sex getSex() {
+	public String getSex() {
 		return sex;
 	}
-	public void setSex(Sex sex) {
+	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 	public String getSchool() {

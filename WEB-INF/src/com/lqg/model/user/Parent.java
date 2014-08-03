@@ -17,8 +17,8 @@ public class Parent implements Serializable{
 	private String username;// 名字
 	private String nickname;// 昵称
 	private String password;// 密码
-	private Sex sex;//性别
-	private Date birthday;//出生年月
+	private String sex;//性别
+	private String birthday;//出生年月
 	private String introduction;//个人介绍
 	private UploadFile image;//个人图片
 	private String email;// 邮件
@@ -56,16 +56,16 @@ public class Parent implements Serializable{
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-	public Sex getSex() {
+	public String getSex() {
 		return sex;
 	}
-	public void setSex(Sex sex) {
+	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 	public String getIntroduction() {

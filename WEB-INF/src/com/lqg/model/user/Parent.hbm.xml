@@ -10,7 +10,7 @@
 		<property name="username" not-null="true" length="50"/>
 		<property name="nickname"  length="50"/>
 		<property name="password" not-null="true" length="50"/>
-		<property name="sex" type="com.lqg.util.hibernate.SexType" length="5"/>
+		<property name="sex"  length="5"/>
 		<property name="birthday" length="20"/>
 		<property name="introduction" length="200"/>
 		<many-to-one name="image" class="com.lqg.model.product.UploadFile" column="imageId" unique="true" cascade="all" lazy="false"/>

@@ -259,6 +259,10 @@
           };  
     });
 $("#cutLoad").click(function(){
+                                if($("#cuttingImage").val()==""){
+				alert("没有选择上传图片!!!");
+				return false;
+				}
 				if($("#width").val()==0){
 				alert("没有选择裁剪比例!!!");
 				return false;
@@ -267,10 +271,7 @@ $("#cutLoad").click(function(){
 				alert("没有选择裁剪比例!!!");
 				return false;
 				}
-				if($("#cuttingImage").val()==""){
-				alert("没有选择图片!!!");
-				return false;
-				}
+				
 			   var params = {
 				"cuttingImageName":$("#cuttingImage").val(),
 				"cuttingImageX":$("#x").val(),

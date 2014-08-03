@@ -15,7 +15,7 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-document.title=$(".subject-title").text()+"|格物学院";
+document.title=$(".subject-title").text()+"-格物学院";
 if($(".right").height()<$(window).height()-100){
 $(".right").height($(window).height()-100);
 };

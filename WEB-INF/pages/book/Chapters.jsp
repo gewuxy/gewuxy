@@ -17,7 +17,7 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-document.title=$(".chapter-title").text()+"|"+$(".subject-back").text()+"|格物学院";
+document.title=$(".chapter-title").text()+"-"+$(".subject-back").text()+"-格物学院";
 if($(".content-lists").height()<$(window).height()-100){
 $(".content-lists").height($(window).height()-100);
 };

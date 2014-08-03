@@ -53,15 +53,15 @@ public class QuestionAction extends BaseAction implements ModelDriven<Question>{
 					question.setVideo(videoDao.load(question.getVideo().getId()));
 					question.setCreateTime(new Date());
 
-					 if(session.get("type")=="student"){
+					 if(session.get("type").equals("student")){
 						 Student student=(Student)session.get("user");
 						 question.setStudent(student);
 					 }
-					 if(session.get("type")=="teacher"){
+					 if(session.get("type").equals("teacher")){
 						Teacher teacher=(Teacher)session.get("user");
 						 question.setTeacher(teacher);
 					 }
-					 if(session.get("type")=="parent"){
+					 if(session.get("type").equals("parent")){
 						 Parent parent=(Parent)session.get("user");
 						 question.setParent(parent);
 					 }

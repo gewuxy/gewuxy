@@ -44,15 +44,15 @@ public class AnswerAction extends BaseAction implements ModelDriven<Answer>{
 		if(answer.getQuestion() != null && answer.getQuestion().getId() != null){
 			answer.setQuestion(questionDao.load(answer.getQuestion().getId()));
 			answer.setCreateTime(new Date());
-			 if(session.get("type")=="student"){
+			 if(session.get("type").equals("student")){
 				 Student student=(Student)session.get("user");
 				 answer.setStudent(student);
 			 }
-			 if(session.get("type")=="teacher"){
+			 if(session.get("type").equals("teacher")){
 				Teacher teacher=(Teacher)session.get("user");
 				 answer.setTeacher(teacher);
 			 }
-			 if(session.get("type")=="parent"){
+			 if(session.get("type").equals("parent")){
 				 Parent parent=(Parent)session.get("user");
 				 answer.setParent(parent);
 			 }

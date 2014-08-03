@@ -90,15 +90,15 @@ public class CommentAction extends BaseAction implements ModelDriven<Comment>{
 				if(comment.getQuestion() != null && comment.getQuestion().getId() != null){
 					comment.setQuestion(questionDao.load(comment.getQuestion().getId()));
 					comment.setCreateTime(new Date());
-					 if(session.get("type")=="student"){
+					 if(session.get("type").equals("student")){
 						 Student student=(Student)session.get("user");
 						 comment.setStudent(student);
 					 }
-					 if(session.get("type")=="teacher"){
+					 if(session.get("type").equals("teacher")){
 						Teacher teacher=(Teacher)session.get("user");
 						 comment.setTeacher(teacher);
 					 }
-					 if(session.get("type")=="parent"){
+					 if(session.get("type").equals("parent")){
 						 Parent parent=(Parent)session.get("user");
 						comment.setParent(parent);
 					 }
@@ -119,15 +119,15 @@ public class CommentAction extends BaseAction implements ModelDriven<Comment>{
 				if(comment.getAnswer() != null && comment.getAnswer().getId() != null){
 					comment.setAnswer(answerDao.load(comment.getAnswer().getId()));
 					comment.setCreateTime(new Date());
-					if(session.get("type")=="student"){
+					if(session.get("type").equals("student")){
 						 Student student=(Student)session.get("user");
 						 comment.setStudent(student);
 					 }
-					 if(session.get("type")=="teacher"){
+					 if(session.get("type").equals("teacher")){
 						Teacher teacher=(Teacher)session.get("user");
 						 comment.setTeacher(teacher);
 					 }
-					 if(session.get("type")=="parent"){
+					 if(session.get("type").equals("parent")){
 						 Parent parent=(Parent)session.get("user");
 						comment.setParent(parent);
 					 }
@@ -147,15 +147,15 @@ public class CommentAction extends BaseAction implements ModelDriven<Comment>{
 				if(comment.getThank() != null && comment.getThank().getId() != null){
 					comment.setThank(thankDao.load(comment.getThank().getId()));
 					comment.setCreateTime(new Date());
-					if(session.get("type")=="student"){
+					if(session.get("type").equals("student")){
 						 Student student=(Student)session.get("user");
 						 comment.setStudent(student);
 					 }
-					 if(session.get("type")=="teacher"){
+					 if(session.get("type").equals("teacher")){
 						Teacher teacher=(Teacher)session.get("user");
 						 comment.setTeacher(teacher);
 					 }
-					 if(session.get("type")=="parent"){
+					 if(session.get("type").equals("parent")){
 						 Parent parent=(Parent)session.get("user");
 						comment.setParent(parent);
 					 }

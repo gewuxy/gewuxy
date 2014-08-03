@@ -70,15 +70,15 @@ public class ThankAction extends BaseAction implements ModelDriven<Thank>{
 		if(thank.getVideo() != null && thank.getVideo().getId() != null){
 			thank.setVideo(videoDao.load(thank.getVideo().getId()));
 			thank.setCreateTime(new Date());	
-			if(session.get("type")=="student"){
+			if(session.get("type").equals("student")){
 				 Student student=(Student)session.get("user");
 				 thank.setStudent(student);
 			 }
-			 if(session.get("type")=="teacher"){
+			 if(session.get("type").equals("teacher")){
 				Teacher teacher=(Teacher)session.get("user");
 				 thank.setTeacher(teacher);
 			 }
-			 if(session.get("type")=="parent"){
+			 if(session.get("type").equals("parent")){
 				 Parent parent=(Parent)session.get("user");
 				thank.setParent(parent);
 			 }

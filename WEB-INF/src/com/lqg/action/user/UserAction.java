@@ -324,17 +324,26 @@ public String cutPic(){
 			if(session.get("type")=="student"){				
 				Student student = studentDao.load(((Student) session.get("user")).getId());
 				student.setImage(uploadFile);
-				studentDao.update(student);
+				studentDao.update(student);				
+				Student studentcut = studentDao.load(student.getId());
+				session.remove("user");
+				session.put("user", studentcut);//将学生放入user 的session
 			}
 			if(session.get("type")=="parent"){
 				Parent parent=parentDao.load(((Parent) session.get("user")).getId());
 				parent.setImage(uploadFile);
 				parentDao.update(parent);
+				Parent parentcut = parentDao.load(parent.getId());
+				session.remove("user");
+				session.put("user", parentcut);//将家长放入user 的session
 			}
 			if(session.get("type")=="teacher"){
 				Teacher teacher=teacherDao.load(((Teacher) session.get("user")).getId());
 				teacher.setImage(uploadFile);
 				teacherDao.update(teacher);
+				Teacher teachercut = teacherDao.load(teacher.getId());
+				session.remove("user");
+				session.put("user", teachercut);//将学生放入user 的session
 			}
         } catch (IOException e) {  
             e.printStackTrace();  

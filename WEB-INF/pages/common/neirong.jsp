@@ -29,37 +29,30 @@
 	  <div class="section responsibility">
 	    <h3>职位描述</h3>
 		<ul>
-		  <li>Web 应用的设计与开发</li>
-		  <li>复杂用户界面与交互应用开发</li>
-		  <li>现有产品的持续改进</li>
+		  <li>联合K12学校进行战略合作</li>
+		  <li>识别和追踪教育热点，策划和促进高质量课程的创作和传播</li>
+		  <li>分析和理解用户的课程偏好，对课程制作提出合理的建议</li>
+		  <li>及时回答用户针对课程的反馈</li>
 		</ul>
 	  </div>
 	  <div class="section requirement">
 	    <h3>职位要求</h3>
 		<ul>
-		  <li>精通 JavaScript/CSS/HTML</li>
-		  <li>熟悉至少一种面向对象的前端框架（Bootstrap/Google Closure/YUI/MooTools 等）</li>
-		  <li>能够写出高性能、可复用的前端组件</li>
-		  <li>熟悉服务器端开发技术</li>
-		  <li>良好的编码风格、沟通能力和团队合作精神，有责任感</li>
-		  <li>有很强的学习能力，有主动性和上进心，能承担压力</li>
+		  <li>对高品质的课程有独到、公正、中立的判断和理解</li>
+		  <li>从事教育行业多年，明确学生，老师，家长的需求</li>
 		</ul>
 	  </div>
 	  <div class="section bonus">
 	    <h3>加分项</h3>
 		<ul>
-		  <li>格物学院深度用户，关注国内外互联网产品，特别是在线教育方向</li>
-		  <li>使用过，熟悉Bootstrap,jquery</li>
-		  <li>熟练使用 JavaScript 测试框架</li>
-		  <li>常用SSH框架和MySQL数据库进行业余开发</li>
-		  <li>在GitHub上有自己的业余项目</li>
-		  <li>了解前端安全机制</li>
-		  <li>有前端性能优化经验</li>
+		  <li>对在线教育有浓厚的兴趣，深入参与到线上教育行业圈子</li>
+		  <li>在教育行业有足够多的人脉，能够快速丰富网站的内容</li>
+		  <li>从事过与教育相关的志愿者活动</li>
 		</ul>
 	  </div>
 	  <hr />
 	  <div class="section joinus">
-	    应聘该职位请将简历发送到：<a href="mailto:2723728494@qq.com">2723728494@qq.com</a>，邮件标题注明所应聘的职位，如格式“[应聘]姓名+前端开发工程师”
+	    应聘该职位请将简历发送到：<a href="mailto:2723728494@qq.com">2723728494@qq.com</a>，邮件标题注明所应聘的职位，如格式“[应聘]姓名+内容策划师”
 	  </div>
 	</div>
   </div>

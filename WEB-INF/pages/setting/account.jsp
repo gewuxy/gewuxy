@@ -259,6 +259,18 @@
           };  
     });
 $("#cutLoad").click(function(){
+				if($("#width").val()==0){
+				alert("没有选择裁剪比例!!!");
+				return false;
+				}
+				if($("#height").val()==0){
+				alert("没有选择裁剪比例!!!");
+				return false;
+				}
+				if($("#cuttingImage").val()==""){
+				alert("没有选择图片!!!");
+				return false;
+				}
 			   var params = {
 				"cuttingImageName":$("#cuttingImage").val(),
 				"cuttingImageX":$("#x").val(),

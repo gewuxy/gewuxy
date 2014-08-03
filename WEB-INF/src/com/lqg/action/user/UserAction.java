@@ -36,6 +36,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	private static final String EMAIL = "email";
 	private static final String PASSWORD = "password";
 	private static final String LINKSN = "linkSn";
+	private static final String USERPROFILE = "userprofile";
 	private String prePage;
 	private String erroMessage;
 	private String imageMessage;
@@ -350,6 +351,103 @@ public String cutPic(){
         }  
         return "cutsuccess";  
     }  
+/**
+ * 个人资料修改
+ * @return
+ * @throws Exception
+ */
+public String saveProfile() throws Exception{
+	if(session.get("type")=="student"){			
+		Student studentM=studentDao.load(((Student) session.get("user")).getId());
+		if(student.getNickname()!=null){
+			studentM.setNickname(student.getNickname());
+		}
+		if(student.getUsername()!=null){
+		studentM.setUsername(student.getUsername());
+		}
+		if(student.getSex()!=null){
+		studentM.setSex(student.getSex());
+		}
+		if(student.getBirthday()!=null){
+		studentM.setBirthday(student.getBirthday());
+		}
+		if(student.getSchool()!=null){
+		studentM.setSchool(student.getSchool());
+		}
+		if(student.getAptcourses()!=null){
+		studentM.setAptcourses(student.getAptcourses());
+		}
+		if(student.getIntroduction()!=null){
+		studentM.setIntroduction(student.getIntroduction());
+		}
+		studentDao.update(studentM);//锟斤拷锟斤拷注锟斤拷锟斤拷息
+		Student studentprofile = studentDao.load(((Student) session.get("user")).getId());
+		session.remove("user");
+		session.put("user", studentprofile);//将学生放入user 的session
+		setErroMessage("修改成功");			
+		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
+	}
+	else if(session.get("type")=="teacher"){			  
+			Teacher teacher=teacherDao.load(((Teacher) session.get("user")).getId());
+			if(student.getNickname()!=null){
+				teacher.setNickname(student.getNickname());
+			}
+			if(student.getUsername()!=null){
+			teacher.setUsername(student.getUsername());
+			}
+			if(student.getSex()!=null){
+			teacher.setSex(student.getSex());
+			}
+			if(student.getBirthday()!=null){
+			teacher.setBirthday(student.getBirthday());
+			}
+			if(student.getSchool()!=null){
+			teacher.setSchool(student.getSchool());
+			}
+			if(student.getAptcourses()!=null){
+			teacher.setAptcourses(student.getAptcourses());
+			}
+			if(student.getIntroduction()!=null){
+			teacher.setIntroduction(student.getIntroduction());
+			}
+			teacherDao.update(teacher);//锟斤拷锟斤拷注锟斤拷锟斤拷息
+			Teacher teacherprofile = teacherDao.load(((Teacher) session.get("user")).getId());
+			session.remove("user");
+			session.put("user", teacherprofile);//将学生放入user 的session
+			setErroMessage("修改成功");			
+			return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
+		}
+	else if (session.get("type")=="parent"){			
+		Parent parent=parentDao.load(((Parent) session.get("user")).getId());
+		if(student.getNickname()!=null){
+			parent.setNickname(student.getNickname());
+		}
+		if(student.getUsername()!=null){
+			parent.setUsername(student.getUsername());
+		}
+		if(student.getSex()!=null){
+			parent.setSex(student.getSex());
+		}
+		if(student.getBirthday()!=null){
+			parent.setBirthday(student.getBirthday());
+		}	
+		
+		if(student.getIntroduction()!=null){
+			parent.setIntroduction(student.getIntroduction());
+		}
+		parentDao.update(parent);//锟斤拷锟斤拷注锟斤拷锟斤拷息
+		Parent parentprofile = parentDao.load(((Parent) session.get("user")).getId());
+		session.remove("user");
+		session.put("user", parentprofile);//将学生放入user 的session
+		setErroMessage("修改成功");			
+		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
+		}
+	else {
+		setErroMessage("没有修改");
+		return USERPROFILE;
+	}
+
+}
 	// 锟斤拷锟斤拷员
 	private Student student = new Student();
 	// 确锟斤拷锟斤拷锟斤拷

@@ -87,7 +87,7 @@
 		<div class="col-sm-6 col-md-4 col-lg-3 ">
           <div class="thumbnail">
             <s:a action="index_job_intern" namespace="/front" target="_blank">
-			  <img src="<%=ctx%>/img/neirong.jpg" width="300" height="160" alt="实习生">
+			  <img src="<%=ctx%>/img/intern.png" width="300" height="160" alt="实习生">
 			</s:a>
             <div class="">
               <h4> 

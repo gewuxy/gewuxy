@@ -1218,7 +1218,7 @@ margin:0 auto;
 }
 #open-jobs img{
 max-width:100%;
-height:auto;
+max-height:100%;
 }
 .open-jobs-label{
 text-align:center;

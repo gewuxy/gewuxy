@@ -45,6 +45,7 @@
 			<result name="repassword">/WEB-INF/pages/common/reset-password.jsp</result>
 			<result name="houduan">/WEB-INF/pages/common/houduan.jsp</result>
 			<result name="qianduan">/WEB-INF/pages/common/qianduan.jsp</result>
+			<result name="job_neirong">/WEB-INF/pages/common/neirong.jsp</result>
 		</action>
 	</package>
 	<!-- 学生Action -->

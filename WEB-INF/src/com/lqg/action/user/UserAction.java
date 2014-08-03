@@ -322,7 +322,7 @@ public String cutPic(){
             image.cut(); //执行裁剪操作  执行完后即可生成目标图在对应文件夹内。</span>  
             uploadFile.setPath(nameCut);//ÉèÖÃÎÄŒþÃû³Æ
 			uploadFileDao.save(uploadFile);
-			if(session.get("type")=="student"){				
+			if(session.get("type").equals("student")){				
 				Student student = studentDao.load(((Student) session.get("user")).getId());
 				student.setImage(uploadFile);
 				studentDao.update(student);				
@@ -330,7 +330,7 @@ public String cutPic(){
 				session.remove("user");
 				session.put("user", studentcut);//将学生放入user 的session
 			}
-			if(session.get("type")=="parent"){
+			if(session.get("type").equals("parent")){
 				Parent parent=parentDao.load(((Parent) session.get("user")).getId());
 				parent.setImage(uploadFile);
 				parentDao.update(parent);
@@ -338,7 +338,7 @@ public String cutPic(){
 				session.remove("user");
 				session.put("user", parentcut);//将家长放入user 的session
 			}
-			if(session.get("type")=="teacher"){
+			if(session.get("type").equals("teacher")){
 				Teacher teacher=teacherDao.load(((Teacher) session.get("user")).getId());
 				teacher.setImage(uploadFile);
 				teacherDao.update(teacher);
@@ -357,7 +357,7 @@ public String cutPic(){
  * @throws Exception
  */
 public String saveProfile() throws Exception{
-	if(session.get("type")=="student"){			
+	if(session.get("type").equals("student")){			
 		Student studentM=studentDao.load(((Student) session.get("user")).getId());
 		if(student.getNickname()!=null){
 			studentM.setNickname(student.getNickname());
@@ -387,7 +387,7 @@ public String saveProfile() throws Exception{
 		setErroMessage("修改成功");			
 		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
 	}
-	else if(session.get("type")=="teacher"){			  
+	else if(session.get("type").equals("teacher")){			  
 			Teacher teacher=teacherDao.load(((Teacher) session.get("user")).getId());
 			if(student.getNickname()!=null){
 				teacher.setNickname(student.getNickname());
@@ -417,7 +417,7 @@ public String saveProfile() throws Exception{
 			setErroMessage("修改成功");			
 			return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
 		}
-	else if (session.get("type")=="parent"){			
+	else if (session.get("type").equals("parent")){			
 		Parent parent=parentDao.load(((Parent) session.get("user")).getId());
 		if(student.getNickname()!=null){
 			parent.setNickname(student.getNickname());
@@ -454,7 +454,7 @@ public String saveProfile() throws Exception{
  * @throws Exception
  */
 public String modifyPassword() throws Exception{
-	if(session.get("type")=="student"){			
+	if(session.get("type").equals("student")){			
 		Student studentM=studentDao.load(((Student) session.get("user")).getId());
 		if(!(student.getPassword().equals(studentM.getPassword()))){
 			setErroMessage("原密码错误");
@@ -468,7 +468,7 @@ public String modifyPassword() throws Exception{
 		setErroMessage("修改成功");			
 		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
 	}
-	else if(session.get("type")=="teacher"){			  
+	else if(session.get("type").equals("teacher")){			  
 			Teacher teacher=teacherDao.load(((Teacher) session.get("user")).getId());
 			if(!(student.getPassword().equals(teacher.getPassword()))){
 				setErroMessage("原密码错误");
@@ -482,7 +482,7 @@ public String modifyPassword() throws Exception{
 			setErroMessage("修改成功");			
 			return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
 		}
-	else if (session.get("type")=="parent"){			
+	else if (session.get("type").equals("parent")){			
 		Parent parent=parentDao.load(((Parent) session.get("user")).getId());
 		if(!(student.getPassword().equals(parent.getPassword()))){
 			setErroMessage("原密码错误");

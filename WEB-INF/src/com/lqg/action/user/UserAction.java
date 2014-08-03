@@ -448,6 +448,60 @@ public String saveProfile() throws Exception{
 	}
 
 }
+/**
+ * 个人密码修改
+ * @return
+ * @throws Exception
+ */
+public String modifyPassword() throws Exception{
+	if(session.get("type")=="student"){			
+		Student studentM=studentDao.load(((Student) session.get("user")).getId());
+		if(student.getPassword()!=studentM.getPassword()){
+			setErroMessage("原密码错误");
+			return USERPROFILE;
+		}
+		studentM.setPassword(getRepassword());
+		studentDao.update(studentM);//锟斤拷锟斤拷注锟斤拷锟斤拷息
+		Student studentprofile = studentDao.load(((Student) session.get("user")).getId());
+		session.remove("user");
+		session.put("user", studentprofile);//将学生放入user 的session
+		setErroMessage("修改成功");			
+		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
+	}
+	else if(session.get("type")=="teacher"){			  
+			Teacher teacher=teacherDao.load(((Teacher) session.get("user")).getId());
+			if(student.getPassword()!=teacher.getPassword()){
+				setErroMessage("原密码错误");
+				return USERPROFILE;
+			}
+			teacher.setPassword(getRepassword());		
+			teacherDao.update(teacher);//锟斤拷锟斤拷注锟斤拷锟斤拷息
+			Teacher teacherprofile = teacherDao.load(((Teacher) session.get("user")).getId());
+			session.remove("user");
+			session.put("user", teacherprofile);//将学生放入user 的session
+			setErroMessage("修改成功");			
+			return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
+		}
+	else if (session.get("type")=="parent"){			
+		Parent parent=parentDao.load(((Parent) session.get("user")).getId());
+		if(student.getPassword()!=parent.getPassword()){
+			setErroMessage("原密码错误");
+			return USERPROFILE;
+		}
+		parent.setPassword(getRepassword());		
+		parentDao.update(parent);//锟斤拷锟斤拷注锟斤拷锟斤拷息
+		Parent parentprofile = parentDao.load(((Parent) session.get("user")).getId());
+		session.remove("user");
+		session.put("user", parentprofile);//将学生放入user 的session
+		setErroMessage("修改成功");			
+		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
+		}
+	else {
+		setErroMessage("没有修改");
+		return USERPROFILE;
+	}
+
+}
 	// 锟斤拷锟斤拷员
 	private Student student = new Student();
 	// 确锟斤拷锟斤拷锟斤拷

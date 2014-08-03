@@ -415,7 +415,7 @@ $("#profileSave").click(function(){
 				"student.nickname":$("#nickname").val(),
 				"student.username":$("#realname").val(),
 				"student.sex" : $("#gender").val(),
-				"student.birthday" : $("#birthday").val(),
+				"student.birthday" :$("#birthday").val(),
 				"student.school" : $("#school").val(),
 				"student.aptcourses" : $("#advantage").val(),
 				"student.introduction":$("#bio").val()
@@ -425,7 +425,7 @@ $("#profileSave").click(function(){
 				    type: "POST",
 				url: "../user/user_saveProfile.html",
 			 	data:params,
-				//async: false,
+				async: false,
 			       	dataType:"json",
 				success:function(data){ 				 	
 					        alert(data.erroMessage);			

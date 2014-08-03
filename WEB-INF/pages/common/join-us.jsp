@@ -84,6 +84,21 @@
             </div>
           </div>
         </div>
+		<div class="col-sm-6 col-md-4 col-lg-3 ">
+          <div class="thumbnail">
+            <s:a action="index_job_intern" namespace="/front" target="_blank">
+			  <img src="<%=ctx%>/img/neirong.jpg" width="300" height="160" alt="实习生">
+			</s:a>
+            <div class="">
+              <h4> 
+                <s:a action="index_job_intern" namespace="/front" cssClass="job-des" target="_blank">实习生</s:a>
+              </h4>
+              <p>
+              如果认可在线教育，认可格物学院的价值观，有冒险精神，并且认为自己大有所为，那格物学院就是你的舞台。
+              </p>
+            </div>
+          </div>
+        </div>
 	</div>
   </div>
 </div>

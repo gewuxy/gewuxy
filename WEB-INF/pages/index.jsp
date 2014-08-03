@@ -133,7 +133,7 @@ $("#register0").click(function(){
 			</div>
 	</div>
     	<div class="page-content">
-  
+  <div class="signup-container-outer">
   <div class="signup-container">
     <div class="signup-wrapper">
     <div class="signup-wrapper-container">
@@ -187,6 +187,7 @@ $("#register0").click(function(){
       </div>
     </div>
     </div>
+  </div>
   </div>
   <div class="container" id="introduction-container">
 	<div class="row student-introduction-container">

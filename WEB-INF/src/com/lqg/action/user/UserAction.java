@@ -457,7 +457,7 @@ public String modifyPassword() throws Exception{
 	if(session.get("type")=="student"){			
 		Student studentM=studentDao.load(((Student) session.get("user")).getId());
 		if(student.getPassword()!=studentM.getPassword()){
-			setErroMessage("原密码错误");
+			setErroMessage("原密码错误"+studentM.getPassword());
 			return USERPROFILE;
 		}
 		studentM.setPassword(getRepassword());

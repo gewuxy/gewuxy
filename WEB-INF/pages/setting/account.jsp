@@ -30,7 +30,8 @@
 	  <li role="presentation"><s:a action="user_email" namespace="/user">邮件</s:a></li>
 	</ul>
     <div style="height:20px"></div>
-    <form class="form-horizontal" role="form">
+	
+	<form class="form-horizontal" role="form">
   <div class="form-group">
 	<label for="headicon" class="col-sm-2 control-label">头像</label> 
 	<a href="javascript:void(0);" id="myImage" alt="头像"><s:if test="#session.user.image==null"><img id="myCutImage" src="<%=request.getContextPath()%>/img/joinus.png" style="width:100px;height:100px;margin-left:2%" />

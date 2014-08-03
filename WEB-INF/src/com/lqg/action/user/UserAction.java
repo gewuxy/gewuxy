@@ -365,12 +365,12 @@ public String saveProfile() throws Exception{
 		if(student.getUsername()!=null){
 		studentM.setUsername(student.getUsername());
 		}
-		if(student.getSex()!=null){
+		/*if(student.getSex()!=null){
 		studentM.setSex(student.getSex());
-		}
-		if(student.getBirthday()!=null){
+		}*/
+		/*if(student.getBirthday()!=null){
 		studentM.setBirthday(student.getBirthday());
-		}
+		}*/
 		if(student.getSchool()!=null){
 		studentM.setSchool(student.getSchool());
 		}

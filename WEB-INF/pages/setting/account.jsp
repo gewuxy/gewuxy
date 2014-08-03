@@ -415,7 +415,7 @@ $("#profileSave").click(function(){
 				"student.nickname":$("#nickname").val(),
 				"student.username":$("#realname").val(),
 				//"student.sex" : $("#gender").val(),
-				//"student.birthday" : $("#birthday").val(),
+				"student.birthday" : $("#birthday").val(),
 				"student.school" : $("#school").val(),
 				"student.aptcourses" : $("#advantage").val(),
 				"student.introduction":$("#bio").val()

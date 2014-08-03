@@ -1276,3 +1276,37 @@ margin-top: 12px;
 list-style: circle;
 padding-left: 20px;
 }
+.subject{
+width:550px;
+height:400px; 
+}
+.subject.math{
+background-color:#8080c0;
+}
+.subject.yuwen{
+background-color:#90A0c0;
+}
+.subject.english{
+background-color:#9382e0;
+}
+.subject.physics{
+background-color:#99CC99;
+}
+.subject.chemistry{
+background-color:#99FF99;
+}
+.subject.biology{
+background-color:#66FF99;
+}
+.subject.history{
+background-color:#66CC66;
+}
+.subject.politics{
+background-color:#66CC33;
+}
+.subject.geography{
+background-color:#66CC99;
+}
+.subject ul{
+list-style-type:none;
+}

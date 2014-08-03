@@ -25,7 +25,6 @@
   <!-- fonts -->
 
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
-
 		<!-- ace styles -->
 		<!--[if lt IE 9]>
 		<link rel="stylesheet" href="<%=ctx%>/css/ace.min.css" />
@@ -62,22 +61,21 @@
 <div class="row clearfix">       
 		<nav class="navbar navbar-default navbar-inverse nav-collapse navbar-fixed-top" role="navigation">
 			<div class="navbar-header">
-				
 				<a class="navbar-brand" href="<%=request.getContextPath()%>/index.jsp">格物学院</a>
 			</div>
 				
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">所有课程<strong class="caret"></strong></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">所有课程<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li >
 									<a href="#" >数学<span class="glyphicon glyphicon-chevron-right" style="float:right"></span></a>				
-	<div class="container" style="height:400px; width:550px ;background-color:#8080c0;" >
+	<div class="container subject math">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<h3 style="color:white;">数学</h3>
-			<hr style="" />
+			<hr />
 		</div>
 	</div>
 	<!--div class="row clearfix">
@@ -87,106 +85,106 @@
 	</div-->
 	<div class="row clearfix">
 		<div class="col-md-4 column">
-			<ul style="list-style-type:none;">
-				<li class="level1 math ">
+			<ul>
+				<li class="level1">
 					<s:a action="customer_login" namespace="/customer">一年级</s:a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 					<a href="/WEB-INF/pages/math/2_grade" >二年级</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 					<a href="/WEB-INF/pages/math/3_grade" >三年级</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 					<a href="/WEB-INF/pages/math/4_grade" >四年级</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 					<a href="<%=request.getContextPath()%>/WEB-INF/pages/math/5_grade" >五年级</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 					<a href="<%=request.getContextPath()%>/WEB-INF/pages/math/6_grade" >六年级</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 					<a href="<%=request.getContextPath()%>/WEB-INF/pages/math/7_grade" >七年级</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 					<a href="<%=request.getContextPath()%>/WEB-INF/pages/math/8_grade" >八年级</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 					<a href="<%=request.getContextPath()%>/WEB-INF/pages/math/9_grade" >九年级</a>
 				</li>
 			</ul>
 		</div>
 		<div class="col-md-4 column .col-md-offset-4">
-			<ul style="list-style-type:none;">
-				<li class="level1 math ">
+			<ul >
+				<li class="level1">
 				<s:a action="book_findByName" namespace="/book">
 					<s:param name="book.name" value="'shuxuebixiuyi'"></s:param>
 						必修一
 				</s:a>
                 </li>
-                <li class="level1 math ">
+                <li class="level1">
                   <s:a action="book_findByName" namespace="/book">
 					<s:param name="book.name" value="'shuxuebixiuer'"></s:param>
 						必修二
 				</s:a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 				  <a href="<%=request.getContextPath()%>/WEB-INF/pages/math/bixiu3" >必修三</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
                   <a href="<%=request.getContextPath()%>/WEB-INF/pages/math/bixiu4" >必修四</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 				  <a href="<%=request.getContextPath()%>/WEB-INF/pages/math/bixiu5" >必修五</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 				  <a href="<%=request.getContextPath()%>/WEB-INF/pages/math/xuanxiu1-1" >选修1-1</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 				  <a href="<%=request.getContextPath()%>/WEB-INF/pages/math/xuanxiu1-2" >选修1-2</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
                   <a href="<%=request.getContextPath()%>/WEB-INF/pages/math/xuanxiu2-1" >选修2-1</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 				  <a href="<%=request.getContextPath()%>/WEB-INF/pages/math/xuanxiu2-2" >选修2-2</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 				  <a href="<%=request.getContextPath()%>/WEB-INF/pages/math/xuanxiu2-3" >选修2-3</a>
 				</li>
 			</ul>
 		</div>
 		<div class="col-md-4 column .col-md-offset-8">
-			<ul style="list-style-type:none;">
-			    <li class="level1 math ">
+			<ul >
+			    <li class="level1">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/math/xuanxiu3-1" >选修3-1</a>
                 </li>
-				<li class="level1 math ">
+				<li class="level1">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/math/xuanxiu3-3" >选修3-3</a>
                 </li>
-				<li class="level1 math ">
+				<li class="level1">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/math/xuanxiu3-4" >选修3-4</a>
                 </li>
-				<li class="level1 math ">
+				<li class="level1">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/math/xuanxiu4-1" >选修4-1</a>
                 </li>
-				<li class="level1 math ">
+				<li class="level1">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/math/xuanxiu4-2" >选修4-2</a>
                 </li>
-				<li class="level1 math ">
+				<li class="level1">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/math/xuanxiu4-4" >选修4-4</a>
                 </li>
-				<li class="level1 math ">
+				<li class="level1">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/math/xuanxiu4-5" >选修4-5</a>
                 </li>
-				<li class="level1 math ">
+				<li class="level1">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/math/xuanxiu4-6" >选修4-6</a>
                 </li>
-				<li class="level1 math ">
+				<li class="level1">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/math/xuanxiu4-7" >选修4-7</a>
                 </li>
-				<li class="level1 math ">
+				<li class="level1">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/math/xuanxiu4-9" >选修4-9</a>
                 </li>
 			</ul>
@@ -217,7 +215,7 @@
 </li>           
 								<li>
 									<a href="#">语文<span class="glyphicon glyphicon-chevron-right" style="float:right"></span></a>
-									<div class="container" style="height:400px; width:550px ;background-color:#90A0c0;" >
+									<div class="container subject yuwen">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<h3 style="color:white;">
@@ -228,103 +226,103 @@
 	</div>
 	<div class="row clearfix">
 		<div class="col-md-4 column">
-			<ul style="list-style-type:none;">
-				<li class="level1 math ">
+			<ul >
+				<li class="level1">
 					<a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/1_grade/" >一年级</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 					<a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/2_grade" >二年级</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 					<a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/3_grade" >三年级</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 					<a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/4_grade" >四年级</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 					<a href="/WEB-INF/pages/chinese/5_grade" >五年级</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 					<a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/6_grade" >六年级</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 					<a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/7_grade" >七年级</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 					<a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/8_grade" >八年级</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 					<a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/9_grade" >九年级</a>
 				</li>
 			</ul>
 		</div>
 		<div class="col-md-4 column .col-md-offset-4">
-			<ul style="list-style-type:none;">
-				<li class="level1 math ">
+			<ul >
+				<li class="level1">
                   <s:a action="book_findByName" namespace="/book">
 					<s:param name="book.name" value="'yuwenbixiuyi'"></s:param>
 						必修一
 		 </s:a>
                 </li>
-                <li class="level1 math ">
+                <li class="level1">
                   <a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/bixiu2" >必修二</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 				  <a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/bixiu3" >必修三</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
                   <a href="/WEB-INF/pages/chinese/bixiu4" >必修四</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 				  <a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/bixiu5" >必修五</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 				  <a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/xuanxiu1-1" >中外传记作品选读</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 				  <a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/xuanxiu1-2" >外国小说欣赏</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
                   <a href="/WEB-INF/pages/chinese/xuanxiu2-1" >中国古代诗歌散文欣赏</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 				  <a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/xuanxiu2-2" >中国现代诗歌散文欣赏</a>
 				</li>
-				<li class="level1 math ">
+				<li class="level1">
 				  <a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/xuanxiu2-3" >语言文字应用</a>
 				</li>
 			</ul>
 		</div>
 		<div class="col-md-4 column .col-md-offset-8">
-			<ul style="list-style-type:none;">
-			    <li class="level1 math ">
+			<ul >
+			    <li class="level1">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/xuanxiu3-1" >先秦诸子选读</a>
                 </li>
-				<li class="level1 math ">
+				<li class="level1">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/xuanxiu3-3" >中国小说欣赏</a>
                 </li>
-				<li class="level1 math ">
+				<li class="level1">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/xuanxiu3-4" >文章写作与修改</a>
                 </li>
-				<li class="level1 math ">
+				<li class="level1">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/xuanxiu4-1" >影视名作欣赏</a>
                 </li>
-				<li class="level1 math ">
+				<li class="level1">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/xuanxiu4-2" >中外戏剧名作欣赏</a>
                 </li>
-				<li class="level1 math ">
+				<li class="level1">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/xuanxiu4-4" >外国诗歌散文欣赏</a>
                 </li>
-				<li class="level1 math ">
+				<li class="level1">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/xuanxiu4-5" >演讲与辩论</a>
                 </li>
-				<li class="level1 math ">
+				<li class="level1">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/xuanxiu4-6" >中国文化经典研读</a>
                 </li>
-				<li class="level1 math ">
+				<li class="level1">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/xuanxiu4-7" >新闻阅读与实践</a>
                 </li>
-				<li class="level1 math ">
+				<li class="level1">
                     <a href="<%=request.getContextPath()%>/WEB-INF/pages/chinese/xuanxiu4-9" >中国民俗文化</a>
                 </li>
 			</ul>
@@ -334,7 +332,7 @@
 </li>
 		<li>
 			<a href="#">英语<span class="glyphicon glyphicon-chevron-right" style="float:right"></span></a>
-			<div class="container" style="height:400px; width:550px ;background-color:#9382e0" >
+			<div class="container subject english">
 				<div class="row clearfix">
 					<div class="col-md-12 column">
 						<h3 style="color:white;">英语</h3>
@@ -343,85 +341,85 @@
 				</div>
 				<div class="row clearfix">
 					<div class="col-md-4 column">
-						<ul style="list-style-type:none;">
-							<li class="level1 math ">
+						<ul >
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/3_grade/" >三年级</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/4_grade" >四年级</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/5_grade" >五年级</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/6_grade" >六年级</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/7_grade" >七年级</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/8_grade" >八年级</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/9_grade" >九年级</a>
 							</li>
 						</ul>
 					</div>
 					<div class="col-md-4 column .col-md-offset-4">
-						<ul style="list-style-type:none;">
-							<li class="level1 math ">
+						<ul >
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/bixiu1" >必修一</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/bixiu2" >必修二</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/bixiu3" >必修三</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/bixiu4" >必修四</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/bixiu5" >必修五</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/bixiu5" >必修五</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/xuanxiu6" >选修六</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/xuanxiu7" >选修七</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/xuanxiu8" >选修八</a>
 							</li>
 						</ul>
 					</div>
 					<div class="col-md-4 column .col-md-offset-8">
-						<ul style="list-style-type:none;">
-							<li class="level1 math ">
+						<ul >
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/xuanxiu9" >选修九</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/xuanxiu10" >选修十</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/xuanxiu11" >选修十一</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/writing" >英语写作</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/computer_english" >计算机英语</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/chujicaijingyingyu" >初级财经英语</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/xiaoshuoxinshangrumen" >小说欣赏入门</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/English/gaozhongyingyuyufayucihui" >高中英语语法与词汇</a>
 							</li>
 						</ul>
@@ -434,7 +432,7 @@
 		
 		<li>
 			<a href="#">物理<span class="glyphicon glyphicon-chevron-right" style="float:right"></span></a>
-			<div class="container" style="height:400px; width:550px ;background-color:#99CC99;" >
+			<div class="container subject physics">
 				<div class="row clearfix">
 					<div class="col-md-12 column">
 						<h3 style="color:white">物理</h3>
@@ -443,51 +441,51 @@
 				</div>
 				<div class="row clearfix">
 					<div class="col-md-6 column">
-						<ul style="list-style-type:none;">
-							<li class="level1 math ">
+						<ul >
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/physics/8_grade/" >八年级</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/physics/9_grade" >九年级</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/physics/bixiu1" >必修一</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/physics/bixiu2" >必修二</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/physics/xuanxiu1-1" >选修1-1</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/physics/xuanxiu1-2" >选修1-2</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/physics/xuanxiu2-1" >选修2-1</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/physics/xuanxiu2-2" >选修2-2</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/physics/xuanxiu2-3" >选修2-3</a>
 							</li>
 						</ul>
 					</div>
 					<div class="col-md-6 column .col-md-offset-6">
-						<ul style="list-style-type:none;">
-							<li class="level1 math ">
+						<ul >
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/physics/xuanxiu3-1" >选修3-1</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/physics/xuanxiu3-2" >选修3-2</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/physics/xuanxiu3-3" >选修3-3</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/physics/xuanxiu3-4" >选修3-4</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/physics/xuanxiu3-5" >选修3-5</a>
 							</li>
 						</ul>
@@ -497,7 +495,7 @@
 		</li>	
 		<li>
 			<a href="#">化学<span class="glyphicon glyphicon-chevron-right" style="float:right"></span></a>
-			<div class="container" style="height:400px; width:550px ;background-color:#99FF99;" >
+			<div class="container subject chemistry">
 				<div class="row clearfix">
 					<div class="col-md-12 column">
 						<h3 style="color:white">化学</h3>
@@ -506,36 +504,36 @@
 				</div>
 				<div class="row clearfix">
 					<div class="col-md-6 column">
-						<ul style="list-style-type:none;">
-							<li class="level1 math ">
+						<ul >
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/chemistry/9_grade" >九年级</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/chemistry/bixiu1" >必修一</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/chemistry/bixiu2" >必修二</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/chemistry/xuanxiu1" >选修一</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/chemistry/xuanxiu2" >选修二</a>
 							</li>
 						</ul>
 					</div>
 					<div class="col-md-6 column .col-md-offset-6">
-						<ul style="list-style-type:none;">
-							<li class="level1 math ">
+						<ul >
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/chemistry/xuanxiu3" >选修三</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/chemistry/xuanxiu3-2" >选修四</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/chemistry/xuanxiu3-3" >选修五</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/chemistry/xuanxiu3-4" >选修六</a>
 							</li>
 						</ul>
@@ -546,7 +544,7 @@
 		
 		<li>
 			<a href="#">生物<span class="glyphicon glyphicon-chevron-right" style="float:right"></span></a>
-			<div class="container" style="height:400px; width:550px ;background-color:#66FF99;" >
+			<div class="container subject biology">
 				<div class="row clearfix">
 					<div class="col-md-12 column">
 						<h3 style="color:white">生物</h3>
@@ -555,33 +553,33 @@
 				</div>
 				<div class="row clearfix">
 					<div class="col-md-6 column">
-						<ul style="list-style-type:none;">
-							<li class="level1 math ">
+						<ul >
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/biology/7_grade" >七年级</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/biology/8_grade" >八年级</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/biology/bixiu1" >分子与细胞</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/biology/bixiu2" >遗传与进化</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/biology/bixiu3" >稳态与环境</a>
 							</li>
 						</ul>
 					</div>
 					<div class="col-md-6 column .col-md-offset-6">
-						<ul style="list-style-type:none;">
-							<li class="level1 math ">
+						<ul >
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/biology/xuanxiu1" >生物技术实践</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/biology/xuanxiu2" >生物科学与社会</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/biology/xuanxiu3" >现代生物科技专题</a>
 							</li>
 						</ul>
@@ -594,7 +592,7 @@
 		
 		<li>
 			<a href="#">政治<span class="glyphicon glyphicon-chevron-right" style="float:right"></span></a>
-			<div class="container" style="height:400px; width:550px ;background-color:#66CC33;" >
+			<div class="container subject politics">
 				<div class="row clearfix">
 					<div class="col-md-12 column">
 						<h3 style="color:white">政治</h3>
@@ -603,45 +601,45 @@
 				</div>
 				<div class="row clearfix">
 					<div class="col-md-6 column">
-						<ul style="list-style-type:none;">
-							<li class="level1 math ">
+						<ul >
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/politics/7_grade" >七年级</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/politics/8_grade" >八年级</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/politics/9_grade" >九年级</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/politics/bixiu1" >必修1</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/politics/bixiu2" >必修2</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/politics/bixiu3" >必修3</a>
 							</li>
 						</ul>
 					</div>
 					<div class="col-md-6 column .col-md-offset-6">
-						<ul style="list-style-type:none;">
-							<li class="level1 math ">
+						<ul >
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/politics/xuanxiu1" >选秀1</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/politics/xuanxiu2" >选修2</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="/WEB-INF/pages/politics/xuanxiu3" >选修3</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/politics/xuanxiu4" >选修4</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/politics/xuanxiu5" >选修5</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/politics/xuanxiu6" >选修6</a>
 							</li>
 						</ul>
@@ -651,7 +649,7 @@
 		</li>
 		<li>
 			<a href="#">历史<span class="glyphicon glyphicon-chevron-right" style="float:right"></span></a>
-			<div class="container" style="height:400px; width:550px ;background-color:#66CC66;" >
+			<div class="container subject history">
 				<div class="row clearfix">
 					<div class="col-md-12 column">
 						<h3 style="color:white">历史</h3>
@@ -660,45 +658,45 @@
 				</div>
 				<div class="row clearfix">
 					<div class="col-md-6 column">
-						<ul style="list-style-type:none;">
-							<li class="level1 math ">
+						<ul >
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/history/7_grade" >七年级</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/history/8_grade" >八年级</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/history/9_grade" >九年级</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/history/bixiu1" >必修1</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/history/bixiu2" >必修2</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/history/bixiu3" >必修3</a>
 							</li>
 						</ul>
 					</div>
 					<div class="col-md-6 column .col-md-offset-6">
-						<ul style="list-style-type:none;">
-							<li class="level1 math ">
+						<ul >
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/history/xuanxiu1" >选秀1</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/history/xuanxiu2" >选修2</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/history/xuanxiu3" >选修3</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/history/xuanxiu4" >选修4</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/history/xuanxiu5" >选修5</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/history/xuanxiu6" >选修6</a>
 							</li>
 						</ul>
@@ -708,7 +706,7 @@
 		</li>
 		<li>
 			<a href="#">地理<span class="glyphicon glyphicon-chevron-right" style="float:right"></span></a>
-			<div class="container" style="height:400px; width:550px ;background-color:#66CC99;" >
+			<div class="container subject geography">
 				<div class="row clearfix">
 					<div class="col-md-12 column">
 						<h3 style="color:white">地理</h3>
@@ -717,45 +715,45 @@
 				</div>
 				<div class="row clearfix">
 					<div class="col-md-6 column">
-						<ul style="list-style-type:none;">
-							<li class="level1 math ">
+						<ul >
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/Geography/7_grade" >七年级</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/Geography/8_grade" >八年级</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/Geography/bixiu1" >必修1</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/Geography/bixiu2" >必修2</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/Geography/bixiu3" >必修3</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/Geography/xuanxiu1" >选修1</a>
 							</li>
 						</ul>
 					</div>
 					<div class="col-md-6 column .col-md-offset-6">
-						<ul style="list-style-type:none;">
-							<li class="level1 math ">
+						<ul >
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/Geography/xuanxiu2" >选修2</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/Geography/xuanxiu3" >选修3</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/Geography/xuanxiu4" >选修4</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/Geography/xuanxiu5" >选修5</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/Geography/xuanxiu6" >选修6</a>
 							</li>
-							<li class="level1 math ">
+							<li class="level1">
 								<a href="<%=request.getContextPath()%>/WEB-INF/pages/Geography/xuanxiu7" >选修7</a>
 							</li>
 						</ul>
@@ -898,7 +896,7 @@
 		  </div>
 		  <div class="input-group" style="padding-top:5px;padding-bottom:5px;">
 			<span class="input-group-addon" style="color:#000;">密码</span>
-			<input id="password2"  type="password" class="form-control" style="">
+			<input id="password2"  type="password" class="form-control" >
 		  </div>
 		  <div style="padding-top:5px;padding-bottom:5px;float:right;">
 		    <div class="checkbox" style="display:inline-block;">

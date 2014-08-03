@@ -915,9 +915,12 @@ margin:0 auto;
 height:400px;
 padding-top:10%;
 }
+.signup-container-outer{
+background-color:#5e84a8;
+}
 .signup-container{
 height: 600px;
-background:#5e84a8 url(/gewuxy.github.io/img/) repeat fixed center;
+background:url(/gewuxy.github.io/img/geometry.png) repeat center;
 border-bottom: 1px solid #ddd;
 position: relative;
 }

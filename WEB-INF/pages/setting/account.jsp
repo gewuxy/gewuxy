@@ -56,8 +56,20 @@
   <div class="form-group">
     <label for="gender" class="col-sm-2 control-label">性别</label>
 	<div class="col-sm-6">			
-<s:select  id="gender" cssClass="form-control" 
- list="@com.lqg.model.Sex@getValues()" ></s:select>
+<select  id="gender" class="form-control">
+<s:if test="#session.user.sex==1">
+<option value="1" selected>男</option>
+<option value="0">女</option>
+</s:if>
+<s:if test="#session.user.sex==0">
+<option value="1" >男</option>
+<option value="0" selected>女</option>
+</s:if>
+<s:if test="#session.user.sex!=0&&#session.user.sex!=1">
+<option value="1" selected>男</option>
+<option value="0">女</option>
+</s:if>
+</select>
 	
 	</div>
   </div>

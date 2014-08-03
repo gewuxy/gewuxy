@@ -368,9 +368,9 @@ public String saveProfile() throws Exception{
 		/*if(student.getSex()!=null){
 		studentM.setSex(student.getSex());
 		}*/
-		/*if(student.getBirthday()!=null){
+		if(student.getBirthday()!=null){
 		studentM.setBirthday(student.getBirthday());
-		}*/
+		}
 		if(student.getSchool()!=null){
 		studentM.setSchool(student.getSchool());
 		}

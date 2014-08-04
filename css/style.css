@@ -916,6 +916,32 @@ margin:0 auto;
 height:400px;
 padding-top:10%;
 }
+.headicon-container{
+display:inline-block;
+position:relative;
+width:100px;
+height:100px;
+border-radius: 4px;
+margin-left:2%;
+cursor:pointer;
+}
+.headicon{
+width:100px;
+height:100px;
+}
+.headicon-edit-tip{
+display:none;
+margin-left:2%;
+width:100%;
+background: #000;
+text-align: center;
+color: #fff;
+height: 25px;
+line-height: 25px;
+left: 0;
+bottom:0;
+position: absolute;
+}
 .signup-container-outer{
 background-color:#5e84a8;
 }

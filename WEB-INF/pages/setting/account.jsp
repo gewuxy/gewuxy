@@ -11,7 +11,8 @@
 <meta name="author" content="">
 <meta name="keywords" content="" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
-<link rel="shortcut icon" type="image/png" href="<%=request.getContextPath()%>/favicon.png">  
+<link rel="shortcut icon" type="image/png" href="<%=request.getContextPath()%>/favicon.png">
+
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/jquery.Jcrop.css" type="text/css" />   
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/jquery-ui-1.10.3.full.min.css" type="text/css" />      
 
@@ -34,12 +35,15 @@
 	<form class="form-horizontal" role="form">
   <div class="form-group">
 	<label for="headicon" class="col-sm-2 control-label">头像</label> 
-	<a href="javascript:void(0);" id="myImage" alt="头像"><s:if test="#session.user.image==null"><img id="myCutImage" src="<%=request.getContextPath()%>/img/joinus.png" style="width:100px;height:100px;margin-left:2%" />
+	<div id="myImage" class="headicon-container">
+	<s:if test="#session.user.image==null">
+	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/default-headicon.png" alt="头像"/>
 	</s:if>
-<s:if test="#session.user.image!=null">
-<img id="myCutImage" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:100px;height:100px;margin-left:2%" /></s:if>
-</a> &nbsp&nbsp点击头像上传照片
-	
+	<s:if test="#session.user.image!=null">
+	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/<s:property value='#session.user.image.path'/>" alt="头像"/>
+	</s:if>
+	<span class="headicon-edit-tip">修改头像</span>
+	</div>
   </div>
   <div class="form-group">
 	<label for="nickname" class="col-sm-2 control-label">昵称</label>
@@ -450,6 +454,11 @@ $("#profileSave").click(function(){
 				}
 				});
 }); 
+	$('.headicon').hover(function(){
+			$('.headicon-edit-tip').show();
+	},function(){
+			$('.headicon-edit-tip').hide();
+	});
 			
 		});
     </script>

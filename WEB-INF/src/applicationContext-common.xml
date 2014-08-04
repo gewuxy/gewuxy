@@ -29,4 +29,31 @@
 	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
+	<!--邮件服务器-->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">	
+		<property name="protocol" value="smtp"/>	
+		<property name="host" value="smtp.gmail.com"/>	
+		<property name="port" value="465" /><!--Gmail的SMTP端口居然是这个，去google网站上了解吧-->	
+		<property name="username" value="liqiuguo10@gmail.com"/>	
+		<property name="password" value="sp2571mk397"/>	
+		<property name="javaMailProperties">
+			<props>	
+				<prop key="mail.smtp.auth">true</prop>	
+				<prop key="mail.smtp.starttls.enable">true</prop>	
+				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+	                        <!--gmail要求的ssl连接-->
+			</props>	
+		</property>	
+	</bean>	
+	<!--异步线程执行器
+	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">	
+		<property name="corePoolSize" value="10"/>	
+		<property name="maxPoolSize" value="30"/>	
+	</bean>-->	
+	<!-- 自定义的发送邮件的类 -->
+	<bean id="emailUtil" class="com.lqg.util.EmailUtil">
+	<property name="mailSender">
+	<!-- 将JavaMailSender对象注入 -->
+	<ref local="mailSender"/>
+	</property></bean>
 </beans>

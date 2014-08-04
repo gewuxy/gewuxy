@@ -67,29 +67,32 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	 * @throws Exception
 	 */
 	public String save() throws Exception{
-		boolean unique = studentDao.isUnique(student.getEmail())&&teacherDao.isUnique(student.getEmail())
-				&&parentDao.isUnique(student.getEmail());//锟叫讹拷锟矫伙拷锟斤拷锟角凤拷锟斤拷锟�
+		String email=student.getEmail();
+		String password=Md5s.md5s(student.getPassword());
+		boolean unique = studentDao.isUnique(email)&&teacherDao.isUnique(email)
+				&&parentDao.isUnique(email);//锟叫讹拷锟矫伙拷锟斤拷锟角凤拷锟斤拷锟�
+		
 		if(category.equals("student")){		
 		if(unique){//锟斤拷锟斤拷没锟斤拷锟斤拷锟斤拷
-			student.setPassword(Md5s.md5s(student.getPassword()));
-			/*studentDao.save(student);//锟斤拷锟斤拷注锟斤拷锟斤拷息
-			Student savestudent=studentDao.login(student.getEmail(), Md5s.md5s(student.getPassword()));
+			student.setPassword(password);
+			studentDao.save(student);//锟斤拷锟斤拷注锟斤拷锟斤拷息
+			Student savestudent=studentDao.login(email, password);
 			if(savestudent==null){
 		   		setErroMessage("savestudent为空的");
 		   		return REGISTERERROR;
 		   	}
-			String activeLink=savestudent.getId()+savestudent.getUsername();*/
+			String activeLink=savestudent.getId()+savestudent.getUsername();
 			MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
-		   	message.setTo("351646571@qq.com");
+		   	message.setTo(email);
 		   	message.setSubject("注册认证");
 		   	message.setSendDate(new Date());
-		   	message.setMsg("helloa ,bucuo a ");
+		   	message.setMsg(activeLink);
 		   	if(emailUtil==null){
 		   		setErroMessage("emailUtil为空的");
 		   		return REGISTERERROR;
 		   	}
-		   	String emailMessage=emailUtil.doSend(message);			
-			setErroMessage("注册成功，请到邮箱激活认证"+emailMessage);
+		    emailUtil.doSend(message);			
+			setErroMessage("注册成功，请到邮箱激活认证");
 			//获取跳转到登陆界面之前的页面地址，由拦截器提供
 	        prePage = (String) session.get("prePage");	
 			return USER_LOGIN;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷

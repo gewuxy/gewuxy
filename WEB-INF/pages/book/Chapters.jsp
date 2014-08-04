@@ -105,34 +105,34 @@ var zhengzhi="政治";
 var lishi="历史";
 var dili="地理";
  if(type==shuxue){
- $(".book").css("background-color","#8080c0");
+ $(".book").css("background-color","#2b758a");
    }
 else if(type==yuwen){
- $(".book").css("background-color","#90A0c0");
+ $(".book").css("background-color","#8080b0");
    }
 else if(type==yingyu){
- $(".book").css("background-color","#9382e0");
+ $(".book").css("background-color","#8382d0");
    }
 else if(type==wuli){
- $(".book").css("background-color","#99CC99");
+ $(".book").css("background-color","#66AAa9");
    }
 else if(type==huaxue){
- $(".book").css("background-color","#99FF99");
+ $(".book").css("background-color","#89CC99");
    }
 else if(type==shengwu){
- $(".book").css("background-color","#66FF99");
+ $(".book").css("background-color","#99cD88");
    }
 else if(type==zhengzhi){
- $(".book").css("background-color","#66CC33");
+ $(".book").css("background-color","#668966");
    }
 else if(type==lishi){
- $(".book").css("background-color","#66CC66");
+ $(".book").css("background-color","#44AA67");
    }
 else if(type==dili){
- $(".book").css("background-color","#66CC99");
+ $(".book").css("background-color","#66bC99");
    }
 else{
- $(".book").css("background-color","#8080c0");
+ $(".book").css("background-color","#6699CC");
    }
 });
 </script>

@@ -152,7 +152,7 @@
 			
                           <div id="preview"  style="width:300px;height:300px;overflow:hidden;margin-left:320px;margin-top:-300px">
 			 
-                            <div>
+                            <div style="width:150px;height:150px;">
 <s:if test="#session.user.image==null"><img id="previewpic" src="<%=request.getContextPath()%>/img/joinus.png" style="width:150px;height:150px;" />
 	</s:if>
 <s:if test="#session.user.image!=null">
@@ -160,13 +160,13 @@
                             </div>150x150像素
                          
                           <div style="width:100px;height:150px;margin-left:170px;display:block;margin-top:-170px">
-                            <div >
+                            <div style="width:75px;height:75px;">
 <s:if test="#session.user.image==null"><img id="previewpic1" src="<%=request.getContextPath()%>/img/joinus.png" style="width:75px;height:75px;" />
 	</s:if>
 <s:if test="#session.user.image!=null">
 <img id="previewpic1" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:75px;height:75px;"/></s:if>
                             </div>75x75像素
-                            <div >
+                            <div style="width:50px;height:50px;">
 <s:if test="#session.user.image==null"><img id="previewpic2" src="<%=request.getContextPath()%>/img/joinus.png" style="width:50px;height:50px;" />
 	</s:if>
 <s:if test="#session.user.image!=null">

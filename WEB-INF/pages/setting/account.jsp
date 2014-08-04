@@ -454,7 +454,7 @@ $("#profileSave").click(function(){
 				}
 				});
 }); 
-	$('.headicon').hover(function(){
+	$('.headicon-container').hover(function(){
 			$('.headicon-edit-tip').show();
 	},function(){
 			$('.headicon-edit-tip').hide();

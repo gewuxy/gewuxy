@@ -294,9 +294,6 @@ $("#cutPicCancel").click(function(){
 //modal对话框出现
 $("#myImage").click(function(){
 				$("#upload-picture").modal();
-
-				//alert("happddsf");
-				//$(".sign-up-tab").trigger("click");
 			});
 //上传相片
 $("#sub_upload").click(function(){	
@@ -362,35 +359,6 @@ $("#sub_upload").click(function(){
       			});
 //保存个人信息
 $("#profileSave").click(function(){
-                                /*if($("#nickname").val()==""){
-				alert("没有填写昵称!!!");
-				return false;
-				}
-				if($("#realname").val()==""){
-				alert("没有填写用户名!!!");
-				return false;
-				}
-				if($("#gender").val()==""){
-				alert("没有选择性别!!!");
-				return false;
-				}
-                               if($("#birthday").val()==""){
-				alert("没有选择生日!!!");
-				return false;
-				}
-				 if($("#school").val()==""){
-				alert("没有填写学校!!!");
-				return false;
-				}
-				 if($("#advantage").val()==""){
-				alert("没有填写特长!!!");
-				return false;
-				}
-				if($("#bio").val()==""){
-				alert("没有填写个人介绍!!!");
-				return false;
-				}*/
-				
 			   var params = {
 				"student.nickname":$("#nickname").val(),
 				"student.username":$("#realname").val(),

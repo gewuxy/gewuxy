@@ -13,19 +13,6 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
 <link rel="shortcut icon" type="image/png" href="<%=request.getContextPath()%>/favicon.png">
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-document.title=$(".chapter-title").text()+"-"+$(".subject-back").text()+"-格物学院";
-if($(".content-lists").height()<$(window).height()-100){
-$(".content-lists").height($(window).height()-100);
-};
-$(window).resize(function(){
-  if($(".content-lists").height()<$(window).height()-100){
-    $(".content-lists").height($(window).height()-100);
-  }
-});
-});
-</script>
 </head>
 
 <body>
@@ -49,7 +36,7 @@ $(window).resize(function(){
             <h2 class="chapter-title"><s:property value="pageModel.list[0].parent.name" /></h2>
 			<hr style="color:#333333;"/>
 			<div class="subject-description"></div>
-			
+			</div><input id="coursetype" type="text" value="<s:property value="pageModel.list[0].book.course.name"/>" style="display:none"> </input>
 		  </div>
 		</div>
 	  </div>
@@ -95,5 +82,59 @@ $(window).resize(function(){
 			<%@include file="/WEB-INF/pages/common/footer.jsp"%>
 		</div>
 	</div>  
+<script>
+$(document).ready(function(){
+document.title=$(".chapter-title").text()+"-"+$(".subject-back").text()+"-格物学院";
+if($(".content-lists").height()<$(window).height()-100){
+$(".content-lists").height($(window).height()-100);
+};
+$(window).resize(function(){
+  if($(".content-lists").height()<$(window).height()-100){
+    $(".content-lists").height($(window).height()-100);
+  }
+});
+//Chapters的底色
+var type=$("#coursetype").val();
+var shuxue="数学";
+var yuwen="语文";
+var yingyu="英语";
+var wuli="物理";
+var huaxue="化学";
+var shengwu="生物";
+var zhengzhi="政治";
+var lishi="历史";
+var dili="地理";
+ if(type==shuxue){
+ $(".book").css("background-color","#8080c0");
+   }
+else if(type==yuwen){
+ $(".book").css("background-color","#90A0c0");
+   }
+else if(type==yingyu){
+ $(".book").css("background-color","#9382e0");
+   }
+else if(type==wuli){
+ $(".book").css("background-color","#99CC99");
+   }
+else if(type==huaxue){
+ $(".book").css("background-color","#99FF99");
+   }
+else if(type==shengwu){
+ $(".book").css("background-color","#66FF99");
+   }
+else if(type==zhengzhi){
+ $(".book").css("background-color","#66CC33");
+   }
+else if(type==lishi){
+ $(".book").css("background-color","#66CC66");
+   }
+else if(type==dili){
+ $(".book").css("background-color","#66CC99");
+   }
+else{
+ $(".book").css("background-color","#8080c0");
+   }
+});
+</script>
 </body>
 </html>

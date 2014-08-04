@@ -51,9 +51,5 @@
 		<property name="maxPoolSize" value="30"/>	
 	</bean>-->	
 	<!-- 自定义的发送邮件的类 -->
-	<bean id="emailUtil" class="com.lqg.util.EmailUtil">
-	<property name="mailSender">
-	<!-- 将JavaMailSender对象注入 -->
-	<ref local="mailSender"/>
-	</property></bean>
+	<bean id="emailUtil" class="com.lqg.util.EmailUtil"></bean>	 
 </beans>

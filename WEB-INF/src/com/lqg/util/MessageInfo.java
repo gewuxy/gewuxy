@@ -6,21 +6,7 @@ public class MessageInfo {
 	private String to = "";
 	private Date sendDate;
 	private String subject;
-	private String msg="";
-	private String bcc = "";
-	private String cc="";		
-	public String getBcc() {
-		return bcc;
-	}
-	public void setBcc(String bcc) {
-		this.bcc = bcc;
-	}
-	public String getCc() {
-		return cc;
-	}
-	public void setCc(String cc) {
-		this.cc = cc;
-	}	
+	private String msg="";			
 	public String getTo() {
 		return to;
 	}

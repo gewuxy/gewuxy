@@ -85,12 +85,12 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 		   		return REGISTERERROR;
 		   	}
 			String activeHtml=activeAddress+"student.id="+savestudent.getId()+"&name="+savestudent.getUsername()+"&category=student";
-			String activeLink="<a href="+"\""+activeHtml+"\""+">activeHtml</a>";
+			String activeLink="<a href="+"\""+activeHtml+"\""+">"+activeHtml+"</a>";
 			MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
 		   	message.setTo(email);
 		   	message.setSubject("注册认证");
 		   	message.setSendDate(new Date());
-		   	message.setMsg("欢迎"+savestudent.getUsername()+"加入格物学院，您已经注册成功，请点击下面的链接进行激活，或者复制链接在网页上打开\n"+activeLink);
+		   	message.setMsg("欢迎"+savestudent.getUsername()+"加入格物学院，您已经注册成功，请点击下面的链接进行激活，或者复制链接在网页上打开"+"\n"+activeLink);
 		   	if(emailUtil==null){
 		   		setErroMessage("emailUtil为空的");
 		   		return REGISTERERROR;
@@ -117,12 +117,12 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 			   		return REGISTERERROR;
 			   	}
 				String activeHtml=activeAddress+"student.id="+saveteacher.getId()+"&name="+saveteacher.getUsername()+"&category=teacher";
-				String activeLink="<a href="+"\""+activeHtml+"\""+">activeHtml</a>";
+				String activeLink="<a href="+"\""+activeHtml+"\""+">"+activeHtml+"</a>";
 				MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
 			   	message.setTo(email);
 			   	message.setSubject("注册认证");
 			   	message.setSendDate(new Date());
-			   	message.setMsg("欢迎"+saveteacher.getUsername()+"加入格物学院，您已经注册成功，请点击下面的链接进行激活，或者复制链接在网页上打开\n"+activeLink);
+			   	message.setMsg("欢迎"+saveteacher.getUsername()+"加入格物学院，您已经注册成功，请点击下面的链接进行激活，或者复制链接在网页上打开"+"\n"+activeLink);
 			   	if(emailUtil==null){
 			   		setErroMessage("emailUtil为空的");
 			   		return REGISTERERROR;
@@ -149,12 +149,12 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 			   		return REGISTERERROR;
 			   	}
 				String activeHtml=activeAddress+"student.id="+saveparent.getId()+"&name="+saveparent.getUsername()+"&category=parent";
-				String activeLink="<a href="+"\""+activeHtml+"\""+">activeHtml</a>";
+				String activeLink="<a href="+"\""+activeHtml+"\""+">"+activeHtml+"</a>";
 				MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
 			   	message.setTo(email);
 			   	message.setSubject("注册认证");
 			   	message.setSendDate(new Date());
-			   	message.setMsg("欢迎"+saveparent.getUsername()+"加入格物学院，您已经注册成功，请点击下面的链接进行激活，或者复制链接在网页上打开\n"+activeLink);
+			   	message.setMsg("欢迎"+saveparent.getUsername()+"加入格物学院，您已经注册成功，请点击下面的链接进行激活，或者复制链接在网页上打开"+"\n"+activeLink);
 			   	if(emailUtil==null){
 			   		setErroMessage("emailUtil为空的");
 			   		return REGISTERERROR;

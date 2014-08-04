@@ -922,24 +922,30 @@ position:relative;
 width:100px;
 height:100px;
 border-radius: 4px;
+box-shadow: 0 0 5px rgba(0,0,0,.3) inset;
 margin-left:2%;
 cursor:pointer;
 }
 .headicon{
 width:100px;
 height:100px;
+border-radius: 4px;
+border:0 none;
 }
 .headicon-edit-tip{
 display:none;
 margin-left:2%;
-width:100%;
+width:99%;
 background: #000;
 text-align: center;
+text-indent: 0;
 color: #fff;
 height: 25px;
 line-height: 25px;
-left: 0;
+left: -1px;
 bottom:0;
+padding:0;
+border-radius: 0 0 4px 4px;
 position: absolute;
 }
 .signup-container-outer{

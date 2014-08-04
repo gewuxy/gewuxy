@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.FileUtils;
@@ -69,6 +70,8 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	public String save() throws Exception{
 		String email=student.getEmail();
 		String password=Md5s.md5s(student.getPassword());
+		 HttpServletRequest req = ServletActionContext.getRequest();
+		String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_active.html?";  
 		boolean unique = studentDao.isUnique(email)&&teacherDao.isUnique(email)
 				&&parentDao.isUnique(email);//锟叫讹拷锟矫伙拷锟斤拷锟角凤拷锟斤拷锟�
 		
@@ -81,12 +84,13 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 		   		setErroMessage("savestudent为空的");
 		   		return REGISTERERROR;
 		   	}
-			String activeLink=savestudent.getId()+savestudent.getUsername();
+			String activeHtml=activeAddress+"student.id="+savestudent.getId()+"&name="+savestudent.getUsername()+"&category=student";
+			String activeLink="<a href="+"\""+activeHtml+"\""+">activeHtml</a>";
 			MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
 		   	message.setTo(email);
 		   	message.setSubject("注册认证");
 		   	message.setSendDate(new Date());
-		   	message.setMsg(activeLink);
+		   	message.setMsg("欢迎"+savestudent.getUsername()+"加入格物学院，您已经注册成功，请点击下面的链接进行激活，或者复制链接在网页上打开\n"+activeLink);
 		   	if(emailUtil==null){
 		   		setErroMessage("emailUtil为空的");
 		   		return REGISTERERROR;
@@ -104,10 +108,26 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 			if(unique){//锟斤拷锟斤拷没锟斤拷锟斤拷锟斤拷
 				Teacher teacher=new Teacher();
 				teacher.setUsername(student.getUsername());
-				teacher.setEmail(student.getEmail());
-				teacher.setPassword(Md5s.md5s(student.getPassword()));
+				teacher.setEmail(email);
+				teacher.setPassword(password);
 				teacherDao.save(teacher);//锟斤拷锟斤拷注锟斤拷锟斤拷息
-				Teacher saveteacher=teacherDao.login(student.getEmail(), Md5s.md5s(student.getPassword()));
+				Teacher saveteacher=teacherDao.login(email, password);
+				if(saveteacher==null){
+			   		setErroMessage("saveteacher为空的");
+			   		return REGISTERERROR;
+			   	}
+				String activeHtml=activeAddress+"student.id="+saveteacher.getId()+"&name="+saveteacher.getUsername()+"&category=teacher";
+				String activeLink="<a href="+"\""+activeHtml+"\""+">activeHtml</a>";
+				MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
+			   	message.setTo(email);
+			   	message.setSubject("注册认证");
+			   	message.setSendDate(new Date());
+			   	message.setMsg("欢迎"+saveteacher.getUsername()+"加入格物学院，您已经注册成功，请点击下面的链接进行激活，或者复制链接在网页上打开\n"+activeLink);
+			   	if(emailUtil==null){
+			   		setErroMessage("emailUtil为空的");
+			   		return REGISTERERROR;
+			   	}
+			    emailUtil.doSend(message);			
 				setErroMessage("注册成功，请到邮箱激活认证");
 				//获取跳转到登陆界面之前的页面地址，由拦截器提供
 		        prePage = (String) session.get("prePage");
@@ -120,10 +140,26 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 			if(unique){//锟斤拷锟斤拷没锟斤拷锟斤拷锟斤拷
 				Parent parent=new Parent();
 				parent.setUsername(student.getUsername());
-				parent.setEmail(student.getEmail());
-				parent.setPassword(Md5s.md5s(student.getPassword()));
+				parent.setEmail(email);
+				parent.setPassword(password);
 				parentDao.save(parent);//锟斤拷锟斤拷注锟斤拷锟斤拷息
-				Parent saveparent=parentDao.login(student.getEmail(), Md5s.md5s(student.getPassword()));
+				Parent saveparent=parentDao.login(email, password);
+				if(saveparent==null){
+			   		setErroMessage("saveparent为空的");
+			   		return REGISTERERROR;
+			   	}
+				String activeHtml=activeAddress+"student.id="+saveparent.getId()+"&name="+saveparent.getUsername()+"&category=parent";
+				String activeLink="<a href="+"\""+activeHtml+"\""+">activeHtml</a>";
+				MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
+			   	message.setTo(email);
+			   	message.setSubject("注册认证");
+			   	message.setSendDate(new Date());
+			   	message.setMsg("欢迎"+saveparent.getUsername()+"加入格物学院，您已经注册成功，请点击下面的链接进行激活，或者复制链接在网页上打开\n"+activeLink);
+			   	if(emailUtil==null){
+			   		setErroMessage("emailUtil为空的");
+			   		return REGISTERERROR;
+			   	}
+			    emailUtil.doSend(message);	
 				setErroMessage("注册成功，请到邮箱激活认证");
 				//获取跳转到登陆界面之前的页面地址，由拦截器提供
 		        prePage = (String) session.get("prePage");

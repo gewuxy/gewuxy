@@ -15,6 +15,7 @@ import com.lqg.model.product.UploadFile;
 import com.lqg.model.user.Parent;
 import com.lqg.model.user.Student;
 import com.lqg.model.user.Teacher;
+import com.lqg.util.Md5s;
 import com.lqg.util.OperateImage;
 import com.lqg.util.StringUitl;
 import com.opensymphony.xwork2.ActionContext;
@@ -62,6 +63,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 				&&parentDao.isUnique(student.getEmail());//锟叫讹拷锟矫伙拷锟斤拷锟角凤拷锟斤拷锟�
 		if(category.equals("student")){		
 		if(unique){//锟斤拷锟斤拷没锟斤拷锟斤拷锟斤拷
+			student.setPassword(Md5s.md5s(student.getPassword()));
 			studentDao.save(student);//锟斤拷锟斤拷注锟斤拷锟斤拷息
 			setErroMessage("注册成功，请到邮箱激活认证");
 			//获取跳转到登陆界面之前的页面地址，由拦截器提供
@@ -76,7 +78,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 				Teacher teacher=new Teacher();
 				teacher.setUsername(student.getUsername());
 				teacher.setEmail(student.getEmail());
-				teacher.setPassword(student.getPassword());
+				teacher.setPassword(Md5s.md5s(student.getPassword()));
 				teacherDao.save(teacher);//锟斤拷锟斤拷注锟斤拷锟斤拷息
 				setErroMessage("注册成功，请到邮箱激活认证");
 				//获取跳转到登陆界面之前的页面地址，由拦截器提供
@@ -91,7 +93,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 				Parent parent=new Parent();
 				parent.setUsername(student.getUsername());
 				parent.setEmail(student.getEmail());
-				parent.setPassword(student.getPassword());
+				parent.setPassword(Md5s.md5s(student.getPassword()));
 				parentDao.save(parent);//锟斤拷锟斤拷注锟斤拷锟斤拷息
 				setErroMessage("注册成功，请到邮箱激活认证");
 				//获取跳转到登陆界面之前的页面地址，由拦截器提供
@@ -114,9 +116,9 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	 */
 	public String logon() throws Exception{
 		//锟斤拷证锟矫伙拷锟斤拷锟斤拷锟斤拷锟斤拷欠锟斤拷锟饺�
-		Student logonstudent=studentDao.login(student.getEmail(), student.getPassword());
-		Parent logonparent=parentDao.login(student.getEmail(), student.getPassword());
-		Teacher logonteacher=teacherDao.login(student.getEmail(), student.getPassword());
+		Student logonstudent=studentDao.login(student.getEmail(), Md5s.md5s(student.getPassword()));
+		Parent logonparent=parentDao.login(student.getEmail(), Md5s.md5s(student.getPassword()));
+		Teacher logonteacher=teacherDao.login(student.getEmail(), Md5s.md5s(student.getPassword()));
 		if(logonstudent!=null){
 			session.put("user", logonstudent);//将学生放入user 的session
 			session.put("type", "student");
@@ -454,13 +456,14 @@ public String saveProfile() throws Exception{
  * @throws Exception
  */
 public String modifyPassword() throws Exception{
+	String encrypt=Md5s.md5s(student.getPassword());
 	if(session.get("type").equals("student")){			
 		Student studentM=studentDao.load(((Student) session.get("user")).getId());
-		if(!(student.getPassword().equals(studentM.getPassword()))){
+		if(!(encrypt.equals(studentM.getPassword()))){
 			setErroMessage("原密码错误");
 			return USERPROFILE;
 		}
-		studentM.setPassword(getRepassword());
+		studentM.setPassword(Md5s.md5s(getRepassword()));
 		studentDao.update(studentM);//锟斤拷锟斤拷注锟斤拷锟斤拷息
 		Student studentprofile = studentDao.load(((Student) session.get("user")).getId());
 		session.remove("user");
@@ -470,11 +473,11 @@ public String modifyPassword() throws Exception{
 	}
 	else if(session.get("type").equals("teacher")){			  
 			Teacher teacher=teacherDao.load(((Teacher) session.get("user")).getId());
-			if(!(student.getPassword().equals(teacher.getPassword()))){
+			if(!(encrypt.equals(teacher.getPassword()))){
 				setErroMessage("原密码错误");
 				return USERPROFILE;
 			}
-			teacher.setPassword(getRepassword());		
+			teacher.setPassword(Md5s.md5s(getRepassword()));		
 			teacherDao.update(teacher);//锟斤拷锟斤拷注锟斤拷锟斤拷息
 			Teacher teacherprofile = teacherDao.load(((Teacher) session.get("user")).getId());
 			session.remove("user");
@@ -484,11 +487,11 @@ public String modifyPassword() throws Exception{
 		}
 	else if (session.get("type").equals("parent")){			
 		Parent parent=parentDao.load(((Parent) session.get("user")).getId());
-		if(!(student.getPassword().equals(parent.getPassword()))){
+		if(!(encrypt.equals(parent.getPassword()))){
 			setErroMessage("原密码错误");
 			return USERPROFILE;
 		}
-		parent.setPassword(getRepassword());		
+		parent.setPassword(Md5s.md5s(getRepassword()));		
 		parentDao.update(parent);//锟斤拷锟斤拷注锟斤拷锟斤拷息
 		Parent parentprofile = parentDao.load(((Parent) session.get("user")).getId());
 		session.remove("user");

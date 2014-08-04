@@ -2,12 +2,16 @@ package com.lqg.action.user;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Controller;
 
 import com.lqg.action.BaseAction;
@@ -15,7 +19,9 @@ import com.lqg.model.product.UploadFile;
 import com.lqg.model.user.Parent;
 import com.lqg.model.user.Student;
 import com.lqg.model.user.Teacher;
+import com.lqg.util.EmailUtil;
 import com.lqg.util.Md5s;
+import com.lqg.util.MessageInfo;
 import com.lqg.util.OperateImage;
 import com.lqg.util.StringUitl;
 import com.opensymphony.xwork2.ActionContext;
@@ -50,6 +56,8 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	private int cuttingImageY;
 	private int cuttingImageWidth;
 	private int cuttingImageHeight;
+	@Autowired
+	protected EmailUtil emailUtil;	
 	public String login() throws Exception{
 		return USER_LOGIN;
 	}
@@ -65,6 +73,14 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 		if(unique){//锟斤拷锟斤拷没锟斤拷锟斤拷锟斤拷
 			student.setPassword(Md5s.md5s(student.getPassword()));
 			studentDao.save(student);//锟斤拷锟斤拷注锟斤拷锟斤拷息
+			Student savestudent=studentDao.login(student.getEmail(), Md5s.md5s(student.getPassword()));
+			String activeLink=savestudent.getId()+savestudent.getUsername();
+			MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
+		   	message.setTo(student.getEmail());
+		   	message.setSubject("注册认证");
+		   	message.setSendDate(new Date());
+		   	message.setMsg(activeLink);
+		   	emailUtil.doSend(message);			
 			setErroMessage("注册成功，请到邮箱激活认证");
 			//获取跳转到登陆界面之前的页面地址，由拦截器提供
 	        prePage = (String) session.get("prePage");	
@@ -80,6 +96,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 				teacher.setEmail(student.getEmail());
 				teacher.setPassword(Md5s.md5s(student.getPassword()));
 				teacherDao.save(teacher);//锟斤拷锟斤拷注锟斤拷锟斤拷息
+				Teacher saveteacher=teacherDao.login(student.getEmail(), Md5s.md5s(student.getPassword()));
 				setErroMessage("注册成功，请到邮箱激活认证");
 				//获取跳转到登陆界面之前的页面地址，由拦截器提供
 		        prePage = (String) session.get("prePage");
@@ -95,6 +112,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 				parent.setEmail(student.getEmail());
 				parent.setPassword(Md5s.md5s(student.getPassword()));
 				parentDao.save(parent);//锟斤拷锟斤拷注锟斤拷锟斤拷息
+				Parent saveparent=parentDao.login(student.getEmail(), Md5s.md5s(student.getPassword()));
 				setErroMessage("注册成功，请到邮箱激活认证");
 				//获取跳转到登陆界面之前的页面地址，由拦截器提供
 		        prePage = (String) session.get("prePage");

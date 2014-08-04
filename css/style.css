@@ -72,6 +72,7 @@ margin: 15px 20px;
 .section-container{
 display: block;
 position: relative;
+list-style:none;
 }
 .section-container .section-item {
 border-top: 1px solid #ddd;
@@ -126,7 +127,7 @@ li.section,li.section-item{
 list-style-type:none;
 font:20px bold arial;
 padding:20px;
-
+margin-right:30px;
 }
 .right li:hover{
 background-color:#DDD;

@@ -59,15 +59,14 @@ $(window).resize(function(){
 	   <hr color=#de3456/>
 		<s:iterator value="pageModel.list[0].bookItems">
 		<s:if test="level==1">
-		<li class="section" >
-                 <s:a action="bookItem_list" namespace="/bookItem" style="text-decoration:none;width:100%">
+                 <s:a action="bookItem_list" namespace="/bookItem" style="text-decoration:none;width:100%;">
+				 <li class="section" >
 					<s:param name="pid" value="id"> </s:param>
-		<span class="glyphicon glyphicon-adjust tutorial-nav-node-icon"></span><s:property        value="name" />
-		</s:a></li>
+		<span class="glyphicon glyphicon-adjust tutorial-nav-node-icon"></span><s:property value="name" />
+		</li></s:a>
 		<hr color=#de3456/>
 		</s:if>
 		</s:iterator>
-		
 	  </ul>
 	 
 	</div>

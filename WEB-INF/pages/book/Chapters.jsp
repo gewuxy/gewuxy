@@ -51,7 +51,6 @@ $(window).resize(function(){
 			<div class="subject-description"></div>
 			
 		  </div>
-		<input id="coursetype" type="text" value="<s:property value="pageModel.list[0].book.course.name"/>" style="display:none"> </input>
 		</div>
 	  </div>
 	<div class="content-lists">
@@ -65,10 +64,10 @@ $(window).resize(function(){
 		</div>
 		<div class="tutorial-contents">
 		  <div class="contents-box">
-		    <ul class="section-container" style="list-style:none">
+		    <ul class="section-container">
                         <s:iterator value="children">
-			  <li class="section-item">
 			 <s:a action="video_getByBookItemId" style="text-decoration:none" namespace="/video" >
+			 <li class="section-item">
                                 <s:param name="bookItem.id" value="id"/> 
 			    <div class="section-item-icon">
 				  <div class="pipe-bottom"></div>
@@ -77,8 +76,8 @@ $(window).resize(function(){
 				  <div class="exercise-icon" style="display:none"><span class=""></span></div>
 				</div>
 				<span class="section-item-title"><s:property value="name" /></span>
-			  </s:a>
-			  </li>
+			  </li></s:a>
+			  
                          </s:iterator>
 			</ul>
 		  </div>
@@ -96,49 +95,5 @@ $(window).resize(function(){
 			<%@include file="/WEB-INF/pages/common/footer.jsp"%>
 		</div>
 	</div>  
-<script>
-$(document).ready(function(){
-var type=$("#coursetype").val();
-var shuxue="数学";
-var yuwen="语文";
-var yingyu="英语";
-var wuli="物理";
-var huaxue="化学";
-var shengwu="生物";
-var zhengzhi="政治";
-var lishi="历史";
-var dili="地理";
- if(type==shuxue){
- $(".math-subject").css("background-color","#8080c0");
-   }
-else if(type==yuwen){
- $(".math-subject").css("background-color","#90A0c0");
-   }
-else if(type==yingyu){
- $(".math-subject").css("background-color","#9382e0");
-   }
-else if(type==wuli){
- $(".math-subject").css("background-color","#99CC99");
-   }
-else if(type==huaxue){
- $(".math-subject").css("background-color","#99FF99");
-   }
-else if(type==shengwu){
- $(".math-subject").css("background-color","#66FF99");
-   }
-else if(type==zhengzhi){
- $(".math-subject").css("background-color","#66CC33");
-   }
-else if(type==lishi){
- $(".math-subject").css("background-color","#66CC66");
-   }
-else if(type==dili){
- $(".math-subject").css("background-color","#66CC99");
-   }
-else{
- $(".math-subject").css("background-color","#8080c0");
-   }
-});
-</script>
 </body>
 </html>

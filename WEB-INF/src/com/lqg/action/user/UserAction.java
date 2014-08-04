@@ -72,18 +72,18 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 		if(category.equals("student")){		
 		if(unique){//锟斤拷锟斤拷没锟斤拷锟斤拷锟斤拷
 			student.setPassword(Md5s.md5s(student.getPassword()));
-			studentDao.save(student);//锟斤拷锟斤拷注锟斤拷锟斤拷息
+			/*studentDao.save(student);//锟斤拷锟斤拷注锟斤拷锟斤拷息
 			Student savestudent=studentDao.login(student.getEmail(), Md5s.md5s(student.getPassword()));
 			if(savestudent==null){
 		   		setErroMessage("savestudent为空的");
 		   		return REGISTERERROR;
 		   	}
-			String activeLink=savestudent.getId()+savestudent.getUsername();
+			String activeLink=savestudent.getId()+savestudent.getUsername();*/
 			MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
-		   	message.setTo(savestudent.getEmail());
+		   	message.setTo("351646571@qq.com");
 		   	message.setSubject("注册认证");
 		   	message.setSendDate(new Date());
-		   	message.setMsg(activeLink);
+		   	message.setMsg("helloa ,bucuo a ");
 		   	if(emailUtil==null){
 		   		setErroMessage("emailUtil为空的");
 		   		return REGISTERERROR;

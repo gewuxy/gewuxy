@@ -10,6 +10,7 @@
 <meta name="description" content=" " />
 <meta name="author" content="">
 <meta name="keywords" content="" />
+
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
 <link rel="shortcut icon" type="image/png" href="<%=request.getContextPath()%>/favicon.png">
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
@@ -40,7 +41,7 @@ $(window).resize(function(){
         <p>请确保网络畅通哦！或者再刷新一下下，o(∩_∩)o</p>
   </div-->
   
-  <div class="math-subject">
+  <div class="book">
     <div class="row-fluid" >
 	  <div class="left">
 		<div class="subject-container">
@@ -49,10 +50,8 @@ $(window).resize(function(){
 			<h1 class="subject-title"><s:property value="nickname" /></h1>
 			<hr style="color:#333333;"/>
 			<div class="subject-description"><s:property value="desc" /></div>
-			
 		  </div>
 		  </s:iterator>
-		<input id="coursetype" type="text" value="<s:property value="pageModel.list[0].course.name"/>" style="display:none"> </input>
 		</div>
 	  </div>
 	  <div class="right">
@@ -81,49 +80,5 @@ $(window).resize(function(){
 			<%@include file="/WEB-INF/pages/common/footer.jsp"%>
 		</div>
 	</div>  
-<script>
-$(document).ready(function(){
-var type=$("#coursetype").val();
-var shuxue="数学";
-var yuwen="语文";
-var yingyu="英语";
-var wuli="物理";
-var huaxue="化学";
-var shengwu="生物";
-var zhengzhi="政治";
-var lishi="历史";
-var dili="地理";
- if(type==shuxue){
- $(".math-subject").css("background-color","#8080c0");
-   }
-else if(type==yuwen){
- $(".math-subject").css("background-color","#90A0c0");
-   }
-else if(type==yingyu){
- $(".math-subject").css("background-color","#9382e0");
-   }
-else if(type==wuli){
- $(".math-subject").css("background-color","#99CC99");
-   }
-else if(type==huaxue){
- $(".math-subject").css("background-color","#99FF99");
-   }
-else if(type==shengwu){
- $(".math-subject").css("background-color","#66FF99");
-   }
-else if(type==zhengzhi){
- $(".math-subject").css("background-color","#66CC33");
-   }
-else if(type==lishi){
- $(".math-subject").css("background-color","#66CC66");
-   }
-else if(type==dili){
- $(".math-subject").css("background-color","#66CC99");
-   }
-else{
- $(".math-subject").css("background-color","#8080c0");
-   }
-});
-</script>
 </body>
 </html>

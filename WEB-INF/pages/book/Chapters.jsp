@@ -4,9 +4,7 @@
 <!DOCTYPE html>
 <html >
 <head>
-
 <title></title>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="description" content=" " />
@@ -38,7 +36,7 @@ $(window).resize(function(){
 	</div>
   </div>
   
-<div class="math-subject">
+<div class="book">
     <div class="row-fluid">
 	  <div class="chapter" >
 		<div class="subject-container">

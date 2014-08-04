@@ -1146,12 +1146,13 @@ color:white;
 color:white;
 text-decoration:none;
 }
-.math-subject{
+.book{
 margin-top:-20px;
 width:100%;
 clear:both;
 display:table;
 margin-bottom:0px;
+background-color:#6699CC;
 }
 .sign-up{
 color:white;

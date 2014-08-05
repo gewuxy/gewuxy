@@ -125,10 +125,10 @@
 		    <input type="button" class="btn btn-primary upload-btn" value="本地上传" />
             <input id="uploadfile" type="file" name="pic" accept="image/gif,image/png,image/jpeg,image/jpg" />
 		  </div>
-			<div id="loading" style="display:none;">
+		  <span id="loading" style="display:none;float:left">
 			  <img src="<%=request.getContextPath()%>/img/loading.gif" style="width:30px;height:30px;"/>
-			  上传中...
-			</div>
+			  <span>上传中...</span>
+		  </span>
 			<form> 
 			  <input type="hidden"  id="cuttingImage"/>       
 			  <input type="hidden"  id="x"/>  
@@ -136,6 +136,7 @@
 			  <input type="hidden"   id="width"/>  
 			  <input type="hidden"  id="height"/>  
 			</form> 
+			<div class="clearfix"></div>
             <div class="row img-upload-tip">
 			  仅支持JPG, GIF, PNG格式，文件小于5M。
 			</div>

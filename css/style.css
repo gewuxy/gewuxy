@@ -1406,11 +1406,14 @@ height:30px;
 .img-upload-tip{
 color:#ccc;
 font-size:12px;
+padding-top:10px;
 }
 .upload-btn-container{
 width:100px;
 position:relative;
 overflow:hidden;
+float:left;
+margin-right:30px;
 }
 .upload-btn{
 width:100px;

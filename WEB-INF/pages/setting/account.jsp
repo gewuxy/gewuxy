@@ -113,12 +113,12 @@
       <%@include file="/WEB-INF/pages/common/footer.jsp"%>
 	</div>
   </div>
-  <div id="upload-picture" role="dialog" class="modal" >
+  <div id="upload-picture" role="dialog" class="modal" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" >
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <h4 class="modal-title">设置头像</h4>
+          <h4 class="modal-title" id="myModalLabel">设置头像</h4>
         </div>
 		<div class="modal-body">
 		  <div class="upload-btn-container">
@@ -140,7 +140,7 @@
             <div class="row img-upload-tip">
 			  仅支持JPG, GIF, PNG格式，文件小于5M。
 			</div>
-            <div class="row">
+            <div class="img-cut-preivew-container">
 			  <div id="target" class="selected-img-src">
 				<s:if test="#session.user.image==null">
 				  <img id="targetpic" src="<%=request.getContextPath()%>/img/joinus.png"/>
@@ -150,6 +150,7 @@
 				</s:if>
               </div>
 			  <div id="preview" class="img-cut-preview">
+			    <div>预览</div>
 				<div class="img-preview-100">
 				  <s:if test="#session.user.image==null">
 				    <img id="previewpic" src="<%=request.getContextPath()%>/img/joinus.png"/>
@@ -157,7 +158,7 @@
 				  <s:if test="#session.user.image!=null">
 					<img id="previewpic" src="<%=request.getContextPath()%>/img/<s:property value='#session.user.image.path'/>" />
 				  </s:if>
-                </div>100x100像素
+                </div>
                 <div class="img-preview-75">
 				  <s:if test="#session.user.image==null">
 				    <img id="previewpic1" src="<%=request.getContextPath()%>/img/joinus.png"/>
@@ -165,7 +166,7 @@
 				  <s:if test="#session.user.image!=null">
 					<img id="previewpic1" src="<%=request.getContextPath()%>/img/<s:property value='#session.user.image.path'/>"/>
 				  </s:if>
-                </div>75x75像素
+                </div>
                 <div class="img-preview-30">
 				    <s:if test="#session.user.image==null">
 					  <img id="previewpic2" src="<%=request.getContextPath()%>/img/joinus.png"/>
@@ -173,8 +174,9 @@
 				    <s:if test="#session.user.image!=null">
 					  <img id="previewpic2" src="<%=request.getContextPath()%>/img/<s:property value='#session.user.image.path'/>"/>
 				    </s:if>
-                </div>30x30像素
+                </div>
 			  </div>
+			  <div class="clearfix"></div>
             </div>
 		  </div>
 		  <div class="modal-footer">

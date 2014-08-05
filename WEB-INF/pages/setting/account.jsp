@@ -42,7 +42,11 @@
 	<s:if test="#session.user.image!=null">
 	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/<s:property value="#session.user.image.path"/>" alt="头像"/>
 	</s:if>
+<<<<<<< HEAD
 	<span class="headicon-edit-tip">修改头像</span>	
+=======
+	<span class="headicon-edit-tip">修改头像</span>
+>>>>>>> 7ebfda3fbde16b8404fdf434691ddc853e8b1ec6
 	</div>
   </div>
   <div class="form-group">
@@ -113,6 +117,7 @@
       <%@include file="/WEB-INF/pages/common/footer.jsp"%>
 	</div>
   </div>
+<<<<<<< HEAD
 <div id="upload-picture" role="dialog" class="modal fade" >
                 <div class="modal-dialog" >
                   <div class="modal-content">
@@ -166,7 +171,75 @@
                     </div>
                   </div>
                 </div>
+=======
+  <div id="upload-picture" role="dialog" class="modal" >
+    <div class="modal-dialog" >
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title">设置自己的头像</h4>
+        </div>
+		<div class="modal-body">
+            <input id="uploadfile" type="file" name="pic" accept="image/gif,image/png,image/jpeg,image/jpg" />		      
+			<div id="loading" style="display:none;">
+			  <img src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/>
+			</div>
+			<form> 
+			  <input type="hidden"  id="cuttingImage"/>       
+			  <input type="hidden"  id="x"/>  
+			  <input type="hidden"  id="y"/>  
+			  <input type="hidden"   id="width"/>  
+			  <input type="hidden"  id="height"/>  
+			</form> 
+            <div class="row">
+			    <span class="upload-tip">仅支持JPG, GIF, PNG格式，文件小于5M。</span> 
+				<input type="button"  class="btn btn-default" value="上传" id="sub_upload"/>
+			</div>
+            <div class="row">
+			  <div id="target" class="selected-img-src">
+				<s:if test="#session.user.image==null">
+				  <img id="targetpic" src="<%=request.getContextPath()%>/img/joinus.png"/>
+				</s:if>
+				<s:if test="#session.user.image!=null">
+                  <img id="targetpic" src="<%=request.getContextPath()%>/img/<s:property value='#session.user.image.path'/>" />
+				</s:if>
+>>>>>>> 7ebfda3fbde16b8404fdf434691ddc853e8b1ec6
               </div>
+			  <div id="preview" class="img-cut-preview">
+				<div class="img-preview-100">
+				  <s:if test="#session.user.image==null">
+				    <img id="previewpic" src="<%=request.getContextPath()%>/img/joinus.png"/>
+				  </s:if>
+				  <s:if test="#session.user.image!=null">
+					<img id="previewpic" src="<%=request.getContextPath()%>/img/<s:property value='#session.user.image.path'/>" />
+				  </s:if>
+                </div>100x100像素
+                <div class="img-preview-75">
+				  <s:if test="#session.user.image==null">
+				    <img id="previewpic1" src="<%=request.getContextPath()%>/img/joinus.png"/>
+				  </s:if>
+				  <s:if test="#session.user.image!=null">
+					<img id="previewpic1" src="<%=request.getContextPath()%>/img/<s:property value='#session.user.image.path'/>"/>
+				  </s:if>
+                </div>75x75像素
+                <div class="img-preview-30">
+				    <s:if test="#session.user.image==null">
+					  <img id="previewpic2" src="<%=request.getContextPath()%>/img/joinus.png"/>
+				    </s:if>
+				    <s:if test="#session.user.image!=null">
+					  <img id="previewpic2" src="<%=request.getContextPath()%>/img/<s:property value='#session.user.image.path'/>"/>
+				    </s:if>
+                </div>30x30像素
+			  </div>
+            </div>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" id="cutPicCancel" class="btn btn-default" data-dismiss="modal">取消</button>
+			<button type="button" class="btn btn-primary" id="cutLoad">确定</button>
+		  </div>
+         </div>
+      </div>
+    </div>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/ajaxfileupload.js"></script>  
 <script src="<%=request.getContextPath()%>/js/jquery.Jcrop.js" type="text/javascript"></script>    
 <script src="<%=request.getContextPath()%>/js/jquery-ui-1.10.3.full.min.js" type="text/javascript"></script>    
@@ -348,6 +421,74 @@ $("#cutLoad").click(function(){
 				});
 }); 
 
+<<<<<<< HEAD
+=======
+$(".headicon-container").click(function(){
+				$("#upload-picture").modal();
+			});
+//上传相片
+$("#sub_upload").click(function(){	
+				var filename=$("#uploadfile").val();
+				//判断上传文件格式
+				  var suffixs=new Array(".jpg", ".jpeg", ".bmp", ".gif");
+				  //截取上传文件格式
+				  var fileType=filename.substring(filename.lastIndexOf('.'));	
+				if(filename==""){
+				  alert("请选择需要上传的图片");
+				  return false;
+				}else{
+				 
+				  //截取上传文件格式
+				   if($.inArray(fileType,suffixs)<=-1){
+				    alert("图片格式错误");
+				    return false;
+				  }else{
+				    var	uploadUrl="../user/user_uploadPic.html?picFileName="+filename;
+				  //starting setting some animation when the ajax starts and completes
+				$("#loading").ajaxStart(function(){
+					$(this).show();
+				}).ajaxComplete(function(){
+					$(this).hide();
+				});
+		                 //异步上传
+				    $.ajaxFileUpload({
+				      url:uploadUrl,
+				      secureuri:false,
+				      fileElementId:"uploadfile",
+				      dataType:'json',
+				      success:function(data,status){ 
+					   var messageBig="文件过大";
+					   var messageFai="文件上传失败";
+					   var messageSuc="文件上传成功";
+						
+					   if(data.imageMessage==messageBig){
+					  alert("文件过大");return false;
+						}
+					   if(data.imageMessage==messageFai){
+					  alert("文件上传失败!");return false;
+						}
+					  if(data.imageMessage==messageSuc) {
+						var hostname='<%=request.getContextPath()%>';
+						var pathPic=hostname+"/img/"+data.uploadFile.path;
+						$("#targetpic").attr("src",pathPic);
+						$("#previewpic").attr("src",pathPic);
+						$("#previewpic1").attr("src",pathPic);
+						$("#previewpic2").attr("src",pathPic);	
+						//var pathcut="../img/"+data.uploadFile.path;					
+						$("#cuttingImage").val(data.uploadFile.path);
+						//alert($("#cuttingImage").val());
+						
+						}			 
+					
+				      },
+				      error:function(){
+					alert("异步失败");
+				      }
+				    });
+				  }
+				}
+      			});
+>>>>>>> 7ebfda3fbde16b8404fdf434691ddc853e8b1ec6
 //保存个人信息
 $("#profileSave").click(function(){
 			   var params = {

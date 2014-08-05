@@ -123,17 +123,9 @@
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
           <h4 class="modal-title">设置头像</h4>
         </div>
-		<div class="modal-body">
+		<div class="modal-body">          
 
-            <input id="uploadfile" type="file" name="pic" accept="image/gif,image/bmp,image/jpeg,image/jpg" />		      
-			<div id="loading" style="display:none;">
-			  <img src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/>
-			</div>
-
-		  <span id="loading" style="display:none;float:left">
-			  <img src="<%=request.getContextPath()%>/img/loading.gif" style="width:30px;height:30px;"/>
-			  <span>上传中...</span>
-		  </span>
+		  
 
 			<form> 
 			  <input type="hidden"  id="cuttingImage" value="<s:property value="#session.user.image.path"/>"/>        
@@ -142,8 +134,12 @@
 			  <input type="hidden"   id="width"/>  
 			  <input type="hidden"  id="height"/>  
 			</form> 
-            <div class="row img-upload-tip">	   
-				<div class="clearfix"></div>
+	   <input id="uploadfile" type="file" name="pic" accept="image/gif,image/bmp,image/jpeg,image/jpg" />		      
+			<div id="loading" style="display:none;">
+			  <img src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/>
+			</div>
+            <div class="row ">	   
+				<div class="clearfix"></div><label class="btn-choose-file">选择照片
                               仅支持JPG, GIF, BMP格式，文件小于5M。
   	   </div>
             <div class="row">
@@ -259,6 +255,24 @@ $("#uploadfile").live("change",function(){
 						$("#previewpic").attr("src",pathPic);	
 						$("#previewpic1").attr("src",pathPic);
 						$("#previewpic2").attr("src",pathPic);
+						$("#previewpic").css({  		
+						    width: 100 + 'px',   //100 为预览div的宽和高
+						    height: 100+ 'px',  
+						    marginLeft: '-' + 0 + 'px',  
+						    marginTop: '-' + 0 + 'px'  
+						});  	
+						 $("#previewpic1").css({  		
+						    width:75 + 'px',   //75 为预览div的宽和高
+						    height: 75 + 'px',  
+						    marginLeft: '-' + 0 + 'px',  
+						    marginTop: '-' + 0 + 'px'  
+						});  
+						 $("#previewpic2").css({  		
+						    width: 30 + 'px',   //30 为预览div的宽和高
+						    height: 30 + 'px',  
+						    marginLeft: '-' + 0 + 'px',  
+						    marginTop: '-' + 0 + 'px'  
+						});    
 						$("#targetpic").attr("src",pathPic);	
 												
 						$("#targetpic").Jcrop({  
@@ -330,6 +344,24 @@ $("#cutLoad").live("click",function(){
 						$("#previewpic1").attr("src",pathPic);	
 						$("#previewpic2").attr("src",pathPic);
 						$("#previewpic").attr("src",pathPic);
+						$("#previewpic").css({  		
+						    width: 100 + 'px',   //100 为预览div的宽和高
+						    height: 100+ 'px',  
+						    marginLeft: '-' + 0 + 'px',  
+						    marginTop: '-' + 0 + 'px'  
+						});  	
+						 $("#previewpic1").css({  		
+						    width:75 + 'px',   //75 为预览div的宽和高
+						    height: 75 + 'px',  
+						    marginLeft: '-' + 0 + 'px',  
+						    marginTop: '-' + 0 + 'px'  
+						});  
+						 $("#previewpic2").css({  		
+						    width: 30 + 'px',   //30 为预览div的宽和高
+						    height: 30 + 'px',  
+						    marginLeft: '-' + 0 + 'px',  
+						    marginTop: '-' + 0 + 'px'  
+						});    
 						$("#targetpic").attr("src",pathPic);						
 						$("#targetpic").Jcrop({  
 						    onChange: updatePreview,  

@@ -126,7 +126,8 @@
             <input id="uploadfile" type="file" name="pic" accept="image/gif,image/png,image/jpeg,image/jpg" />
 		  </div>
 			<div id="loading" style="display:none;">
-			  <img src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/>
+			  <img src="<%=request.getContextPath()%>/img/loading.gif" style="width:30px;height:30px;"/>
+			  上传中...
 			</div>
 			<form> 
 			  <input type="hidden"  id="cuttingImage"/>       

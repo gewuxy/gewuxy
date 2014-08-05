@@ -934,11 +934,7 @@ border:0 none;
 .headicon-edit-tip{
 display:none;
 }
-#headicon-upload{
-opacity: 0;
--ms-filter: 'alpha(opacity=0)';
-}
-.headicon-edit-tip,#headicon-upload{
+.headicon-edit-tip{
 margin-left:2%;
 width:99%;
 background: #333;

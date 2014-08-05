@@ -43,7 +43,6 @@
 	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/<s:property value='#session.user.image.path'/>" alt="头像"/>
 	</s:if>
 	<span class="headicon-edit-tip">修改头像</span>
-	<input type="file" id="headicon-upload" name="pic" accept="image/gif,image/png,image/jpeg,image/jpg" value="">
 	</div>
   </div>
   <div class="form-group">
@@ -122,7 +121,7 @@
                         <div class="row btns">
                           <div class="col-xs-8">
                             <label class="btn-choose-file">选择照片
-                              <input id="uploadfile" type="file" name="pic">			      
+                              <input id="uploadfile" type="file" name="pic" accept="image/gif,image/png,image/jpeg,image/jpg">			      
                             </label>
                           </div>
 			 <div id="loading" style="display:none;"><img src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/></div>
@@ -294,47 +293,8 @@ $("#cutPicCancel").click(function(){
 });
 
 $(".headicon-container").click(function(){
-				//$("#upload-picture").modal();
-				$("#headicon-upload").trigger("click");
+				$("#upload-picture").modal();
 			});
-$("#headicon-upload").change(function(){
-  var filename=$("#headicon-upload").val();
-  var	uploadUrl="../user/user_uploadPic.html?picFileName="+filename;
-  //starting setting some animation when the ajax starts and completes
-	/*$("#loading").ajaxStart(function(){
-		$(this).show();
-				}).ajaxComplete(function(){
-					$(this).hide();
-				});*/
-  $.ajaxFileUpload({
-				      url:uploadUrl,
-				      secureuri:false,
-				      fileElementId:"headicon-upload",
-				      dataType:'json',
-				      success:function(data,status){ 
-					   var messageBig="文件过大";
-					   var messageFai="文件上传失败";
-					   var messageSuc="文件上传成功";
-						
-					   if(data.imageMessage==messageBig){
-					  alert("文件过大");
-					  return false;
-						}
-					   if(data.imageMessage==messageFai){
-					  alert("文件上传失败!");
-					  return false;
-						}
-						
-					  if(data.imageMessage==messageSuc) {
-						$("#upload-picture").modal();
-						}			 
-					
-				      },
-				      error:function(){
-					alert("异步失败");
-				      }
-				    });
-});
 //上传相片
 $("#sub_upload").click(function(){	
 				var filename=$("#uploadfile").val();

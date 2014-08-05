@@ -113,16 +113,18 @@
       <%@include file="/WEB-INF/pages/common/footer.jsp"%>
 	</div>
   </div>
-<div id="upload-picture" role="dialog" class="modal fade" >
+<div id="upload-picture" role="dialog" class="modal" >
                 <div class="modal-dialog" >
                   <div class="modal-content">
-                    <div class="modal-body" >
+                    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">设置自己的头像</h4>
+      </div>
+					<div class="modal-body" >
                       
                         <div class="row btns">
                           <div class="col-xs-8">
-                            <label class="btn-choose-file">选择照片
                               <input id="uploadfile" type="file" name="pic" accept="image/gif,image/png,image/jpeg,image/jpg">			      
-                            </label>
                           </div>
 			 <div id="loading" style="display:none;"><img src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/></div>
                           <div class="col-xs-4">
@@ -132,8 +134,6 @@
 			    <input type="hidden"  id="y"/>  
 			    <input type="hidden"   id="width"/>  
 			    <input type="hidden"  id="height"/>  
-			    <input type="button" value="确定" id="cutLoad"/>  
-			    <input id="cutPicCancel" type="button" value="取消" class="btn btn-cancel">
 			    
 			   </form> 
 			    
@@ -182,6 +182,10 @@
                         </div>
                      
                     </div>
+					<div class="modal-footer">
+        <button type="button" id="cutPicCancel" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary" id="cutLoad">确定</button>
+      </div>
                   </div>
                 </div>
               </div>

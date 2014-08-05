@@ -42,11 +42,9 @@
 	<s:if test="#session.user.image!=null">
 	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/<s:property value="#session.user.image.path"/>" alt="头像"/>
 	</s:if>
-<<<<<<< HEAD
+
 	<span class="headicon-edit-tip">修改头像</span>	
-=======
-	<span class="headicon-edit-tip">修改头像</span>
->>>>>>> 7ebfda3fbde16b8404fdf434691ddc853e8b1ec6
+
 	</div>
   </div>
   <div class="form-group">
@@ -117,61 +115,7 @@
       <%@include file="/WEB-INF/pages/common/footer.jsp"%>
 	</div>
   </div>
-<<<<<<< HEAD
-<div id="upload-picture" role="dialog" class="modal fade" >
-                <div class="modal-dialog" >
-                  <div class="modal-content">
-                    <div class="modal-body" >
-                      
-                        <div class="row btns">
-                          <div class="col-xs-8">
-                            <label class="btn-choose-file">选择照片
-                              <input id="uploadfile" type="file" name="pic">			      
-                            </label>
-                          </div>
-			 
-                          <div class="col-xs-4">
-			    <form> 
-			    <input type="hidden"  id="cuttingImage" value="<s:property value="#session.user.image.path"/>"/>       
-			    <input type="hidden"  id="x"/>  
-			    <input type="hidden"  id="y"/>  
-			    <input type="hidden"   id="width"/>  
-			    <input type="hidden"  id="height"/>  
-			    <input type="button" value="确定" id="cutLoad"/>  
-			    <input id="cutPicCancel" type="button" value="取消" class="btn btn-cancel">
-			    
-			   </form> 
-			    
-                            
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-xs-12"><span class="upload-tip">仅支持JPG, GIF, BMP格式，文件小于5M。</span> </div>
-			 
-                        </div>
-                       
-			
-                          <div  id="picturePreview"  style="overflow:hidden; border:1px solid gray;display:inlin-block">
-			<s:if test="#session.user.image==null">
-			<img id="targetpic" src="<%=request.getContextPath()%>/img/joinus.png" style="width:300px;height:300px;"/>
-			</s:if>
-			<s:if test="#session.user.image!=null">
-			<img id="targetpic" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:300px;height:300px;" />
-			</s:if>                          
-                           <s:if test="#session.user.image==null"><img id="previewpic" src="<%=request.getContextPath()%>/img/joinus.png" style="width:75px;height:75px;" />
-			</s:if>
-			<s:if test="#session.user.image!=null">
-			<img id="previewpic" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" 				style="width:75px;height:75px;"/></s:if>
-                                                   
-			    
-			   </div>
-                         
-                        
-                     
-                    </div>
-                  </div>
-                </div>
-=======
+
   <div id="upload-picture" role="dialog" class="modal" >
     <div class="modal-dialog" >
       <div class="modal-content">
@@ -180,20 +124,20 @@
           <h4 class="modal-title">设置自己的头像</h4>
         </div>
 		<div class="modal-body">
-            <input id="uploadfile" type="file" name="pic" accept="image/gif,image/png,image/jpeg,image/jpg" />		      
+            <input id="uploadfile" type="file" name="pic" accept="image/gif,image/bmp,image/jpeg,image/jpg" />		      
 			<div id="loading" style="display:none;">
 			  <img src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/>
 			</div>
 			<form> 
-			  <input type="hidden"  id="cuttingImage"/>       
+			  <input type="hidden"  id="cuttingImage" value="<s:property value="#session.user.image.path"/>"/>        
 			  <input type="hidden"  id="x"/>  
 			  <input type="hidden"  id="y"/>  
 			  <input type="hidden"   id="width"/>  
 			  <input type="hidden"  id="height"/>  
 			</form> 
             <div class="row">
-			    <span class="upload-tip">仅支持JPG, GIF, PNG格式，文件小于5M。</span> 
-				<input type="button"  class="btn btn-default" value="上传" id="sub_upload"/>
+			    <span class="upload-tip">仅支持JPG, GIF, BMP格式，文件小于5M。</span> 
+				
 			</div>
             <div class="row">
 			  <div id="target" class="selected-img-src">
@@ -203,7 +147,7 @@
 				<s:if test="#session.user.image!=null">
                   <img id="targetpic" src="<%=request.getContextPath()%>/img/<s:property value='#session.user.image.path'/>" />
 				</s:if>
->>>>>>> 7ebfda3fbde16b8404fdf434691ddc853e8b1ec6
+
               </div>
 			  <div id="preview" class="img-cut-preview">
 				<div class="img-preview-100">
@@ -257,48 +201,10 @@ $("#myCutImage").click(function(){
 $("#cutPicCancel").click(function(){
 			$("#upload-picture").modal('hide');
 });
-//剪切功能name="cuttingImageName" name="cuttingImageX" name="cuttingImageY" name="cuttingImageWidth" name="cuttingImageHeight"
-    var x;  
-    var y;  
-    var width;  
-    var height;  
-    $(function(){  
-        var jcrop_api, boundx, boundy;  
-       //使原图具有裁剪功能 
-        $("#targetpic").Jcrop({  
-            onChange: updatePreview,  
-            onSelect: updatePreview,  
-            aspectRatio: 1  
-        },function(){  
-            // Use the API to get the real image size  
-            var bounds = this.getBounds();  
-            boundx = bounds[0];  
-            boundy = bounds[1];  
-            // Store the API in the jcrop_api variable  
-            jcrop_api = this;  
-        });  
-       //裁剪过程中，每改变裁剪大小执行该函数  
-        function updatePreview(c){  
-            if (parseInt(c.w) > 0){    
-		//计算预览区域图片缩放的比例，通过计算显示区域的宽度(与高度)与剪裁的宽度(与高度)之比得到 
-		var rx = c.w/$("#targetpic").width(); 
-		var ry = c.h/$("#targetpic").height();
-                $("#previewpic").css({  		
-                    width: Math.round($("#previewpic").width()*rx) + 'px',   //150 为预览div的宽和高
-                    height: Math.round($("#previewpic").height()*ry) + 'px',  
-                    marginLeft: '-' + Math.round(rx*c.w) + 'px',  
-                    marginTop: '-' + Math.round(ry*c.h) + 'px'  
-                });  		
-                $("#width").val(c.w);  //c.w 裁剪区域的宽  
-                $("#height").val(c.h); //c.h 裁剪区域的高  
-                $("#x").val(c.x);  //c.x 裁剪区域左上角顶点相对于图片左上角顶点的x坐标  
-                $("#y").val(c.y);  //c.y 裁剪区域顶点的y坐标 
-            }  
-          };  
-    });
+
 
 //上传相片并显示
-$("#uploadfile").change(function(){
+$("#uploadfile").live("change",function(){
   var filename=$("#uploadfile").val();
   var suffixs=new Array(".jpg", ".jpeg", ".bmp", ".gif");
   //截取上传文件格式
@@ -335,27 +241,32 @@ $("#uploadfile").change(function(){
 					  alert("文件上传失败!");
 					  $("#uploadfile").val("");
 					  return false;
-						}
-						
+						}				
+							
 					  if(data.imageMessage==messageSuc) {
 						var hostname='<%=request.getContextPath()%>';
 						var pathPic=hostname+"/img/"+data.uploadFile.path;
-						$("#previewpic").attr("src",pathPic);						
-						$("#targetpic").attr("src",pathPic);
-						/*$("#targetpic").Jcrop({  
+						$("#previewpic").attr("src",pathPic);	
+						$("#previewpic1").attr("src",pathPic);
+						$("#previewpic2").attr("src",pathPic);
+						//api.destroy();							
+						var api = $.Jcrop("#targetpic"); 
+						api.destroy(); //设置为禁用裁剪效果 
+						$("#targetpic").attr("src",pathPic);	
+												
+						$("#targetpic").Jcrop({  
 						    onChange: updatePreview,  
 						    onSelect: updatePreview,  
 						    aspectRatio: 1  
 						},function(){  
 						    // Use the API to get the real image size  
-						    jcrop_api.setImage(pathPic);
+						    //jcrop_api.setImage(pathPic);
 						    var bounds = this.getBounds();  
 						    boundx = bounds[0];  
 						    boundy = bounds[1];  
-						    // Store the API in the jcrop_api variable 					    
+						    // Store the API in the jcrop_api variable  
 						    jcrop_api = this;  
-						     
-						}); */
+						});  
 						//var pathcut="../img/"+data.uploadFile.path;					
 						$("#cuttingImage").val(data.uploadFile.path);
 						//alert($("#cuttingImage").val());
@@ -375,7 +286,7 @@ $("#uploadfile").change(function(){
 });
 
 //剪切完后上传
-$("#cutLoad").click(function(){
+$("#cutLoad").live("click",function(){
                                 if($("#cuttingImage").val()==""){
 				alert("没有选择上传图片!!!");
 				return false;
@@ -406,10 +317,28 @@ $("#cutLoad").click(function(){
 				success:function(data){ 				 	
 					        var hostname='<%=request.getContextPath()%>';
 						var pathPic=hostname+"/img/"+data.uploadFile.path;
-						$("#targetpic").attr("src",pathPic);
-						$("#previewpic").attr("src",pathPic);						
+						$("#previewpic1").attr("src",pathPic);	
+						$("#previewpic2").attr("src",pathPic);
+						$("#previewpic").attr("src",pathPic);
+						//api.destroy();
+					        var api = $.Jcrop("#targetpic"); 
+						api.destroy(); //设置为禁用裁剪效果 
+						$("#targetpic").attr("src",pathPic);						
+						$("#targetpic").Jcrop({  
+						    onChange: updatePreview,  
+						    onSelect: updatePreview,  
+						    aspectRatio: 1  
+						},function(){  
+						    // Use the API to get the real image size  
+						    //jcrop_api.setImage(pathPic);
+						    var bounds = this.getBounds();  
+						    boundx = bounds[0];  
+						    boundy = bounds[1];  
+						    // Store the API in the jcrop_api variable  
+						    jcrop_api = this;  
+						}); 				
 						$("#cuttingImage").val(data.uploadFile.path)
-						$("#upload-picture").modal('hide');	
+						//$("#upload-picture").modal('hide');	
 						$("#myCutImage").attr("src",pathPic);			
 					
 				},
@@ -420,75 +349,69 @@ $("#cutLoad").click(function(){
 				}
 				});
 }); 
+//剪切功能name="cuttingImageName" name="cuttingImageX" name="cuttingImageY" name="cuttingImageWidth" name="cuttingImageHeight"
+    var x;  
+    var y;  
+    var width;  
+    var height;  
+    /*var api = $.Jcrop("#targetpic",{
+                  onChange: updatePreview,  
+		 onSelect: updatePreview,  
+		 aspectRatio: 1  
+		},function(){  
+		// Use the API to get the real image size
+		 //jcrop_api.setImage(pathPic);
+		  var bounds = this.getBounds();  
+		 boundx = bounds[0]; 
+		 boundy = bounds[1];  
+		 // Store the API in the jcrop_api variable  
+		 jcrop_api = this; 
+           });*/
+     $("#targetpic").Jcrop({
+	onChange: updatePreview,  
+	 onSelect: updatePreview,  
+	 aspectRatio: 1  
+	},function(){  
+	// Use the API to get the real image size
+	 //jcrop_api.setImage(pathPic);
+	  var bounds = this.getBounds();  
+	 boundx = bounds[0]; 
+	 boundy = bounds[1];  
+	 // Store the API in the jcrop_api variable  
+	 jcrop_api = this;  
+	});
+       //裁剪过程中，每改变裁剪大小执行该函数  
+        function updatePreview(c){  
+            if (parseInt(c.w) > 0){    
+		//计算预览区域图片缩放的比例，通过计算显示区域的宽度(与高度)与剪裁的宽度(与高度)之比得到 
+		var rx = $("#targetpic").width()/c.w; 
+		var ry = $("#targetpic").height()/c.h;
+                $("#previewpic").css({  		
+                    width: Math.round(boundx*rx) + 'px',   //100 为预览div的宽和高
+                    height: Math.round(boundy*ry) + 'px',  
+                    marginLeft: '-' + Math.round(rx*c.x) + 'px',  
+                    marginTop: '-' + Math.round(ry*c.y) + 'px'  
+                });  	
+		 $("#previewpic1").css({  		
+                    width: Math.round(boundx*rx) + 'px',   //75 为预览div的宽和高
+                    height: Math.round(boundy*ry) + 'px',  
+                    marginLeft: '-' + Math.round(rx*c.x) + 'px',  
+                    marginTop: '-' + Math.round(ry*c.y) + 'px'  
+                });  
+		 $("#previewpic2").css({  		
+                    width: Math.round(boundx*rx) + 'px',   //30 为预览div的宽和高
+                    height: Math.round(boundy*ry) + 'px',  
+                    marginLeft: '-' + Math.round(rx*c.x) + 'px',  
+                    marginTop: '-' + Math.round(ry*c.y) + 'px'  
+                });    	
+                $("#width").val(c.w);  //c.w 裁剪区域的宽  
+                $("#height").val(c.h); //c.h 裁剪区域的高  
+                $("#x").val(c.x);  //c.x 裁剪区域左上角顶点相对于图片左上角顶点的x坐标  
+                $("#y").val(c.y);  //c.y 裁剪区域顶点的y坐标 
+            }  
+          };  
+   
 
-<<<<<<< HEAD
-=======
-$(".headicon-container").click(function(){
-				$("#upload-picture").modal();
-			});
-//上传相片
-$("#sub_upload").click(function(){	
-				var filename=$("#uploadfile").val();
-				//判断上传文件格式
-				  var suffixs=new Array(".jpg", ".jpeg", ".bmp", ".gif");
-				  //截取上传文件格式
-				  var fileType=filename.substring(filename.lastIndexOf('.'));	
-				if(filename==""){
-				  alert("请选择需要上传的图片");
-				  return false;
-				}else{
-				 
-				  //截取上传文件格式
-				   if($.inArray(fileType,suffixs)<=-1){
-				    alert("图片格式错误");
-				    return false;
-				  }else{
-				    var	uploadUrl="../user/user_uploadPic.html?picFileName="+filename;
-				  //starting setting some animation when the ajax starts and completes
-				$("#loading").ajaxStart(function(){
-					$(this).show();
-				}).ajaxComplete(function(){
-					$(this).hide();
-				});
-		                 //异步上传
-				    $.ajaxFileUpload({
-				      url:uploadUrl,
-				      secureuri:false,
-				      fileElementId:"uploadfile",
-				      dataType:'json',
-				      success:function(data,status){ 
-					   var messageBig="文件过大";
-					   var messageFai="文件上传失败";
-					   var messageSuc="文件上传成功";
-						
-					   if(data.imageMessage==messageBig){
-					  alert("文件过大");return false;
-						}
-					   if(data.imageMessage==messageFai){
-					  alert("文件上传失败!");return false;
-						}
-					  if(data.imageMessage==messageSuc) {
-						var hostname='<%=request.getContextPath()%>';
-						var pathPic=hostname+"/img/"+data.uploadFile.path;
-						$("#targetpic").attr("src",pathPic);
-						$("#previewpic").attr("src",pathPic);
-						$("#previewpic1").attr("src",pathPic);
-						$("#previewpic2").attr("src",pathPic);	
-						//var pathcut="../img/"+data.uploadFile.path;					
-						$("#cuttingImage").val(data.uploadFile.path);
-						//alert($("#cuttingImage").val());
-						
-						}			 
-					
-				      },
-				      error:function(){
-					alert("异步失败");
-				      }
-				    });
-				  }
-				}
-      			});
->>>>>>> 7ebfda3fbde16b8404fdf434691ddc853e8b1ec6
 //保存个人信息
 $("#profileSave").click(function(){
 			   var params = {

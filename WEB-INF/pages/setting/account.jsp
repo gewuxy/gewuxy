@@ -37,10 +37,10 @@
 	<label for="headicon" class="col-sm-2 control-label">头像</label> 
 	<div id="myImage" class="headicon-container">
 	<s:if test="#session.user.image==null">
-	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/default-headicon.png" alt="头像"/>
+	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/headicon/default-headicon.png" alt="头像"/>
 	</s:if>
 	<s:if test="#session.user.image!=null">
-	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/<s:property value="#session.user.image.path"/>" alt="头像"/>
+	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/headicon/<s:property value='#session.user.image.path'/>" alt="头像"/>
 	</s:if>
 
 	<span class="headicon-edit-tip">修改头像</span>	
@@ -140,7 +140,7 @@
 			</div>
             <div class="row ">	   
 				<div class="clearfix"></div><label class="btn-choose-file">选择照片
-                              仅支持JPG, GIF, BMP格式，文件小于5M。
+                              仅支持JPG, GIF, JPEG, PNG格式，文件小于5M。
   	   </div>
             <div class="row">
 			  <div id="target" class="selected-img-src">
@@ -148,7 +148,7 @@
 				  <img id="targetpic" src="<%=request.getContextPath()%>/img/joinus.png"/>
 				</s:if>
 				<s:if test="#session.user.image!=null">
-                  <img id="targetpic" src="<%=request.getContextPath()%>/img/<s:property value='#session.user.image.path'/>" />
+                  <img id="targetpic" src="<%=request.getContextPath()%>/img/headicon/<s:property value='#session.user.image.path'/>" />
 				</s:if>
 
               </div>
@@ -158,7 +158,7 @@
 				    <img id="previewpic" src="<%=request.getContextPath()%>/img/joinus.png"/>
 				  </s:if>
 				  <s:if test="#session.user.image!=null">
-					<img id="previewpic" src="<%=request.getContextPath()%>/img/<s:property value='#session.user.image.path'/>" />
+					<img id="previewpic" src="<%=request.getContextPath()%>/img/headicon/<s:property value='#session.user.image.path'/>" />
 				  </s:if>
                 </div>100x100像素
                 <div class="img-preview-75">
@@ -166,7 +166,7 @@
 				    <img id="previewpic1" src="<%=request.getContextPath()%>/img/joinus.png"/>
 				  </s:if>
 				  <s:if test="#session.user.image!=null">
-					<img id="previewpic1" src="<%=request.getContextPath()%>/img/<s:property value='#session.user.image.path'/>"/>
+					<img id="previewpic1" src="<%=request.getContextPath()%>/img/headicon/<s:property value='#session.user.image.path'/>"/>
 				  </s:if>
                 </div>75x75像素
                 <div class="img-preview-30">
@@ -174,7 +174,7 @@
 					  <img id="previewpic2" src="<%=request.getContextPath()%>/img/joinus.png"/>
 				    </s:if>
 				    <s:if test="#session.user.image!=null">
-					  <img id="previewpic2" src="<%=request.getContextPath()%>/img/<s:property value='#session.user.image.path'/>"/>
+					  <img id="previewpic2" src="<%=request.getContextPath()%>/img/headicon/<s:property value='#session.user.image.path'/>"/>
 				    </s:if>
                 </div>30x30像素
 			  </div>
@@ -209,7 +209,7 @@ $("#cutPicCancel").click(function(){
 //上传相片并显示
 $("#uploadfile").live("change",function(){
   var filename=$("#uploadfile").val();
-  var suffixs=new Array(".jpg", ".jpeg", ".bmp", ".gif");
+  var suffixs=new Array(".jpg", ".jpeg", ".png", ".gif");
   //截取上传文件格式
   var fileType=filename.substring(filename.lastIndexOf('.'));
   if(filename==""){ alert("请选择需要上传的图片");
@@ -229,6 +229,7 @@ $("#uploadfile").live("change",function(){
 				      url:uploadUrl,
 				      secureuri:false,
 				      fileElementId:"uploadfile",
+				      async: false,
 				      dataType:'json',
 				      success:function(data,status){ 
 					   var messageBig="文件过大";
@@ -248,7 +249,8 @@ $("#uploadfile").live("change",function(){
 							
 					  if(data.imageMessage==messageSuc) {
 						var hostname='<%=request.getContextPath()%>';
-						var pathPic=hostname+"/img/"+data.uploadFile.path;
+						var pathPic=hostname+"/img/headicon/"+data.uploadFile.path;
+						//alert(pathPic);
 						//api.destroy();							
 						var api = $.Jcrop("#targetpic"); 
 						api.destroy(); //设置为禁用裁剪效果 
@@ -333,11 +335,11 @@ $("#cutLoad").live("click",function(){
 				    type: "POST",
 				url: "../user/user_cutPic.html",
 			 	data:params,
-				//async: false,
+				async: false,
 			       	dataType:"json",
 				success:function(data){ 				 	
 					        var hostname='<%=request.getContextPath()%>';
-						var pathPic=hostname+"/img/"+data.uploadFile.path;
+						var pathPic=hostname+"/img/headicon/"+data.uploadFile.path;
 						//api.destroy();
 					        var api = $.Jcrop("#targetpic"); 
 						api.destroy(); //设置为禁用裁剪效果 

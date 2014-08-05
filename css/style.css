@@ -1384,7 +1384,6 @@ overflow:hidden;
 .img-preview-100 img{
 width:100px;
 height:100px;
-overflow:hidden;
 }
 .img-preview-75{
 width:75px;
@@ -1394,7 +1393,6 @@ overflow:hidden;
 .img-preview-75 img{
 width:75px;
 height:75px;
-overflow:hidden;
 }
 .img-preview-30{
 width:30px;
@@ -1404,5 +1402,4 @@ overflow:hidden;
 .img-preview-30 img{
 width:30px;
 height:30px;
-overflow:hidden;
 }

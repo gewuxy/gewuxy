@@ -40,7 +40,7 @@
 	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/headicon/default-headicon.png" alt="头像"/>
 	</s:if>
 	<s:if test="#session.user.image!=null">
-<<<<<<< HEAD
+
 	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/headicon/<s:property value='#session.user.image.path'/>" alt="头像"/>
 
 	</s:if>

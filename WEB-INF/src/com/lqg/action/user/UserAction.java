@@ -337,7 +337,7 @@ public String linkSn() throws Exception{
  */
 
 public String uploadPic() {  
-    String[] str = { ".jpg", ".jpeg", ".bmp", ".gif" };  
+    String[] str = { ".jpg", ".jpeg", ".png", ".gif" };  
     // 获取用户登录名  
    // TbUser curruser = (TbUser) getValue(SCOPE_SESSION, "curruser");  
     // 限定文件大小是4MB  
@@ -349,8 +349,18 @@ public String uploadPic() {
     }  
     for (String s : str) {  
         if (picFileName.endsWith(s)) {  
-            String realPath = ServletActionContext.getServletContext().getRealPath("/img");// 在tomcat中保存图片的实际路径  ==  "webRoot/img/" 
-            String fileName = StringUitl.getStringTime() + ".jpg";//×Ô¶šÒåÍŒÆ¬Ãû³Æ
+            String realPath = ServletActionContext.getServletContext().getRealPath("/img/headicon");// 在tomcat中保存图片的实际路径  ==  "webRoot/img/headicon"
+            String name="";
+            if(session.get("type").equals("student")){
+            	name+="student"+((Student) session.get("user")).getId();
+            }
+            if(session.get("type").equals("parent")){
+            	name+="parent"+((Parent) session.get("user")).getId();
+            }
+            if(session.get("type").equals("teacher")){
+            	name+="teacher"+((Teacher) session.get("user")).getId();
+            }
+            String fileName = name+ ".jpg";//×Ô¶šÒåÍŒÆ¬Ãû³Æ
             File saveFile = new File(new File(realPath), fileName); // 在该实际路径下实例化一个文件  
             // 判断父目录是否存在  
             if (!saveFile.getParentFile().exists()) {  
@@ -374,11 +384,11 @@ public String uploadPic() {
 }  
 //剪切图片
 public String cutPic(){  
-	    String hostPath = ServletActionContext.getServletContext().getRealPath("/img");// 在tomcat中保存图片的实际路径  ==  "webRoot/img/" 
+	    String hostPath = ServletActionContext.getServletContext().getRealPath("/img/headicon");// 在tomcat中保存图片的实际路径  ==  "webRoot/img/" 
         String name=hostPath+"/"+getCuttingImageName();
         image.setSrcpath(name);  
         int index=getCuttingImageName().lastIndexOf(".");
-        String nameCut=getCuttingImageName().substring(0,index)+"jianqie.jpg";
+        String nameCut=getCuttingImageName().substring(0,index)+"headicon.jpg";
         String cutImage=hostPath+"/"+nameCut;
         image.setSubpath(cutImage); 
         image.setX(getCuttingImageX());
@@ -521,6 +531,61 @@ public String saveProfile() throws Exception{
  * @throws Exception
  */
 public String modifyPassword() throws Exception{
+	String encrypt=Md5s.md5s(student.getPassword());
+	if(session.get("type").equals("student")){			
+		Student studentM=studentDao.load(((Student) session.get("user")).getId());
+		if(!(encrypt.equals(studentM.getPassword()))){
+			setErroMessage("原密码错误");
+			return USERPROFILE;
+		}
+		studentM.setPassword(Md5s.md5s(getRepassword()));
+		studentDao.update(studentM);//锟斤拷锟斤拷注锟斤拷锟斤拷息
+		Student studentprofile = studentDao.load(((Student) session.get("user")).getId());
+		session.remove("user");
+		session.put("user", studentprofile);//将学生放入user 的session
+		setErroMessage("修改成功");			
+		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
+	}
+	else if(session.get("type").equals("teacher")){			  
+			Teacher teacher=teacherDao.load(((Teacher) session.get("user")).getId());
+			if(!(encrypt.equals(teacher.getPassword()))){
+				setErroMessage("原密码错误");
+				return USERPROFILE;
+			}
+			teacher.setPassword(Md5s.md5s(getRepassword()));		
+			teacherDao.update(teacher);//锟斤拷锟斤拷注锟斤拷锟斤拷息
+			Teacher teacherprofile = teacherDao.load(((Teacher) session.get("user")).getId());
+			session.remove("user");
+			session.put("user", teacherprofile);//将学生放入user 的session
+			setErroMessage("修改成功");			
+			return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
+		}
+	else if (session.get("type").equals("parent")){			
+		Parent parent=parentDao.load(((Parent) session.get("user")).getId());
+		if(!(encrypt.equals(parent.getPassword()))){
+			setErroMessage("原密码错误");
+			return USERPROFILE;
+		}
+		parent.setPassword(Md5s.md5s(getRepassword()));		
+		parentDao.update(parent);//锟斤拷锟斤拷注锟斤拷锟斤拷息
+		Parent parentprofile = parentDao.load(((Parent) session.get("user")).getId());
+		session.remove("user");
+		session.put("user", parentprofile);//将学生放入user 的session
+		setErroMessage("修改成功");			
+		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
+		}
+	else {
+		setErroMessage("没有修改");
+		return USERPROFILE;
+	}
+
+}
+/**
+ * 个人密码修改
+ * @return
+ * @throws Exception
+ */
+public String active() throws Exception{
 	String encrypt=Md5s.md5s(student.getPassword());
 	if(session.get("type").equals("student")){			
 		Student studentM=studentDao.load(((Student) session.get("user")).getId());

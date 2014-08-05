@@ -348,17 +348,17 @@ public String uploadPic() {
         return "imageLimited";  
     }  
     for (String s : str) {  
-        if (picFileName.endsWith(s)) {  
+        if (picFileName.endsWith(s)) { 
             String realPath = ServletActionContext.getServletContext().getRealPath("/img/headicon");// 在tomcat中保存图片的实际路径  ==  "webRoot/img/headicon"
             String name="";
             if(session.get("type").equals("student")){
-            	name+="student"+((Student) session.get("user")).getId();
+            	name=name+"student"+((Student) session.get("user")).getId();
             }
             if(session.get("type").equals("parent")){
-            	name+="parent"+((Parent) session.get("user")).getId();
+            	name=name+"parent"+((Parent) session.get("user")).getId();
             }
             if(session.get("type").equals("teacher")){
-            	name+="teacher"+((Teacher) session.get("user")).getId();
+            	name=name+"teacher"+((Teacher) session.get("user")).getId();
             }
             String fileName = name+ ".jpg";//
             File saveFile = new File(new File(realPath), fileName); // 在该实际路径下实例化一个文件  

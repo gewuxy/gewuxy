@@ -360,7 +360,7 @@ public String uploadPic() {
             if(session.get("type").equals("teacher")){
             	name+="teacher"+((Teacher) session.get("user")).getId();
             }
-            String fileName = name+ ".jpg";//×Ô¶šÒåÍŒÆ¬Ãû³Æ
+            String fileName = name+ ".jpg";//
             File saveFile = new File(new File(realPath), fileName); // 在该实际路径下实例化一个文件  
             // 判断父目录是否存在  
             if (!saveFile.getParentFile().exists()) {  

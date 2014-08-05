@@ -40,23 +40,25 @@
 	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/headicon/default-headicon.png" alt="头像"/>
 	</s:if>
 	<s:if test="#session.user.image!=null">
+<<<<<<< HEAD
 	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/headicon/<s:property value='#session.user.image.path'/>" alt="头像"/>
+=======
+	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/<s:property value='#session.user.image.path'/>" alt="头像"/>
+>>>>>>> 1e09ec0561842677e1e8a5b67f7dab5377fd0b84
 	</s:if>
-
 	<span class="headicon-edit-tip">修改头像</span>	
-
 	</div>
   </div>
   <div class="form-group">
 	<label for="nickname" class="col-sm-2 control-label">昵称</label>
 	<div class="col-sm-6">
-	  <input type="text" autocomplete="on" id="nickname" class="form-control" value="<s:property value="#session.user.nickname"/>">
+	  <input type="text" autocomplete="on" id="nickname" class="form-control" value="<s:property value='#session.user.nickname'/>" />
 	</div>
   </div>
   <div class="form-group">
     <label for="realname" class="col-sm-2 control-label">姓名</label>
 	<div class="col-sm-6">
-	  <input type="text" autocomplete="on" id="realname" class="form-control" value="<s:property value="#session.user.username"/>">
+	  <input type="text" autocomplete="on" id="realname" class="form-control" value="<s:property value='#session.user.username'/>" />
 	</div>
   </div>
   <div class="form-group">
@@ -82,25 +84,25 @@
   <div class="form-group">
     <label for="birthday" class="col-sm-2 control-label">生日</label>
 	<div class="col-sm-6">
-	  <input type="date" id="birthday" class="form-control" value="<s:property value="#session.user.birthday"/>">
+	  <input type="date" id="birthday" class="form-control" value="<s:property value='#session.user.birthday'/>" />
 	</div>
   </div>
   <div class="form-group">
     <label for="school" class="col-sm-2 control-label">学校</label>
 	<div class="col-sm-6">
-	  <input type="text" id="school" class="form-control" value="<s:property value="#session.user.school"/>">
+	  <input type="text" id="school" class="form-control" value="<s:property value='#session.user.school'/>" />
 	</div>
   </div>
   <div class="form-group">
     <label for="advantage" class="col-sm-2 control-label">擅长科目</label>
 	<div class="col-sm-6">
-	  <input type="text" id="advantage" class="form-control" value="<s:property value="#session.user.aptcourses"/>">
+	  <input type="text" id="advantage" class="form-control" value="<s:property value='#session.user.aptcourses'/>" />
 	</div>
   </div>
   <div class="form-group">
     <label for="bio" class="col-sm-2 control-label">一句话介绍</label>
 	<div class="col-sm-6">
-	  <input type="text" id="bio" class="form-control" value="<s:property value="#session.user.introduction"/>">
+	  <input type="text" id="bio" class="form-control" value="<s:property value='#session.user.introduction'/>" />
 	</div>
   </div>
   <div class="form-group">
@@ -115,34 +117,42 @@
       <%@include file="/WEB-INF/pages/common/footer.jsp"%>
 	</div>
   </div>
-
-  <div id="upload-picture" role="dialog" class="modal" >
+  <div id="upload-picture" role="dialog" class="modal" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" >
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <h4 class="modal-title">设置头像</h4>
+          <h4 class="modal-title" id="myModalLabel">设置头像</h4>
         </div>
-		<div class="modal-body">          
-
-		  
-
+		<div class="modal-body"> 
+			<div class="upload-btn-container">
+		    <input type="button" class="btn btn-primary upload-btn" value="本地上传" />
+            <input id="uploadfile" type="file" name="pic" accept="image/gif,image/png,image/jpeg,image/jpg" />
+		  </div>
+		  <span id="loading" style="display:none;float:left">
+			  <img src="<%=request.getContextPath()%>/img/loading.gif" style="width:30px;height:30px;"/>
+			  <span>上传中...</span>
+		  </span>
 			<form> 
-			  <input type="hidden"  id="cuttingImage" value="<s:property value="#session.user.image.path"/>"/>        
+			  <input type="hidden"  id="cuttingImage" value="<s:property value='#session.user.image.path'/>"/>        
 			  <input type="hidden"  id="x"/>  
 			  <input type="hidden"  id="y"/>  
 			  <input type="hidden"   id="width"/>  
 			  <input type="hidden"  id="height"/>  
 			</form> 
-	   <input id="uploadfile" type="file" name="pic" accept="image/gif,image/bmp,image/jpeg,image/jpg" />		      
-			<div id="loading" style="display:none;">
-			  <img src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/>
+			<div class="clearfix"></div>
+            <div class="row img-upload-tip">
+			  仅支持JPG, GIF, PNG格式，文件小于5M。
 			</div>
+<<<<<<< HEAD
             <div class="row ">	   
 				<div class="clearfix"></div><label class="btn-choose-file">选择照片
                               仅支持JPG, GIF, JPEG, PNG格式，文件小于5M。
   	   </div>
             <div class="row">
+=======
+            <div class="img-cut-preivew-container">
+>>>>>>> 1e09ec0561842677e1e8a5b67f7dab5377fd0b84
 			  <div id="target" class="selected-img-src">
 				<s:if test="#session.user.image==null">
 				  <img id="targetpic" src="<%=request.getContextPath()%>/img/joinus.png"/>
@@ -153,6 +163,7 @@
 
               </div>
 			  <div id="preview" class="img-cut-preview">
+			    <div>预览</div>
 				<div class="img-preview-100">
 				  <s:if test="#session.user.image==null">
 				    <img id="previewpic" src="<%=request.getContextPath()%>/img/joinus.png"/>
@@ -160,7 +171,7 @@
 				  <s:if test="#session.user.image!=null">
 					<img id="previewpic" src="<%=request.getContextPath()%>/img/headicon/<s:property value='#session.user.image.path'/>" />
 				  </s:if>
-                </div>100x100像素
+                </div>
                 <div class="img-preview-75">
 				  <s:if test="#session.user.image==null">
 				    <img id="previewpic1" src="<%=request.getContextPath()%>/img/joinus.png"/>
@@ -168,7 +179,7 @@
 				  <s:if test="#session.user.image!=null">
 					<img id="previewpic1" src="<%=request.getContextPath()%>/img/headicon/<s:property value='#session.user.image.path'/>"/>
 				  </s:if>
-                </div>75x75像素
+                </div>
                 <div class="img-preview-30">
 				    <s:if test="#session.user.image==null">
 					  <img id="previewpic2" src="<%=request.getContextPath()%>/img/joinus.png"/>
@@ -176,8 +187,9 @@
 				    <s:if test="#session.user.image!=null">
 					  <img id="previewpic2" src="<%=request.getContextPath()%>/img/headicon/<s:property value='#session.user.image.path'/>"/>
 				    </s:if>
-                </div>30x30像素
+                </div>
 			  </div>
+			  <div class="clearfix"></div>
             </div>
 		  </div>
 		  <div class="modal-footer">
@@ -195,7 +207,7 @@
      
  $(document).ready(function () {
 //头像修改退出modal对话框
-$("#myCutImage").click(function(){
+$(".headicon-container").click(function(){
 				$("#upload-picture").modal();
 				//$("#headicon-upload").trigger("click");
 			});

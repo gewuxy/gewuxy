@@ -121,13 +121,20 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <h4 class="modal-title">设置自己的头像</h4>
+          <h4 class="modal-title">设置头像</h4>
         </div>
 		<div class="modal-body">
+
             <input id="uploadfile" type="file" name="pic" accept="image/gif,image/bmp,image/jpeg,image/jpg" />		      
 			<div id="loading" style="display:none;">
 			  <img src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/>
 			</div>
+
+		  <span id="loading" style="display:none;float:left">
+			  <img src="<%=request.getContextPath()%>/img/loading.gif" style="width:30px;height:30px;"/>
+			  <span>上传中...</span>
+		  </span>
+
 			<form> 
 			  <input type="hidden"  id="cuttingImage" value="<s:property value="#session.user.image.path"/>"/>        
 			  <input type="hidden"  id="x"/>  
@@ -135,10 +142,10 @@
 			  <input type="hidden"   id="width"/>  
 			  <input type="hidden"  id="height"/>  
 			</form> 
-            <div class="row">
-			    <span class="upload-tip">仅支持JPG, GIF, BMP格式，文件小于5M。</span> 
-				
-			</div>
+            <div class="row img-upload-tip">	   
+				<div class="clearfix"></div>
+                              仅支持JPG, GIF, BMP格式，文件小于5M。
+  	   </div>
             <div class="row">
 			  <div id="target" class="selected-img-src">
 				<s:if test="#session.user.image==null">
@@ -368,6 +375,7 @@ $("#cutLoad").live("click",function(){
 		 jcrop_api = this; 
            });*/
 
+
      $("#targetpic").Jcrop({
 	onChange: updatePreview,  
 	 onSelect: updatePreview,  
@@ -413,6 +421,7 @@ $("#cutLoad").live("click",function(){
           };  
    
   
+
 //保存个人信息
 $("#profileSave").click(function(){
 			   var params = {

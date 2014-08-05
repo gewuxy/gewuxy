@@ -43,7 +43,7 @@
 	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/<s:property value='#session.user.image.path'/>" alt="头像"/>
 	</s:if>
 	<span class="headicon-edit-tip">修改头像</span>
-	<input type="file" id="headicon-upload" accept="image/gif,image/png,image/jpeg,image/jpg" value="">
+	<input type="file" id="headicon-upload" name="pic" accept="image/gif,image/png,image/jpeg,image/jpg" value="">
 	</div>
   </div>
   <div class="form-group">
@@ -299,9 +299,6 @@ $(".headicon-container").click(function(){
 			});
 $("#headicon-upload").change(function(){
   var filename=$("#headicon-upload").val();
-  var suffixs=new Array(".jpg", ".jpeg", ".png", ".gif");
-  //截取上传文件格式
-  var fileType=filename.substring(filename.lastIndexOf('.'));
   var	uploadUrl="../user/user_uploadPic.html?picFileName="+filename;
   //starting setting some animation when the ajax starts and completes
 	/*$("#loading").ajaxStart(function(){
@@ -327,9 +324,9 @@ $("#headicon-upload").change(function(){
 					  alert("文件上传失败!");
 					  return false;
 						}
-						$("#upload-picture").modal();
-					  if(data.imageMessage==messageSuc) {
 						
+					  if(data.imageMessage==messageSuc) {
+						$("#upload-picture").modal();
 						}			 
 					
 				      },

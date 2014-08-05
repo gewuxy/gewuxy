@@ -113,82 +113,77 @@
       <%@include file="/WEB-INF/pages/common/footer.jsp"%>
 	</div>
   </div>
-<div id="upload-picture" role="dialog" class="modal" >
-                <div class="modal-dialog" >
-                  <div class="modal-content">
-                    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title">设置自己的头像</h4>
-      </div>
-					<div class="modal-body" >
-                      
-                        <div class="row btns">
-                          <div class="col-xs-8">
-                              <input id="uploadfile" type="file" name="pic" accept="image/gif,image/png,image/jpeg,image/jpg">			      
-                          </div>
-			 <div id="loading" style="display:none;"><img src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/></div>
-                          <div class="col-xs-4">
-			    <form> 
-			    <input type="hidden"  id="cuttingImage"/>       
-			    <input type="hidden"  id="x"/>  
-			    <input type="hidden"  id="y"/>  
-			    <input type="hidden"   id="width"/>  
-			    <input type="hidden"  id="height"/>  
-			    
-			   </form> 
-			    
-                            
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-xs-12"><span class="upload-tip">仅支持JPG, GIF, PNG格式，文件小于5M。</span> <input type="button" value="上传" id="sub_upload" ></div>
-			 
-                        </div>
-                        <div class="row">
-			
-                          <div  id="target"  style="width:300px;height:300px;overflow:hidden; border:1px solid gray;display:inline;">
-<s:if test="#session.user.image==null"><img id="targetpic" src="<%=request.getContextPath()%>/img/joinus.png" style="width:300px;height:300px;"/>
-	</s:if>
-<s:if test="#session.user.image!=null">
-                            <img id="targetpic" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:300px;height:300px;" /></s:if>
-                           
-                          </div>
-			
-                          <div id="preview"  style="width:300px;height:300px;overflow:hidden;margin-left:320px;margin-top:-300px">
-			 
-                            <div style="width:150px;height:150px;">
-<s:if test="#session.user.image==null"><img id="previewpic" src="<%=request.getContextPath()%>/img/joinus.png" style="width:150px;height:150px;" />
-	</s:if>
-<s:if test="#session.user.image!=null">
-<img id="previewpic" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:150px;height:150px;"/></s:if>
-                            </div>150x150像素
-                         
-                          <div style="width:100px;height:150px;margin-left:170px;display:block;margin-top:-170px">
-                            <div style="width:75px;height:75px;">
-<s:if test="#session.user.image==null"><img id="previewpic1" src="<%=request.getContextPath()%>/img/joinus.png" style="width:75px;height:75px;" />
-	</s:if>
-<s:if test="#session.user.image!=null">
-<img id="previewpic1" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:75px;height:75px;"/></s:if>
-                            </div>75x75像素
-                            <div style="width:50px;height:50px;">
-<s:if test="#session.user.image==null"><img id="previewpic2" src="<%=request.getContextPath()%>/img/joinus.png" style="width:50px;height:50px;" />
-	</s:if>
-<s:if test="#session.user.image!=null">
-<img id="previewpic2" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:50px;height:50px;"/></s:if>
-                            </div>50x50像素
-			     </div>
-			    </div>
-                         
-                        </div>
-                     
-                    </div>
-					<div class="modal-footer">
-        <button type="button" id="cutPicCancel" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary" id="cutLoad">确定</button>
-      </div>
-                  </div>
-                </div>
+  <div id="upload-picture" role="dialog" class="modal" >
+    <div class="modal-dialog" >
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title">设置自己的头像</h4>
+        </div>
+		<div class="modal-body">
+            <input id="uploadfile" type="file" name="pic" accept="image/gif,image/png,image/jpeg,image/jpg" />		      
+			<div id="loading" style="display:none;">
+			  <img src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/>
+			</div>
+			<form> 
+			  <input type="hidden"  id="cuttingImage"/>       
+			  <input type="hidden"  id="x"/>  
+			  <input type="hidden"  id="y"/>  
+			  <input type="hidden"   id="width"/>  
+			  <input type="hidden"  id="height"/>  
+			</form> 
+            <div class="row">
+              <div class="col-xs-12">
+			    <span class="upload-tip">仅支持JPG, GIF, PNG格式，文件小于5M。</span> 
+				<input type="button"  class="btn btn-default" value="上传" id="sub_upload" />
+			  </div>
+			</div>
+            <div class="row">
+			  <div id="target"  style="width:300px;height:300px;overflow:hidden; border:1px solid gray;display:inline;">
+				<s:if test="#session.user.image==null">
+				  <img id="targetpic" src="<%=request.getContextPath()%>/img/joinus.png" style="width:300px;height:300px;"/>
+				</s:if>
+				<s:if test="#session.user.image!=null">
+                  <img id="targetpic" src="<%=request.getContextPath()%>/img/<s:property value='#session.user.image.path'/>" style="width:300px;height:300px;" />
+				</s:if>
               </div>
+			  <div id="preview"  style="width:300px;height:300px;overflow:hidden;margin-left:320px;margin-top:-300px">
+				<div style="width:150px;height:150px;">
+				  <s:if test="#session.user.image==null">
+				    <img id="previewpic" src="<%=request.getContextPath()%>/img/joinus.png" style="width:150px;height:150px;" />
+				  </s:if>
+				  <s:if test="#session.user.image!=null">
+					<img id="previewpic" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:150px;height:150px;"/>
+				  </s:if>
+                </div>150x150像素
+                <div style="width:100px;height:150px;margin-left:170px;display:block;margin-top:-170px">
+                  <div style="width:75px;height:75px;">
+				  <s:if test="#session.user.image==null">
+				    <img id="previewpic1" src="<%=request.getContextPath()%>/img/joinus.png" style="width:75px;height:75px;" />
+				  </s:if>
+				  <s:if test="#session.user.image!=null">
+					<img id="previewpic1" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:75px;height:75px;"/>
+				  </s:if>
+                  </div>75x75像素
+                  <div style="width:50px;height:50px;">
+				    <s:if test="#session.user.image==null">
+					  <img id="previewpic2" src="<%=request.getContextPath()%>/img/joinus.png" style="width:50px;height:50px;" />
+				    </s:if>
+				    <s:if test="#session.user.image!=null">
+					  <img id="previewpic2" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:50px;height:50px;"/>
+				    </s:if>
+                  </div>50x50像素
+			    </div>
+			  </div>
+            </div>
+          </div>
+		  <div class="modal-footer">
+			<button type="button" id="cutPicCancel" class="btn btn-default" data-dismiss="modal">取消</button>
+			<button type="button" class="btn btn-primary" id="cutLoad">确定</button>
+		  </div>
+         </div>
+      </div>
+    </div>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/ajaxfileupload.js"></script>  
 <script src="<%=request.getContextPath()%>/js/jquery.Jcrop.js" type="text/javascript"></script>    
 <script src="<%=request.getContextPath()%>/js/jquery-ui-1.10.3.full.min.js" type="text/javascript"></script>    

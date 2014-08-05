@@ -133,50 +133,46 @@
 			  <input type="hidden"  id="height"/>  
 			</form> 
             <div class="row">
-              <div class="col-xs-12">
 			    <span class="upload-tip">仅支持JPG, GIF, PNG格式，文件小于5M。</span> 
-				<input type="button"  class="btn btn-default" value="上传" id="sub_upload" />
-			  </div>
+				<input type="button"  class="btn btn-default" value="上传" id="sub_upload"/>
 			</div>
             <div class="row">
-			  <div id="target"  style="width:300px;height:300px;overflow:hidden; border:1px solid gray;display:inline;">
+			  <div id="target" class="selected-img-src">
 				<s:if test="#session.user.image==null">
-				  <img id="targetpic" src="<%=request.getContextPath()%>/img/joinus.png" style="width:300px;height:300px;"/>
+				  <img id="targetpic" src="<%=request.getContextPath()%>/img/joinus.png"/>
 				</s:if>
 				<s:if test="#session.user.image!=null">
-                  <img id="targetpic" src="<%=request.getContextPath()%>/img/<s:property value='#session.user.image.path'/>" style="width:300px;height:300px;" />
+                  <img id="targetpic" src="<%=request.getContextPath()%>/img/<s:property value='#session.user.image.path'/>" />
 				</s:if>
               </div>
-			  <div id="preview"  style="width:300px;height:300px;overflow:hidden;margin-left:320px;margin-top:-300px">
-				<div style="width:150px;height:150px;">
+			  <div id="preview" class="img-cut-preview">
+				<div class="img-preview-100">
 				  <s:if test="#session.user.image==null">
-				    <img id="previewpic" src="<%=request.getContextPath()%>/img/joinus.png" style="width:150px;height:150px;" />
+				    <img id="previewpic" src="<%=request.getContextPath()%>/img/joinus.png"/>
 				  </s:if>
 				  <s:if test="#session.user.image!=null">
-					<img id="previewpic" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:150px;height:150px;"/>
+					<img id="previewpic" src="<%=request.getContextPath()%>/img/<s:property value='#session.user.image.path'/>" />
 				  </s:if>
-                </div>150x150像素
-                <div style="width:100px;height:150px;margin-left:170px;display:block;margin-top:-170px">
-                  <div style="width:75px;height:75px;">
+                </div>100x100像素
+                <div class="img-preview-75">
 				  <s:if test="#session.user.image==null">
-				    <img id="previewpic1" src="<%=request.getContextPath()%>/img/joinus.png" style="width:75px;height:75px;" />
+				    <img id="previewpic1" src="<%=request.getContextPath()%>/img/joinus.png"/>
 				  </s:if>
 				  <s:if test="#session.user.image!=null">
-					<img id="previewpic1" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:75px;height:75px;"/>
+					<img id="previewpic1" src="<%=request.getContextPath()%>/img/<s:property value='#session.user.image.path'/>"/>
 				  </s:if>
-                  </div>75x75像素
-                  <div style="width:50px;height:50px;">
+                </div>75x75像素
+                <div class="img-preview-30">
 				    <s:if test="#session.user.image==null">
-					  <img id="previewpic2" src="<%=request.getContextPath()%>/img/joinus.png" style="width:50px;height:50px;" />
+					  <img id="previewpic2" src="<%=request.getContextPath()%>/img/joinus.png"/>
 				    </s:if>
 				    <s:if test="#session.user.image!=null">
-					  <img id="previewpic2" src="<%=request.getContextPath()%>/img/<s:property value="#session.user.image.path"/>" style="width:50px;height:50px;"/>
+					  <img id="previewpic2" src="<%=request.getContextPath()%>/img/<s:property value='#session.user.image.path'/>"/>
 				    </s:if>
-                  </div>50x50像素
-			    </div>
+                </div>30x30像素
 			  </div>
             </div>
-          </div>
+		  </div>
 		  <div class="modal-footer">
 			<button type="button" id="cutPicCancel" class="btn btn-default" data-dismiss="modal">取消</button>
 			<button type="button" class="btn btn-primary" id="cutLoad">确定</button>

@@ -1349,3 +1349,57 @@ background-color:#66CC99;
 .subject ul{
 list-style-type:none;
 }
+.img-block{
+margin:0 auto;
+width:100%;
+}
+.selected-img-src{
+width:300px;
+height:300px;
+overflow:hidden;
+margin-right:20px;
+margin-top:50px;
+padding-right:30px;
+border:1px solid #ccc;
+display:inline;
+float:left;
+}
+.selected-img-src img{
+width:300px;
+height:300px;
+overflow:hidden;
+}
+.img-cut-preview{
+float:left;
+width:150px;
+overflow:hidden;
+margin-left:25px;
+padding-top:50px;
+}
+.img-preview-100{
+width:100px;
+height:100px;
+}
+.img-preview-100 img{
+width:100px;
+height:100px;
+overflow:hidden;
+}
+.img-preview-75{
+width:75px;
+height:75px;
+}
+.img-preview-75 img{
+width:75px;
+height:75px;
+overflow:hidden;
+}
+.img-preview-30{
+width:30px;
+height:30px;
+}
+.img-preview-30 img{
+width:30px;
+height:30px;
+overflow:hidden;
+}

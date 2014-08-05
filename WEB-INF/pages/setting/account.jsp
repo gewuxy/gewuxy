@@ -246,12 +246,12 @@ $("#uploadfile").live("change",function(){
 					  if(data.imageMessage==messageSuc) {
 						var hostname='<%=request.getContextPath()%>';
 						var pathPic=hostname+"/img/"+data.uploadFile.path;
-						$("#previewpic").attr("src",pathPic);	
-						$("#previewpic1").attr("src",pathPic);
-						$("#previewpic2").attr("src",pathPic);
 						//api.destroy();							
 						var api = $.Jcrop("#targetpic"); 
 						api.destroy(); //设置为禁用裁剪效果 
+						$("#previewpic").attr("src",pathPic);	
+						$("#previewpic1").attr("src",pathPic);
+						$("#previewpic2").attr("src",pathPic);
 						$("#targetpic").attr("src",pathPic);	
 												
 						$("#targetpic").Jcrop({  
@@ -317,12 +317,12 @@ $("#cutLoad").live("click",function(){
 				success:function(data){ 				 	
 					        var hostname='<%=request.getContextPath()%>';
 						var pathPic=hostname+"/img/"+data.uploadFile.path;
-						$("#previewpic1").attr("src",pathPic);	
-						$("#previewpic2").attr("src",pathPic);
-						$("#previewpic").attr("src",pathPic);
 						//api.destroy();
 					        var api = $.Jcrop("#targetpic"); 
 						api.destroy(); //设置为禁用裁剪效果 
+						$("#previewpic1").attr("src",pathPic);	
+						$("#previewpic2").attr("src",pathPic);
+						$("#previewpic").attr("src",pathPic);
 						$("#targetpic").attr("src",pathPic);						
 						$("#targetpic").Jcrop({  
 						    onChange: updatePreview,  
@@ -367,6 +367,7 @@ $("#cutLoad").live("click",function(){
 		 // Store the API in the jcrop_api variable  
 		 jcrop_api = this; 
            });*/
+
      $("#targetpic").Jcrop({
 	onChange: updatePreview,  
 	 onSelect: updatePreview,  
@@ -411,7 +412,7 @@ $("#cutLoad").live("click",function(){
             }  
           };  
    
-
+  
 //保存个人信息
 $("#profileSave").click(function(){
 			   var params = {

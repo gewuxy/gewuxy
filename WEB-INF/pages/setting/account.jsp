@@ -118,10 +118,13 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <h4 class="modal-title">设置自己的头像</h4>
+          <h4 class="modal-title">设置头像</h4>
         </div>
 		<div class="modal-body">
-            <input id="uploadfile" type="file" name="pic" accept="image/gif,image/png,image/jpeg,image/jpg" />		      
+		  <div class="upload-btn-container">
+		    <input type="button" class="btn btn-primary upload-btn" value="本地上传" />
+            <input id="uploadfile" type="file" name="pic" accept="image/gif,image/png,image/jpeg,image/jpg" />
+		  </div>
 			<div id="loading" style="display:none;">
 			  <img src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/>
 			</div>

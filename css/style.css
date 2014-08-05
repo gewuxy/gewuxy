@@ -924,7 +924,6 @@ height:100px;
 border-radius: 4px;
 box-shadow: 0 0 5px rgba(0,0,0,.3) inset;
 margin-left:2%;
-cursor:pointer;
 }
 .headicon{
 width:100px;
@@ -934,11 +933,16 @@ border:0 none;
 }
 .headicon-edit-tip{
 display:none;
+}
+#headicon-upload{
+opacity: 0;
+-ms-filter: 'alpha(opacity=0)';
+}
+.headicon-edit-tip,#headicon-upload{
 margin-left:2%;
 width:99%;
-background: #000;
+background: #333;
 text-align: center;
-text-indent: 0;
 color: #fff;
 height: 25px;
 line-height: 25px;

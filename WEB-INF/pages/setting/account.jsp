@@ -43,6 +43,7 @@
 	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/<s:property value='#session.user.image.path'/>" alt="头像"/>
 	</s:if>
 	<span class="headicon-edit-tip">修改头像</span>
+	<input type="file" id="headicon-upload" accept="image/gif,image/png,image/jpeg,image/jpg" value="">
 	</div>
   </div>
   <div class="form-group">
@@ -291,13 +292,55 @@ $("#cutLoad").click(function(){
 $("#cutPicCancel").click(function(){
 			$("#upload-picture").modal('hide');
 });
-//modal对话框出现
-$("#myImage").click(function(){
-				$("#upload-picture").modal();
+
+$(".headicon-container").click(function(){
+				//$("#upload-picture").modal();
+				$("#headicon-upload").trigger("click");
 			});
+$("#headicon-upload").change(function(){
+  var filename=$("#headicon-upload").val();
+  var suffixs=new Array(".jpg", ".jpeg", ".png", ".gif");
+  //截取上传文件格式
+  var fileType=filename.substring(filename.lastIndexOf('.'));
+  var	uploadUrl="../user/user_uploadPic.html?picFileName="+filename;
+  //starting setting some animation when the ajax starts and completes
+	/*$("#loading").ajaxStart(function(){
+		$(this).show();
+				}).ajaxComplete(function(){
+					$(this).hide();
+				});*/
+  $.ajaxFileUpload({
+				      url:uploadUrl,
+				      secureuri:false,
+				      fileElementId:"headicon-upload",
+				      dataType:'json',
+				      success:function(data,status){ 
+					   var messageBig="文件过大";
+					   var messageFai="文件上传失败";
+					   var messageSuc="文件上传成功";
+						
+					   if(data.imageMessage==messageBig){
+					  alert("文件过大");
+					  return false;
+						}
+					   if(data.imageMessage==messageFai){
+					  alert("文件上传失败!");
+					  return false;
+						}
+						$("#upload-picture").modal();
+					  if(data.imageMessage==messageSuc) {
+						
+						}			 
+					
+				      },
+				      error:function(){
+					alert("异步失败");
+				      }
+				    });
+});
 //上传相片
 $("#sub_upload").click(function(){	
-				var filename=$("#uploadfile").val();//待上传的文件，如“/www/data/index.php”等
+				var filename=$("#uploadfile").val();
 				//判断上传文件格式
 				  var suffixs=new Array(".jpg", ".jpeg", ".bmp", ".gif");
 				  //截取上传文件格式

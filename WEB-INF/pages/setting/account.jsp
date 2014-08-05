@@ -40,7 +40,7 @@
 	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/default-headicon.png" alt="头像"/>
 	</s:if>
 	<s:if test="#session.user.image!=null">
-	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/<s:property value'"#session.user.image.path'/>" alt="头像"/>
+	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/<s:property value='#session.user.image.path'/>" alt="头像"/>
 	</s:if>
 	<span class="headicon-edit-tip">修改头像</span>	
 	</div>
@@ -48,13 +48,13 @@
   <div class="form-group">
 	<label for="nickname" class="col-sm-2 control-label">昵称</label>
 	<div class="col-sm-6">
-	  <input type="text" autocomplete="on" id="nickname" class="form-control" value="<s:property value="#session.user.nickname"/>">
+	  <input type="text" autocomplete="on" id="nickname" class="form-control" value="<s:property value='#session.user.nickname'/>" />
 	</div>
   </div>
   <div class="form-group">
     <label for="realname" class="col-sm-2 control-label">姓名</label>
 	<div class="col-sm-6">
-	  <input type="text" autocomplete="on" id="realname" class="form-control" value="<s:property value="#session.user.username"/>">
+	  <input type="text" autocomplete="on" id="realname" class="form-control" value="<s:property value='#session.user.username'/>" />
 	</div>
   </div>
   <div class="form-group">
@@ -80,25 +80,25 @@
   <div class="form-group">
     <label for="birthday" class="col-sm-2 control-label">生日</label>
 	<div class="col-sm-6">
-	  <input type="date" id="birthday" class="form-control" value="<s:property value="#session.user.birthday"/>">
+	  <input type="date" id="birthday" class="form-control" value="<s:property value='#session.user.birthday'/>" />
 	</div>
   </div>
   <div class="form-group">
     <label for="school" class="col-sm-2 control-label">学校</label>
 	<div class="col-sm-6">
-	  <input type="text" id="school" class="form-control" value="<s:property value="#session.user.school"/>">
+	  <input type="text" id="school" class="form-control" value="<s:property value='#session.user.school'/>" />
 	</div>
   </div>
   <div class="form-group">
     <label for="advantage" class="col-sm-2 control-label">擅长科目</label>
 	<div class="col-sm-6">
-	  <input type="text" id="advantage" class="form-control" value="<s:property value="#session.user.aptcourses"/>">
+	  <input type="text" id="advantage" class="form-control" value="<s:property value='#session.user.aptcourses'/>" />
 	</div>
   </div>
   <div class="form-group">
     <label for="bio" class="col-sm-2 control-label">一句话介绍</label>
 	<div class="col-sm-6">
-	  <input type="text" id="bio" class="form-control" value="<s:property value="#session.user.introduction"/>">
+	  <input type="text" id="bio" class="form-control" value="<s:property value='#session.user.introduction'/>" />
 	</div>
   </div>
   <div class="form-group">

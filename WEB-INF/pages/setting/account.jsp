@@ -132,9 +132,8 @@
 			  <input type="hidden"   id="width"/>  
 			  <input type="hidden"  id="height"/>  
 			</form> 
-            <div class="row">
-			    <span class="upload-tip">仅支持JPG, GIF, PNG格式，文件小于5M。</span> 
-				<input type="button"  class="btn btn-default" value="上传" id="sub_upload"/>
+            <div class="row img-upload-tip">
+			  仅支持JPG, GIF, PNG格式，文件小于5M。
 			</div>
             <div class="row">
 			  <div id="target" class="selected-img-src">
@@ -290,24 +289,9 @@ $("#cutPicCancel").click(function(){
 $(".headicon-container").click(function(){
 				$("#upload-picture").modal();
 			});
-//上传相片
-$("#sub_upload").click(function(){	
-				var filename=$("#uploadfile").val();
-				//判断上传文件格式
-				  var suffixs=new Array(".jpg", ".jpeg", ".bmp", ".gif");
-				  //截取上传文件格式
-				  var fileType=filename.substring(filename.lastIndexOf('.'));	
-				if(filename==""){
-				  alert("请选择需要上传的图片");
-				  return false;
-				}else{
-				 
-				  //截取上传文件格式
-				   if($.inArray(fileType,suffixs)<=-1){
-				    alert("图片格式错误");
-				    return false;
-				  }else{
-				    var	uploadUrl="../user/user_uploadPic.html?picFileName="+filename;
+$("#uploadfile").change(function(){
+  var filename=$("#uploadfile").val();
+				var	uploadUrl="../user/user_uploadPic.html?picFileName="+filename;
 				  //starting setting some animation when the ajax starts and completes
 				$("#loading").ajaxStart(function(){
 					$(this).show();
@@ -348,10 +332,8 @@ $("#sub_upload").click(function(){
 				      error:function(){
 					alert("异步失败");
 				      }
-				    });
-				  }
-				}
-      			});
+					  });
+});
 //保存个人信息
 $("#profileSave").click(function(){
 			   var params = {

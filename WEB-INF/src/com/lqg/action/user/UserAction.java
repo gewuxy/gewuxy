@@ -750,11 +750,11 @@ public String sendPasswordFindLink() throws Exception{
    	message.setMsg("欢迎"+studentFind.getUsername()+"找回密码，您的新密码为"+newpassword+"请点击下面的链接进行密码新密码重置才有效，或者复制链接在网页上打开，同时记得要及时修改密码"+"\n"+activeLink);
    	if(emailUtil==null){
    		setErroMessage("emailUtil为空的");
-   		return REGISTERERROR;
+   		return USERPROFILE;
    	}
     emailUtil.doSend(message);					
 	setErroMessage("我们已经发送找回密码链接到您的邮箱里，请登录邮箱激活新密码");
-	return LOGONERROR;
+	return USERPROFILE;
 	}
 	else if(parentFind!=null){
 		Random rd = new Random(); //创建随机对象
@@ -780,11 +780,11 @@ public String sendPasswordFindLink() throws Exception{
    	message.setMsg("欢迎"+parentFind.getUsername()+"找回密码，您的新密码为"+newpassword+"请点击下面的链接进行密码新密码重置才有效，或者复制链接在网页上打开，同时记得要及时修改密码"+"\n"+activeLink);
    	if(emailUtil==null){
    		setErroMessage("emailUtil为空的");
-   		return REGISTERERROR;
+   		return USERPROFILE;
    	}
     emailUtil.doSend(message);					
 	setErroMessage("我们已经发送找回密码链接到您的邮箱里，请登录邮箱激活新密码");
-	return LOGONERROR;
+	return USERPROFILE;
 	}
 	else if(teacherFind!=null){
 		Random rd = new Random(); //创建随机对象
@@ -810,11 +810,11 @@ public String sendPasswordFindLink() throws Exception{
    	message.setMsg("欢迎"+teacherFind.getUsername()+"找回密码，您的新密码为"+newpassword+"请点击下面的链接进行密码新密码重置才有效，或者复制链接在网页上打开，同时记得要及时修改密码"+"\n"+activeLink);
    	if(emailUtil==null){
    		setErroMessage("emailUtil为空的");
-   		return REGISTERERROR;
+   		return USERPROFILE;
    	}
     emailUtil.doSend(message);					
 	setErroMessage("我们已经发送找回密码链接到您的邮箱里，请登录邮箱激活新密码");
-	return LOGONERROR;
+	return USERPROFILE;
 	}
 	else {
 		setErroMessage("此邮箱还没有注册");

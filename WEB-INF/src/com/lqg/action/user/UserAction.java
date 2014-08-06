@@ -3,19 +3,18 @@ package com.lqg.action.user;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Controller;
 
 import com.lqg.action.BaseAction;
+import com.lqg.model.PageModel;
 import com.lqg.model.product.UploadFile;
 import com.lqg.model.user.Parent;
 import com.lqg.model.user.Student;
@@ -24,8 +23,6 @@ import com.lqg.util.EmailUtil;
 import com.lqg.util.Md5s;
 import com.lqg.util.MessageInfo;
 import com.lqg.util.OperateImage;
-import com.lqg.util.StringUitl;
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ModelDriven;
 /**
  * 锟剿匡拷Action
@@ -687,7 +684,7 @@ public String active() throws Exception{
 		setErroMessage("此邮箱激活成功，请登录");			
 		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
 	}
-	else if(session.get("type").equals("teacher")){			  
+	else if(getCategory().equals("teacher")){			  
 		Teacher teacher=teacherDao.load(getStudent().getId());
 		if(teacher.getActive().equals("1")){
 			setErroMessage("此邮箱已经激活，请登录");
@@ -698,7 +695,7 @@ public String active() throws Exception{
 		setErroMessage("此邮箱激活成功，请登录");			
 		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
 		}
-	else if (session.get("type").equals("parent")){			
+	else if (getCategory().equals("parent")){			
 		Parent parent=parentDao.load(getStudent().getId());
 		if(parent.getActive().equals("1")){
 			setErroMessage("此邮箱已经激活，请登录");
@@ -711,6 +708,150 @@ public String active() throws Exception{
 		}
 	else {
 		setErroMessage("此邮箱激活失败，请重新激活");
+		return USERPROFILE;
+	}
+
+}
+/**
+ * 个人密码找回发送链接
+ * @return
+ * @throws Exception
+ */
+public String sendPasswordFindLink() throws Exception{	
+	String where = "where email = ?";
+	Object[] queryParams = {getStudent().getEmail()};	
+	PageModel<Student> studentfindmodel= studentDao.find(-1,-1, where, queryParams);//执行查询方法
+	PageModel<Teacher> teacherfindmodel= teacherDao.find(-1,-1, where, queryParams);//执行查询方法
+	PageModel<Parent> parentfindmodel= parentDao.find(-1,-1, where, queryParams);//执行查询方法
+	Student studentFind=studentfindmodel.getList().get(0);
+	Parent parentFind=parentfindmodel.getList().get(0);
+	Teacher teacherFind=teacherfindmodel.getList().get(0);
+	if(studentFind!=null){
+		Random rd = new Random(); //创建随机对象
+		String newpassword="";//新的生成密码		
+		int rdGet; //取得随机数
+		do{
+		rdGet=Math.abs(rd.nextInt())%48+75; //产生48到57的随机数(0-9的键位值)和97到122的随机数(a-z的键位值)
+		//rdGet=Math.abs(rd.nextInt())%26+97; //产生97到122的随机数(a-z的键位值)
+		char num1=(char)rdGet;
+		String dd=Character.toString(num1);
+		newpassword+=dd;
+
+		}while(newpassword.length()<7);//假如长度小于7
+	
+	HttpServletRequest req = ServletActionContext.getRequest();
+	String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_passwordfindActive.html?";  
+	String activeHtml=activeAddress+"student.id="+studentFind.getId()+"&student.password="+newpassword+"&category=student";
+	String activeLink="<a href="+"\""+activeHtml+"\""+">"+activeHtml+"</a>";
+	MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
+   	message.setTo(studentFind.getEmail());
+   	message.setSubject("找回密码");
+   	message.setSendDate(new Date());
+   	message.setMsg("欢迎"+studentFind.getUsername()+"找回密码，您的新密码为"+newpassword+"请点击下面的链接进行密码新密码重置才有效，或者复制链接在网页上打开，同时记得要及时修改密码"+"\n"+activeLink);
+   	if(emailUtil==null){
+   		setErroMessage("emailUtil为空的");
+   		return REGISTERERROR;
+   	}
+    emailUtil.doSend(message);					
+	setErroMessage("我们已经发送找回密码链接到您的邮箱里，请登录邮箱激活新密码");
+	return LOGONERROR;
+	}
+	else if(parentFind!=null){
+		Random rd = new Random(); //创建随机对象
+		String newpassword="";//新的生成密码		
+		int rdGet; //取得随机数
+		do{
+			rdGet=Math.abs(rd.nextInt())%48+75; //产生48到57的随机数(0-9的键位值)和97到122的随机数(a-z的键位值)
+		//rdGet=Math.abs(rd.nextInt())%26+97; //产生97到122的随机数(a-z的键位值)
+		char num1=(char)rdGet;
+		String dd=Character.toString(num1);
+		newpassword+=dd;
+
+		}while(newpassword.length()<7);//假如长度小于7
+	
+	HttpServletRequest req = ServletActionContext.getRequest();
+	String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_passwordfindActive.html?"; 
+	String activeHtml=activeAddress+"student.id="+parentFind.getId()+"&student.password="+newpassword+"&category=parent";
+	String activeLink="<a href="+"\""+activeHtml+"\""+">"+activeHtml+"</a>";
+	MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
+   	message.setTo(parentFind.getEmail());
+   	message.setSubject("找回密码");
+   	message.setSendDate(new Date());
+   	message.setMsg("欢迎"+parentFind.getUsername()+"找回密码，您的新密码为"+newpassword+"请点击下面的链接进行密码新密码重置才有效，或者复制链接在网页上打开，同时记得要及时修改密码"+"\n"+activeLink);
+   	if(emailUtil==null){
+   		setErroMessage("emailUtil为空的");
+   		return REGISTERERROR;
+   	}
+    emailUtil.doSend(message);					
+	setErroMessage("我们已经发送找回密码链接到您的邮箱里，请登录邮箱激活新密码");
+	return LOGONERROR;
+	}
+	else if(teacherFind!=null){
+		Random rd = new Random(); //创建随机对象
+		String newpassword="";//新的生成密码		
+		int rdGet; //取得随机数
+		do{
+			rdGet=Math.abs(rd.nextInt())%48+75; //产生48到57的随机数(0-9的键位值)和97到122的随机数(a-z的键位值)
+		//rdGet=Math.abs(rd.nextInt())%26+97; //产生97到122的随机数(a-z的键位值)
+		char num1=(char)rdGet;
+		String dd=Character.toString(num1);
+		newpassword+=dd;
+
+		}while(newpassword.length()<7);//假如长度小于4
+	
+	HttpServletRequest req = ServletActionContext.getRequest();
+	String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_passwordfindActive.html?";  
+	String activeHtml=activeAddress+"student.id="+teacherFind.getId()+"&student.password="+newpassword+"&category=teacher";
+	String activeLink="<a href="+"\""+activeHtml+"\""+">"+activeHtml+"</a>";
+	MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
+   	message.setTo(teacherFind.getEmail());
+   	message.setSubject("找回密码");
+   	message.setSendDate(new Date());
+   	message.setMsg("欢迎"+teacherFind.getUsername()+"找回密码，您的新密码为"+newpassword+"请点击下面的链接进行密码新密码重置才有效，或者复制链接在网页上打开，同时记得要及时修改密码"+"\n"+activeLink);
+   	if(emailUtil==null){
+   		setErroMessage("emailUtil为空的");
+   		return REGISTERERROR;
+   	}
+    emailUtil.doSend(message);					
+	setErroMessage("我们已经发送找回密码链接到您的邮箱里，请登录邮箱激活新密码");
+	return LOGONERROR;
+	}
+	else {
+		setErroMessage("此邮箱还没有注册");
+		return USERPROFILE;
+	}
+
+}
+/**
+ * 个人找回密码激活
+ * @return
+ * @throws Exception
+ */
+public String passwordfindActive() throws Exception{
+	String encrypt=Md5s.md5s(student.getPassword());
+	if(getCategory().equals("student")){			
+		Student studentM=studentDao.load(student.getId());		
+		studentM.setPassword(encrypt);
+		studentDao.update(studentM);//锟斤拷锟斤拷注锟斤拷锟斤拷息		
+		setErroMessage("找回密码成功");			
+		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
+	}
+	else if(getCategory().equals("parent")){			
+		Parent parent=parentDao.load(student.getId());		
+		parent.setPassword(encrypt);
+		parentDao.update(parent);//锟斤拷锟斤拷注锟斤拷锟斤拷息		
+		setErroMessage("找回密码成功");			
+		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
+	}
+	else if(getCategory().equals("teacher")){			
+		Teacher teacher=teacherDao.load(student.getId());		
+		teacher.setPassword(encrypt);
+		teacherDao.update(teacher);//锟斤拷锟斤拷注锟斤拷锟斤拷息		
+		setErroMessage("找回密码成功");			
+		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
+		}
+	else {
+		setErroMessage("找回密码失败");
 		return USERPROFILE;
 	}
 

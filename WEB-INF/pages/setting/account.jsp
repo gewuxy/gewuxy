@@ -145,7 +145,7 @@
 
 			  <div id="target" class="selected-img-src">
 				<s:if test="#session.user.image==null">
-				  <img id="targetpic" src="<%=request.getContextPath()%>/img/joinus.png"/>
+				  <img id="targetpic" src="<%=request.getContextPath()%>/img/headicon/default-headicon.png"/>
 				</s:if>
 				<s:if test="#session.user.image!=null">
                   <img id="targetpic" src="<%=request.getContextPath()%>/img/headicon/<s:property value='#session.user.image.path'/>" />
@@ -156,7 +156,7 @@
 			    <div>预览</div>
 				<div class="img-preview-100">
 				  <s:if test="#session.user.image==null">
-				    <img id="previewpic" src="<%=request.getContextPath()%>/img/joinus.png"/>
+				    <img id="previewpic" src="<%=request.getContextPath()%>/img/headicon/default-headicon.png"/>
 				  </s:if>
 				  <s:if test="#session.user.image!=null">
 					<img id="previewpic" src="<%=request.getContextPath()%>/img/headicon/<s:property value='#session.user.image.path'/>" />
@@ -164,7 +164,7 @@
                 </div>
                 <div class="img-preview-75">
 				  <s:if test="#session.user.image==null">
-				    <img id="previewpic1" src="<%=request.getContextPath()%>/img/joinus.png"/>
+				    <img id="previewpic1" src="<%=request.getContextPath()%>/img/headicon/default-headicon.png"/>
 				  </s:if>
 				  <s:if test="#session.user.image!=null">
 					<img id="previewpic1" src="<%=request.getContextPath()%>/img/headicon/<s:property value='#session.user.image.path'/>"/>
@@ -172,7 +172,7 @@
                 </div>
                 <div class="img-preview-30">
 				    <s:if test="#session.user.image==null">
-					  <img id="previewpic2" src="<%=request.getContextPath()%>/img/joinus.png"/>
+					  <img id="previewpic2" src="<%=request.getContextPath()%>/img/headicon/default-headicon.png"/>
 				    </s:if>
 				    <s:if test="#session.user.image!=null">
 					  <img id="previewpic2" src="<%=request.getContextPath()%>/img/headicon/<s:property value='#session.user.image.path'/>"/>
@@ -295,11 +295,7 @@ $("#cutLoad").live("click",function(){
 				alert("没有选择上传图片!!!");
 				return false;
 				}
-				if($("#width").val()==0){
-				alert("没有选择裁剪比例!!!");
-				return false;
-				}
-				if($("#height").val()==0){
+				if(($("#width").val()==0) || ($("#height").val()==0)){
 				alert("没有选择裁剪比例!!!");
 				return false;
 				}
@@ -390,11 +386,11 @@ $("#cutLoad").live("click",function(){
 		 jcrop_api = this; 
            });*/
 
-
-     $("#targetpic").Jcrop({
+	//初始化，使对话框打开时可以对初始头像进行裁剪
+    $("#targetpic").Jcrop({
 	onChange: updatePreview,  
 	 onSelect: updatePreview,  
-	 aspectRatio: 1  
+	 aspectRatio: 1  //宽高比
 	},function(){  
 	// Use the API to get the real image size
 	 //jcrop_api.setImage(pathPic);
@@ -404,6 +400,7 @@ $("#cutLoad").live("click",function(){
 	 // Store the API in the jcrop_api variable  
 	 jcrop_api = this;  
 	});
+	
        //裁剪过程中，每改变裁剪大小执行该函数  
         function updatePreview(c){  
             if (parseInt(c.w) > 0){    

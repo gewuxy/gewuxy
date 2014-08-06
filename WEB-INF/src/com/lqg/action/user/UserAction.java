@@ -351,21 +351,32 @@ public String uploadPic() {
         if (picFileName.endsWith(s)) { 
             String realPath = ServletActionContext.getServletContext().getRealPath("/img/headicon");// 在tomcat中保存图片的实际路径  ==  "webRoot/img/headicon"
             String name="";
+            String username="";
             if(session.get("type").equals("student")){
-            	name=name+"student"+((Student) session.get("user")).getId();
+            	username="student"+((Student) session.get("user")).getId();
+            	name=name+username+"_"+new Date().toString();
             }
             if(session.get("type").equals("parent")){
-            	name=name+"parent"+((Parent) session.get("user")).getId();
+            	username="parent"+((Parent) session.get("user")).getId();
+            	name=name+username+"_"+new Date().toString();
             }
             if(session.get("type").equals("teacher")){
-            	name=name+"teacher"+((Teacher) session.get("user")).getId();
+            	username="teacher"+((Teacher) session.get("user")).getId();
+            	name=name+username+"_"+new Date().toString();
             }
             String fileName = name+ ".jpg";//
-            File savedFile = new File(new File(realPath), fileName); // 在该实际路径下实例化一个文件  
-            // 判断原来上传的照片存在删除，防止服务器给爆满  
-            if (savedFile.exists()) {  
-                savedFile.delete();  
-            } 
+            File imageDir = new File(realPath);  // 里面输入特定目录
+            File temp = null;
+            int n = 0;
+            File[] filelist = imageDir.listFiles();
+            for (int i = 0; i < filelist.length; i++) {  //遍历目录下所有文件
+             temp = filelist[i];
+             if(temp.getName().contains(username)){     //输入文件所包含的字符
+              System.out.println(temp.getName());
+              n++;
+              temp.delete();     //删除文件
+             }
+            }
             File saveFile = new File(new File(realPath), fileName); // 在该实际路径下实例化一个文件  
             
             // 判断父目录是否存在  
@@ -393,8 +404,8 @@ public String cutPic(){
 	    String hostPath = ServletActionContext.getServletContext().getRealPath("/img/headicon");// 在tomcat中保存图片的实际路径  ==  "webRoot/img/" 
         String name=hostPath+"/"+getCuttingImageName();
         image.setSrcpath(name);  
-        int index=getCuttingImageName().lastIndexOf(".");
-        String nameCut=getCuttingImageName().substring(0,index)+"headicon.jpg";
+        int index=getCuttingImageName().lastIndexOf("_");
+        String nameCut=getCuttingImageName().substring(0,index)+"_headicon"+new Date().toString()+".jpg";
         String cutImage=hostPath+"/"+nameCut;
         image.setSubpath(cutImage); 
         image.setX(getCuttingImageX());
@@ -410,9 +421,9 @@ public String cutPic(){
             } 
             File cutFile = new File(cutImage); // 在该实际路径下实例化一个文件  
             // 判断上传后的照片存在删除，防止服务器给爆满  
-            int indexCut=getCuttingImageName().indexOf("headicon");
+            int indexCut=getCuttingImageName().indexOf("_headicon");
             if (indexCut>=0) {  
-            	 nameCut=getCuttingImageName().substring(0,indexCut)+"headicon.jpg";
+            	 nameCut=getCuttingImageName().substring(0,indexCut)+"_headicon"+new Date().toString()+".jpg";
             	 cutFile.renameTo(new   File(hostPath+"/"+nameCut));   //改名
             } 
             

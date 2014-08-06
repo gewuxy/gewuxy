@@ -22,7 +22,7 @@
 	<div class="col-md-12 column">
       <%@include file="/WEB-INF/pages/common/head.jsp"%>
 	</div>
-  </div><div id="loading" style="display:none;"><img src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/></div>
+  </div>
   <div style="width:760px;margin:0 auto;">
     <ul class="nav nav-tabs" role="tablist">
 	  <li role="presentation" class="active"><s:a action="user_account" namespace="/user">基本资料</s:a></li>

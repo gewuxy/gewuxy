@@ -145,7 +145,7 @@
 
 			  <div id="target" class="selected-img-src">
 				<s:if test="#session.user.image==null">
-				  <img id="targetpic" src="<%=request.getContextPath()%>/img/joinus.png"/>
+				  <img id="targetpic" src="<%=request.getContextPath()%>/img/headicon/default-headicon.png"/>
 				</s:if>
 				<s:if test="#session.user.image!=null">
                   <img id="targetpic" src="<%=request.getContextPath()%>/img/headicon/<s:property value='#session.user.image.path'/>" />
@@ -305,11 +305,7 @@ $("#cutLoad").live("click",function(){
 				alert("没有选择上传图片!!!");
 				return false;
 				}
-				if($("#width").val()==0){
-				alert("没有选择裁剪比例!!!");
-				return false;
-				}
-				if($("#height").val()==0){
+				if(($("#width").val()==0) || ($("#height").val()==0)){
 				alert("没有选择裁剪比例!!!");
 				return false;
 				}
@@ -410,10 +406,11 @@ $("#cutLoad").live("click",function(){
 		 jcrop_api = this; 
            });*/
 
-
-     $("#targetpic").Jcrop({
+	//初始化，使对话框打开时可以对初始头像进行裁剪
+    $("#targetpic").Jcrop({
 	onChange: updatePreview,  
 	 onSelect: updatePreview,  
+<<<<<<< HEAD
 	 aspectRatio: 1,
 	//允许重新选择区域
 	 allowSelect:true,
@@ -425,6 +422,10 @@ $("#cutLoad").live("click",function(){
 	fixedSupport:true,
 	//是否允许移动选中区域。 
 	allowMove:true   
+=======
+	 aspectRatio: 1,    //宽高比
+	 setSelect:[0,0,100,100] //初始化选中区域   
+>>>>>>> 641bf069382570c03871a5db3c99f10353744988
 	},function(){  
 	// Use the API to get the real image size
 	 //jcrop_api.setImage(pathPic);
@@ -434,6 +435,7 @@ $("#cutLoad").live("click",function(){
 	 // Store the API in the jcrop_api variable  
 	 jcrop_api = this;  
 	});
+	
        //裁剪过程中，每改变裁剪大小执行该函数  
         function updatePreview(c){  
             if (parseInt(c.w) > 0){    

@@ -1425,3 +1425,7 @@ cursor:pointer;
 .change-ps-error{
 display:none;
 }
+.settings-page-container{
+width:760px;
+margin:0 auto;
+}

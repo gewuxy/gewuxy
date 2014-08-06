@@ -20,7 +20,7 @@
       <%@include file="/WEB-INF/pages/common/head.jsp"%>
 	</div>
   </div>
-  <div style="width:760px;margin:0 auto;">
+  <div class="settings-page-container">
   <ul class="nav nav-tabs" role="tablist">
 	  <li role="presentation" ><s:a action="user_account" namespace="/user">基本资料</s:a></li>
 	  <li role="presentation"><s:a action="user_password" namespace="/user">密码</s:a></li>
@@ -42,5 +42,22 @@
 	</form>
   </div>
   </div>
+  <div class="clearfix">
+	<div class="col-md-12 column">
+      <%@include file="/WEB-INF/pages/common/footer.jsp"%>
+	</div>
+  </div>
+  <script>
+   $(document).ready(function () {
+  if($(".settings-page-container").height()<$(window).height()-200){
+		$(".settings-page-container").height($(window).height()-200);
+}
+$(window).resize(function(){
+	if($(".settings-page-container").height()<$(window).height()-200){
+		$(".settings-page-container").height($(window).height()-200);
+}
+});
+})
+  </script>
 </body>
 </html>

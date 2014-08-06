@@ -264,7 +264,16 @@ $("#uploadfile").live("change",function(){
 						    onChange: updatePreview,  
 						    onSelect: updatePreview,  
 						    aspectRatio: 1,
-						    setSelect:[0,0,100,100] //初始化选中区域  
+						    //允许重新选择区域
+	 					    allowSelect:true,
+						     //初始化选中区域 
+						    //setSelect:[0,0,200,200],						    
+						    //是否允许改变选中区域大小
+						    allowResize:true,
+						    //固定选择区域
+						    fixedSupport:true,
+						    //是否允许移动选中区域。 
+						    allowMove:true
 						},function(){  
 						    // Use the API to get the real image size  
 						    //jcrop_api.setImage(pathPic);
@@ -351,7 +360,16 @@ $("#cutLoad").live("click",function(){
 						    onChange: updatePreview,  
 						    onSelect: updatePreview,  
 						    aspectRatio: 1,
-						    setSelect:[0,0,100,100] //初始化选中区域   
+						    //允许重新选择区域
+	 					    allowSelect:true,
+						    //初始化选中区域 
+						    //setSelect:[0,0,200,200],						    
+						    //是否允许改变选中区域大小
+						    allowResize:true,
+						    //固定选择区域
+						    fixedSupport:true,
+						    //是否允许移动选中区域。 
+						    allowMove:true 
 						},function(){  
 						    // Use the API to get the real image size  
 						    //jcrop_api.setImage(pathPic);
@@ -397,7 +415,16 @@ $("#cutLoad").live("click",function(){
 	onChange: updatePreview,  
 	 onSelect: updatePreview,  
 	 aspectRatio: 1,
-	 setSelect:[0,0,100,100] //初始化选中区域   
+	//允许重新选择区域
+	 allowSelect:true,
+	//初始化选中区域 
+	 //setSelect:[0,0,200,200],	
+	//是否允许改变选中区域大小
+	allowResize:true,
+	//固定选择区域
+	fixedSupport:true,
+	//是否允许移动选中区域。 
+	allowMove:true   
 	},function(){  
 	// Use the API to get the real image size
 	 //jcrop_api.setImage(pathPic);

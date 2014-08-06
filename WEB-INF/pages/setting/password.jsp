@@ -52,7 +52,7 @@
 	<div class="clearfix"></div>
 	<div class="form-group">
     <div style="margin-left:58%;">
-      <button id= "passwordmodify" class="btn btn-success">保存</button>
+      <button id="passwordmodify" class="btn btn-success">保存</button>
     </div>
   </div>
   </form>
@@ -79,15 +79,15 @@ $("#passwordmodify").click(function(){
 				if($(".change-ps-error").is(":hidden")){$(".change-ps-error").show();}
 				$("#newPassword").focus();
 				return false;
-			}else{                      //判断密码格式：包含字母和数字，位数在6-16位之间
-				var reg = new RegExp("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$");
-				if(!reg.test($("#newPassword").val())){
+			}                      //判断密码格式：包含字母和数字，位数在6-16位之间
+			var reg = new RegExp("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$");
+			if(!reg.test($("#newPassword").val())){
 					$(".change-ps-error").text("新密码必须包含字母和数字，6位到16位之间");
 					if($(".change-ps-error").is(":hidden")){$(".change-ps-error").show();}
 					$("#newPassword").focus();
 					return false;
-				}
 			}
+			
 			if($("#curPassword").val()==$("#newPassword").val()){
 				$(".change-ps-error").text("新旧密码一致，重新设置密码!!!");
 				if($(".change-ps-error").is(":hidden")){$(".change-ps-error").show();}
@@ -106,26 +106,28 @@ $("#passwordmodify").click(function(){
 				$("#confirmPassword").focus();
 				return false;
 			}			 
-			if($(".change-ps-error").is(":shown")){$(".change-ps-error").hide();}	
+			
 			   var params = {
 				"student.password":$("#curPassword").val(),				
 				"repassword":$("#newPassword").val()
-			      };
+			      };		
  
 			      $.ajax({
-				    type: "POST",
+				type: "POST",
 				url: "../user/user_modifyPassword.html",
 			 	data:params,
 				async: false,
 			       	dataType:"json",
-				success:function(data){ 				 	
-					        alert(data.erroMessage);			
+				success:function(data){ 
+				 	       $(".change-ps-error").text(data.erroMessage);
+				            if($(".change-ps-error").is(":hidden")){$(".change-ps-error").show();}
+					        //alert(data.erroMessage);			
 					
 				},
 				error: function(data){
-				  
+				     alert("dsfsdfds");
                                      alert(data.erroMessage)
-				  return false;
+				 // return false;
 				}
 				});
 }); 

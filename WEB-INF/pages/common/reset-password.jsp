@@ -70,14 +70,14 @@ $("#sendFindPassword").click(function(){
 		}
 		var params = {"student.email":$("#your-email").val()	
 			      };
- 
+ 				
 			      $.ajax({
 				type: "POST",
 				url: "../user/user_sendPasswordFindLink.html",
 			 	data:params,
-				//async:false,
+				async:false,
 			       	dataType:"json",
-				success:function(data){ 					
+				success:function(data){ 									
 					var msgok="我们已经发送找回密码链接到您的邮箱里，请登录邮箱激活新密码";
 					var msgnoregister="此邮箱还没有注册";
 					if(data.erroMessage==msgok){
@@ -96,7 +96,7 @@ $("#sendFindPassword").click(function(){
 				},
 				error: function(data){
 				  
-
+				alert("adsf");	
 				  return false;
 				}
 				});

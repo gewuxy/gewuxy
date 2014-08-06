@@ -25,7 +25,7 @@
 	  <!--如果邮箱不存在，返回提示-->
 	  <div class="alert alert-danger reset-ps-failure" role="alert">
 	  </div>
-	  <form role="form" method="post">
+	  <form role="form" >
 	    <div class="form-group">
 		  <div class="col-sm-12">
 			<input type="email" id="your-email" class="form-control" placeholder="邮箱" autocomplete='on'>
@@ -33,7 +33,7 @@
 		</div>
 		<div class="form-group">
 		  <div class="col-sm-12">
-			<button type="submit" class="btn btn-success col-sm-12 reset-password">重置密码</button>
+			<button id ="sendFindPassword" class="btn btn-success col-sm-12 ">重置密码</button>
 		  </div>
 		</div>
 	  </form>
@@ -54,7 +54,7 @@ $(window).resize(function(){
 		$(".reset-ps-container").height($(window).height()-70);
 	}
 });
-$(".reset-password").click(function(){
+$("#sendFindPassword").click(function(){
   if($("#your-email").val()==""){
 	$(".reset-ps-failure").text("邮箱未填写");
 	if($(".reset-ps-failure").is(":hidden")){$(".reset-ps-failure").show();}
@@ -68,6 +68,38 @@ $(".reset-password").click(function(){
 			$("#your-email").focus();
 			return false;
 		}
+		var params = {"student.email":$("#your-email").val()	
+			      };
+ 
+			      $.ajax({
+				type: "POST",
+				url: "../user/user_sendPasswordFindLink.html",
+			 	data:params,
+				//async:false,
+			       	dataType:"json",
+				success:function(data){ 					
+					var msgok="我们已经发送找回密码链接到您的邮箱里，请登录邮箱激活新密码";
+					var msgnoregister="此邮箱还没有注册";
+					if(data.erroMessage==msgok){
+					$(".reset-ps-failure").text(data.erroMessage);
+	                               if($(".reset-ps-failure").is(":hidden")){$(".reset-ps-failure").show();}
+					return;
+					}
+					else if(data.erroMessage==msgnoregister){
+					$(".reset-ps-failure").text(data.erroMessage);
+	                                if($(".reset-ps-failure").is(":hidden")){$(".reset-ps-failure").show();}
+					return;
+					}
+					else{ alert("adsf");
+					}
+					
+				},
+				error: function(data){
+				  
+
+				  return false;
+				}
+				});
   }
 });
 })

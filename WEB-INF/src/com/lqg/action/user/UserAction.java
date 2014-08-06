@@ -371,7 +371,7 @@ public String uploadPic() {
             File[] filelist = imageDir.listFiles();
             for (int i = 0; i < filelist.length; i++) {  //遍历目录下所有文件
              temp = filelist[i];
-             if(temp.getName().contains(username)&&!(temp.getName().contains("headicon"))){     //输入文件所包含的字符
+             if(temp.getName().contains(username)){     //输入文件所包含的字符
               System.out.println(temp.getName());
               n++;
               temp.delete();     //删除文件

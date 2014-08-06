@@ -1422,3 +1422,6 @@ bottom:0;
 position:absolute;
 cursor:pointer;
 }
+.change-ps-error{
+display:none;
+}

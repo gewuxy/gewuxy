@@ -48,6 +48,8 @@
         <input type="password" class="form-control" id="confirmPassword">
       </div>
     </div>
+	<div class="alert alert-danger change-ps-error col-sm-offset-2 col-sm-6" role="alert"></div>
+	<div class="clearfix"></div>
 	<div class="form-group">
     <div style="margin-left:58%;">
       <button id= "passwordmodify" class="btn btn-success">保存</button>
@@ -61,27 +63,45 @@
  $(document).ready(function () {
 //修改个人密码
 $("#passwordmodify").click(function(){
-                                if($("#curPassword").val()==""){
-				alert("没有填写原来密码!!!");
+            if($("#curPassword").val()==""){
+				$(".change-ps-error").text("未输入当前密码");
+				if($(".change-ps-error").is(":hidden")){$(".change-ps-error").show();}
+				$("#curPassword").focus();
 				return false;
+			}
+			if($("#newPassword").val()==""){
+				$(".change-ps-error").text('未输入新密码');
+				if($(".change-ps-error").is(":hidden")){$(".change-ps-error").show();}
+				$("#newPassword").focus();
+				return false;
+			}else{                      //判断密码格式：包含字母和数字，位数在6-16位之间
+				var reg = new RegExp("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$");
+				if(!reg.test($("#newPassword").val())){
+					$(".change-ps-error").text("新密码必须包含字母和数字，6位到16位之间");
+					if($(".change-ps-error").is(":hidden")){$(".change-ps-error").show();}
+					$("#newPassword").focus();
+					return false;
 				}
-				if($("#newPassword").val()==""){
-				alert("没有填写新密码!!!");
+			}
+			if($("#curPassword").val()==$("#newPassword").val()){
+				$(".change-ps-error").text("新旧密码一致，重新设置密码!!!");
+				if($(".change-ps-error").is(":hidden")){$(".change-ps-error").show();}
+				$("#newPassword").focus();
 				return false;
-				}
-				if($("#curPassword").val()==$("#newPassword").val()){
-				alert("新旧密码一致，重新选择密码!!!");
+			}
+            if($("#confirmPassword").val()==""){
+				$(".change-ps-error").text("未确认新密码");
+				if($(".change-ps-error").is(":hidden")){$(".change-ps-error").show();}
+				$("#confirmPassword").focus();
 				return false;
-				}
-                               if($("#confirmPassword").val()==""){
-				alert("没有填写再一次的新密码!!!");
+			}
+			if($("#confirmPassword").val()!=$("#newPassword").val()){
+				$(".change-ps-error").text("两次密码输入不相同");
+				if($(".change-ps-error").is(":hidden")){$(".change-ps-error").show();}
+				$("#confirmPassword").focus();
 				return false;
-				}
-				 if($("#confirmPassword").val()!=$("#newPassword").val()){
-				alert("新密码两次不一致!!!");
-				return false;
-				}			 
-				
+			}			 
+			if($(".change-ps-error").is(":shown")){$(".change-ps-error").hide();}	
 			   var params = {
 				"student.password":$("#curPassword").val(),				
 				"repassword":$("#newPassword").val()

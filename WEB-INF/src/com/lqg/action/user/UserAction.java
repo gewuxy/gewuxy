@@ -402,7 +402,12 @@ public String cutPic(){
         image.setWidth(getCuttingImageWidth());
         image.setHeight(getCuttingImageHeight());
         try {  
-            image.cut(); //执行裁剪操作  执行完后即可生成目标图在对应文件夹内。</span>  
+            image.cut(); //执行裁剪操作  执行完后即可生成目标图在对应文件夹内。</span> 
+            File guoduFile = new File(name); // 在该实际路径下实例化一个文件  
+            // 判断原来上传的照片存在删除，防止服务器给爆满  
+            if (guoduFile.exists()) {  
+                guoduFile.delete();  
+            } 
             uploadFile.setPath(nameCut);//ÉèÖÃÎÄŒþÃû³Æ
 			uploadFileDao.save(uploadFile);
 			if(session.get("type").equals("student")){				

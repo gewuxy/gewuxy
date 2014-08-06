@@ -40,9 +40,7 @@
 	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/headicon/default-headicon.png" alt="头像"/>
 	</s:if>
 	<s:if test="#session.user.image!=null">
-
 	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/headicon/<s:property value='#session.user.image.path'/>" alt="头像"/>
-
 	</s:if>
 	<span class="headicon-edit-tip">修改头像</span>	
 	</div>
@@ -203,11 +201,6 @@ $(".headicon-container").click(function(){
 				$("#upload-picture").modal();
 				//$("#headicon-upload").trigger("click");
 			});
-
-//取消按钮退出modal对话框
-$("#cutPicCancel").click(function(){
-			$("#upload-picture").modal('hide');
-});
 
 
 //上传相片并显示

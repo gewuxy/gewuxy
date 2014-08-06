@@ -22,7 +22,7 @@
 	<div class="col-md-12 column">
       <%@include file="/WEB-INF/pages/common/head.jsp"%>
 	</div>
-  </div><div id="loading" style="display:none;"><img src="<%=request.getContextPath()%>/img/loading.gif" style="width:75px;height:75px;"/></div>
+  </div>
   <div style="width:760px;margin:0 auto;">
     <ul class="nav nav-tabs" role="tablist">
 	  <li role="presentation" class="active"><s:a action="user_account" namespace="/user">基本资料</s:a></li>
@@ -40,9 +40,7 @@
 	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/headicon/default-headicon.png" alt="头像"/>
 	</s:if>
 	<s:if test="#session.user.image!=null">
-
 	  <img id="myCutImage" class="headicon" src="<%=ctx%>/img/headicon/<s:property value='#session.user.image.path'/>" alt="头像"/>
-
 	</s:if>
 	<span class="headicon-edit-tip">修改头像</span>	
 	</div>
@@ -198,34 +196,15 @@
 
      
  $(document).ready(function () {
-//头像修改退出modal对话框
+//头像修改弹出modal对话框
 $(".headicon-container").click(function(){
 				$("#upload-picture").modal();
-				//$("#headicon-upload").trigger("click");
 			});
-
-//取消按钮退出modal对话框
-$("#cutPicCancel").click(function(){
-			$("#upload-picture").modal('hide');
-});
 
 
 //上传相片并显示
 $("#uploadfile").live("change",function(){
   var filename=$("#uploadfile").val();
-  var suffixs=new Array(".jpg", ".jpeg", ".png", ".gif");
-  //截取上传文件格式
-  var fileType=filename.substring(filename.lastIndexOf('.'));
-  if(filename==""){ alert("请选择需要上传的图片");
-				$("#uploadfile").val("");
-				 return false;
-				}else{				 
-				  //截取上传文件格式
-				   if($.inArray(fileType,suffixs)<=-1){
-				    alert("图片格式错误");
-				   $("#uploadfile").val("");
-				    return false;
-				  }else{
   var	uploadUrl="../user/user_uploadPic.html?picFileName="+filename;
   //starting setting some animation when the ajax starts and completes
 	$("#loading").ajaxStart(function(){$(this).show();}).ajaxComplete(function(){$(this).hide();});
@@ -307,8 +286,6 @@ $("#uploadfile").live("change",function(){
 					alert("异步失败");
 				       }
 				    });
-				  }
-			}
 				
 });
 

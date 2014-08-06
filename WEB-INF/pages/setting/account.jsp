@@ -410,7 +410,7 @@ $("#cutLoad").live("click",function(){
     $("#targetpic").Jcrop({
 	onChange: updatePreview,  
 	 onSelect: updatePreview,  
-<<<<<<< HEAD
+
 	 aspectRatio: 1,
 	//允许重新选择区域
 	 allowSelect:true,
@@ -422,10 +422,6 @@ $("#cutLoad").live("click",function(){
 	fixedSupport:true,
 	//是否允许移动选中区域。 
 	allowMove:true   
-=======
-	 aspectRatio: 1,    //宽高比
-	 setSelect:[0,0,100,100] //初始化选中区域   
->>>>>>> 641bf069382570c03871a5db3c99f10353744988
 	},function(){  
 	// Use the API to get the real image size
 	 //jcrop_api.setImage(pathPic);

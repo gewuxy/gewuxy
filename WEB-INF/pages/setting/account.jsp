@@ -196,29 +196,15 @@
 
      
  $(document).ready(function () {
-//头像修改退出modal对话框
+//头像修改弹出modal对话框
 $(".headicon-container").click(function(){
 				$("#upload-picture").modal();
-				//$("#headicon-upload").trigger("click");
 			});
 
 
 //上传相片并显示
 $("#uploadfile").live("change",function(){
   var filename=$("#uploadfile").val();
-  var suffixs=new Array(".jpg", ".jpeg", ".png", ".gif");
-  //截取上传文件格式
-  var fileType=filename.substring(filename.lastIndexOf('.'));
-  if(filename==""){ alert("请选择需要上传的图片");
-				$("#uploadfile").val("");
-				 return false;
-				}else{				 
-				  //截取上传文件格式
-				   if($.inArray(fileType,suffixs)<=-1){
-				    alert("图片格式错误");
-				   $("#uploadfile").val("");
-				    return false;
-				  }else{
   var	uploadUrl="../user/user_uploadPic.html?picFileName="+filename;
   //starting setting some animation when the ajax starts and completes
 	$("#loading").ajaxStart(function(){$(this).show();}).ajaxComplete(function(){$(this).hide();});

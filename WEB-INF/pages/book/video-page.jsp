@@ -79,7 +79,7 @@
 	  <div  class="flash-box">
            <s:iterator value="pageModel.list">
 	    <iframe width="100%" height="100%" src="<s:property value="videoFile.path"/>" 
-		frameborder="1" webkitAllowFullScreen mozallowfullscreen allowfullscreen>
+		frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen>
 		</iframe>
 		<div class="video-options">
 		  <!-- JiaThis Button BEGIN -->

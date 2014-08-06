@@ -471,12 +471,6 @@ float:right;
 background-color:#fff;
 border-left:1px solid #ccc;
 }
-.tutorial-nav-header{
-
-}
-.tutorial-nav-header-item{
-
-}
 .back-to-section{
 }
 .tutorial-title{
@@ -486,9 +480,6 @@ font-weight:bold;
 .tutorial-nav-body{
 overflow: hidden;
 width: 100%;
-}
-
-.tutorial-nav-content{
 }
 li.tutorial-nav-node{
 box-sizing:content-box;

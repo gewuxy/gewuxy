@@ -37,6 +37,8 @@ public class Teacher implements Serializable{
 		private Room room;
 		// 邮件
 		private String email;
+		//是否为激活
+		private String active="0";
 		private Set<Student> students = new TreeSet<Student>();//学生们
 		
 		public Integer getId() {
@@ -119,5 +121,11 @@ public class Teacher implements Serializable{
 		}
 		public void setStudents(Set<Student> students) {
 			this.students = students;
+		}
+		public String getActive() {
+			return active;
+		}
+		public void setActive(String active) {
+			this.active = active;
 		}
 }

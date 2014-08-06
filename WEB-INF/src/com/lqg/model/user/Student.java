@@ -41,7 +41,8 @@ public class Student implements Serializable{
 	private Room room;
 	// 邮件
 	private String email;
-	
+	//是否为激活
+	private String active="0";
 	public Integer getId() {
 		return id;
 	}
@@ -129,5 +130,11 @@ public class Student implements Serializable{
 	}
 	public void setRoom(Room room) {
 		this.room = room;
+	}
+	public String getActive() {
+		return active;
+	}
+	public void setActive(String active) {
+		this.active = active;
 	}
 }

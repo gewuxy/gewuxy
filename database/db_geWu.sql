@@ -92,6 +92,7 @@ CREATE TABLE `tb_parent` (
   `introduction` varchar(200) DEFAULT NULL,
   `imageId` int(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
+  `active` varchar(5) DEFAULT '0',
    PRIMARY KEY (`id`),
    KEY `FEB315573CFB37BC9D`(`imageId`),
    CONSTRAINT `FEB315573CFB37BC9D` FOREIGN KEY (`imageId`) REFERENCES `tb_uploadFile`(`id`)  
@@ -122,6 +123,7 @@ CREATE TABLE `tb_teacher` (
   `introduction` varchar(200) DEFAULT NULL,
   `imageId` int(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
+  `active` varchar(5) DEFAULT '0',
   `roomId` int(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FAB325573CFB37BC9D`(`imageId`),
@@ -136,7 +138,7 @@ CREATE TABLE `tb_teacher` (
 
 /*!40000 ALTER TABLE `tb_teacher` DISABLE KEYS */;
 INSERT INTO `tb_teacher` (`id`,`username`,`password`,`sex`,`birthday`,`email`) VALUES 
- (1,'qiuGuo','qiuGuo',NULL,'1596-5-9','liqiuguo10@163.com');
+ (1,'qiuGuo','qiuGuo',NULL,'1596-5-9','lishi10@163.com');
 /*!40000 ALTER TABLE `tb_teacher` ENABLE KEYS */;
 
 --
@@ -157,6 +159,7 @@ CREATE TABLE `tb_student` (
   `teacherId` int(50) DEFAULT NULL,
   `parentId` int(50)DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
+  `active` varchar(5) DEFAULT '0',
   `roomId` int(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FAB305573CFB37BC9D`(`imageId`),
@@ -175,7 +178,7 @@ CREATE TABLE `tb_student` (
 
 /*!40000 ALTER TABLE `tb_student` DISABLE KEYS */;
 INSERT INTO `tb_student` (`id`,`username`,`password`,`sex`,`birthday`,`email`) VALUES 
- (1,'geWu','geWu',NULL,'2012-5-3','liqiuguo10@163.com');
+ (1,'geWu','geWu',NULL,'2012-5-3','liafafaasd10@163.com');
 /*!40000 ALTER TABLE `tb_student` ENABLE KEYS */;
 --
 -- Definition of table `tb_admin`

@@ -22,6 +22,7 @@ public class Parent implements Serializable{
 	private String introduction;//个人介绍
 	private UploadFile image;//个人图片
 	private String email;// 邮件
+	private String active="0";//是否激活
 	private Set<Student> children = new TreeSet<Student>();//孩子
 	
 	public Integer getId() {
@@ -85,5 +86,11 @@ public class Parent implements Serializable{
 	}
 	public void setChildren(Set<Student> children) {
 		this.children = children;
+	}
+	public String getActive() {
+		return active;
+	}
+	public void setActive(String active) {
+		this.active = active;
 	}
 }

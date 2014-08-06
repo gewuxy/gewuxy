@@ -190,146 +190,130 @@
       </div>
     </div>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/ajaxfileupload.js"></script>  
-<script src="<%=request.getContextPath()%>/js/jquery.Jcrop.js" type="text/javascript"></script>    
+<script src="<%=request.getContextPath()%>/js/jquery.Jcrop.min.js" type="text/javascript"></script>    
 <script src="<%=request.getContextPath()%>/js/jquery-ui-1.10.3.full.min.js" type="text/javascript"></script>    
-<script type="text/javascript">
-
-     
- $(document).ready(function () {
+<script type="text/javascript">     
+$(document).ready(function () {
 //头像修改弹出modal对话框
 $(".headicon-container").click(function(){
-				$("#upload-picture").modal();
-			});
-
-
+	$("#upload-picture").modal();
+});
 //上传相片并显示
 $("#uploadfile").live("change",function(){
   var filename=$("#uploadfile").val();
   var	uploadUrl="../user/user_uploadPic.html?picFileName="+filename;
   //starting setting some animation when the ajax starts and completes
-	$("#loading").ajaxStart(function(){$(this).show();}).ajaxComplete(function(){$(this).hide();});
-  				$.ajaxFileUpload({
-				      url:uploadUrl,
-				      secureuri:false,
-				      fileElementId:"uploadfile",
-				      async: false,
-				      dataType:'json',
-				      success:function(data,status){ 
-					   var messageBig="文件过大";
-					   var messageFai="文件上传失败";
-					   var messageSuc="文件上传成功";
-						
-					   if(data.imageMessage==messageBig){
-					  alert("文件过大");
-					  $("#uploadfile").val("");
-					  return false;
-						}
-					   if(data.imageMessage==messageFai){
-					  alert("文件上传失败!");
-					  $("#uploadfile").val("");
-					  return false;
-						}				
-							
-					  if(data.imageMessage==messageSuc) {
-						var hostname='<%=request.getContextPath()%>';
-						var pathPic=hostname+"/img/headicon/"+data.uploadFile.path;
-						//alert(pathPic);
-						//api.destroy();							
-						var api = $.Jcrop("#targetpic"); 
-						api.destroy(); //设置为禁用裁剪效果 
-						$("#previewpic").attr("src",pathPic);	
-						$("#previewpic1").attr("src",pathPic);
-						$("#previewpic2").attr("src",pathPic);
-						$("#previewpic").css({  		
-						    width: 100 + 'px',   //100 为预览div的宽和高
-						    height: 100+ 'px',  
-						    marginLeft: '-' + 0 + 'px',  
-						    marginTop: '-' + 0 + 'px'  
-						});  	
-						 $("#previewpic1").css({  		
-						    width:75 + 'px',   //75 为预览div的宽和高
-						    height: 75 + 'px',  
-						    marginLeft: '-' + 0 + 'px',  
-						    marginTop: '-' + 0 + 'px'  
-						});  
-						 $("#previewpic2").css({  		
-						    width: 30 + 'px',   //30 为预览div的宽和高
-						    height: 30 + 'px',  
-						    marginLeft: '-' + 0 + 'px',  
-						    marginTop: '-' + 0 + 'px'  
-						});    
-						$("#targetpic").attr("src",pathPic);	
-												
-						$("#targetpic").Jcrop({  
-						    onChange: updatePreview,  
-						    onSelect: updatePreview,  
-						    aspectRatio: 1,
+  $("#loading").ajaxStart(function(){$(this).show();}).ajaxComplete(function(){$(this).hide();});
+  $.ajaxFileUpload({
+	url:uploadUrl,
+	secureuri:false,
+	fileElementId:"uploadfile",
+	async: false,
+	dataType:'json',
+	success:function(data,status){ 
+	var messageBig="文件过大";
+	var messageFai="文件上传失败";
+	var messageSuc="文件上传成功";
+	if(data.imageMessage==messageBig){
+		alert("文件过大");
+		$("#uploadfile").val("");
+		return false;
+	}
+	if(data.imageMessage==messageFai){
+		alert("文件上传失败!");
+		$("#uploadfile").val("");
+		return false;
+	}				
+	if(data.imageMessage==messageSuc){
+		var hostname='<%=request.getContextPath()%>';
+		var pathPic=hostname+"/img/headicon/"+data.uploadFile.path;							
+		var api = $.Jcrop("#targetpic"); 
+		api.destroy(); //设置为禁用裁剪效果 
+		$("#previewpic").attr("src",pathPic);	
+		$("#previewpic1").attr("src",pathPic);
+		$("#previewpic2").attr("src",pathPic);
+		$("#previewpic").css({  		
+			width: 100 + 'px',   //100 为预览div的宽和高
+			height: 100+ 'px',  
+			marginLeft: '-' + 0 + 'px',  
+			marginTop: '-' + 0 + 'px'  
+		});  	
+		$("#previewpic1").css({  		
+			width:75 + 'px',   //75 为预览div的宽和高
+			height: 75 + 'px',  
+			marginLeft: '-' + 0 + 'px',  
+			marginTop: '-' + 0 + 'px'  
+		});  
+		$("#previewpic2").css({  		
+			width: 30 + 'px',   //30 为预览div的宽和高
+			height: 30 + 'px',  
+			marginLeft: '-' + 0 + 'px',  
+			marginTop: '-' + 0 + 'px'  
+		});    
+		$("#targetpic").attr("src",pathPic);	
+		$("#targetpic").Jcrop({  
+			onChange: updatePreview,  
+			onSelect: updatePreview,  
+			aspectRatio: 1,
 						    //允许重新选择区域
-	 					    allowSelect:true,
+	 		allowSelect:true,
 						     //初始化选中区域 
 						    //setSelect:[0,0,200,200],						    
 						    //是否允许改变选中区域大小
-						    allowResize:true,
+			allowResize:true,
 						    //固定选择区域
-						    fixedSupport:true,
+			fixedSupport:true,
 						    //是否允许移动选中区域。 
-						    allowMove:true
-						},function(){  
+			allowMove:true
+		},function(){  
 						    // Use the API to get the real image size  
 						    //jcrop_api.setImage(pathPic);
-						    var bounds = this.getBounds();  
-						    boundx = bounds[0];  
-						    boundy = bounds[1];  
+			var bounds = this.getBounds();  
+			boundx = bounds[0];  
+			boundy = bounds[1];  
 						    // Store the API in the jcrop_api variable  
-						    jcrop_api = this;  
-						});  
-						//var pathcut="../img/"+data.uploadFile.path;					
-						$("#cuttingImage").val(data.uploadFile.path);
-						//alert($("#cuttingImage").val());
-						$("#uploadfile").val("");
-						
-						}			 
-					
-				      },
-				      error:function(){
-					$("#uploadfile").val("");
-					alert("异步失败");
-				       }
-				    });
+			jcrop_api = this;  
+		});					
+		$("#cuttingImage").val(data.uploadFile.path);
+		$("#uploadfile").val("");
+	}			 
+	},
+	error:function(){
+		$("#uploadfile").val("");
+		alert("异步失败");
+	}
+});
 				
 });
 
 //剪切完后上传
 $("#cutLoad").live("click",function(){
-                                if($("#cuttingImage").val()==""){
-				alert("没有选择上传图片!!!");
-				return false;
-				}
-				if(($("#width").val()==0) || ($("#height").val()==0)){
-				alert("没有选择裁剪比例!!!");
-				return false;
-				}
-				
-			   var params = {
-				"cuttingImageName":$("#cuttingImage").val(),
-				"cuttingImageX":$("#x").val(),
-				"cuttingImageY" : $("#y").val(),
-				"cuttingImageWidth" : $("#width").val(),
-				"cuttingImageHeight":$("#height").val()
-			      };
- 
-			      $.ajax({
-				    type: "POST",
-				url: "../user/user_cutPic.html",
-			 	data:params,
-				async: false,
-			       	dataType:"json",
-				success:function(data){ 				 	
-					        var hostname='<%=request.getContextPath()%>';
-						var pathPic=hostname+"/img/headicon/"+data.uploadFile.path;
-						//api.destroy();
-					        var api = $.Jcrop("#targetpic"); 
-						api.destroy(); //设置为禁用裁剪效果 
+    if($("#cuttingImage").val()==""){
+		alert("没有选择上传图片!!!");
+		return false;
+	}
+	if(($("#width").val()==0) || ($("#height").val()==0)){
+		alert("没有选择裁剪比例!!!");
+		return false;
+	}
+	var params = {
+		"cuttingImageName":$("#cuttingImage").val(),
+		"cuttingImageX":$("#x").val(),
+		"cuttingImageY" : $("#y").val(),
+		"cuttingImageWidth" : $("#width").val(),
+		"cuttingImageHeight":$("#height").val()
+	};
+	$.ajax({
+		type: "POST",
+		url: "../user/user_cutPic.html",
+		data:params,
+		async: false,
+		dataType:"json",
+		success:function(data){ 				 	
+			var hostname='<%=request.getContextPath()%>';
+			var pathPic=hostname+"/img/headicon/"+data.uploadFile.path;
+			var api = $.Jcrop("#targetpic"); 
+			api.destroy(); //设置为禁用裁剪效果 
 						$("#previewpic1").attr("src",pathPic);	
 						$("#previewpic2").attr("src",pathPic);
 						$("#previewpic").attr("src",pathPic);
@@ -467,41 +451,37 @@ $("#cutLoad").live("click",function(){
 
 //保存个人信息
 $("#profileSave").click(function(){
-			   var params = {
-				"student.nickname":$("#nickname").val(),
-				"student.username":$("#realname").val(),
-				"student.sex" : $("#gender").val(),
-				"student.birthday" :$("#birthday").val(),
-				"student.school" : $("#school").val(),
-				"student.aptcourses" : $("#advantage").val(),
-				"student.introduction":$("#bio").val()
-			      };
- 
-			      $.ajax({
-				    type: "POST",
-				url: "../user/user_saveProfile.html",
-			 	data:params,
-				async: false,
-			       	dataType:"json",
-				success:function(data){ 				 	
-					        alert(data.erroMessage);			
-					
-				},
-				error: function(data){
-				  
-                                     alert(data.erroMessage)
-				  return false;
-				}
-				});
-}); 
-	$('.headicon-container').hover(function(){
-			$('.headicon-edit-tip').show();
-	},function(){
-			$('.headicon-edit-tip').hide();
+	var params = {
+		"student.nickname":$("#nickname").val(),
+		"student.username":$("#realname").val(),
+		"student.sex" : $("#gender").val(),
+		"student.birthday" :$("#birthday").val(),
+		"student.school" : $("#school").val(),
+		"student.aptcourses" : $("#advantage").val(),
+		"student.introduction":$("#bio").val()
+	};
+	$.ajax({
+		type: "POST",
+		url: "../user/user_saveProfile.html",
+		data:params,
+		async: false,
+		dataType:"json",
+		success:function(data){ 				 	
+			alert(data.erroMessage);			
+		},
+		error: function(data){
+			alert(data.erroMessage)
+			return false;
+		}
 	});
-			
-		});
-    </script>
+}); 
+$('.headicon-container').hover(function(){
+	$('.headicon-edit-tip').show();
+},function(){
+	$('.headicon-edit-tip').hide();
+});
+});
+</script>
 </body>
 </html>
 

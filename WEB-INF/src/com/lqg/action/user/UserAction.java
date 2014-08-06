@@ -361,7 +361,13 @@ public String uploadPic() {
             	name=name+"teacher"+((Teacher) session.get("user")).getId();
             }
             String fileName = name+ ".jpg";//
+            File savedFile = new File(new File(realPath), fileName); // 在该实际路径下实例化一个文件  
+            // 判断原来上传的照片存在删除，防止服务器给爆满  
+            if (savedFile.exists()) {  
+                savedFile.delete();  
+            } 
             File saveFile = new File(new File(realPath), fileName); // 在该实际路径下实例化一个文件  
+            
             // 判断父目录是否存在  
             if (!saveFile.getParentFile().exists()) {  
                 saveFile.getParentFile().mkdirs();  

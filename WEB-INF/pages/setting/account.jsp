@@ -156,7 +156,7 @@
 			    <div>预览</div>
 				<div class="img-preview-100">
 				  <s:if test="#session.user.image==null">
-				    <img id="previewpic" src="<%=request.getContextPath()%>/img/joinus.png"/>
+				    <img id="previewpic" src="<%=request.getContextPath()%>/img/headicon/default-headicon.png"/>
 				  </s:if>
 				  <s:if test="#session.user.image!=null">
 					<img id="previewpic" src="<%=request.getContextPath()%>/img/headicon/<s:property value='#session.user.image.path'/>" />
@@ -164,7 +164,7 @@
                 </div>
                 <div class="img-preview-75">
 				  <s:if test="#session.user.image==null">
-				    <img id="previewpic1" src="<%=request.getContextPath()%>/img/joinus.png"/>
+				    <img id="previewpic1" src="<%=request.getContextPath()%>/img/headicon/default-headicon.png"/>
 				  </s:if>
 				  <s:if test="#session.user.image!=null">
 					<img id="previewpic1" src="<%=request.getContextPath()%>/img/headicon/<s:property value='#session.user.image.path'/>"/>
@@ -172,7 +172,7 @@
                 </div>
                 <div class="img-preview-30">
 				    <s:if test="#session.user.image==null">
-					  <img id="previewpic2" src="<%=request.getContextPath()%>/img/joinus.png"/>
+					  <img id="previewpic2" src="<%=request.getContextPath()%>/img/headicon/default-headicon.png"/>
 				    </s:if>
 				    <s:if test="#session.user.image!=null">
 					  <img id="previewpic2" src="<%=request.getContextPath()%>/img/headicon/<s:property value='#session.user.image.path'/>"/>

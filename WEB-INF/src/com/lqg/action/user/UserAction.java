@@ -610,6 +610,51 @@ public String modifyPassword() throws Exception{
 	}
 
 }
+/**
+ * 个人邮箱激活
+ * @return
+ * @throws Exception
+ */
+public String active() throws Exception{	
+	if(getCategory().equals("student")){			
+		Student studentM=studentDao.load(getStudent().getId());
+		if(studentM.getActive().equals("1")){
+			setErroMessage("此邮箱已经激活，请登录");
+			return USERPROFILE;
+		}
+		studentM.setActive("1");
+		studentDao.update(studentM);//锟斤拷锟斤拷注锟斤拷锟斤拷息		
+		setErroMessage("此邮箱激活成功，请登录");			
+		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
+	}
+	else if(session.get("type").equals("teacher")){			  
+		Teacher teacher=teacherDao.load(getStudent().getId());
+		if(teacher.getActive().equals("1")){
+			setErroMessage("此邮箱已经激活，请登录");
+			return USERPROFILE;
+		}
+		teacher.setActive("1");
+		teacherDao.update(teacher);//锟斤拷锟斤拷注锟斤拷锟斤拷息		
+		setErroMessage("此邮箱激活成功，请登录");			
+		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
+		}
+	else if (session.get("type").equals("parent")){			
+		Parent parent=parentDao.load(getStudent().getId());
+		if(parent.getActive().equals("1")){
+			setErroMessage("此邮箱已经激活，请登录");
+			return USERPROFILE;
+		}
+		parent.setActive("1");
+		parentDao.update(parent);//锟斤拷锟斤拷注锟斤拷锟斤拷息		
+		setErroMessage("此邮箱激活成功，请登录");			
+		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
+		}
+	else {
+		setErroMessage("此邮箱激活失败，请重新激活");
+		return USERPROFILE;
+	}
+
+}
 	// 锟斤拷锟斤拷员
 	private Student student = new Student();
 	// 确锟斤拷锟斤拷锟斤拷

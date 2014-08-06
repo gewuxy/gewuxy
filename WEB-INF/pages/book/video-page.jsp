@@ -114,21 +114,11 @@ var jiathis_config={
           </s:iterator>
 	  </div>
 	  <div class="tutorial-nav">
-	    <!--div  class="tutorial-nav-header">
-		  <a href="#" class="tutorial-nav-header-item tutorial-mulu" style="background-color:white;">
-		    <span class="glyphicon glyphicon-th-list"></span>
-			 目录
-		  </a>
-		  <a href="#" class="tutorial-nav-header-item tutorial-tiwen">
-		    <span class="glyphicon glyphicon-question-sign"></span>
-			 提问
-		  </a>
-		</div-->
-		<ul class="nav nav-pills tutorial-nav-header" role="tablist">
- 		  <li role="presentation" class="tutorial-nav-header-item tutorial-mulu active">
+		<ul class="nav nav-tabs" role="tablist">
+ 		  <li role="presentation" class="tutorial-mulu active">
  		    <a href="#"><span class="glyphicon glyphicon-th-list" style="padding-right:5px;"></span>目录</a>
  		  </li>
- 		  <li role="presentation" class="tutorial-nav-header-item tutorial-tiwen">
+ 		  <li role="presentation" class="tutorial-tiwen">
  		    <a href="#"><span class="glyphicon glyphicon-question-sign" style="padding-right:5px;"></span>提问</a>
  		  </li>
  		</ul>

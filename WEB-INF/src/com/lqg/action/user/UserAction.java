@@ -410,9 +410,9 @@ public String cutPic(){
             } 
             File cutFile = new File(cutImage); // 在该实际路径下实例化一个文件  
             // 判断上传后的照片存在删除，防止服务器给爆满  
-            int indexCut=name.indexOf("headicon");
+            int indexCut=getCuttingImageName().indexOf("headicon");
             if (indexCut>=0) {  
-            	 nameCut=name.substring(0,indexCut)+"headicon.jpg";
+            	 nameCut=getCuttingImageName().substring(0,indexCut)+"headicon.jpg";
             	 cutFile.renameTo(new   File(hostPath+"/"+nameCut));   //改名
             } 
             

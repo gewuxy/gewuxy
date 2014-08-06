@@ -169,6 +169,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 				return REGISTERERROR;
 			}}
 		else {
+			
 			setErroMessage("此邮箱已经注册过，请直接登录");
 			return REGISTERERROR;
 		}
@@ -185,6 +186,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 		Parent logonparent=parentDao.login(student.getEmail(), Md5s.md5s(student.getPassword()));
 		Teacher logonteacher=teacherDao.login(student.getEmail(), Md5s.md5s(student.getPassword()));
 		if(logonstudent!=null){
+			if(logonstudent.getActive().equals("1")){
 			session.put("user", logonstudent);//将学生放入user 的session
 			session.put("type", "student");
 			setErroMessage("登录成功");
@@ -195,12 +197,31 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	        if (prePage == null) {
 	            //不是拦截器跳转到登陆页面的，直接访问的登陆页面
 	            return HOME;
-	        } else {
+	        } else {	        	
 	        	 return LOGONERROR;
 	        }
+			}else{
+				 HttpServletRequest req = ServletActionContext.getRequest();
+				String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_active.html?";  
+				String activeHtml=activeAddress+"student.id="+logonstudent.getId()+"&name="+logonstudent.getUsername()+"&category=student";
+				String activeLink="<a href="+"\""+activeHtml+"\""+">"+activeHtml+"</a>";
+				MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
+			   	message.setTo(logonstudent.getEmail());
+			   	message.setSubject("注册认证");
+			   	message.setSendDate(new Date());
+			   	message.setMsg("欢迎"+logonstudent.getUsername()+"加入格物学院，您已经注册成功，请点击下面的链接进行激活，或者复制链接在网页上打开"+"\n"+activeLink);
+			   	if(emailUtil==null){
+			   		setErroMessage("emailUtil为空的");
+			   		return REGISTERERROR;
+			   	}
+			    emailUtil.doSend(message);					
+				setErroMessage("该邮箱没有激活，我们已经发送激活链接到您的邮箱里，请登录邮箱激活");
+				return LOGONERROR;
+			}
 			
 			}
 		else if(logonparent!=null){
+			if(logonparent.getActive().equals("1")){
 			session.put("user", logonparent);//将学生放入user 的session
 			session.put("type", "parent");
 			setErroMessage("登录成功");
@@ -214,8 +235,28 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	        } else {
 	        	return LOGONERROR;
 	        }
+			}else{
+				HttpServletRequest req = ServletActionContext.getRequest();
+				String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_active.html?";  
+				String activeHtml=activeAddress+"student.id="+logonparent.getId()+"&name="+logonparent.getUsername()+"&category=parent";
+				String activeLink="<a href="+"\""+activeHtml+"\""+">"+activeHtml+"</a>";
+				MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
+			   	message.setTo(logonparent.getEmail());
+			   	message.setSubject("注册认证");
+			   	message.setSendDate(new Date());
+			   	message.setMsg("欢迎"+logonparent.getUsername()+"加入格物学院，您已经注册成功，请点击下面的链接进行激活，或者复制链接在网页上打开"+"\n"+activeLink);
+			   	if(emailUtil==null){
+			   		setErroMessage("emailUtil为空的");
+			   		return REGISTERERROR;
+			   	}
+			    emailUtil.doSend(message);					
+				setErroMessage("该邮箱没有激活，我们已经发送激活链接到您的邮箱里，请登录邮箱激活");
+				return LOGONERROR;
+				
+			}
 		}
 		else if(logonteacher!=null){
+			if(logonteacher.getActive().equals("1")){
 			session.put("user", logonteacher);//将学生放入user 的session
 			session.put("type", "teacher");
 			 setErroMessage("登录成功");
@@ -229,6 +270,25 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 	        } else {
 	        	return LOGONERROR;
 	        }
+			}else{
+				HttpServletRequest req = ServletActionContext.getRequest();
+				String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_active.html?";  
+				String activeHtml=activeAddress+"student.id="+logonteacher.getId()+"&name="+logonteacher.getUsername()+"&category=teacher";
+				String activeLink="<a href="+"\""+activeHtml+"\""+">"+activeHtml+"</a>";
+				MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
+			   	message.setTo(logonteacher.getEmail());
+			   	message.setSubject("注册认证");
+			   	message.setSendDate(new Date());
+			   	message.setMsg("欢迎"+logonteacher.getUsername()+"加入格物学院，您已经注册成功，请点击下面的链接进行激活，或者复制链接在网页上打开"+"\n"+activeLink);
+			   	if(emailUtil==null){
+			   		setErroMessage("emailUtil为空的");
+			   		return REGISTERERROR;
+			   	}
+			    emailUtil.doSend(message);					
+				setErroMessage("该邮箱没有激活，我们已经发送激活链接到您的邮箱里，请登录邮箱激活");
+				return LOGONERROR;
+				
+			}
 		}
 		else {
 			setErroMessage("密码和邮箱不一致");
@@ -606,6 +666,51 @@ public String modifyPassword() throws Exception{
 		}
 	else {
 		setErroMessage("没有修改");
+		return USERPROFILE;
+	}
+
+}
+/**
+ * 个人邮箱激活
+ * @return
+ * @throws Exception
+ */
+public String active() throws Exception{	
+	if(getCategory().equals("student")){			
+		Student studentM=studentDao.load(getStudent().getId());
+		if(studentM.getActive().equals("1")){
+			setErroMessage("此邮箱已经激活，请登录");
+			return USERPROFILE;
+		}
+		studentM.setActive("1");
+		studentDao.update(studentM);//锟斤拷锟斤拷注锟斤拷锟斤拷息		
+		setErroMessage("此邮箱激活成功，请登录");			
+		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
+	}
+	else if(session.get("type").equals("teacher")){			  
+		Teacher teacher=teacherDao.load(getStudent().getId());
+		if(teacher.getActive().equals("1")){
+			setErroMessage("此邮箱已经激活，请登录");
+			return USERPROFILE;
+		}
+		teacher.setActive("1");
+		teacherDao.update(teacher);//锟斤拷锟斤拷注锟斤拷锟斤拷息		
+		setErroMessage("此邮箱激活成功，请登录");			
+		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
+		}
+	else if (session.get("type").equals("parent")){			
+		Parent parent=parentDao.load(getStudent().getId());
+		if(parent.getActive().equals("1")){
+			setErroMessage("此邮箱已经激活，请登录");
+			return USERPROFILE;
+		}
+		parent.setActive("1");
+		parentDao.update(parent);//锟斤拷锟斤拷注锟斤拷锟斤拷息		
+		setErroMessage("此邮箱激活成功，请登录");			
+		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
+		}
+	else {
+		setErroMessage("此邮箱激活失败，请重新激活");
 		return USERPROFILE;
 	}
 

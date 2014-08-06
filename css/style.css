@@ -462,13 +462,14 @@ padding-top:20px;
 }
 .flash-box{
 float:left;
-width: 78%;
 height: 500px;
 }
 .tutorial-nav{
-width: 20%;
+width: 250px;
 height:500px;
 float:right;
+background-color:#fff;
+border-left:1px solid #ccc;
 }
 .tutorial-nav-header{
 

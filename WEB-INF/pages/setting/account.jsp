@@ -286,8 +286,6 @@ $("#uploadfile").live("change",function(){
 					alert("异步失败");
 				       }
 				    });
-				  }
-			}
 				
 });
 

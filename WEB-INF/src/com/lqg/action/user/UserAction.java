@@ -362,7 +362,7 @@ public String uploadPic() {
             }
             if(session.get("type").equals("teacher")){
             	username="teacher"+((Teacher) session.get("user")).getId();
-            	name=name+username+"_"+new Date().toString();
+            	name=name+username+"_"+new Date().getTime();
             }
             String fileName = name+ ".jpg";//
             File imageDir = new File(realPath);  // 里面输入特定目录
@@ -371,7 +371,7 @@ public String uploadPic() {
             File[] filelist = imageDir.listFiles();
             for (int i = 0; i < filelist.length; i++) {  //遍历目录下所有文件
              temp = filelist[i];
-             if(temp.getName().contains(username)){     //输入文件所包含的字符
+             if(temp.getName().contains(username)&&!(temp.getName().contains("headicon"))){     //输入文件所包含的字符
               System.out.println(temp.getName());
               n++;
               temp.delete();     //删除文件
@@ -405,7 +405,7 @@ public String cutPic(){
         String name=hostPath+"/"+getCuttingImageName();
         image.setSrcpath(name);  
         int index=getCuttingImageName().lastIndexOf("_");
-        String nameCut=getCuttingImageName().substring(0,index)+"_headicon"+new Date().toString()+".jpg";
+        String nameCut=getCuttingImageName().substring(0,index)+"_headicon"+new Date().getTime()+".jpg";
         String cutImage=hostPath+"/"+nameCut;
         image.setSubpath(cutImage); 
         image.setX(getCuttingImageX());
@@ -423,7 +423,7 @@ public String cutPic(){
             // 判断上传后的照片存在删除，防止服务器给爆满  
             int indexCut=getCuttingImageName().indexOf("_headicon");
             if (indexCut>=0) {  
-            	 nameCut=getCuttingImageName().substring(0,indexCut)+"_headicon"+new Date().toString()+".jpg";
+            	 nameCut=getCuttingImageName().substring(0,indexCut)+"_headicon"+new Date().getTime()+".jpg";
             	 cutFile.renameTo(new   File(hostPath+"/"+nameCut));   //改名
             } 
             

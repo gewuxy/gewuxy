@@ -263,7 +263,8 @@ $("#uploadfile").live("change",function(){
 						$("#targetpic").Jcrop({  
 						    onChange: updatePreview,  
 						    onSelect: updatePreview,  
-						    aspectRatio: 1  
+						    aspectRatio: 1,
+						    setSelect:[0,0,100,100] //初始化选中区域  
 						},function(){  
 						    // Use the API to get the real image size  
 						    //jcrop_api.setImage(pathPic);
@@ -349,7 +350,8 @@ $("#cutLoad").live("click",function(){
 						$("#targetpic").Jcrop({  
 						    onChange: updatePreview,  
 						    onSelect: updatePreview,  
-						    aspectRatio: 1  
+						    aspectRatio: 1,
+						    setSelect:[0,0,100,100] //初始化选中区域   
 						},function(){  
 						    // Use the API to get the real image size  
 						    //jcrop_api.setImage(pathPic);
@@ -394,7 +396,8 @@ $("#cutLoad").live("click",function(){
      $("#targetpic").Jcrop({
 	onChange: updatePreview,  
 	 onSelect: updatePreview,  
-	 aspectRatio: 1  
+	 aspectRatio: 1,
+	 setSelect:[0,0,100,100] //初始化选中区域   
 	},function(){  
 	// Use the API to get the real image size
 	 //jcrop_api.setImage(pathPic);

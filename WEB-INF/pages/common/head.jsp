@@ -1013,8 +1013,15 @@ $(this).placeholder();
 				success:function(data){ 
 					var msg="密码和邮箱不一致";
 					var msgok="登录成功";
+					var msgacive="该邮箱没有激活，我们已经发送激活链接到您的邮箱里，请登录邮箱激活";
 					if(data.erroMessage==msg){
 				 	$("#exampleInputEmail1").popover({content:msg});
+					$("#exampleInputEmail1").popover('show');
+					$("#exampleInputEmail1").focus();
+					return false;
+					}
+					if(data.erroMessage==msgacive){
+				 	$("#exampleInputEmail1").popover({content:msgacive});
 					$("#exampleInputEmail1").popover('show');
 					$("#exampleInputEmail1").focus();
 					return false;
@@ -1073,8 +1080,14 @@ $(this).placeholder();
 				success:function(data){ 
 					var msg="密码和邮箱不一致";
 					var msgok="登录成功";
+					var msgactive="该邮箱没有激活，我们已经发送激活链接到您的邮箱里，请登录邮箱激活";
 					if(data.erroMessage==msg){
 					$(".signin-verify").text(data.erroMessage);
+					$(".signin-verify").show();
+					return;
+					}
+					if(data.erroMessage==msgactive){
+					$(".signin-verify").text(msgactive);
 					$(".signin-verify").show();
 					return;
 					}
@@ -1185,7 +1198,7 @@ $(this).placeholder();
 			       	dataType:"json",
 				success:function(data){ 
 				 	var msg="此邮箱已经注册过，请直接登录";
-					var msgok="注册成功，请到邮箱激活认证";
+					var msgok="注册成功，请到邮箱激活认证";					
 					if(data.erroMessage==msg){
 					alert(data.erroMessage);
 					return false;

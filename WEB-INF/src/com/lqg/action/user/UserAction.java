@@ -3,6 +3,7 @@ package com.lqg.action.user;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
@@ -720,13 +721,11 @@ public String active() throws Exception{
 public String sendPasswordFindLink() throws Exception{	
 	String where = "where email = ?";
 	Object[] queryParams = {getStudent().getEmail()};	
-	PageModel<Student> studentfindmodel= studentDao.find(-1,-1, where, queryParams);//执行查询方法
-	PageModel<Teacher> teacherfindmodel= teacherDao.find(-1,-1, where, queryParams);//执行查询方法
-	PageModel<Parent> parentfindmodel= parentDao.find(-1,-1, where, queryParams);//执行查询方法
-	Student studentFind=studentfindmodel.getList().get(0);
-	Parent parentFind=parentfindmodel.getList().get(0);
-	Teacher teacherFind=teacherfindmodel.getList().get(0);
-	if(studentFind!=null){
+	List<Student> studentfindlist= studentDao.find(-1,-1, where, queryParams).getList();//执行查询方法
+	List <Teacher> teacherfindlist= teacherDao.find(-1,-1, where, queryParams).getList();//执行查询方法
+	List <Parent> parentfindlist= parentDao.find(-1,-1, where, queryParams).getList();//执行查询方法
+	if(studentfindlist!=null && studentfindlist.size() > 0){
+		Student studentFind=studentfindlist.get(0);
 		Random rd = new Random(); //创建随机对象
 		String newpassword="";//新的生成密码		
 		int rdGet; //取得随机数
@@ -756,7 +755,8 @@ public String sendPasswordFindLink() throws Exception{
 	setErroMessage("我们已经发送找回密码链接到您的邮箱里，请登录邮箱激活新密码");
 	return USERPROFILE;
 	}
-	else if(parentFind!=null){
+	else if(parentfindlist!=null && parentfindlist.size() > 0){
+		Parent parentFind=parentfindlist.get(0);
 		Random rd = new Random(); //创建随机对象
 		String newpassword="";//新的生成密码		
 		int rdGet; //取得随机数
@@ -786,7 +786,8 @@ public String sendPasswordFindLink() throws Exception{
 	setErroMessage("我们已经发送找回密码链接到您的邮箱里，请登录邮箱激活新密码");
 	return USERPROFILE;
 	}
-	else if(teacherFind!=null){
+	else if(teacherfindlist!=null && teacherfindlist.size() > 0){
+		Teacher teacherFind=teacherfindlist.get(0);
 		Random rd = new Random(); //创建随机对象
 		String newpassword="";//新的生成密码		
 		int rdGet; //取得随机数

@@ -127,7 +127,7 @@ var jiathis_config={
 		    <ul class="tutorial-nav-content-list">
 		      <s:iterator value="pageModel.list[0].bookItem.parent.children">
 		      
-			    <s:a action="video_getByBookItemId" namespace="/video" cssClass="tutorial-tab-link" href="#">
+			    <s:a action="video_getByBookItemId" namespace="/video" cssClass="tutorial-tab-link">
 				<li class="tutorial-nav-node">
                       <s:param name="bookItem.id" value="id"/> 
 					  <div class="video-item-icon">

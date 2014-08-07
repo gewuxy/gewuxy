@@ -516,7 +516,8 @@ border-top:1px solid #aaa;
 margin-left:10px;
 }
 div.tutorial-nav-next:hover{
-background-color:#f0f0f0;
+background-color:#0c6;
+color:#fff;
 }
 .tutorial-nav-content ul{
 list-style:none;

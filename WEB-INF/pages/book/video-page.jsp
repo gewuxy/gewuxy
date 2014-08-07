@@ -144,10 +144,9 @@ var jiathis_config={
 		    </ul>
 		    <div class="tutorial-nav-next">
 			    <s:if test="pageModel.list[0].bookItem.parentNext.children.size()==0">
-				
-				  <div class="tutorial-nav-next-right" style="text-align:center;">
-				   <div class="tutorial-nav-next-section-label">下一章</div>
-				   <div class="tutorial-nav-next-title-label">没有了</div>
+				  <div style="text-align:center;">
+				   <div>下一章</div>
+				   <div>没有了</div>
 				  </div>
 			   
 			</s:if>
@@ -155,9 +154,9 @@ var jiathis_config={
 				<s:if test="#status.index== 0">
 				<s:a action="video_getByBookItemId" namespace="/video" cssClass="tutorial-tab-link" style="text-align:center;">
                                 <s:param name="bookItem.id" value="id"/> 
-				  <div class="tutorial-nav-next-right">
-				   <div class="tutorial-nav-next-section-label">下一节</div>
-				   <div class="tutorial-nav-next-title-label"> <s:property value="pageModel.list[0].bookItem.parentNext.name" /></div>
+				  <div>
+				   <div>下一节</div>
+				   <div> <s:property value="pageModel.list[0].bookItem.parentNext.name" /></div>
 				  </div>
 				</s:a>
 			    </s:if>

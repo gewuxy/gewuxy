@@ -77,41 +77,11 @@
 	  <h3 class="tutorial-title"><s:property value="pageModel.list[0].bookItem.name" /></h3>
 	  <div style="clear:both;">
 	  <div  class="flash-box">
-           <s:iterator value="pageModel.list">
+        <s:iterator value="pageModel.list">
 	    <iframe width="100%" height="100%" src="<s:property value="videoFile.path"/>" 
 		frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen>
 		</iframe>
-		<div class="video-options">
-		  <!-- JiaThis Button BEGIN -->
-		  <div class="jiathis_style_24x24" style="padding-top:7px;">
-			<span class="jiathis_txt" style="padding-left:5px;font-size:14px;">分享到：</span>
-			<a class="jiathis_button_qzone"></a>
-			<a class="jiathis_button_weixin"></a>
-			<a class="jiathis_button_tsina"></a>
-			<a class="jiathis_button_tqq"></a>
-			<a class="jiathis_button_renren"></a>
-		  </div>
-		  <script type="text/javascript" >
-var jiathis_config={
-	siteNum:6,
-	sm:"tsina,qzone,weixin,renren,cqq,douban",
-	summary:$(".tutorial-title").text(),
-	title:"格物学院",
-	boldNum:0,
-	appkey:{
-		"tsina":"weibo",
-		"tqq":"tencent-weibo"
-	},
-	shortUrl:false,
-	hideMore:true
-}
-		  </script>
-		  <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
-		  <!-- JiaThis Button END -->
-
-		  <!--div style="float:right;"><a href="javascript:void(0);" class="report-video-problem">报告视频问题</a></div-->
-	    </div>
-          </s:iterator>
+        </s:iterator>
 	  </div>
 	  <div class="tutorial-nav">
 		<ul class="nav nav-tabs" role="tablist">
@@ -169,6 +139,37 @@ var jiathis_config={
 		  </div>
 		</div>
 	  </div>
+	  <div class="clearfix"></div>
+	  <div class="video-options">
+		  <!-- JiaThis Button BEGIN -->
+		  <div class="jiathis_style_24x24" style="padding-top:7px;">
+			<span class="jiathis_txt" style="padding-left:5px;font-size:14px;">分享到：</span>
+			<a class="jiathis_button_qzone"></a>
+			<a class="jiathis_button_weixin"></a>
+			<a class="jiathis_button_tsina"></a>
+			<a class="jiathis_button_tqq"></a>
+			<a class="jiathis_button_renren"></a>
+		  </div>
+		  <script type="text/javascript" >
+var jiathis_config={
+	siteNum:6,
+	sm:"tsina,qzone,weixin,renren,cqq,douban",
+	summary:$(".tutorial-title").text(),
+	title:"格物学院",
+	boldNum:0,
+	appkey:{
+		"tsina":"weibo",
+		"tqq":"tencent-weibo"
+	},
+	shortUrl:false,
+	hideMore:true
+}
+		  </script>
+		  <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+		  <!-- JiaThis Button END -->
+
+		  <!--div style="float:right;"><a href="javascript:void(0);" class="report-video-problem">报告视频问题</a></div-->
+	    </div>
 	  </div>
 	</div>
   </div>

@@ -75,6 +75,7 @@
 		<result name="email">/WEB-INF/pages/setting/email.jsp</result>
 		<result name="password">/WEB-INF/pages/setting/password.jsp</result>
 		<result name="linkSn">/WEB-INF/pages/setting/link-sn.jsp</result>
+		<result name="newpasswordjsp">/WEB-INF/pages/common/set-newpassword.jsp</result>
 		<result name="logonError" type="json">
 			 <param name="includeProperties">erroMessage, prePage</param>  
 		 </result>

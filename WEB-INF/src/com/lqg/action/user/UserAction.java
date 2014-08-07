@@ -725,99 +725,60 @@ public String sendPasswordFindLink() throws Exception{
 	List <Teacher> teacherfindlist= teacherDao.find(-1,-1, where, queryParams).getList();//执行查询方法
 	List <Parent> parentfindlist= parentDao.find(-1,-1, where, queryParams).getList();//执行查询方法
 	if(studentfindlist!=null && studentfindlist.size() > 0){
-		Student studentFind=studentfindlist.get(0);
-		Random rd = new Random(); //创建随机对象
-		String newpassword="";//新的生成密码		
-		int rdGet; //取得随机数
-		while(newpassword.length()<7){//假如长度为6位
-		rdGet=Math.abs(rd.nextInt())%48+75; //产生48到57的随机数(0-9的键位值)和97到122的随机数(a-z的键位值)
-		if(rdGet>=58&&rdGet<=96)continue;
-		//rdGet=Math.abs(rd.nextInt())%26+97; //产生97到122的随机数(a-z的键位值)
-		char num1=(char)rdGet;
-		String dd=Character.toString(num1);
-		newpassword+=dd;
-
-		}
-	
+		Student studentFind=studentfindlist.get(0);		
 	HttpServletRequest req = ServletActionContext.getRequest();
-	String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_passwordfindActive.html?";  
-	String activeHtml=activeAddress+"student.id="+studentFind.getId()+"&student.password="+newpassword+"&category=student";
+	String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_setnewpassword.html?";  
+	String activeHtml=activeAddress+"student.id="+studentFind.getId()+"&category=student";
 	String activeLink="<a href="+"\""+activeHtml+"\""+">"+activeHtml+"</a>";
 	MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
    	message.setTo(studentFind.getEmail());
    	message.setSubject("找回密码");
    	message.setSendDate(new Date());
-   	message.setMsg("欢迎"+studentFind.getUsername()+"找回密码，您的新密码为"+newpassword+"请点击下面的链接进行密码新密码重置才有效，或者复制链接在网页上打开，同时记得要及时修改密码"+"\n"+activeLink);
+   	message.setMsg("欢迎"+studentFind.getUsername()+"找回密码"+"请点击下面的链接进行密码新重置，或者复制链接在网页上打开"+"\n"+activeLink);
    	if(emailUtil==null){
    		setErroMessage("emailUtil为空的");
    		return USERPROFILE;
    	}
     emailUtil.doSend(message);					
-	setErroMessage("我们已经发送找回密码链接到您的邮箱里，请登录邮箱激活新密码");
+	setErroMessage("我们已经发送找回密码链接到您的邮箱里，请登录邮箱查收");
 	return USERPROFILE;
 	}
 	else if(parentfindlist!=null && parentfindlist.size() > 0){
-		Parent parentFind=parentfindlist.get(0);
-		Random rd = new Random(); //创建随机对象
-		String newpassword="";//新的生成密码		
-		int rdGet; //取得随机数
-		while(newpassword.length()<7){//假如长度为6位
-			rdGet=Math.abs(rd.nextInt())%48+75; //产生48到57的随机数(0-9的键位值)和97到122的随机数(a-z的键位值)
-			if(rdGet>=58&&rdGet<=96)continue;
-			//rdGet=Math.abs(rd.nextInt())%26+97; //产生97到122的随机数(a-z的键位值)
-			char num1=(char)rdGet;
-			String dd=Character.toString(num1);
-			newpassword+=dd;
-
-			}
-	
+		Parent parentFind=parentfindlist.get(0);		
 	HttpServletRequest req = ServletActionContext.getRequest();
-	String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_passwordfindActive.html?"; 
-	String activeHtml=activeAddress+"student.id="+parentFind.getId()+"&student.password="+newpassword+"&category=parent";
+	String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_setnewpassword.html?"; 
+	String activeHtml=activeAddress+"student.id="+parentFind.getId()+"&category=parent";
 	String activeLink="<a href="+"\""+activeHtml+"\""+">"+activeHtml+"</a>";
 	MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
    	message.setTo(parentFind.getEmail());
    	message.setSubject("找回密码");
    	message.setSendDate(new Date());
-   	message.setMsg("欢迎"+parentFind.getUsername()+"找回密码，您的新密码为"+newpassword+"请点击下面的链接进行密码新密码重置才有效，或者复制链接在网页上打开，同时记得要及时修改密码"+"\n"+activeLink);
+   	message.setMsg("欢迎"+parentFind.getUsername()+"找回密码"+"请点击下面的链接进行密码新重置，或者复制链接在网页上打开"+"\n"+activeLink);
    	if(emailUtil==null){
    		setErroMessage("emailUtil为空的");
    		return USERPROFILE;
    	}
     emailUtil.doSend(message);					
-	setErroMessage("我们已经发送找回密码链接到您的邮箱里，请登录邮箱激活新密码");
+	setErroMessage("我们已经发送找回密码链接到您的邮箱里，请登录邮箱查收");
 	return USERPROFILE;
 	}
 	else if(teacherfindlist!=null && teacherfindlist.size() > 0){
-		Teacher teacherFind=teacherfindlist.get(0);
-		Random rd = new Random(); //创建随机对象
-		String newpassword="";//新的生成密码		
-		int rdGet; //取得随机数
-		while(newpassword.length()<7){//假如长度为6位
-			rdGet=Math.abs(rd.nextInt())%48+75; //产生48到57的随机数(0-9的键位值)和97到122的随机数(a-z的键位值)
-			if(rdGet>=58&&rdGet<=96)continue;
-			//rdGet=Math.abs(rd.nextInt())%26+97; //产生97到122的随机数(a-z的键位值)
-			char num1=(char)rdGet;
-			String dd=Character.toString(num1);
-			newpassword+=dd;
-
-			}
-	
+		Teacher teacherFind=teacherfindlist.get(0);		
 	HttpServletRequest req = ServletActionContext.getRequest();
-	String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_passwordfindActive.html?";  
-	String activeHtml=activeAddress+"student.id="+teacherFind.getId()+"&student.password="+newpassword+"&category=teacher";
+	String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_setnewpassword.html?";  
+	String activeHtml=activeAddress+"student.id="+teacherFind.getId()+"&category=teacher";
 	String activeLink="<a href="+"\""+activeHtml+"\""+">"+activeHtml+"</a>";
 	MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
    	message.setTo(teacherFind.getEmail());
    	message.setSubject("找回密码");
    	message.setSendDate(new Date());
-   	message.setMsg("欢迎"+teacherFind.getUsername()+"找回密码，您的新密码为"+newpassword+"请点击下面的链接进行密码新密码重置才有效，或者复制链接在网页上打开，同时记得要及时修改密码"+"\n"+activeLink);
+   	message.setMsg("欢迎"+teacherFind.getUsername()+"找回密码"+"请点击下面的链接进行密码新重置，或者复制链接在网页上打开"+"\n"+activeLink);
    	if(emailUtil==null){
    		setErroMessage("emailUtil为空的");
    		return USERPROFILE;
    	}
     emailUtil.doSend(message);					
-	setErroMessage("我们已经发送找回密码链接到您的邮箱里，请登录邮箱激活新密码");
+	setErroMessage("我们已经发送找回密码链接到您的邮箱里，请登录邮箱查收");
 	return USERPROFILE;
 	}
 	else {
@@ -827,35 +788,52 @@ public String sendPasswordFindLink() throws Exception{
 
 }
 /**
- * 个人找回密码激活
+ * 跳转到找回密码的重置页面
+ */
+public String setnewpassword(){
+	session.put("resetpassuserid", student.getId());
+	session.put("resetpassusercategory", getCategory());
+	return "newpasswordjsp";
+	
+}
+/**
+ * 个人找回密码重置
  * @return
  * @throws Exception
  */
 public String passwordfindActive() throws Exception{
 	String encrypt=Md5s.md5s(student.getPassword());
-	if(getCategory().equals("student")){			
-		Student studentM=studentDao.load(student.getId());		
+	if(session.get("resetpassusercategory").equals("student")){			
+		Student studentM=studentDao.load((int)session.get("resetpassuserid"));		
 		studentM.setPassword(encrypt);
-		studentDao.update(studentM);//锟斤拷锟斤拷注锟斤拷锟斤拷息		
-		setErroMessage("找回密码成功");			
-		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
+		studentDao.update(studentM);//锟斤拷锟斤拷注锟斤拷锟斤拷息
+		session.remove("resetpassusercategory");
+		session.remove("resetpassuserid");
+		setErroMessage("邮箱密码已经重新设置了，请用新的密码登录");
+		return USERPROFILE;
 	}
-	else if(getCategory().equals("parent")){			
-		Parent parent=parentDao.load(student.getId());		
+	else if(session.get("resetpassusercategory").equals("parent")){			
+		Parent parent=parentDao.load((int)session.get("resetpassuserid"));		
 		parent.setPassword(encrypt);
 		parentDao.update(parent);//锟斤拷锟斤拷注锟斤拷锟斤拷息		
-		setErroMessage("找回密码成功");			
-		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
+		session.remove("resetpassusercategory");
+		session.remove("resetpassuserid");
+		setErroMessage("邮箱密码已经重新设置了，请用新的密码登录");
+		return USERPROFILE;
 	}
-	else if(getCategory().equals("teacher")){			
-		Teacher teacher=teacherDao.load(student.getId());		
+	else if(session.get("resetpassusercategory").equals("teacher")){			
+		Teacher teacher=teacherDao.load((int)session.get("resetpassuserid"));		
 		teacher.setPassword(encrypt);
 		teacherDao.update(teacher);//锟斤拷锟斤拷注锟斤拷锟斤拷息		
-		setErroMessage("找回密码成功");			
-		return USERPROFILE;//锟斤拷锟截伙拷员锟斤拷录页锟斤拷
+		session.remove("resetpassusercategory");
+		session.remove("resetpassuserid");
+		setErroMessage("邮箱密码已经重新设置了，请用新的密码登录");
+		return USERPROFILE;
 		}
 	else {
-		setErroMessage("找回密码失败");
+		session.remove("resetpassusercategory");
+		session.remove("resetpassuserid");
+		setErroMessage("邮箱密码设置失败，请再次发送找回密码请求");
 		return USERPROFILE;
 	}
 

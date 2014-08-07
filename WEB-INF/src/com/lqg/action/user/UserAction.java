@@ -729,14 +729,15 @@ public String sendPasswordFindLink() throws Exception{
 		Random rd = new Random(); //创建随机对象
 		String newpassword="";//新的生成密码		
 		int rdGet; //取得随机数
-		do{
+		while(newpassword.length()<7){//假如长度为6位
 		rdGet=Math.abs(rd.nextInt())%48+75; //产生48到57的随机数(0-9的键位值)和97到122的随机数(a-z的键位值)
+		if(rdGet>=58&&rdGet<=96)continue;
 		//rdGet=Math.abs(rd.nextInt())%26+97; //产生97到122的随机数(a-z的键位值)
 		char num1=(char)rdGet;
 		String dd=Character.toString(num1);
 		newpassword+=dd;
 
-		}while(newpassword.length()<7);//假如长度小于7
+		}
 	
 	HttpServletRequest req = ServletActionContext.getRequest();
 	String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_passwordfindActive.html?";  
@@ -760,14 +761,15 @@ public String sendPasswordFindLink() throws Exception{
 		Random rd = new Random(); //创建随机对象
 		String newpassword="";//新的生成密码		
 		int rdGet; //取得随机数
-		do{
+		while(newpassword.length()<7){//假如长度为6位
 			rdGet=Math.abs(rd.nextInt())%48+75; //产生48到57的随机数(0-9的键位值)和97到122的随机数(a-z的键位值)
-		//rdGet=Math.abs(rd.nextInt())%26+97; //产生97到122的随机数(a-z的键位值)
-		char num1=(char)rdGet;
-		String dd=Character.toString(num1);
-		newpassword+=dd;
+			if(rdGet>=58&&rdGet<=96)continue;
+			//rdGet=Math.abs(rd.nextInt())%26+97; //产生97到122的随机数(a-z的键位值)
+			char num1=(char)rdGet;
+			String dd=Character.toString(num1);
+			newpassword+=dd;
 
-		}while(newpassword.length()<7);//假如长度小于7
+			}
 	
 	HttpServletRequest req = ServletActionContext.getRequest();
 	String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_passwordfindActive.html?"; 
@@ -791,14 +793,15 @@ public String sendPasswordFindLink() throws Exception{
 		Random rd = new Random(); //创建随机对象
 		String newpassword="";//新的生成密码		
 		int rdGet; //取得随机数
-		do{
+		while(newpassword.length()<7){//假如长度为6位
 			rdGet=Math.abs(rd.nextInt())%48+75; //产生48到57的随机数(0-9的键位值)和97到122的随机数(a-z的键位值)
-		//rdGet=Math.abs(rd.nextInt())%26+97; //产生97到122的随机数(a-z的键位值)
-		char num1=(char)rdGet;
-		String dd=Character.toString(num1);
-		newpassword+=dd;
+			if(rdGet>=58&&rdGet<=96)continue;
+			//rdGet=Math.abs(rd.nextInt())%26+97; //产生97到122的随机数(a-z的键位值)
+			char num1=(char)rdGet;
+			String dd=Character.toString(num1);
+			newpassword+=dd;
 
-		}while(newpassword.length()<7);//假如长度小于4
+			}
 	
 	HttpServletRequest req = ServletActionContext.getRequest();
 	String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_passwordfindActive.html?";  

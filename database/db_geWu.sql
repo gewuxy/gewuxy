@@ -93,6 +93,7 @@ CREATE TABLE `tb_parent` (
   `imageId` int(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `active` varchar(5) DEFAULT '0',
+  `randomCode` varchar(200) DEFAULT NULL,
    PRIMARY KEY (`id`),
    KEY `FEB315573CFB37BC9D`(`imageId`),
    CONSTRAINT `FEB315573CFB37BC9D` FOREIGN KEY (`imageId`) REFERENCES `tb_uploadFile`(`id`)  
@@ -124,6 +125,7 @@ CREATE TABLE `tb_teacher` (
   `imageId` int(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `active` varchar(5) DEFAULT '0',
+  `randomCode` varchar(200) DEFAULT NULL,
   `roomId` int(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FAB325573CFB37BC9D`(`imageId`),
@@ -160,6 +162,7 @@ CREATE TABLE `tb_student` (
   `parentId` int(50)DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `active` varchar(5) DEFAULT '0',
+  `randomCode` varchar(200) DEFAULT NULL,
   `roomId` int(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FAB305573CFB37BC9D`(`imageId`),

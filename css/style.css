@@ -94,27 +94,19 @@ height: 50%;
 }
 .video-item-icon .pipe-bottom{
 height:26px;
-background-color: #999;
+background-color: #428bca;
 width: 4px;
 position:absolute;
 left:6px;
 top:24px;
 }
-.section-item-icon .pipe-bottom{
-height:28px;
-background-color: blue;
-width: 4px;
-position:absolute;
-left:5px;
-top:17px;
-}
 .section-item-icon .pipe-top{
-height:25px;
-background-color: blue;
+height:52px;
+background-color: #428bca;
 width: 4px;
 position:absolute;
 left:5px;
-top:-21px;
+top:-48px;
 }
 .video-item{
 z-index:1;
@@ -136,6 +128,9 @@ list-style-type:none;
 font:20px bold arial;
 padding:20px;
 margin-right:30px;
+}
+.tutorial-nav-node-icon{
+margin-right:40px;
 }
 .right li:hover{
 background-color:#DDD;
@@ -494,7 +489,6 @@ li.tutorial-nav-node{
 height:40px;
 line-height:40px;
 width:100%;
-color:#555;
 }
 .tutorial-tab-link{
 padding-top:10px;
@@ -505,6 +499,9 @@ font-size:17px;
 text-decoration:none;
 }
 .tutorial-tab-link:last-child  div.pipe-bottom{
+display:none;
+}
+.section-item-link:first-child div.pipe-top{
 display:none;
 }
 li.tutorial-nav-node:hover{

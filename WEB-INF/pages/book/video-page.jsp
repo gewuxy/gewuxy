@@ -152,7 +152,7 @@ var jiathis_config={
 			</s:if>
 				<s:iterator value="pageModel.list[0].bookItem.parentNext.children" status="status" >
 				<s:if test="#status.index== 0">
-				<s:a action="video_getByBookItemId" namespace="/video" cssClass="tutorial-tab-link" style="text-align:center;">
+				<s:a action="video_getByBookItemId" namespace="/video" cssClass="tutorial-tab-link" style="text-align:center;font-weight:bold;">
                                 <s:param name="bookItem.id" value="id"/> 
 				  <div>
 				   <div>下一节</div>

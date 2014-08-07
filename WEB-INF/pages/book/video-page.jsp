@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>格物学院</title>
+<title></title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -69,7 +69,7 @@
 	  <div class="back-to-section">
 		
 		   <span class="glyphicon glyphicon-chevron-left"></span>
-		  <s:a action="bookItem_list" namespace="/bookItem" style="text-decoration:none;width:100%">
+		  <s:a id="section-title" action="bookItem_list" namespace="/bookItem" style="text-decoration:none;width:100%">
 					<s:param name="pid" value="pageModel.list[0].bookItem.parent.parent.id"> </s:param>
 					<s:property value="pageModel.list[0].bookItem.parent.name" /></s:a>
 		
@@ -1302,6 +1302,7 @@ $(".hidelist").click(function(){
 	$(this).text("收起列表");
   }
 });
+document.title=$('.tutorial-title').text()+'-'+$('#section-title').text()+'-格物学院';
   });
 </script>
 <div style="clear:both;width:100%;">

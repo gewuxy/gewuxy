@@ -168,7 +168,7 @@ var jiathis_config={
 		  <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
 		  <!-- JiaThis Button END -->
 
-		  <!--div style="float:right;"><a href="javascript:void(0);" class="report-video-problem">报告视频问题</a></div-->
+		  <span class="hidelist">收起列表</span>
 	    </div>
 	  </div>
 	</div>
@@ -1282,14 +1282,25 @@ alert("没有其他感谢了!");
 if($(".tutorial-wrap").width()-250>500){
 $(".flash-box").width($(".tutorial-wrap").width()-250);
 }else{
-$(".flash-box").width(500);
+$(".flash-box").width("500");
 }
 $(window).resize(function(){
 if($(".tutorial-wrap").width()-250>500){
 $(".flash-box").width($(".tutorial-wrap").width()-250);
 }else{
-$(".flash-box").width(500);
+$(".flash-box").width("500");
 }
+});
+$(".hidelist").click(function(){
+  if(!$(".tutorial-nav").is(":hidden")){
+	$(".tutorial-nav").hide();
+	$(".flash-box").width("100%");
+	$(this).text("显示列表");
+  }else{
+    $(".tutorial-nav").show();
+	$(".flash-box").width($(".tutorial-wrap").width()-250);
+	$(this).text("收起列表");
+  }
 });
   });
 </script>

@@ -22,6 +22,7 @@
     <div class="reset-ps-wrapper">
 	  <h1>格物学院</h1>
 	  <p>我们将把重置密码的链接发送到您的邮箱。</p>
+	  <p id="send-reset-ps-email-success-tip" style="display:none;">我们已经把密码重置的链接发送到邮箱<span></span>。</p>
 	  <!--如果邮箱不存在，返回提示-->
 	  <div class="alert alert-danger reset-ps-failure" role="alert">
 	  </div>
@@ -82,15 +83,15 @@ $("#sendFindPassword").click(function(){
 					var msgnoregister="此邮箱还没有注册";
 					if(data.erroMessage==msgok){
 					$(".reset-ps-failure").text(data.erroMessage);
-	                               if($(".reset-ps-failure").is(":hidden")){$(".reset-ps-failure").show();}
+	                if($(".reset-ps-failure").is(":hidden")){$(".reset-ps-failure").show();}
 					return;
 					}
 					else if(data.erroMessage==msgnoregister){
 					$(".reset-ps-failure").text(data.erroMessage);
 	                                if($(".reset-ps-failure").is(":hidden")){$(".reset-ps-failure").show();}
 					return;
-					}
-					else{ alert("adsf");
+					}else{ 
+						alert("adsf");
 					}
 					
 				},

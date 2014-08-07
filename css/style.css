@@ -86,11 +86,19 @@ vertical-align:middle;
 .section-container .section-item:first-child{
 border-top:0px;
 }
-.section-item-icon{
+.section-item-icon,.video-item-icon{
 display: block;
 position: absolute;
 width: 40px;
 height: 50%;
+}
+.video-item-icon .pipe-bottom{
+height:26px;
+background-color: #999;
+width: 4px;
+position:absolute;
+left:6px;
+top:24px;
 }
 .section-item-icon .pipe-bottom{
 height:28px;
@@ -468,6 +476,7 @@ height: 500px;
 width: 250px;
 height:500px;
 float:right;
+text-align:left;
 background-color:#fff;
 border-left:1px solid #ccc;
 }
@@ -482,19 +491,15 @@ overflow: hidden;
 width: 100%;
 }
 li.tutorial-nav-node{
-box-sizing:content-box;
-border-left:1px solid #AAAAAA;
-padding-top:5px;
-padding-bottom:5px;
-}
-.tutorial-nav-node-inner{
+height:40px;
+line-height:40px;
+width:100%;
+color:#555;
 }
 .tutorial-tab-link{
 padding-top:10px;
 padding-bottom:10px;
 font-size:17px;
-color:#999;
-font-family:SimSun;
 }
 .tutorial-tab-link:hover{
 text-decoration:none;
@@ -502,12 +507,10 @@ text-decoration:none;
 .tutorial-nav-content-list:first-child{
 margin-top:10px;
 }
-.tutorial-nav-node-icon{
-margin-left:-9px;
-z-index:10;
-}
+
 li.tutorial-nav-node:hover{
-background-color:#f0f0f0;
+background-color:#0c6;
+color:#fff;
 }
 div.tutorial-nav-next{
 border-top:1px solid #aaa;
@@ -516,18 +519,9 @@ margin-left:10px;
 div.tutorial-nav-next:hover{
 background-color:#f0f0f0;
 }
-ol{
+.tutorial-nav-content ul{
 list-style:none;
-display: block;
--webkit-margin-before: 1em;
--webkit-margin-after: 1em;
--webkit-margin-start: 0px;
--webkit-margin-end: 0px;
--webkit-padding-start: 40px;
-}
-a.tutorial-tab-link {
-color: #333333;
-text-decoration:none;
+margin-left:-1em;
 }
 textarea.ask-question-tab{
 margin-left:10px;

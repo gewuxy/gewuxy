@@ -124,17 +124,25 @@ var jiathis_config={
  		</ul>
 		<div class="tutorial-nav-body">
 		  <div class="tutorial-nav-content">
-		    <ol class="tutorial-nav-content-list">
+		    <ul class="tutorial-nav-content-list">
 		      <s:iterator value="pageModel.list[0].bookItem.parent.children">
-		      <li class="tutorial-nav-node">
-			    <s:a action="video_getByBookItemId" namespace="/video" cssClass="tutorial-tab-link" >
-					  <span class="glyphicon glyphicon-adjust tutorial-nav-node-icon"></span>
-                      <s:param name="bookItem.id" value="id"/> <s:property value="name" />
+		      
+			    <s:a action="video_getByBookItemId" namespace="/video" cssClass="tutorial-tab-link" href="#">
+				<li class="tutorial-nav-node">
+                      <s:param name="bookItem.id" value="id"/> 
+					  <div class="video-item-icon">
+				  <div class="pipe-bottom"></div>
+				  <div class="pipe-top"></div>
+				  <div class="video-item"><span class="glyphicon glyphicon-play-circle"> </span></div>
+				  <div class="exercise-icon" style="display:none"><span class=""></span></div>
+				</div>
+					  <span style="padding-left:40px"><s:property value="name" /></span>
+					</li>
 					</s:a>
-			  </li>
+			  
 			</s:iterator>
 			  
-		    </ol>
+		    </ul>
 		    <div class="tutorial-nav-next">
 			    <s:if test="pageModel.list[0].bookItem.parentNext.children.size()==0">
 				

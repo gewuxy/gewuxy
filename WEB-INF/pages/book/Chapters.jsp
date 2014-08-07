@@ -53,12 +53,11 @@
 		  <div class="contents-box">
 		    <ul class="section-container">
                         <s:iterator value="children">
-			 <s:a action="video_getByBookItemId" style="text-decoration:none" namespace="/video" >
+			 <s:a action="video_getByBookItemId" cssClass="section-item-link" style="text-decoration:none" namespace="/video" >
 			 <li class="section-item">
                                 <s:param name="bookItem.id" value="id"/> 
 			    <div class="section-item-icon">
 				  <div class="pipe-bottom"></div>
-				  <div class="pipe-top"></div>
 				  <div class="video-item"><span class="glyphicon glyphicon-play-circle"> </span></div>
 				  <div class="exercise-icon" style="display:none"><span class=""></span></div>
 				</div>

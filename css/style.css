@@ -101,8 +101,8 @@ left:6px;
 top:24px;
 }
 .section-item-icon .pipe-bottom{
-height:28px;
-background-color: blue;
+height:50px;
+background-color: #428bca;
 width: 4px;
 position:absolute;
 left:5px;
@@ -507,6 +507,9 @@ font-size:17px;
 text-decoration:none;
 }
 .tutorial-tab-link:last-child  div.pipe-bottom{
+display:none;
+}
+.section-item-link:last-child div.pipe-bottom{
 display:none;
 }
 li.tutorial-nav-node:hover{

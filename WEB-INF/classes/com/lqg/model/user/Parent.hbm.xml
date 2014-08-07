@@ -16,6 +16,7 @@
 		<many-to-one name="image" class="com.lqg.model.product.UploadFile" column="imageId" unique="true" cascade="all" lazy="false"/>
 		<property name="email" length="50"/>
 		<property name="active" length="5"/>
+		<property name="randomCode" length="200"/>
 		<set name="children" inverse="true" lazy="extra">
 			<key column="parentId"/>
 			<one-to-many class="Student" />

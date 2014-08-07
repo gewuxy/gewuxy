@@ -20,6 +20,7 @@
 		<many-to-one name="parent" class="com.lqg.model.user.Parent" column="parentId"/>
 		<property name="email" length="50"/>
 		<property name="active" length="5"/>
+		<property name="randomCode" length="200"/>
 		<many-to-one name="room" class="com.lqg.model.user.Room" column="roomId"/>
 	</class>
 </hibernate-mapping>

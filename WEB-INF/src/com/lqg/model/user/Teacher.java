@@ -39,6 +39,8 @@ public class Teacher implements Serializable{
 		private String email;
 		//是否为激活
 		private String active="0";
+		// 随机码(激活帐户与生成重设密码链接时使用)  
+	    private String randomCode; 
 		private Set<Student> students = new TreeSet<Student>();//学生们
 		
 		public Integer getId() {
@@ -127,5 +129,11 @@ public class Teacher implements Serializable{
 		}
 		public void setActive(String active) {
 			this.active = active;
+		}
+		public String getRandomCode() {
+			return randomCode;
+		}
+		public void setRandomCode(String randomCode) {
+			this.randomCode = randomCode;
 		}
 }

@@ -43,6 +43,8 @@ public class Student implements Serializable{
 	private String email;
 	//是否为激活
 	private String active="0";
+	// 随机码(激活帐户与生成重设密码链接时使用)  
+    private String randomCode; 
 	public Integer getId() {
 		return id;
 	}
@@ -136,5 +138,11 @@ public class Student implements Serializable{
 	}
 	public void setActive(String active) {
 		this.active = active;
+	}
+	public String getRandomCode() {
+		return randomCode;
+	}
+	public void setRandomCode(String randomCode) {
+		this.randomCode = randomCode;
 	}
 }

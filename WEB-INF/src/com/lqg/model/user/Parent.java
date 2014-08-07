@@ -23,6 +23,8 @@ public class Parent implements Serializable{
 	private UploadFile image;//个人图片
 	private String email;// 邮件
 	private String active="0";//是否激活
+	// 随机码(激活帐户与生成重设密码链接时使用)  
+    private String randomCode; 
 	private Set<Student> children = new TreeSet<Student>();//孩子
 	
 	public Integer getId() {
@@ -92,5 +94,11 @@ public class Parent implements Serializable{
 	}
 	public void setActive(String active) {
 		this.active = active;
+	}
+	public String getRandomCode() {
+		return randomCode;
+	}
+	public void setRandomCode(String randomCode) {
+		this.randomCode = randomCode;
 	}
 }

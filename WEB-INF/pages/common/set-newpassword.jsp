@@ -60,6 +60,57 @@ $(window).resize(function(){
 	}
 });
 $("#resetPassword").click(function(){
+			if($("#newPassword").val()==""){
+				$(".reset-new-ps-failure").text('未输入新密码');
+				if($(".reset-new-ps-failure").is(":hidden")){$(".reset-new-ps-failure").show();}
+				$("#newPassword").focus();
+				return false;
+			}                      //判断密码格式：包含字母和数字，位数在6-16位之间
+			var reg = new RegExp("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$");
+			if(!reg.test($("#newPassword").val())){
+					$(".reset-new-ps-failure").text("新密码必须包含字母和数字，6位到16位之间");
+					if($(".reset-new-ps-failure").is(":hidden")){$(".reset-new-ps-failure").show();}
+					$("#newPassword").focus();
+					return false;
+			}
+			
+			
+          		  if($("#confirm-new-password").val()==""){
+				$(".reset-new-ps-failure").text("未确认新密码");
+				if($(".reset-new-ps-failure").is(":hidden")){$(".reset-new-ps-failure").show();}
+				$("#confirm-new-password").focus();
+				return false;
+			}
+			if($("#confirm-new-password").val()!=$("#newPassword").val()){
+				$(".reset-new-ps-failure").text("两次密码输入不相同");
+				if($(".reset-new-ps-failure").is(":hidden")){$(".reset-new-ps-failure").show();}
+				$("#confirm-new-password").focus();
+				return false;
+			}			 
+			
+			   var params = {
+				"student.password":$("#newPassword").val()				
+				
+			      };		
+ 
+			      $.ajax({
+				type: "POST",
+				url: "../user/user_passwordfindActive.html",
+			 	data:params,
+				async: false,
+			       	dataType:"json",
+				success:function(data){ 
+				 	       $("..reset-new-ps-failure").text(data.erroMessage);
+				           // if($(".change-ps-error").is(":hidden")){$(".change-ps-error").show();}
+					        //alert(data.erroMessage);			
+					
+				},
+				error: function(data){
+				    // alert("dsfsdfds");
+                                     alert(data.erroMessage)
+				 // return false;
+				}
+				});
 });
 })
 </script>  

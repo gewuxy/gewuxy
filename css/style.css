@@ -1251,7 +1251,7 @@ font-size:2em;
 a.job-des:hover{
 text-decoration:none;
 }
-.reset-ps-failure{
+.reset-ps-failure,.reset-new-ps-failure{
 display:none;
 margin-left:10px;
 margin-right:10px;

@@ -76,13 +76,15 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 		if(category.equals("student")){		
 		if(unique){//锟斤拷锟斤拷没锟斤拷锟斤拷锟斤拷
 			student.setPassword(password);
+			String hasmibao=email+password+new Date();
+			student.setRandomCode(Md5s.md5s(hasmibao));
 			studentDao.save(student);//锟斤拷锟斤拷注锟斤拷锟斤拷息
 			Student savestudent=studentDao.login(email, password);
 			if(savestudent==null){
 		   		setErroMessage("savestudent为空的");
 		   		return REGISTERERROR;
 		   	}
-			String activeHtml=activeAddress+"student.id="+savestudent.getId()+"&name="+savestudent.getUsername()+"&category=student";
+			String activeHtml=activeAddress+"student.id="+savestudent.getId()+"&student.randomCode="+savestudent.getRandomCode()+"&category=student";
 			String activeLink="<a href="+"\""+activeHtml+"\""+">"+activeHtml+"</a>";
 			MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
 		   	message.setTo(email);
@@ -108,13 +110,15 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 				teacher.setUsername(student.getUsername());
 				teacher.setEmail(email);
 				teacher.setPassword(password);
+				String hasmibao=email+password+new Date();
+				teacher.setRandomCode(Md5s.md5s(hasmibao));
 				teacherDao.save(teacher);//锟斤拷锟斤拷注锟斤拷锟斤拷息
 				Teacher saveteacher=teacherDao.login(email, password);
 				if(saveteacher==null){
 			   		setErroMessage("saveteacher为空的");
 			   		return REGISTERERROR;
 			   	}
-				String activeHtml=activeAddress+"student.id="+saveteacher.getId()+"&name="+saveteacher.getUsername()+"&category=teacher";
+				String activeHtml=activeAddress+"student.id="+saveteacher.getId()+"&student.randomCode="+saveteacher.getRandomCode()+"&category=teacher";
 				String activeLink="<a href="+"\""+activeHtml+"\""+">"+activeHtml+"</a>";
 				MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
 			   	message.setTo(email);
@@ -140,13 +144,15 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 				parent.setUsername(student.getUsername());
 				parent.setEmail(email);
 				parent.setPassword(password);
+				String hasmibao=email+password+new Date();
+				parent.setRandomCode(Md5s.md5s(hasmibao));
 				parentDao.save(parent);//锟斤拷锟斤拷注锟斤拷锟斤拷息
 				Parent saveparent=parentDao.login(email, password);
 				if(saveparent==null){
 			   		setErroMessage("saveparent为空的");
 			   		return REGISTERERROR;
 			   	}
-				String activeHtml=activeAddress+"student.id="+saveparent.getId()+"&name="+saveparent.getUsername()+"&category=parent";
+				String activeHtml=activeAddress+"student.id="+saveparent.getId()+"&student.randomCode="+saveparent.getRandomCode()+"&category=parent";
 				String activeLink="<a href="+"\""+activeHtml+"\""+">"+activeHtml+"</a>";
 				MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
 			   	message.setTo(email);
@@ -676,8 +682,16 @@ public String modifyPassword() throws Exception{
 public String active() throws Exception{	
 	if(getCategory().equals("student")){			
 		Student studentM=studentDao.load(getStudent().getId());
+		if(studentM==null){			
+			setErroMessage("此邮箱没有注册，请先注册");
+			return USERPROFILE;
+		}
 		if(studentM.getActive().equals("1")){
 			setErroMessage("此邮箱已经激活，请登录");
+			return USERPROFILE;
+		}
+		if(!(student.getRandomCode().equals(studentM.getRandomCode()))){
+			setErroMessage("此邮箱不允许非法操作");
 			return USERPROFILE;
 		}
 		studentM.setActive("1");
@@ -687,8 +701,16 @@ public String active() throws Exception{
 	}
 	else if(getCategory().equals("teacher")){			  
 		Teacher teacher=teacherDao.load(getStudent().getId());
+		if(teacher==null){			
+			setErroMessage("此邮箱没有注册，请先注册");
+			return USERPROFILE;
+		}
 		if(teacher.getActive().equals("1")){
 			setErroMessage("此邮箱已经激活，请登录");
+			return USERPROFILE;
+		}
+		if(!(student.getRandomCode().equals(teacher.getRandomCode()))){
+			setErroMessage("此邮箱不允许非法操作");
 			return USERPROFILE;
 		}
 		teacher.setActive("1");
@@ -698,8 +720,16 @@ public String active() throws Exception{
 		}
 	else if (getCategory().equals("parent")){			
 		Parent parent=parentDao.load(getStudent().getId());
+		if(parent==null){			
+			setErroMessage("此邮箱没有注册，请先注册");
+			return USERPROFILE;
+		}
 		if(parent.getActive().equals("1")){
 			setErroMessage("此邮箱已经激活，请登录");
+			return USERPROFILE;
+		}
+		if(!(student.getRandomCode().equals(parent.getRandomCode()))){
+			setErroMessage("此邮箱不允许非法操作");
 			return USERPROFILE;
 		}
 		parent.setActive("1");
@@ -728,7 +758,7 @@ public String sendPasswordFindLink() throws Exception{
 		Student studentFind=studentfindlist.get(0);		
 	HttpServletRequest req = ServletActionContext.getRequest();
 	String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_setnewpassword.html?";  
-	String activeHtml=activeAddress+"student.id="+studentFind.getId()+"&category=student";
+	String activeHtml=activeAddress+"student.id="+studentFind.getId()+"&student.randomCode="+studentFind.getRandomCode()+"&category=student";
 	String activeLink="<a href="+"\""+activeHtml+"\""+">"+activeHtml+"</a>";
 	MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
    	message.setTo(studentFind.getEmail());
@@ -747,7 +777,7 @@ public String sendPasswordFindLink() throws Exception{
 		Parent parentFind=parentfindlist.get(0);		
 	HttpServletRequest req = ServletActionContext.getRequest();
 	String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_setnewpassword.html?"; 
-	String activeHtml=activeAddress+"student.id="+parentFind.getId()+"&category=parent";
+	String activeHtml=activeAddress+"student.id="+parentFind.getId()+"&student.randomCode="+parentFind.getRandomCode()+"&category=parent";
 	String activeLink="<a href="+"\""+activeHtml+"\""+">"+activeHtml+"</a>";
 	MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
    	message.setTo(parentFind.getEmail());
@@ -766,7 +796,7 @@ public String sendPasswordFindLink() throws Exception{
 		Teacher teacherFind=teacherfindlist.get(0);		
 	HttpServletRequest req = ServletActionContext.getRequest();
 	String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_setnewpassword.html?";  
-	String activeHtml=activeAddress+"student.id="+teacherFind.getId()+"&category=teacher";
+	String activeHtml=activeAddress+"student.id="+teacherFind.getId()+"&student.randomCode="+teacherFind.getRandomCode()+"&category=teacher";
 	String activeLink="<a href="+"\""+activeHtml+"\""+">"+activeHtml+"</a>";
 	MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
    	message.setTo(teacherFind.getEmail());
@@ -792,6 +822,7 @@ public String sendPasswordFindLink() throws Exception{
  */
 public String setnewpassword(){
 	session.put("resetpassuserid", student.getId());
+	session.put("resetpassuserhashcode", student.getRandomCode());
 	session.put("resetpassusercategory", getCategory());
 	return "newpasswordjsp";
 	
@@ -804,35 +835,81 @@ public String setnewpassword(){
 public String passwordfindActive() throws Exception{
 	String encrypt=Md5s.md5s(student.getPassword());
 	if(session.get("resetpassusercategory").equals("student")){			
-		Student studentM=studentDao.load((int)session.get("resetpassuserid"));		
+		Student studentM=studentDao.load((int)session.get("resetpassuserid"));
+		if(studentM==null){
+			session.remove("resetpassusercategory");
+			session.remove("resetpassuserid");
+			session.remove("resetpassuserhashcode");
+			setErroMessage("此邮箱没有注册，请先注册");
+			return USERPROFILE;
+		}
+		if(!(session.get("resetpassuserhashcode").equals(studentM.getRandomCode()))){	
+			session.remove("resetpassusercategory");
+			session.remove("resetpassuserid");
+			session.remove("resetpassuserhashcode");
+			setErroMessage("邮箱不允许非法操作");
+			return USERPROFILE;
+		}
 		studentM.setPassword(encrypt);
 		studentDao.update(studentM);//锟斤拷锟斤拷注锟斤拷锟斤拷息
 		session.remove("resetpassusercategory");
 		session.remove("resetpassuserid");
+		session.remove("resetpassuserhashcode");
 		setErroMessage("邮箱密码已经重新设置了，请用新的密码登录");
 		return USERPROFILE;
 	}
 	else if(session.get("resetpassusercategory").equals("parent")){			
-		Parent parent=parentDao.load((int)session.get("resetpassuserid"));		
+		Parent parent=parentDao.load((int)session.get("resetpassuserid"));
+		if(parent==null){
+			session.remove("resetpassusercategory");
+			session.remove("resetpassuserid");
+			session.remove("resetpassuserhashcode");
+			setErroMessage("此邮箱没有注册，请先注册");
+			return USERPROFILE;
+		}
+		if(!(session.get("resetpassuserhashcode").equals(parent.getRandomCode()))){	
+			session.remove("resetpassusercategory");
+			session.remove("resetpassuserid");
+			session.remove("resetpassuserhashcode");
+			setErroMessage("邮箱不允许非法操作");
+			return USERPROFILE;
+		}
 		parent.setPassword(encrypt);
 		parentDao.update(parent);//锟斤拷锟斤拷注锟斤拷锟斤拷息		
 		session.remove("resetpassusercategory");
 		session.remove("resetpassuserid");
+		session.remove("resetpassuserhashcode");
 		setErroMessage("邮箱密码已经重新设置了，请用新的密码登录");
 		return USERPROFILE;
 	}
 	else if(session.get("resetpassusercategory").equals("teacher")){			
-		Teacher teacher=teacherDao.load((int)session.get("resetpassuserid"));		
+		Teacher teacher=teacherDao.load((int)session.get("resetpassuserid"));
+		if(teacher==null){
+			session.remove("resetpassusercategory");
+			session.remove("resetpassuserid");
+			session.remove("resetpassuserhashcode");
+			setErroMessage("此邮箱没有注册，请先注册");
+			return USERPROFILE;
+		}
+		if(!(session.get("resetpassuserhashcode").equals(teacher.getRandomCode()))){	
+			session.remove("resetpassusercategory");
+			session.remove("resetpassuserid");
+			session.remove("resetpassuserhashcode");
+			setErroMessage("邮箱不允许非法操作");
+			return USERPROFILE;
+		}
 		teacher.setPassword(encrypt);
 		teacherDao.update(teacher);//锟斤拷锟斤拷注锟斤拷锟斤拷息		
 		session.remove("resetpassusercategory");
 		session.remove("resetpassuserid");
+		session.remove("resetpassuserhashcode");
 		setErroMessage("邮箱密码已经重新设置了，请用新的密码登录");
 		return USERPROFILE;
 		}
 	else {
 		session.remove("resetpassusercategory");
 		session.remove("resetpassuserid");
+		session.remove("resetpassuserhashcode");
 		setErroMessage("邮箱密码设置失败，请再次发送找回密码请求");
 		return USERPROFILE;
 	}

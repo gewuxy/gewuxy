@@ -100,21 +100,13 @@ position:absolute;
 left:6px;
 top:24px;
 }
-.section-item-icon .pipe-bottom{
-height:50px;
+.section-item-icon .pipe-top{
+height:52px;
 background-color: #428bca;
 width: 4px;
 position:absolute;
 left:5px;
-top:17px;
-}
-.section-item-icon .pipe-top{
-height:25px;
-background-color: blue;
-width: 4px;
-position:absolute;
-left:5px;
-top:-21px;
+top:-48px;
 }
 .video-item{
 z-index:1;
@@ -509,7 +501,7 @@ text-decoration:none;
 .tutorial-tab-link:last-child  div.pipe-bottom{
 display:none;
 }
-.section-item-link:last-child div.pipe-bottom{
+.section-item-link:first-child div.pipe-top{
 display:none;
 }
 li.tutorial-nav-node:hover{

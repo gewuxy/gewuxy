@@ -57,7 +57,8 @@
 			 <li class="section-item">
                                 <s:param name="bookItem.id" value="id"/> 
 			    <div class="section-item-icon">
-				  <div class="pipe-bottom"></div>
+				  
+				  <div class="pipe-top"></div>
 				  <div class="video-item"><span class="glyphicon glyphicon-play-circle"> </span></div>
 				  <div class="exercise-icon" style="display:none"><span class=""></span></div>
 				</div>

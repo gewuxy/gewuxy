@@ -207,7 +207,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 			}else{
 				 HttpServletRequest req = ServletActionContext.getRequest();
 				String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_active.html?";  
-				String activeHtml=activeAddress+"student.id="+logonstudent.getId()+"&name="+logonstudent.getUsername()+"&category=student";
+				String activeHtml=activeAddress+"student.id="+logonstudent.getId()+"&student.randomCode="+logonstudent.getRandomCode()+"&category=student";
 				String activeLink="<a href="+"\""+activeHtml+"\""+">"+activeHtml+"</a>";
 				MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
 			   	message.setTo(logonstudent.getEmail());
@@ -242,7 +242,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 			}else{
 				HttpServletRequest req = ServletActionContext.getRequest();
 				String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_active.html?";  
-				String activeHtml=activeAddress+"student.id="+logonparent.getId()+"&name="+logonparent.getUsername()+"&category=parent";
+				String activeHtml=activeAddress+"student.id="+logonparent.getId()+"&student.randomCode="+logonparent.getRandomCode()+"&category=parent";
 				String activeLink="<a href="+"\""+activeHtml+"\""+">"+activeHtml+"</a>";
 				MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
 			   	message.setTo(logonparent.getEmail());
@@ -277,7 +277,7 @@ public class UserAction extends BaseAction implements ModelDriven<Student>{
 			}else{
 				HttpServletRequest req = ServletActionContext.getRequest();
 				String activeAddress= req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+req.getContextPath()+"/user/user_active.html?";  
-				String activeHtml=activeAddress+"student.id="+logonteacher.getId()+"&name="+logonteacher.getUsername()+"&category=teacher";
+				String activeHtml=activeAddress+"student.id="+logonteacher.getId()+"&student.randomCode="+logonteacher.getRandomCode()+"&category=teacher";
 				String activeLink="<a href="+"\""+activeHtml+"\""+">"+activeHtml+"</a>";
 				MessageInfo message = new MessageInfo();//·â×°ÓÊŒþÐÅÏ¢µÄ¶ÔÏó 		   	
 			   	message.setTo(logonteacher.getEmail());

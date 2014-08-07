@@ -504,10 +504,9 @@ font-size:17px;
 .tutorial-tab-link:hover{
 text-decoration:none;
 }
-.tutorial-nav-content-list:first-child{
-margin-top:10px;
+.tutorial-tab-link:last-child  div.pipe-bottom{
+display:none;
 }
-
 li.tutorial-nav-node:hover{
 background-color:#0c6;
 color:#fff;

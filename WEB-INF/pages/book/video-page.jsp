@@ -132,7 +132,6 @@ var jiathis_config={
                       <s:param name="bookItem.id" value="id"/> 
 					  <div class="video-item-icon">
 				  <div class="pipe-bottom"></div>
-				  <div class="pipe-top"></div>
 				  <div class="video-item"><span class="glyphicon glyphicon-play-circle"> </span></div>
 				  <div class="exercise-icon" style="display:none"><span class=""></span></div>
 				</div>
@@ -811,14 +810,7 @@ var jiathis_config={
 </div>						<!--感谢评论的模板结尾-->	
 
 </div>
-
-
-
-
-
-
- <!--模板结尾-->
-  
+ <!--模板结尾--> 
   <script>
 $(document).ready(function(){
 $('input[name="jubaoRadios"]').change(function(){

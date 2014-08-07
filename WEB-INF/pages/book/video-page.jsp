@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>格物学院</title>
+<title></title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -69,7 +69,7 @@
 	  <div class="back-to-section">
 		
 		   <span class="glyphicon glyphicon-chevron-left"></span>
-		  <s:a action="bookItem_list" namespace="/bookItem" style="text-decoration:none;width:100%">
+		  <s:a id="section-title" action="bookItem_list" namespace="/bookItem" style="text-decoration:none;width:100%">
 					<s:param name="pid" value="pageModel.list[0].bookItem.parent.parent.id"> </s:param>
 					<s:property value="pageModel.list[0].bookItem.parent.name" /></s:a>
 		
@@ -168,7 +168,7 @@ var jiathis_config={
 		  <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
 		  <!-- JiaThis Button END -->
 
-		  <!--div style="float:right;"><a href="javascript:void(0);" class="report-video-problem">报告视频问题</a></div-->
+		  <span class="hidelist">收起列表</span>
 	    </div>
 	  </div>
 	</div>
@@ -1282,15 +1282,27 @@ alert("没有其他感谢了!");
 if($(".tutorial-wrap").width()-250>500){
 $(".flash-box").width($(".tutorial-wrap").width()-250);
 }else{
-$(".flash-box").width(500);
+$(".flash-box").width("500");
 }
 $(window).resize(function(){
 if($(".tutorial-wrap").width()-250>500){
 $(".flash-box").width($(".tutorial-wrap").width()-250);
 }else{
-$(".flash-box").width(500);
+$(".flash-box").width("500");
 }
 });
+$(".hidelist").click(function(){
+  if(!$(".tutorial-nav").is(":hidden")){
+	$(".tutorial-nav").hide();
+	$(".flash-box").width("100%");
+	$(this).text("显示列表");
+  }else{
+    $(".tutorial-nav").show();
+	$(".flash-box").width($(".tutorial-wrap").width()-250);
+	$(this).text("收起列表");
+  }
+});
+document.title=$('.tutorial-title').text()+'-'+$('#section-title').text()+'-格物学院';
   });
 </script>
 <div style="clear:both;width:100%;">

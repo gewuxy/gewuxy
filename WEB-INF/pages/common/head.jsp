@@ -798,7 +798,7 @@
 							</label>
 						</div>
 						<button id="denglu" type="button" class="btn btn-primary">登录</button>
-						<a class="sign-up" href="#">注册</a>
+						<a class="sign-up" href="javascript:void(0);">注册</a>
 					</form></s:if>
 					<s:if test="#session.user!= null">
 					<ul class="nav navbar-nav navbar-right" style="margin:0 auto;">
@@ -847,8 +847,8 @@
       <div class="modal-header" style="padding-bottom:5px;border:0px;">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 		<ul class="nav nav-tabs" role="tablist" id="sign-form-label">
-		  <li class="active sign-up-tab"><a href="#">注册</a></li>
-		  <li class="sign-in-tab"><a href="#">登录</a></li>
+		  <li class="active sign-up-tab"><a href="javascript:void(0);">注册</a></li>
+		  <li class="sign-in-tab"><a href="javascript:void(0);">登录</a></li>
 		</ul>
       </div>
       <div class="modal-body">
@@ -883,9 +883,8 @@
 			<div style="padding-top:5px;padding-bottom:5px;float:right;">
 		      <button id="register" type="button" class="btn btn-primary">加入格物学院</button>
 			</div>
-				
+			</form>	
 		  </div>
-		</form>
 		  <div class="sign-in-email" style="display:none;">
 		  <h4>登录格物学院</h4>
             <form >

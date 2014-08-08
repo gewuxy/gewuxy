@@ -961,6 +961,10 @@ $(this).placeholder();
 				$('#sign-form').modal();
 				$(".sign-up-tab").trigger("click");
 			});
+			$('#sign-form').on('hidden.bs.modal', function (e) {
+				$(".regist-verify").hide();
+				$(".signin-verify").hide();
+			});
 			$("#exampleInputEmail1").blur(function(){
 			  $('#exampleInputEmail1').popover('destroy');
 			});

@@ -78,7 +78,7 @@
 	  <div style="clear:both;">
 	  <div  class="flash-box">
         <s:iterator value="pageModel.list">
-	    <iframe width="100%" height="100%" src="<s:property value="videoFile.path"/>" 
+	    <iframe width="100%" height="100%" style="border:0;" src="<s:property value='videoFile.path'/>" 
 		frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen>
 		</iframe>
         </s:iterator>
@@ -1286,7 +1286,11 @@ $(".flash-box").width("500");
 }
 $(window).resize(function(){
 if($(".tutorial-wrap").width()-250>500){
-$(".flash-box").width($(".tutorial-wrap").width()-250);
+  if(!$(".tutorial-nav").is(":hidden")){
+	$(".flash-box").width($(".tutorial-wrap").width()-250);
+  }else{
+    $(".flash-box").width("100%");
+  }
 }else{
 $(".flash-box").width("500");
 }

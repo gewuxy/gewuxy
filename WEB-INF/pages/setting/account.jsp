@@ -121,7 +121,7 @@
           <h4 class="modal-title" id="myModalLabel">设置头像</h4>
         </div>
 		<div class="modal-body"> 
-			<div class="upload-btn-container">
+		  <div class="upload-btn-container">
 		    <input type="button" class="btn btn-primary upload-btn" value="本地上传" />
             <input id="uploadfile" type="file" name="pic" accept="image/gif,image/png,image/jpeg,image/jpg" />
 		  </div>
@@ -131,10 +131,10 @@
 		  </span>
 			<form> 
 			  <input type="hidden"  id="cuttingImage" value="<s:property value='#session.user.image.path'/>"/>        
-			  <input type="hidden"  id="x"/>  
-			  <input type="hidden"  id="y"/>  
-			  <input type="hidden"   id="width"/>  
-			  <input type="hidden"  id="height"/>  
+			  <input type="hidden"  id="x" />  
+			  <input type="hidden"  id="y" />  
+			  <input type="hidden"  id="width" />  
+			  <input type="hidden"  id="height" />  
 			</form> 
 			<div class="clearfix"></div>
             <div class="row img-upload-tip">
@@ -142,7 +142,6 @@
 			</div>          
 
             <div class="img-cut-preivew-container">
-
 			  <div id="target" class="selected-img-src">
 				<s:if test="#session.user.image==null">
 				  <img id="targetpic" src="<%=request.getContextPath()%>/img/headicon/default-headicon.png"/>
@@ -150,7 +149,6 @@
 				<s:if test="#session.user.image!=null">
                   <img id="targetpic" src="<%=request.getContextPath()%>/img/headicon/<s:property value='#session.user.image.path'/>" />
 				</s:if>
-
               </div>
 			  <div id="preview" class="img-cut-preview">
 			    <div>预览</div>
@@ -232,7 +230,7 @@ $("#uploadfile").live("change",function(){
 		$("#previewpic").attr("src",pathPic);	
 		$("#previewpic1").attr("src",pathPic);
 		$("#previewpic2").attr("src",pathPic);
-		$("#previewpic").css({  		
+		/*$("#previewpic").css({  		
 			width: 100 + 'px',   //100 为预览div的宽和高
 			height: 100+ 'px',  
 			marginLeft: '-' + 0 + 'px',  
@@ -249,7 +247,7 @@ $("#uploadfile").live("change",function(){
 			height: 30 + 'px',  
 			marginLeft: '-' + 0 + 'px',  
 			marginTop: '-' + 0 + 'px'  
-		});    
+		}); */   
 		$("#targetpic").attr("src",pathPic);	
 		$("#targetpic").Jcrop({  
 			onChange: updatePreview,  

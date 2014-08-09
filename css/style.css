@@ -1400,8 +1400,9 @@ width:100px;
 #uploadfile{
 opacity:0;
 filter:alpha(opacity=0);
+font-size:24px;
 top:0;
-left:-80px;
+left:-280px;
 bottom:0;
 position:absolute;
 cursor:pointer;

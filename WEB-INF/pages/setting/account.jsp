@@ -406,25 +406,29 @@ $("#cutLoad").live("click",function(){
         function updatePreview(c){  
             if (parseInt(c.w) > 0){    
 		//计算预览区域图片缩放的比例，通过计算显示区域的宽度(与高度)与剪裁的宽度(与高度)之比得到 
-		var rx = $("#targetpic").width()/c.w; 
-		var ry = $("#targetpic").height()/c.h;
+		var rx_100 = $(".img-preview-100").width()/c.w; 
+		var ry_100 = $(".img-preview-100").height()/c.h;
+		var rx_75 = $(".img-preview-75").width()/c.w; 
+		var ry_75 = $(".img-preview-75").height()/c.h;
+		var rx_30 = $(".img-preview-30").width()/c.w; 
+		var ry_30 = $(".img-preview-30").height()/c.h;
                 $("#previewpic").css({  		
-                    width: Math.round(boundx*rx) + 'px',   //100 为预览div的宽和高
-                    height: Math.round(boundy*ry) + 'px',  
-                    marginLeft: '-' + Math.round(rx*c.x) + 'px',  
-                    marginTop: '-' + Math.round(ry*c.y) + 'px'  
+                    width: Math.round(boundx*rx_100) + 'px',   //100 为预览div的宽和高
+                    height: Math.round(boundy*ry_100) + 'px',  
+                    marginLeft: '-' + Math.round(rx_100*c.x) + 'px',  
+                    marginTop: '-' + Math.round(ry_100*c.y) + 'px'  
                 });  	
 		 $("#previewpic1").css({  		
-                    width: Math.round(boundx*rx) + 'px',   //75 为预览div的宽和高
-                    height: Math.round(boundy*ry) + 'px',  
-                    marginLeft: '-' + Math.round(rx*c.x) + 'px',  
-                    marginTop: '-' + Math.round(ry*c.y) + 'px'  
+                    width: Math.round(boundx*rx_75) + 'px',   //75 为预览div的宽和高
+                    height: Math.round(boundy*ry_75) + 'px',  
+                    marginLeft: '-' + Math.round(rx_75*c.x) + 'px',  
+                    marginTop: '-' + Math.round(ry_75*c.y) + 'px'  
                 });  
 		 $("#previewpic2").css({  		
-                    width: Math.round(boundx*rx) + 'px',   //30 为预览div的宽和高
-                    height: Math.round(boundy*ry) + 'px',  
-                    marginLeft: '-' + Math.round(rx*c.x) + 'px',  
-                    marginTop: '-' + Math.round(ry*c.y) + 'px'  
+                    width: Math.round(boundx*rx_30) + 'px',   //30 为预览div的宽和高
+                    height: Math.round(boundy*ry_30) + 'px',  
+                    marginLeft: '-' + Math.round(rx_30*c.x) + 'px',  
+                    marginTop: '-' + Math.round(ry_30*c.y) + 'px'  
                 });    	
                 $("#width").val(c.w);  //c.w 裁剪区域的宽  
                 $("#height").val(c.h); //c.h 裁剪区域的高  

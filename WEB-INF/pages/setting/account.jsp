@@ -371,24 +371,10 @@ $("#cutLoad").live("click",function(){
 				}
 				});
 }); 
-//剪切功能name="cuttingImageName" name="cuttingImageX" name="cuttingImageY" name="cuttingImageWidth" name="cuttingImageHeight"
     var x;  
     var y;  
     var width;  
     var height;  
-    /*var api = $.Jcrop("#targetpic",{
-                  onChange: updatePreview,  
-		 onSelect: updatePreview,  
-		 aspectRatio: 1  
-		},function(){  
-		// Use the API to get the real image size
-		 //jcrop_api.setImage(pathPic);
-		  var bounds = this.getBounds();  
-		 boundx = bounds[0]; 
-		 boundy = bounds[1];  
-		 // Store the API in the jcrop_api variable  
-		 jcrop_api = this; 
-           });*/
 
 	//初始化，使对话框打开时可以对初始头像进行裁剪
     $("#targetpic").Jcrop({

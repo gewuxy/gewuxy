@@ -230,7 +230,7 @@ $("#uploadfile").live("change",function(){
 		$("#previewpic").attr("src",pathPic);	
 		$("#previewpic1").attr("src",pathPic);
 		$("#previewpic2").attr("src",pathPic);
-		/*$("#previewpic").css({  		
+		$("#previewpic").css({  		
 			width: 100 + 'px',   //100 为预览div的宽和高
 			height: 100+ 'px',  
 			marginLeft: '-' + 0 + 'px',  
@@ -247,7 +247,7 @@ $("#uploadfile").live("change",function(){
 			height: 30 + 'px',  
 			marginLeft: '-' + 0 + 'px',  
 			marginTop: '-' + 0 + 'px'  
-		}); */   
+		}); 
 		$("#targetpic").attr("src",pathPic);	
 		$("#targetpic").Jcrop({  
 			onChange: updatePreview,  

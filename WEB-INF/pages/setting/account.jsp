@@ -138,7 +138,7 @@
 			</form> 
 			<div class="clearfix"></div>
             <div class="row img-upload-tip">
-			  仅支持JPG, GIF,JPEG, PNG格式，文件小于5M。
+			  仅支持JPG, GIF,JPEG, PNG格式，文件小于4M。
 			</div>          
 
             <div class="img-cut-preivew-container">
@@ -356,9 +356,9 @@ $("#cutLoad").live("click",function(){
 						    boundy = bounds[1];  
 						    // Store the API in the jcrop_api variable  
 						    jcrop_api = this;  
-						}); 				
+						});			
 						$("#cuttingImage").val(data.uploadFile.path)
-						//$("#upload-picture").modal('hide');	
+						$("#upload-picture").modal('hide');	
 						$("#myCutImage").attr("src",pathPic);			
 					
 				},
